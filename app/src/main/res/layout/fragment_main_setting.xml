@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:orientation="vertical"
+
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/space_small">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+
+            <Switch
+
+                android:id="@+id/switch_auto_scroll"
+                style="@style/switch_style"
+                android:text="@string/auto_scroll"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <Switch
+                android:id="@+id/switch_dark_theme"
+
+                style="@style/switch_style"
+                android:layout_marginTop="@dimen/space_medium"
+                android:text="@string/dark_theme"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <Switch
+                android:id="@+id/switch_show_translation"
+                style="@style/switch_style"
+                android:layout_marginTop="@dimen/space_medium"
+                android:checked="false"
+                android:text="@string/show_translation"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <Switch
+                android:id="@+id/switch_separator"
+                style="@style/switch_style"
+                android:layout_marginTop="@dimen/space_medium"
+                android:checked="false"
+                android:text="@string/separator"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="@dimen/space_large"
+                android:background="@drawable/paragraph_background"
+                android:orientation="vertical"
+                android:padding="@dimen/space_large">
+
+                <TextView
+                    style="@style/arabic_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sample_arabic_text">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/tv_translation"
+                    style="@style/persian_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sample_persian_text">
+
+                </TextView>
+
+                <ImageButton
+                    android:id="@+id/ib_separator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_separator">
+
+                </ImageButton>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

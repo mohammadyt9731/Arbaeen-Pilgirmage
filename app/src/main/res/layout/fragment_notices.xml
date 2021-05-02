@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/study_background"
+    android:clickable="true"
+    android:paddingTop="30dp"
+    android:paddingBottom="30dp">
+
+    <LinearLayout
+        android:id="@+id/llll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            style="@style/banner_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_medium"
+            android:layout_marginBottom="@dimen/space_small"
+            android:background="@color/dialog_color"
+            android:gravity="center"
+            android:padding="@dimen/space_medium"
+
+            android:text="@string/notices_title"
+
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <FrameLayout
+            android:id="@+id/first_standard_banner"
+            style="@style/banner_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            />
+
+        <RelativeLayout
+            android:id="@+id/second_standard_banner"
+            style="@style/banner_style"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+
+            />
+
+        <RelativeLayout
+            android:id="@+id/third_standard_banner"
+            style="@style/banner_style"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+
+            />
+
+        <RelativeLayout
+            android:id="@+id/video_banner"
+            style="@style/banner_style"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
+
+    </LinearLayout>
+</ScrollView>

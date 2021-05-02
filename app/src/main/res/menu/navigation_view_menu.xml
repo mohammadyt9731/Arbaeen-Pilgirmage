@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/nav_home_page"
+        android:icon="@drawable/ic_nav_home_page"
+        android:title="@string/home_page" />
+
+    <item
+        android:id="@+id/nav_pilgrimage"
+        android:icon="@drawable/ic_nav_pilgrimage"
+        android:title="@string/pilgrimage_arbaeen" />
+
+    <item
+        android:id="@+id/nav_narratives"
+        android:icon="@drawable/ic_nav_narratives"
+        android:title="@string/narratives" />
+
+    <item
+        android:id="@+id/nav_setting"
+        android:icon="@drawable/ic_navigation_settings"
+        android:title="@string/setting" />
+
+    <item
+        android:id="@+id/nav_noticec"
+        android:icon="@drawable/ic_nav_notices"
+        android:title="@string/notices" />
+    <item
+        android:id="@+id/nav_share_app"
+        android:icon="@drawable/ic_nav_share"
+        android:title="@string/share_app" />
+    <item
+        android:id="@+id/nav_other_app"
+        android:icon="@drawable/ic_nav_other_app"
+        android:title="@string/other_app" />
+    <item
+        android:id="@+id/nav_comment"
+        android:icon="@drawable/ic_nav_comment"
+        android:title="@string/comment" />
+    <item
+        android:id="@+id/nav_about_us"
+        android:icon="@drawable/ic_nav_about_us"
+        android:title="@string/about_us" />
+    <item
+        android:id="@+id/nav_exit"
+        android:icon="@drawable/ic_nav_exit"
+        android:title="@string/exit" />
+</menu>

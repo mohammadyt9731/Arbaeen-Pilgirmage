@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_bottom_setting"
+        android:icon="@drawable/ic_navigation_settings"
+        android:title="@string/setting"
+
+        />
+
+    <item
+        android:id="@+id/nav_bottom_arabic_font"
+        android:icon="@drawable/ic_navigation_arabic_font"
+        android:title="@string/arabic_text" />
+
+    <item
+        android:id="@+id/nav_bottom_persian_font"
+        android:icon="@drawable/ic_navigation_persian_font"
+        android:title="@string/persian_text"
+
+        />
+</menu>

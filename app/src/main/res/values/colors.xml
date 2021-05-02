@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#034273</color>
+    <color name="colorPrimaryDark">#001B30</color>
+    <color name="colorAccent">#4FC3F7</color>
+
+    <color name="button_color">#E6DB79</color>
+    <color name="button_strok_color">#63330E</color>
+    <color name="highlight_color">#ffccb3</color>
+
+    <color name="dialog_color">#EFFAE3</color>
+    <color name="dark_green">#005104</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="brown">#804000</color>
+
+    <color name="toolbar_dark_blue">#024563</color>
+
+
+    <color name="blue_200">#4FC3F7</color>
+    <color name="blue_400">#039BE5</color>
+    <color name="blue_600">#034273</color>
+    <color name="blue_900">#001B30</color>
+
+
+    <color name="green_300">#428e92</color>
+    <color name="green_600">#014A4E</color>
+    <color name="green_900">#002527</color>
+
+
+</resources>

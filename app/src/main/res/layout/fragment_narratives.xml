@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/study_background"
+    android:clickable="true">
+
+
+    <TextView
+        style="@style/persian_text_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_2Xlarge"
+        android:text="@string/narratives"
+        android:textColor="#aa2211"
+        android:textSize="@dimen/text_size_xlarge"
+        android:textStyle="bold"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="80dp"
+        android:layout_weight="8"
+        android:paddingBottom="@dimen/space_Xlarge"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="22dp"
+            android:paddingRight="22dp"
+
+
+            >
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_medium"
+                android:src="@drawable/ic_separator">
+
+            </ImageView>
+
+
+            <TextView
+                style="@style/persian_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="@string/narratives_paragraph_1"
+                android:textStyle="bold" />
+
+
+            <TextView
+                style="@style/persian_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:lineSpacingExtra="4dp"
+                android:text="@string/narratives_paragraph_2" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_medium"
+                android:src="@drawable/ic_separator">
+
+            </ImageView>
+
+            <TextView
+                style="@style/persian_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:justificationMode="inter_word"
+                android:lineSpacingExtra="4dp"
+
+                android:text="@string/narratives_paragraph_3" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rl_advertising"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/space_small"
+        android:gravity="center|bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        >
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

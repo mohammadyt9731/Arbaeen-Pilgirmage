@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/space_small">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/space_2Xlarge"
+            android:paddingRight="@dimen/space_2Xlarge">
+
+            <TextView
+
+                style="@style/title_style"
+                android:text="@string/select_font" />
+
+            <RadioGroup
+                android:id="@+id/rg_arabic_fonts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:background="@drawable/paragraph_background"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_arabic_font3"
+                    style="@style/radio_button_font"
+                    android:text="@string/nabi"
+
+                    />
+
+                <RadioButton
+                    android:id="@+id/rb_arabic_font2"
+                    style="@style/radio_button_font"
+                    android:checked="true"
+                    android:text="@string/morvarid" />
+
+                <RadioButton
+                    android:id="@+id/rb_arabic_font1"
+                    style="@style/radio_button_font"
+                    android:text="@string/homa" />
+
+            </RadioGroup>
+
+
+            <TextView
+                style="@style/title_style"
+                android:layout_marginTop="@dimen/space_medium"
+                android:text="@string/text_style"
+
+                />
+
+            <RadioGroup
+                android:id="@+id/rg_arabic_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/space_small"
+                android:orientation="horizontal"
+
+                >
+
+
+                <RadioButton
+
+                    android:id="@+id/rb_bold_italic_arabic"
+                    style="@style/radio_button_style"
+                    android:button="@null"
+                    android:text="B/I" />
+
+                <RadioButton
+
+                    android:id="@+id/rb_bold_arabic"
+                    style="@style/radio_button_style"
+                    android:button="@null"
+                    android:text="@string/bold" />
+
+                <RadioButton
+                    android:id="@+id/rb_italic_arabic"
+                    style="@style/radio_button_style"
+                    android:button="@null"
+                    android:text="@string/italic" />
+
+                <RadioButton
+                    android:id="@+id/rb_normal_arabic"
+                    style="@style/radio_button_style"
+                    android:button="@null"
+                    android:checked="true"
+                    android:text="@string/normal" />
+
+            </RadioGroup>
+
+
+            <TextView
+                style="@style/title_style"
+                android:layout_marginTop="@dimen/space_medium"
+                android:text="اندازه متن" />
+
+            <SeekBar
+                android:id="@+id/sb_arabic_text_size"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:max="28"
+                android:min="14"
+                android:progress="22" />
+
+
+            <TextView
+                style="@style/title_style"
+                android:layout_marginTop="@dimen/space_small"
+                android:text="@string/line_spacing" />
+
+            <SeekBar
+                android:id="@+id/tb_arabic_line_spacing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_small"
+                android:max="16"
+                android:min="9"
+                android:progress="10" />
+
+
+            <TextView
+                android:id="@+id/sample_pilgrimage_text"
+                style="@style/arabic_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/paragraph_background"
+                android:padding="@dimen/space_large"
+                android:text="@string/sample_arabic_text">
+
+
+            </TextView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

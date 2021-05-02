@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:background="@drawable/dialog_background"
+    android:padding="@dimen/space_Xlarge"
+    android:layout_gravity="center"
+    >
+
+    <TextView
+        android:id="@+id/tv_Title_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/space_large"
+        android:textStyle="bold"
+        android:fontFamily="@font/b_nazanin"
+        style="@style/persian_text_style"
+        android:gravity="center|top"
+        android:text="@string/notices_title" />
+
+    <Button
+        android:layout_marginTop="@dimen/space_3Xlarge"
+        android:id="@+id/btn_video_ad"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="مشاهده ویدیو های جدید"
+        android:textSize="@dimen/text_size_xlarge"
+        style="@style/title_style"
+        />
+
+    <Button
+        android:id="@+id/btn_banner_ad"
+        android:layout_marginTop="@dimen/space_medium"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="مشاهده بنر های جدید"
+        android:textSize="@dimen/text_size_xlarge"
+        style="@style/title_style" />
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/space_Xlarge"
+        android:id="@+id/banner_container"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        />
+</LinearLayout>

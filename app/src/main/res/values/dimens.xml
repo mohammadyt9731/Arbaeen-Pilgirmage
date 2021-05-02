@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="space_very_small">3dp</dimen>
+    <dimen name="space_small">5dp</dimen>
+    <dimen name="space_medium">10dp</dimen>
+    <dimen name="space_middle">15dp</dimen>
+    <dimen name="space_large">20dp</dimen>
+    <dimen name="space_Xlarge">20dp</dimen>
+    <dimen name="space_2Xlarge">30dp</dimen>
+    <dimen name="space_3Xlarge">40dp</dimen>
+    <dimen name="space_4Xlarge">50dp</dimen>
+
+
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_medium">16sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_xlarge">20sp</dimen>
+    <dimen name="text_size_2xlarge">22sp</dimen>
+    <dimen name="text_size_3xlarge">30sp</dimen>
+
+
+    <dimen name="minimum_text_size">14sp</dimen>
+    <dimen name="maximum_text_size">32sp</dimen>
+    <dimen name="minimum_line_space">9dp</dimen>
+    <dimen name="maximum_line_space">18dp</dimen>
+    <dimen name="default_persian_text_size">18dp</dimen>
+    <dimen name="default_arabic_text_size">18dp</dimen>
+
+
+</resources>

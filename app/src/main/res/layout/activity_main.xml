@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:openDrawer="left"
+    android:keepScreenOn="true"
+    tools:context=".MainActivity"
+
+    >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+
+
+        >
+
+        <TextView
+            android:id="@+id/tv_Title"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_gravity="center"
+            android:background="@drawable/tv_header"
+            android:elevation="@dimen/space_4Xlarge"
+            android:gravity="center"
+            android:text="@string/pilgrimage_arbaeen"
+
+            android:textColor="#000000"
+            android:textSize="@dimen/text_size_3xlarge"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/blue_600"
+            android:contentInsetStart="0dp"
+            android:elevation="30dp"
+            app:layout_constraintTop_toTopOf="parent"
+
+
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/space_small">
+
+                <Button
+                    android:id="@+id/btn_toolbar_advertising"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/ic_advertisement"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    >
+
+                </Button>
+
+
+                <Button
+                    android:id="@+id/btn_menu_toolbar"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/ic_menu"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </Button>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </Toolbar>
+
+        <ScrollView
+            android:background="@drawable/main_background"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_Text_ziarat"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="@dimen/space_4Xlarge"
+                    android:layout_marginTop="@dimen/space_2Xlarge"
+                    android:layout_marginRight="@dimen/space_4Xlarge"
+                    android:background="@drawable/ic_btnbackground"
+                    android:text="@string/pilgrimage_arbaeen"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/text_size_3xlarge">
+
+                </Button>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+                    >
+
+                    <Button
+                        android:id="@+id/btn_narratives"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_margin="@dimen/space_medium"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_btnbackground"
+                        android:text="@string/narratives"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/text_size_xlarge">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/btn_setting"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_margin="@dimen/space_medium"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_btnbackground"
+                        android:text="تنظمیات"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/text_size_xlarge">
+
+                    </Button>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="@dimen/space_large"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/space_4Xlarge"
+                    android:paddingRight="@dimen/space_4Xlarge"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+
+                        <Button
+                            android:id="@+id/btn_other_app"
+                            style="@style/button_style"
+                            android:background="@drawable/ic_other_app">
+
+                        </Button>
+
+                        <TextView
+                            style="@style/button_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="@string/other_app" />
+
+                        <Button
+                            android:id="@+id/btn_notices"
+                            style="@style/button_style"
+                            android:background="@drawable/ic_heart"
+
+                            >
+
+                        </Button>
+
+                        <TextView
+                            style="@style/button_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="@string/notices" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/btn_share"
+                            style="@style/button_style"
+                            android:background="@drawable/ic_share">
+
+
+                        </Button>
+
+                        <TextView
+                            style="@style/button_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="@string/share_app" />
+
+                        <Button
+                            android:id="@+id/btn_about_us"
+                            style="@style/button_style"
+                            android:background="@drawable/ic_about_us"
+
+                            >
+
+                        </Button>
+
+                        <TextView
+                            style="@style/button_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="@string/about_us" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/btn_comment"
+                            style="@style/button_style"
+                            android:background="@drawable/ic_comment"
+
+                            >
+
+                        </Button>
+
+                        <TextView
+                            style="@style/button_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="@string/comment" />
+
+                        <Button
+                            android:id="@+id/btn_exit"
+                            style="@style/button_style"
+                            android:background="@drawable/ic_exit"
+
+
+                            >
+
+                        </Button>
+
+                        <TextView
+                            style="@style/button_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:text="@string/exit" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <FrameLayout
+
+            android:id="@+id/fl_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:elevation="@dimen/space_Xlarge"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+
+
+
+        <FrameLayout
+            android:id="@+id/adContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="@dimen/space_very_small"
+
+            >
+        </FrameLayout>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+
+
+        app:headerLayout="@layout/header_layout"
+        android:id="@+id/nav_view"
+        android:background="@drawable/slide_menu_background"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        app:itemTextColor="#ffffff"
+        app:itemIconTint="#ffffff"
+        app:menu="@menu/navigation_view_menu"
+
+
+
+
+        />
+
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
