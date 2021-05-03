@@ -13,9 +13,6 @@ import android.widget.TextView;
 
 import com.ttp.ziaratarbaeen.R;
 
-import ir.tapsell.sdk.Tapsell;
-
-import static ir.tapsell.plus.TapsellPlusBannerType.BANNER_250x250;
 import static ir.tapsell.plus.TapsellPlusBannerType.BANNER_300x250;
 import static ir.tapsell.plus.TapsellPlusBannerType.BANNER_320x100;
 
@@ -109,7 +106,7 @@ public class MyDialogs {
 
         Button btnVideoAd = AdDialog.findViewById(R.id.btn_video_ad);
         Button btnBannerAd = AdDialog.findViewById(R.id.btn_banner_ad);
-        ViewGroup rlBannerContainer = AdDialog.findViewById(R.id.banner_container);
+        ViewGroup rlBannerContainer = AdDialog.findViewById(R.id.rl_banner_container);
 
 
         btnVideoAd.setOnClickListener(view -> {

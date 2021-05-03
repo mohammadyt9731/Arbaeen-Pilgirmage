@@ -89,14 +89,14 @@ public class PilgrimageFragment extends Fragment {
     private void findViews(View view) {
 
         scrollView = view.findViewById(R.id.scroll_view);
-        linearLayout = view.findViewById(R.id.textlayout);
+        linearLayout = view.findViewById(R.id.ll_pilgrimage);
 
-        btnZoomIn = view.findViewById(R.id.btn_zoomIn);
-        btnZoomOut = view.findViewById(R.id.btn_zoomOut);
+        btnZoomIn = view.findViewById(R.id.btn_zoom_in);
+        btnZoomOut = view.findViewById(R.id.btn_zoom_out);
         btnPlayPause = view.findViewById(R.id.btn_play);
-        btnStop = view.findViewById(R.id.btn_setting);
-        btnAdvertising = view.findViewById(R.id.btn_adversiting);
-        seekBar = view.findViewById(R.id.seekbar);
+        btnStop = view.findViewById(R.id.btn_stop);
+        btnAdvertising = view.findViewById(R.id.btn_advertising);
+        seekBar = view.findViewById(R.id.seek_bar);
         tvCurrentTime = view.findViewById(R.id.tv_current_time);
 
     }

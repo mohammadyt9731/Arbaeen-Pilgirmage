@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"
@@ -18,7 +19,6 @@
             android:paddingRight="@dimen/space_2Xlarge">
 
             <TextView
-
                 style="@style/title_style"
                 android:text="@string/select_font" />
 
@@ -35,7 +35,6 @@
                     android:id="@+id/rb_arabic_font3"
                     style="@style/radio_button_font"
                     android:text="@string/nabi"
-
                     />
 
                 <RadioButton
@@ -55,9 +54,7 @@
             <TextView
                 style="@style/title_style"
                 android:layout_marginTop="@dimen/space_medium"
-                android:text="@string/text_style"
-
-                />
+                android:text="@string/text_style" />
 
             <RadioGroup
                 android:id="@+id/rg_arabic_style"
@@ -65,34 +62,29 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/space_small"
-                android:orientation="horizontal"
-
-                >
-
+                android:orientation="horizontal">
 
                 <RadioButton
-
                     android:id="@+id/rb_bold_italic_arabic"
-                    style="@style/radio_button_style"
+                    style="@style/rb_style"
                     android:button="@null"
-                    android:text="B/I" />
+                    android:text="@string/b_i" />
 
                 <RadioButton
-
                     android:id="@+id/rb_bold_arabic"
-                    style="@style/radio_button_style"
+                    style="@style/rb_style"
                     android:button="@null"
                     android:text="@string/bold" />
 
                 <RadioButton
                     android:id="@+id/rb_italic_arabic"
-                    style="@style/radio_button_style"
+                    style="@style/rb_style"
                     android:button="@null"
                     android:text="@string/italic" />
 
                 <RadioButton
                     android:id="@+id/rb_normal_arabic"
-                    style="@style/radio_button_style"
+                    style="@style/rb_style"
                     android:button="@null"
                     android:checked="true"
                     android:text="@string/normal" />
@@ -103,13 +95,14 @@
             <TextView
                 style="@style/title_style"
                 android:layout_marginTop="@dimen/space_medium"
-                android:text="اندازه متن" />
+                android:text="@string/text_size" />
 
             <SeekBar
                 android:id="@+id/sb_arabic_text_size"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_small"
+                style="@style/seek_bar_style"
                 android:max="28"
                 android:min="14"
                 android:progress="22" />
@@ -125,6 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_small"
+                style="@style/seek_bar_style"
                 android:max="16"
                 android:min="9"
                 android:progress="10" />
@@ -137,10 +131,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/paragraph_background"
                 android:padding="@dimen/space_large"
-                android:text="@string/sample_arabic_text">
-
-
-            </TextView>
+                android:text="@string/sample_arabic_text"/>
 
 
         </LinearLayout>

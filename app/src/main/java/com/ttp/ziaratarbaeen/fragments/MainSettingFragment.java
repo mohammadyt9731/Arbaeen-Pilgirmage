@@ -52,7 +52,7 @@ public class MainSettingFragment extends Fragment {
         showTranslationSwitch = view.findViewById(R.id.switch_show_translation);
         showSeparatorSwitch = view.findViewById(R.id.switch_separator);
         darkModeSwitch = view.findViewById(R.id.switch_dark_theme);
-        tvPersianText = view.findViewById(R.id.tv_translation);
+        tvPersianText = view.findViewById(R.id.tv_sample_persian_text);
         ivSeparator = view.findViewById(R.id.ib_separator);
 
     }

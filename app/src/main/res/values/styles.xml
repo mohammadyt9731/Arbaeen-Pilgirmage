@@ -81,6 +81,8 @@
         <item name="android:textSize">16sp</item>
         <item name="switchMinWidth">50dp</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">@dimen/space_medium</item>
+
 
 
     </style>
@@ -111,7 +113,7 @@
 
     </style>
 
-    <style name="radio_button_style">
+    <style name="rb_style">
 
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
@@ -123,17 +125,42 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/text_size_medium</item>
         <item name="android:layout_margin">@dimen/space_small</item>
+        <item name="android:button">@null</item>
 
     </style>
 
 
-    <style name="seekbar_style" parent="android:Theme.Material.Dialog">
-        <item name="android:colorPrimary">#FFFF4444</item>
-        <item name="android:colorPrimaryDark">#FFCC0000</item>
-        <item name="android:colorAccent">#FFFF00</item>
-        <item name="android:windowMinWidthMajor">65%</item>
-        <item name="android:windowMinWidthMinor">95%</item>
+    <style name="seek_bar_style" >
+        <item name="backgroundTint">@color/blue_200</item>
+        <item name="android:progressTint">@color/blue_900</item>
     </style>
+
+
+    <style name="exit_dialog_item_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/space_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:gravity">center</item>
+
+
+    </style>
+
+    <style name="about_us_dialog_item_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/space_small</item>
+        <item name="android:layout_marginRight">@dimen/space_medium</item>
+
+        <item name="android:padding">@dimen/space_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/space_large</item>
+        <item name="android:gravity">right</item>
+
+
+    </style>
+
 
 
 </resources>

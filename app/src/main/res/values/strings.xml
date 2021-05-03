@@ -52,6 +52,12 @@
     <string name="homa">هما</string>
     <string name="morvarid">مروارید</string>
     <string name="nabi">نبی</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="install">Install</string>
+    <string name="b_i">B/I</string>
+    <string name="show_new_videos">مشاهده ویدیو های جدید</string>
+    <string name="show_new_banners">مشاهده بنر های جدید</string>
 
 
     <array name="pilgrimage_text">

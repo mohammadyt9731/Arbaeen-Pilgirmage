@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         btnComment = findViewById(R.id.btn_comment);
         btnNotices = findViewById(R.id.btn_notices);
         btnExit = findViewById(R.id.btn_exit);
-        btnSetting = findViewById(R.id.btn_setting);
+        btnSetting = findViewById(R.id.btn_stop);
 
         btnNavigationView = findViewById(R.id.btn_menu_toolbar);
         btnAd = findViewById(R.id.btn_toolbar_advertising);

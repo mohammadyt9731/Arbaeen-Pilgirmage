@@ -6,10 +6,19 @@
     <dimen name="space_medium">10dp</dimen>
     <dimen name="space_middle">15dp</dimen>
     <dimen name="space_large">20dp</dimen>
-    <dimen name="space_Xlarge">20dp</dimen>
+    <dimen name="space_Xlarge">25dp</dimen>
     <dimen name="space_2Xlarge">30dp</dimen>
     <dimen name="space_3Xlarge">40dp</dimen>
     <dimen name="space_4Xlarge">50dp</dimen>
+
+    <dimen name="space_35dp">35dp</dimen>
+    <dimen name="space_60dp">60dp</dimen>
+    <dimen name="space_70dp">70dp</dimen>
+    <dimen name="space_80dp">80dp</dimen>
+    <dimen name="space_100dp">100dp</dimen>
+    <dimen name="space_110dp">110dp</dimen>
+    <dimen name="space_250dp">250dp</dimen>
+
 
 
     <dimen name="text_size_small">14sp</dimen>

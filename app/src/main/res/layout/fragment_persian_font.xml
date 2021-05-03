@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"
@@ -18,7 +19,6 @@
             android:paddingRight="@dimen/space_2Xlarge">
 
             <TextView
-
                 style="@style/title_style"
                 android:text="@string/select_font" />
 
@@ -34,9 +34,7 @@
                 <RadioButton
                     android:id="@+id/rb_persian_font3"
                     style="@style/radio_button_font"
-                    android:text="فردوسی"
-
-                    />
+                    android:text="فردوسی" />
 
                 <RadioButton
                     android:id="@+id/rb_persian_font2"
@@ -51,13 +49,10 @@
 
             </RadioGroup>
 
-
             <TextView
                 style="@style/title_style"
                 android:layout_marginTop="@dimen/space_medium"
-                android:text="@string/text_style"
-
-                />
+                android:text="@string/text_style" />
 
             <RadioGroup
                 android:id="@+id/rg_persian_style"
@@ -65,40 +60,30 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/space_small"
-                android:orientation="horizontal"
-
-                >
-
+                android:orientation="horizontal">
 
                 <RadioButton
-
                     android:id="@+id/rb_bold_italic_persian"
-                    style="@style/radio_button_style"
-                    android:button="@null"
-                    android:text="B/I" />
+                    style="@style/rb_style"
+                    android:text="@string/b_i" />
 
                 <RadioButton
-
                     android:id="@+id/rb_bold_persian"
-                    style="@style/radio_button_style"
-                    android:button="@null"
+                    style="@style/rb_style"
                     android:text="@string/bold" />
 
                 <RadioButton
                     android:id="@+id/rb_italic_persian"
-                    style="@style/radio_button_style"
-                    android:button="@null"
+                    style="@style/rb_style"
                     android:text="@string/italic" />
 
                 <RadioButton
                     android:id="@+id/rb_normal_persian"
-                    style="@style/radio_button_style"
-                    android:button="@null"
+                    style="@style/rb_style"
                     android:checked="true"
                     android:text="@string/normal" />
 
             </RadioGroup>
-
 
             <TextView
                 style="@style/title_style"
@@ -110,10 +95,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_small"
+                style="@style/seek_bar_style"
                 android:max="28"
                 android:min="14"
                 android:progress="20" />
-
 
             <TextView
                 style="@style/title_style"
@@ -121,26 +106,23 @@
                 android:text="@string/line_spacing" />
 
             <SeekBar
-                android:id="@+id/tb_persian_line_spacing"
+                android:id="@+id/sb_persian_line_spacing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_small"
+                style="@style/seek_bar_style"
                 android:max="16"
                 android:min="9"
                 android:progress="10" />
 
-
             <TextView
-                android:id="@+id/sample_translation_text"
+                android:id="@+id/tv_sample_translation_text"
                 style="@style/persian_text_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/paragraph_background"
                 android:padding="@dimen/space_large"
-                android:text="@string/sample_persian_text">
-
-
-            </TextView>
+                android:text="@string/sample_persian_text"/>
 
 
         </LinearLayout>

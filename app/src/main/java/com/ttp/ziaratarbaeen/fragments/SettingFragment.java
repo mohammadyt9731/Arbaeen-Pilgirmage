@@ -42,7 +42,7 @@ public class SettingFragment extends Fragment {
 
     private void findViews(View view) {
 
-        bottomNav = view.findViewById(R.id.navigation_view);
+        bottomNav = view.findViewById(R.id.navigation_bottom);
     }
 
     private void configuration() {

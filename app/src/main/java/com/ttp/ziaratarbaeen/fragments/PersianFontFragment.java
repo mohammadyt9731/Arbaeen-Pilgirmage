@@ -65,9 +65,9 @@ public class PersianFontFragment extends Fragment {
         rbBoldItalic = view.findViewById(R.id.rb_bold_italic_persian);
 
         sbTextSize = view.findViewById(R.id.sb_persian_text_size);
-        sbLineSpacing = view.findViewById(R.id.tb_persian_line_spacing);
+        sbLineSpacing = view.findViewById(R.id.sb_persian_line_spacing);
 
-        sampleText = view.findViewById(R.id.sample_translation_text);
+        sampleText = view.findViewById(R.id.tv_sample_translation_text);
 
     }
 
