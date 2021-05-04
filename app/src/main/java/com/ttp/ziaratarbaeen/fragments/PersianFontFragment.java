@@ -21,7 +21,6 @@ import com.ttp.ziaratarbaeen.classes.ProgramSetting;
 public class PersianFontFragment extends Fragment {
 
     RadioGroup rgFonts;
-
     RadioGroup rgStyle;
 
     RadioButton rbBold;
@@ -57,8 +56,8 @@ public class PersianFontFragment extends Fragment {
     private void findViews(View view) {
 
         rgFonts = view.findViewById(R.id.rg_persian_fonts);
-
         rgStyle = view.findViewById(R.id.rg_persian_style);
+
         rbBold = view.findViewById(R.id.rb_bold_persian);
         rbItalic = view.findViewById(R.id.rb_italic_persian);
         rbNormal = view.findViewById(R.id.rb_normal_persian);
@@ -68,7 +67,6 @@ public class PersianFontFragment extends Fragment {
         sbLineSpacing = view.findViewById(R.id.sb_persian_line_spacing);
 
         sampleText = view.findViewById(R.id.tv_sample_translation_text);
-
     }
 
     private void applySetting() {
@@ -76,6 +74,7 @@ public class PersianFontFragment extends Fragment {
         programSetting = new ProgramSetting(getContext());
 
         setTypeFace();
+        setStyle();
 
         sbTextSize.setProgress(programSetting.getPersianTextSize());
         sampleText.setTextSize(programSetting.getPersianTextSize());
@@ -87,7 +86,6 @@ public class PersianFontFragment extends Fragment {
 
     private void setTypeFace() {
 
-
         int fontId = programSetting.getPersianFontId();
         RadioButton radioButton;
 
@@ -96,30 +94,25 @@ public class PersianFontFragment extends Fragment {
             case R.font.b_hamid:
                 radioButton = getView().findViewById(R.id.rb_persian_font1);
                 persianFont = ResourcesCompat.getFont(getActivity(), R.font.b_hamid);
-
                 break;
+
             case R.font.b_nazanin:
                 radioButton = getView().findViewById(R.id.rb_persian_font2);
                 persianFont = ResourcesCompat.getFont(getActivity(), R.font.b_nazanin);
                 break;
+
             case R.font.ferdosi:
                 radioButton = getView().findViewById(R.id.rb_persian_font3);
                 persianFont = ResourcesCompat.getFont(getActivity(), R.font.ferdosi);
-
                 break;
+
             default:
                 radioButton = getView().findViewById(R.id.rb_persian_font1);
                 persianFont = ResourcesCompat.getFont(getActivity(), R.font.b_hamid);
-
                 break;
-
-
         }
 
         radioButton.setChecked(true);
-        setStyle();
-
-
     }
 
     private void setStyle() {
@@ -129,32 +122,25 @@ public class PersianFontFragment extends Fragment {
         switch (textStyle) {
 
             case "Normal":
-
                 rbNormal.setChecked(true);
                 sampleText.setTypeface(persianFont, Typeface.NORMAL);
                 break;
 
             case "Italic":
-
                 rbItalic.setChecked(true);
                 sampleText.setTypeface(persianFont, Typeface.ITALIC);
                 break;
 
             case "Bold":
-
                 rbBold.setChecked(true);
                 sampleText.setTypeface(persianFont, Typeface.BOLD);
                 break;
 
             case "Bold_Italic":
-
                 rbBoldItalic.setChecked(true);
                 sampleText.setTypeface(persianFont, Typeface.BOLD_ITALIC);
                 break;
-
         }
-
-
     }
 
     private void configuration() {
@@ -241,37 +227,25 @@ public class PersianFontFragment extends Fragment {
         switch (radioButtonId) {
 
             case R.id.rb_normal_persian:
-
                 programSetting.setPersianTextStyle(getString(R.string.normal));
                 sampleText.setTypeface(persianFont, Typeface.NORMAL);
-
                 break;
 
             case R.id.rb_bold_persian:
-
                 programSetting.setPersianTextStyle(getString(R.string.bold));
                 sampleText.setTypeface(persianFont, Typeface.BOLD);
-
-
                 break;
 
             case R.id.rb_italic_persian:
-
                 programSetting.setPersianTextStyle(getString(R.string.italic));
                 sampleText.setTypeface(persianFont, Typeface.ITALIC);
-
-
                 break;
 
             case R.id.rb_bold_italic_persian:
-
                 programSetting.setPersianTextStyle(getString(R.string.bold_italic));
                 sampleText.setTypeface(persianFont, Typeface.BOLD_ITALIC);
-
-
                 break;
         }
-
     }
 
     @Override

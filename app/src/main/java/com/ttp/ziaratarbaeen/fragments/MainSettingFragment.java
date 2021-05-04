@@ -18,16 +18,15 @@ import com.ttp.ziaratarbaeen.classes.ProgramSetting;
 
 public class MainSettingFragment extends Fragment {
 
-
     ProgramSetting programSetting;
 
     Switch autoScrollSwitch;
     Switch showTranslationSwitch;
     Switch showSeparatorSwitch;
     Switch darkModeSwitch;
+
     TextView tvPersianText;
     ImageButton ivSeparator;
-
 
     @Nullable
     @Override
@@ -41,9 +40,7 @@ public class MainSettingFragment extends Fragment {
 
         findView(view);
         init();
-
         setOnClick();
-
     }
 
     private void findView(View view) {
@@ -52,22 +49,21 @@ public class MainSettingFragment extends Fragment {
         showTranslationSwitch = view.findViewById(R.id.switch_show_translation);
         showSeparatorSwitch = view.findViewById(R.id.switch_separator);
         darkModeSwitch = view.findViewById(R.id.switch_dark_theme);
+
         tvPersianText = view.findViewById(R.id.tv_sample_persian_text);
         ivSeparator = view.findViewById(R.id.ib_separator);
-
     }
 
     private void init() {
 
         programSetting = new ProgramSetting(getContext());
 
-
         autoScrollSwitch.setChecked(programSetting.isAutoScroll());
         showTranslationSwitch.setChecked(programSetting.isShowTranslation());
         showSeparatorSwitch.setChecked(programSetting.isShowSeparator());
         darkModeSwitch.setChecked(programSetting.isDarkTheme());
-        setVisibility(programSetting.isShowTranslation(), programSetting.isShowSeparator());
 
+        setVisibility(programSetting.isShowTranslation(), programSetting.isShowSeparator());
     }
 
     private void setVisibility(Boolean showTranslation, Boolean showSeparator) {

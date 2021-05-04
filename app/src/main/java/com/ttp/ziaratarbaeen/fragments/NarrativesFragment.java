@@ -30,10 +30,8 @@ public class NarrativesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        RelativeLayout rlAdvertising = view.findViewById(R.id.rl_advertising);
+        ViewGroup rlAdvertising = view.findViewById(R.id.rl_advertising);
 
-        new TapsellAD(BANNER_320x50, rlAdvertising, getActivity()).showStandardBannerAD(MyConstants.HOME_PAGE_AD_ID);
+        new TapsellAD(null, rlAdvertising, getActivity()).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
     }
-
-
 }

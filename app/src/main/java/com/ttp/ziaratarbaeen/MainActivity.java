@@ -68,8 +68,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void findViews() {
 
-        rlAdvertising = findViewById(R.id.rl_advertising);
-
         btnPilgrimage = findViewById(R.id.btn_Text_ziarat);
         btnNarratives = findViewById(R.id.btn_narratives);
         btnShareApp = findViewById(R.id.btn_share);
@@ -85,29 +83,23 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
-
-
     }
 
     private void init() {
+
         pilgrimageFragment = new PilgrimageFragment();
         settingFragment = new SettingFragment();
         narrativesFragment = new NarrativesFragment();
         noticesFragment = new NoticesFragment();
-
     }
 
     private void configuration() {
-
 
         btnPilgrimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
                 loadFragment(pilgrimageFragment);
-
-
             }
         });
         ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -148,7 +140,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 MyDialogs.showAboutUsDialog(MainActivity.this);
-
             }
         });
         ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -157,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 loadFragment(noticesFragment);
-
             }
         });
         ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -172,8 +162,8 @@ public class MainActivity extends AppCompatActivity {
         btnSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 loadFragment(settingFragment);
-                //startActivity(new Intent(MainActivity.this,SettingActivity.class));
             }
         });
         ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -209,7 +199,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void CreateMenu() {
 
-
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -222,7 +211,6 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.nav_pilgrimage:
                         loadFragment(pilgrimageFragment);
-                        //startActivity(new Intent(MainActivity.this,PilgrimageActivity.class));
                         break;
 
                     case R.id.nav_narratives:
@@ -231,7 +219,6 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.nav_setting:
                         loadFragment(settingFragment);
-                        //  startActivity(new Intent(MainActivity.this,SettingActivity.class));
                         break;
 
                     case R.id.nav_noticec:
@@ -288,10 +275,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        // new TapsellAD(BANNER_320x50,rlAdvertising,this).showStandardBannerAD(MyConstants.HOME_PAGE_AD_ID);
-
         ViewGroup viewGroup = findViewById(R.id.adContainer);
         new TapsellAD(null, viewGroup, this).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
     }
-
 }

@@ -20,9 +20,7 @@ import com.ttp.ziaratarbaeen.classes.ProgramSetting;
 
 public class ArabicFontFragment extends Fragment {
 
-
     RadioGroup rgFonts;
-
     RadioGroup rgStyle;
 
     RadioButton rbBold;
@@ -56,8 +54,8 @@ public class ArabicFontFragment extends Fragment {
     private void findViews(View view) {
 
         rgFonts = view.findViewById(R.id.rg_arabic_fonts);
-
         rgStyle = view.findViewById(R.id.rg_arabic_style);
+
         rbBold = view.findViewById(R.id.rb_bold_arabic);
         rbItalic = view.findViewById(R.id.rb_italic_arabic);
         rbNormal = view.findViewById(R.id.rb_normal_arabic);
@@ -67,7 +65,6 @@ public class ArabicFontFragment extends Fragment {
         sbLineSpacing = view.findViewById(R.id.tb_arabic_line_spacing);
 
         sampleText = view.findViewById(R.id.sample_pilgrimage_text);
-
     }
 
     private void applySetting() {
@@ -75,6 +72,7 @@ public class ArabicFontFragment extends Fragment {
         programSetting = new ProgramSetting(getContext());
 
         setTypeFace();
+        setStyle();
 
         sbTextSize.setProgress(programSetting.getArabicTextSize());
         sampleText.setTextSize(programSetting.getArabicTextSize());
@@ -112,10 +110,7 @@ public class ArabicFontFragment extends Fragment {
 
 
         }
-
         radioButton.setChecked(true);
-        setStyle();
-
 
     }
 
@@ -126,32 +121,25 @@ public class ArabicFontFragment extends Fragment {
         switch (textStyle) {
 
             case "Normal":
-
                 rbNormal.setChecked(true);
                 sampleText.setTypeface(arabicFont, Typeface.NORMAL);
                 break;
 
             case "Italic":
-
                 rbItalic.setChecked(true);
                 sampleText.setTypeface(arabicFont, Typeface.ITALIC);
                 break;
 
             case "Bold":
-
                 rbBold.setChecked(true);
                 sampleText.setTypeface(arabicFont, Typeface.BOLD);
                 break;
 
             case "Bold_Italic":
-
                 rbBoldItalic.setChecked(true);
                 sampleText.setTypeface(arabicFont, Typeface.BOLD_ITALIC);
                 break;
-
         }
-
-
     }
 
     private void configuration() {
@@ -184,7 +172,6 @@ public class ArabicFontFragment extends Fragment {
 
             }
         });
-
         rgStyle.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -192,7 +179,6 @@ public class ArabicFontFragment extends Fragment {
                 changeTextStyle(radioGroup.getCheckedRadioButtonId());
             }
         });
-
 
         sbTextSize.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -238,34 +224,23 @@ public class ArabicFontFragment extends Fragment {
         switch (radioButtonId) {
 
             case R.id.rb_normal_arabic:
-
                 programSetting.setArabicTextStyle(getString(R.string.normal));
                 sampleText.setTypeface(arabicFont, Typeface.NORMAL);
-
                 break;
 
             case R.id.rb_bold_arabic:
-
                 programSetting.setArabicTextStyle(getString(R.string.bold));
                 sampleText.setTypeface(arabicFont, Typeface.BOLD);
-
-
                 break;
 
             case R.id.rb_italic_arabic:
-
                 programSetting.setArabicTextStyle(getString(R.string.italic));
                 sampleText.setTypeface(arabicFont, Typeface.ITALIC);
-
-
                 break;
 
             case R.id.rb_bold_italic_arabic:
-
                 programSetting.setArabicTextStyle(getString(R.string.bold_italic));
                 sampleText.setTypeface(arabicFont, Typeface.BOLD_ITALIC);
-
-
                 break;
         }
 

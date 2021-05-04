@@ -36,11 +36,8 @@ public class NoticesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         findViews(view);
         configuration();
-
-
     }
 
     private void findViews(View view) {
@@ -65,6 +62,5 @@ public class NoticesFragment extends Fragment {
 
         //  new TapsellAD(null,null,getActivity()).showInterstitialAD(MyConstants.Interstitial_AD_ID);
         super.onDestroy();
-
     }
 }

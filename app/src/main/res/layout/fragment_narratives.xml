@@ -78,16 +78,14 @@
         </LinearLayout>
     </ScrollView>
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/rl_advertising"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_70dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="@dimen/space_small"
+        android:padding="@dimen/space_middle"
         android:gravity="center|bottom"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-        >
 
-    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -54,6 +54,7 @@ public class SettingFragment extends Fragment {
         fragmentManager = getActivity().getSupportFragmentManager();
         loadFragment(mainSettingFragment);
 
+
     }
 
     private void setOnClick() {
@@ -63,8 +64,8 @@ public class SettingFragment extends Fragment {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 item.setChecked(true);
-                switch (item.getItemId()) {
 
+                switch (item.getItemId()) {
 
                     case R.id.nav_bottom_setting:
                         loadFragment(mainSettingFragment);
@@ -77,15 +78,12 @@ public class SettingFragment extends Fragment {
                     case R.id.nav_bottom_arabic_font:
                         loadFragment(arabicFontFragment);
                         break;
-
                 }
 
                 return false;
             }
         });
-
     }
-
 
     private void loadFragment(Fragment fragment) {
 

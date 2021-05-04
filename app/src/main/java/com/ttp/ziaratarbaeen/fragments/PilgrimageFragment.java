@@ -118,11 +118,8 @@ public class PilgrimageFragment extends Fragment {
         darkTheme = programSetting.isDarkTheme();
 
         if (darkTheme) {
-
             scrollView.setBackground(getActivity().getDrawable(R.drawable.dark_theme_background));
-
         }
-
     }
 
     private void init() {
@@ -169,7 +166,6 @@ public class PilgrimageFragment extends Fragment {
                 if (seekBar.getProgress() == seekBar.getMax())
                     reset();
 
-
                 else {
                     tvCurrentTime.setText(convertSecondToMinute(progress));
                     if (userChangeProgress) {
@@ -190,8 +186,6 @@ public class PilgrimageFragment extends Fragment {
 
             }
         });
-
-
     }
 
     private String convertSecondToMinute(int progress) {
@@ -210,7 +204,6 @@ public class PilgrimageFragment extends Fragment {
             paragraphs[i].setText(arabicTexts[i], persianTexts[i]);
 
 
-            // linearLayout.addView(paragraphs[i].rootLayout);
             linearLayout.addView(paragraphs[i].getTvArabicText());
             linearLayout.addView(paragraphs[i].getTvPersianText());
             linearLayout.addView(paragraphs[i].getImSeparator());
@@ -219,7 +212,6 @@ public class PilgrimageFragment extends Fragment {
     }
 
     private void setOnClick() {
-
 
         for (Paragraph paragraph : paragraphs)
             paragraph.getTvArabicText().setOnClickListener(tvListener);
@@ -235,7 +227,6 @@ public class PilgrimageFragment extends Fragment {
                     Toast.makeText(getActivity(), "حداکثر اندازه متن انتخاب شده است", Toast.LENGTH_SHORT).show();
                 } else
                     setTextSize(++arabicTextSize, ++persianTextSize);
-
             }
         });
 
@@ -319,7 +310,6 @@ public class PilgrimageFragment extends Fragment {
 
     private void setCurrentParagraph(int index) {
 
-
         for (int i = 0; i < paragraphs.length; i++) {
 
             TextView tvPilgrimage = paragraphs[i].getTvArabicText();
@@ -348,8 +338,6 @@ public class PilgrimageFragment extends Fragment {
             mpPilgrimage.pause();
         }
         seekBar.setProgress(0);
-
-
     }
 
     private void changeState() {
@@ -363,10 +351,7 @@ public class PilgrimageFragment extends Fragment {
             btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_pause));
             mpPilgrimage.start();
 
-
         }
-
-
     }
 
     @Override
@@ -375,6 +360,5 @@ public class PilgrimageFragment extends Fragment {
         reset();
         super.onPause();
     }
-
 
 }
