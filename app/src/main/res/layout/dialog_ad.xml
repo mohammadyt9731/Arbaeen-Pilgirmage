@@ -38,10 +38,12 @@
         android:textSize="@dimen/text_size_xlarge"
         style="@style/title_style" />
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_marginTop="@dimen/space_Xlarge"
         android:id="@+id/rl_banner_container"
         android:layout_width="match_parent"
         android:layout_height="@dimen/space_100dp"
         />
+
+
 </LinearLayout>

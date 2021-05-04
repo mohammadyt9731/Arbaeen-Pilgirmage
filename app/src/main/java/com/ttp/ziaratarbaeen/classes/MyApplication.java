@@ -1,7 +1,6 @@
 package com.ttp.ziaratarbaeen.classes;
 
 import android.app.Application;
-
 import ir.tapsell.plus.TapsellPlus;
 
 public class MyApplication extends Application {

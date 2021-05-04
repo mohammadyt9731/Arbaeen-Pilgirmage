@@ -2,9 +2,8 @@ package com.ttp.ziaratarbaeen.classes;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
-
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 public class MySharedPreference {
 
@@ -16,7 +15,6 @@ public class MySharedPreference {
     private MySharedPreference(Context context) {
         sharedPreferences = context.getSharedPreferences("setting", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
-
     }
 
     public static MySharedPreference getInstance(Context context) {
@@ -34,7 +32,6 @@ public class MySharedPreference {
 
         editor.putString("program_setting", setting);
         editor.apply();
-
     }
 
     public ProgramSetting getProgramSetting() {
@@ -46,7 +43,5 @@ public class MySharedPreference {
 
         Gson gson = new Gson();
         return gson.fromJson(programSetting, ProgramSetting.class);
-
     }
-
 }

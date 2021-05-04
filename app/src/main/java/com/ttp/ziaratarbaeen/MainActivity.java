@@ -291,7 +291,7 @@ public class MainActivity extends AppCompatActivity {
         // new TapsellAD(BANNER_320x50,rlAdvertising,this).showStandardBannerAD(MyConstants.HOME_PAGE_AD_ID);
 
         ViewGroup viewGroup = findViewById(R.id.adContainer);
-        new TapsellAD(null, viewGroup, this).showNativeAD(MyConstants.NATIVE_AD_ID);
+        new TapsellAD(null, viewGroup, this).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
     }
 
 }

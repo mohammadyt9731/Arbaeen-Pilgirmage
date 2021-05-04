@@ -52,7 +52,7 @@ public class NoticesFragment extends Fragment {
 
     private void configuration() {
 
-        new TapsellAD(null, firstBannerView, getActivity()).showNativeAD(MyConstants.NATIVE_AD_ID);
+        new TapsellAD(null, firstBannerView, getActivity()).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
         // new TapsellAD(BANNER_320x50,firstBannerView,getActivity()).showStandardBannerAD(MyConstants.STANDARD_1_AD_ID);
         new TapsellAD(BANNER_320x100, secondBannerView, getActivity()).showStandardBannerAD(MyConstants.STANDARD_2_AD_ID);
         new TapsellAD(BANNER_320x50, thirdBannerView, getActivity()).showStandardBannerAD(MyConstants.STANDARD_3_AD_ID);

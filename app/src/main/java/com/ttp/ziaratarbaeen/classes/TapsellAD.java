@@ -19,23 +19,18 @@ public class TapsellAD {
     Activity activity;
 
     public TapsellAD(TapsellPlusBannerType bannerType, ViewGroup viewId, Activity activity) {
+
         this.bannerType = bannerType;
         this.containerView = viewId;
         this.activity = activity;
-
-
     }
 
-
-    public void showStandardBannerAD(String advertisingID) {
-
-        ViewGroup bannerContainer = containerView;
+    public void showStandardBannerAD(String zoneId) {
 
         TapsellPlus.showBannerAd(
-                activity
-                ,
-                bannerContainer,
-                advertisingID,
+                activity,
+                containerView,
+                zoneId,
                 bannerType,
                 new AdRequestCallback() {
                     @Override
@@ -51,30 +46,25 @@ public class TapsellAD {
 
     public void showInterstitialAD(String zoneId) {
 
-
         TapsellPlus.requestInterstitial(
                 activity,
                 zoneId,
                 new AdRequestCallback() {
                     @Override
                     public void response() {
-                        //ad is ready to show
-                        Toast.makeText(activity, "response", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity, R.string.please_wait, Toast.LENGTH_SHORT).show();
                         showAd(zoneId);
                     }
 
                     @Override
                     public void error(String message) {
-                        Toast.makeText(activity, "response", Toast.LENGTH_SHORT).show();
 
+                        Toast.makeText(activity, R.string.need_internet, Toast.LENGTH_SHORT).show();
                     }
-
                 });
-
     }
 
     public void showInterstitialVideoAD(String zoneId) {
-
 
         TapsellPlus.requestRewardedVideo(
                 activity,
@@ -82,19 +72,15 @@ public class TapsellAD {
                 new AdRequestCallback() {
                     @Override
                     public void response() {
-                        //ad is ready to show
-                        Toast.makeText(activity, "response", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity, R.string.please_wait, Toast.LENGTH_LONG).show();
                         showAd(zoneId);
                     }
 
                     @Override
                     public void error(String message) {
-                        Toast.makeText(activity, "response", Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(activity, R.string.need_internet, Toast.LENGTH_SHORT).show();
                     }
-
                 });
-
     }
 
     private void showAd(String zoneId) {
@@ -102,7 +88,6 @@ public class TapsellAD {
     }
 
     public void showNativeAD(String zoneId) {
-
 
         TapsellNativeBannerViewManager nativeBannerViewManager = new TapsellNativeBannerManager
                 .Builder()
@@ -129,8 +114,5 @@ public class TapsellAD {
 
                     }
                 });
-
     }
-
-
 }

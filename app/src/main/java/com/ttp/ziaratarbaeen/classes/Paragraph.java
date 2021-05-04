@@ -16,9 +16,6 @@ import com.ttp.ziaratarbaeen.R;
 
 public class Paragraph {
 
-
-    public LinearLayout rootLayout;
-
     TextView tvArabicText;
     TextView tvPersianText;
     ImageView imSeparator;
@@ -34,7 +31,6 @@ public class Paragraph {
 
     Context context;
 
-
     public Paragraph(Context context) {
 
         this.context = context;
@@ -49,23 +45,18 @@ public class Paragraph {
         imSeparator.setLayoutParams(new LinearLayout.LayoutParams(MyConstants.SEPARATOR_WIDTH, MyConstants.SEPARATOR_HEIGHT));
 
         applySetting(context);
-
-
     }
 
 
     private void applySetting(Context context) {
 
-
         programSetting = new ProgramSetting(context);
-
 
         tvArabicText.setTextSize(programSetting.getArabicTextSize());
         tvPersianText.setTextSize(programSetting.getPersianTextSize());
 
         tvArabicText.setLineSpacing(programSetting.getArabicTextLineSpace(), programSetting.getArabicTextLineSpace());
         tvPersianText.setLineSpacing(programSetting.getPersianTextLineSpace(), programSetting.getPersianTextLineSpace());
-
 
         initFonts();
         setTextStyle(tvArabicText, programSetting.getArabicTextStyle(), arabicFont);
@@ -89,7 +80,6 @@ public class Paragraph {
 
         int arabicFontId = programSetting.getArabicFontId();
         int persianFontId = programSetting.getPersianFontId();
-
 
         switch (arabicFontId) {
 
@@ -142,26 +132,20 @@ public class Paragraph {
         switch (textStyle) {
 
             case "Normal":
-
                 textView.setTypeface(font, Typeface.NORMAL);
                 break;
 
             case "Italic":
-
                 textView.setTypeface(font, Typeface.ITALIC);
                 break;
 
             case "Bold":
-
                 textView.setTypeface(font, Typeface.BOLD);
                 break;
 
             case "Bold_Italic":
-
                 textView.setTypeface(font, Typeface.BOLD_ITALIC);
                 break;
-
-
         }
 
 
@@ -179,6 +163,5 @@ public class Paragraph {
     public ImageView getImSeparator() {
         return imSeparator;
     }
-
 
 }

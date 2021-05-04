@@ -1,9 +1,6 @@
 package com.ttp.ziaratarbaeen.classes;
 
-import retrofit2.http.PUT;
-
 public class MyConstants {
-
 
     public static final int VERSE_NUMBER = 30;
     public static final int ANIMATION_DURATION = 150;
@@ -28,12 +25,10 @@ public class MyConstants {
     public static final String STANDARD_2_AD_ID = "6067a697260b920001cc7ebe";
     public static final String STANDARD_3_AD_ID = "6067a6b4260b920001cc7ebf";
 
-    public static final String NATIVE_VIDEO_AD_ID = "6067a77d260b920001cc7ec0";
     public static final String Interstitial_VIDEO_AD_ID = "606cd37ce9487f000165d37a";
     public static final String Interstitial_AD_ID = "606cd165d06801000199485a";
 
-
-    public static final String NATIVE_AD_ID = "608412e3bf5fdd0001c09651";
-
+    public static final String NATIVE_VIDEO_AD_ID = "6067a77d260b920001cc7ec0";
+    public static final String NATIVE_STANDARD_AD_ID = "608412e3bf5fdd0001c09651";
 
 }

@@ -1,7 +1,6 @@
 package com.ttp.ziaratarbaeen.classes;
 
 import android.content.Context;
-
 import com.ttp.ziaratarbaeen.R;
 
 public class ProgramSetting {
@@ -14,8 +13,8 @@ public class ProgramSetting {
     int arabicTextSize;
     int persianTextSize;
 
-    float persianTextLineSpace;
     float arabicTextLineSpace;
+    float persianTextLineSpace;
 
     String persianTextStyle;
     String arabicTextStyle;
@@ -76,8 +75,6 @@ public class ProgramSetting {
     public void updateSetting(Context context) {
         MySharedPreference.getInstance(context).putProgramSetting(this);
     }
-
-    /////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////
 
     public boolean isAutoScroll() {
@@ -163,7 +160,6 @@ public class ProgramSetting {
     public void setPersianTextStyle(String persianTextStyle) {
 
         this.persianTextStyle = persianTextStyle;
-
     }
 
     public void setArabicTextStyle(String arabicTextStyle) {
@@ -177,6 +173,4 @@ public class ProgramSetting {
     public void setArabicFontId(int arabicFontId) {
         this.arabicFontId = arabicFontId;
     }
-
-
 }

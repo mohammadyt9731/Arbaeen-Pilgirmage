@@ -9,13 +9,11 @@ public class ArbaeenMediaPlayer {
 
     static MediaPlayer mediaPlayer;
 
-
     public static MediaPlayer getMediaPlayer(Context context) {
 
         mediaPlayer = MediaPlayer.create(context, R.raw.z_arbaein_sedghi);
         return mediaPlayer;
     }
-
 
     public static int getCurrentPosition(int index) {
         if (index == 0) return 0;
@@ -49,7 +47,7 @@ public class ArbaeenMediaPlayer {
         else if (index == 28) return 442;
         else if (index == 29) return 454;
 
-        return 1;
+        return -1;
 
     }
 
@@ -123,5 +121,4 @@ public class ArbaeenMediaPlayer {
         else return 29;
 
     }
-
 }

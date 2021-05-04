@@ -10,11 +10,9 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.ttp.ziaratarbaeen.R;
-
 import static ir.tapsell.plus.TapsellPlusBannerType.BANNER_300x250;
-import static ir.tapsell.plus.TapsellPlusBannerType.BANNER_320x100;
+
 
 public class MyDialogs {
 
@@ -62,29 +60,14 @@ public class MyDialogs {
         TextView otherAppButton = exitDialog.findViewById(R.id.btn_other_app);
         TextView commentButton = exitDialog.findViewById(R.id.btn_comment);
 
-        exitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // finish();
-                Activity activity = (Activity) context;
-                activity.finish();
-            }
+        exitButton.setOnClickListener(v -> {
+            Activity activity = (Activity) context;
+            activity.finish();
         });
 
-        otherAppButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MyIntent.otherAppIntent(context);
-            }
-        });
+        otherAppButton.setOnClickListener(v -> MyIntent.otherAppIntent(context));
 
-        commentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MyIntent.commentIntent(context);
-            }
-        });
-
+        commentButton.setOnClickListener(v -> MyIntent.commentIntent(context));
 
     }
 
@@ -120,10 +103,7 @@ public class MyDialogs {
                     .showInterstitialAD(MyConstants.Interstitial_AD_ID);
         });
 
-
-        new TapsellAD(BANNER_320x100, rlBannerContainer, (Activity) context).showStandardBannerAD(MyConstants.STANDARD_1_AD_ID);
-
+        new TapsellAD(null,rlBannerContainer,(Activity)context).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
 
     }
-
 }

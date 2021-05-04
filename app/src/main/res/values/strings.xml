@@ -56,8 +56,14 @@
     <string name="description">Description</string>
     <string name="install">Install</string>
     <string name="b_i">B/I</string>
+
     <string name="show_new_videos">مشاهده ویدیو های جدید</string>
     <string name="show_new_banners">مشاهده بنر های جدید</string>
+
+    <string name="error">خظای ناشناخته</string>
+    <string name="need_internet">برای مشاهده این قسمت باید به اینترنت متصل باشید</string>
+    <string name="need_install_cafebazaar">جهت ثبت نظر باید برنامه کافه بازار رانصب کنید</string>
+    <string name="please_wait">لطفا منتظربمانید</string>
 
 
     <array name="pilgrimage_text">
