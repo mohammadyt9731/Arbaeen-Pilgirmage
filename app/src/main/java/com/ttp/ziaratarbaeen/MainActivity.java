@@ -22,14 +22,14 @@ import com.ttp.ziaratarbaeen.classes.TapsellAD;
 import com.ttp.ziaratarbaeen.fragments.NarrativesFragment;
 import com.ttp.ziaratarbaeen.fragments.NoticesFragment;
 import com.ttp.ziaratarbaeen.fragments.PilgrimageFragment;
+import com.ttp.ziaratarbaeen.fragments.SalawatCountFragment;
 import com.ttp.ziaratarbaeen.fragments.SettingFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    RelativeLayout rlAdvertising;
-
     Button btnPilgrimage;
     Button btnNarratives;
+    Button btnSalawatCount;
     Button btnShareApp;
     Button btnAboutUs;
     Button btnOtherApp;
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     SettingFragment settingFragment;
     NarrativesFragment narrativesFragment;
     NoticesFragment noticesFragment;
-
+    SalawatCountFragment salawatCountFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnPilgrimage = findViewById(R.id.btn_Text_ziarat);
         btnNarratives = findViewById(R.id.btn_narratives);
+        btnSalawatCount=findViewById(R.id.btn_salawat_count);
         btnShareApp = findViewById(R.id.btn_share);
         btnAboutUs = findViewById(R.id.btn_about_us);
         btnOtherApp = findViewById(R.id.btn_other_app);
@@ -91,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         settingFragment = new SettingFragment();
         narrativesFragment = new NarrativesFragment();
         noticesFragment = new NoticesFragment();
+        salawatCountFragment=new SalawatCountFragment();
     }
 
     private void configuration() {
@@ -180,7 +182,13 @@ public class MainActivity extends AppCompatActivity {
                 MyDialogs.showAdDialog(MainActivity.this);
             }
         });
-
+        ///////////////////////////////////////////////////////////////////////////////////////////////////
+        btnSalawatCount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadFragment(salawatCountFragment);
+            }
+        });
 
     }
 

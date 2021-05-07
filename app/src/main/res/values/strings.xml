@@ -64,6 +64,7 @@
     <string name="need_internet">برای مشاهده این قسمت باید به اینترنت متصل باشید</string>
     <string name="need_install_cafebazaar">جهت ثبت نظر باید برنامه کافه بازار رانصب کنید</string>
     <string name="please_wait">لطفا منتظربمانید</string>
+    <string name="salawat_count">ذکرشمار</string>
 
 
     <array name="pilgrimage_text">
