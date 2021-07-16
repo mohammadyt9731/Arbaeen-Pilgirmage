@@ -16,7 +16,7 @@ public class MyIntent {
             shareIntent.setType("text/plain");
 
             String shareMessage = "لینک دانلود برنامه " + "زیارت اربعین(متن و صوت)" + "\n\n";
-            shareMessage = shareMessage + "http://cafebazaar.ir/app/?id=" + "com.ttp.salawatcount" + "\n\n";
+            shareMessage += "http://cafebazaar.ir/app/?id=" + "com.ttp.salawatcount" + "\n\n";
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
             context.startActivity(Intent.createChooser(shareIntent, "اشتراک گذاری برنامه"));
         } catch (Exception e) {

@@ -6,7 +6,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,12 +26,12 @@ import com.ttp.ziaratarbaeen.fragments.SettingFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnPilgrimage;
+    Button btnPilgrimageText;
     Button btnNarratives;
     Button btnSalawatCount;
     Button btnShareApp;
     Button btnAboutUs;
-    Button btnOtherApp;
+    Button btnOtherApps;
     Button btnComment;
     Button btnNotices;
     Button btnExit;
@@ -68,22 +67,22 @@ public class MainActivity extends AppCompatActivity {
 
     private void findViews() {
 
-        btnPilgrimage = findViewById(R.id.btn_Text_ziarat);
+        btnPilgrimageText = findViewById(R.id.btn_pilgrimage_text);
         btnNarratives = findViewById(R.id.btn_narratives);
         btnSalawatCount=findViewById(R.id.btn_salawat_count);
-        btnShareApp = findViewById(R.id.btn_share);
+        btnShareApp = findViewById(R.id.btn_share_app);
         btnAboutUs = findViewById(R.id.btn_about_us);
-        btnOtherApp = findViewById(R.id.btn_other_app);
+        btnOtherApps = findViewById(R.id.btn_other_apps);
         btnComment = findViewById(R.id.btn_comment);
         btnNotices = findViewById(R.id.btn_notices);
         btnExit = findViewById(R.id.btn_exit);
-        btnSetting = findViewById(R.id.btn_stop);
+        btnSetting = findViewById(R.id.btn_setting);
 
-        btnNavigationView = findViewById(R.id.btn_menu_toolbar);
+        btnNavigationView = findViewById(R.id.btn_open_navigation_view);
         btnAd = findViewById(R.id.btn_toolbar_advertising);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.navigation_view);
     }
 
     private void init() {
@@ -97,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void configuration() {
 
-        btnPilgrimage.setOnClickListener(new View.OnClickListener() {
+        btnPilgrimageText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -105,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         ///////////////////////////////////////////////////////////////////////////////////////////////////
-        btnOtherApp.setOnClickListener(new View.OnClickListener() {
+        btnOtherApps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -283,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        ViewGroup viewGroup = findViewById(R.id.adContainer);
+        ViewGroup viewGroup = findViewById(R.id.ad_container);
         new TapsellAD(null, viewGroup, this).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
     }
 }

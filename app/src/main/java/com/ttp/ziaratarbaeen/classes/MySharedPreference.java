@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import org.json.JSONObject;
+
 public class MySharedPreference {
 
     private static MySharedPreference mySharedPreference;

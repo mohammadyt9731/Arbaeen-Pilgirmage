@@ -4,11 +4,16 @@ import android.app.Activity;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
 import com.ttp.ziaratarbaeen.R;
 
 import ir.tapsell.plus.AdRequestCallback;
+import ir.tapsell.plus.AdShowListener;
 import ir.tapsell.plus.TapsellPlus;
 import ir.tapsell.plus.TapsellPlusBannerType;
+import ir.tapsell.plus.model.TapsellPlusAdModel;
+import ir.tapsell.plus.model.TapsellPlusErrorModel;
 import ir.tapsell.sdk.nativeads.TapsellNativeBannerManager;
 import ir.tapsell.sdk.nativeads.TapsellNativeBannerViewManager;
 
@@ -27,18 +32,22 @@ public class TapsellAD {
 
     public void showStandardBannerAD(String zoneId) {
 
-        TapsellPlus.showBannerAd(
+        TapsellPlus.requestStandardBannerAd(
                 activity,
-                containerView,
                 zoneId,
                 bannerType,
                 new AdRequestCallback() {
                     @Override
-                    public void response() {
+                    public void response(TapsellPlusAdModel tapsellPlusAdModel) {
+                        super.response(tapsellPlusAdModel);
+
+                        //Ad is ready to show
+                        //Put the ad's responseId to your responseId variable
+                       // standardBannerResponseId = tapsellPlusAdModel.getResponseId();
                     }
 
                     @Override
-                    public void error(String message) {
+                    public void error(@NonNull String message) {
                     }
                 });
 
@@ -46,45 +55,56 @@ public class TapsellAD {
 
     public void showInterstitialAD(String zoneId) {
 
-        TapsellPlus.requestInterstitial(
+        TapsellPlus.requestRewardedVideoAd(
                 activity,
                 zoneId,
                 new AdRequestCallback() {
                     @Override
-                    public void response() {
-                        Toast.makeText(activity, R.string.please_wait, Toast.LENGTH_SHORT).show();
-                        showAd(zoneId);
+                    public void response(TapsellPlusAdModel tapsellPlusAdModel) {
+                        super.response(tapsellPlusAdModel);
+
+                        //Ad is ready to show
+                        //Put the ad's responseId to your responseId variable
+                     //   rewardedResponseId = tapsellPlusAdModel.getResponseId();
                     }
 
                     @Override
                     public void error(String message) {
-
-                        Toast.makeText(activity, R.string.need_internet, Toast.LENGTH_SHORT).show();
                     }
+
                 });
     }
 
     public void showInterstitialVideoAD(String zoneId) {
 
-        TapsellPlus.requestRewardedVideo(
+        TapsellPlus.showRewardedVideoAd(
                 activity,
                 zoneId,
-                new AdRequestCallback() {
+                new AdShowListener() {
                     @Override
-                    public void response() {
-                        Toast.makeText(activity, R.string.please_wait, Toast.LENGTH_LONG).show();
-                        showAd(zoneId);
+                    public void onOpened(TapsellPlusAdModel tapsellPlusAdModel) {
+                        super.onOpened(tapsellPlusAdModel);
                     }
 
                     @Override
-                    public void error(String message) {
-                        Toast.makeText(activity, R.string.need_internet, Toast.LENGTH_SHORT).show();
+                    public void onClosed(TapsellPlusAdModel tapsellPlusAdModel) {
+                        super.onClosed(tapsellPlusAdModel);
+                    }
+
+                    @Override
+                    public void onRewarded(TapsellPlusAdModel tapsellPlusAdModel) {
+                        super.onRewarded(tapsellPlusAdModel);
+                    }
+
+                    @Override
+                    public void onError(TapsellPlusErrorModel tapsellPlusErrorModel) {
+                        super.onError(tapsellPlusErrorModel);
                     }
                 });
     }
 
     private void showAd(String zoneId) {
-        TapsellPlus.showAd(activity, zoneId);
+       // TapsellPlus.showAd(activity, zoneId);
     }
 
     public void showNativeAD(String zoneId) {

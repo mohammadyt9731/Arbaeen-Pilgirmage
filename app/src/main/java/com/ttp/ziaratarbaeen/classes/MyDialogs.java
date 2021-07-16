@@ -16,9 +16,9 @@ import static ir.tapsell.plus.TapsellPlusBannerType.BANNER_300x250;
 
 public class MyDialogs {
 
-    public static void showAboutUsDialog(Context context) {
+    final static int WIDTH = MyConstants.getScreenWidth() * 90/100;
 
-        final int WIDTH = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.90);
+    public static void showAboutUsDialog(Context context) {
 
         LayoutInflater inflater = LayoutInflater.from(context);
         View dialogView = inflater.inflate(R.layout.dialog_about_us, null);
@@ -33,8 +33,6 @@ public class MyDialogs {
     }
 
     public static void showExitDialog(Context context) {
-
-        final int WIDTH = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.90);
 
         LayoutInflater inflater = LayoutInflater.from(context);
         View dialogView = inflater.inflate(R.layout.dialog_exit, null);
@@ -57,7 +55,7 @@ public class MyDialogs {
     private static void setOnClickDialogButtons(Dialog exitDialog, Context context) {
 
         TextView exitButton = exitDialog.findViewById(R.id.btn_exit);
-        TextView otherAppButton = exitDialog.findViewById(R.id.btn_other_app);
+        TextView otherAppButton = exitDialog.findViewById(R.id.btn_other_apps);
         TextView commentButton = exitDialog.findViewById(R.id.btn_comment);
 
         exitButton.setOnClickListener(v -> {
@@ -72,8 +70,6 @@ public class MyDialogs {
     }
 
     public static void showAdDialog(Context context) {
-
-        final int WIDTH = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.90);
 
         LayoutInflater inflater = LayoutInflater.from(context);
         View dialogView = inflater.inflate(R.layout.dialog_ad, null);

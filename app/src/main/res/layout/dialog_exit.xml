@@ -64,7 +64,7 @@
 
 
     <TextView
-        android:id="@+id/btn_other_app"
+        android:id="@+id/btn_other_apps"
         style="@style/exit_dialog_item_style"
         android:text="@string/other_app"
         app:layout_constraintLeft_toRightOf="@id/vertical_divider_right"
@@ -78,7 +78,7 @@
         android:background="@color/green_900"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/btn_comment"
-        app:layout_constraintRight_toRightOf="@id/btn_other_app"
+        app:layout_constraintRight_toRightOf="@id/btn_other_apps"
         app:layout_constraintTop_toBottomOf="@id/horizontal_divider_bottom"
 
         />

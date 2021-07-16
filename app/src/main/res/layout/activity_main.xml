@@ -9,12 +9,9 @@
     tools:openDrawer="left"
     android:keepScreenOn="true"
     tools:context=".MainActivity"
-
     >
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
@@ -28,8 +25,7 @@
             android:elevation="@dimen/space_4Xlarge"
             android:gravity="center"
             android:text="@string/pilgrimage_arbaeen"
-
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textSize="@dimen/text_size_3xlarge"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,8 +37,6 @@
             android:contentInsetStart="0dp"
             android:elevation="30dp"
             app:layout_constraintTop_toTopOf="parent"
-
-
             >
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -66,7 +60,7 @@
 
 
                 <Button
-                    android:id="@+id/btn_menu_toolbar"
+                    android:id="@+id/btn_open_navigation_view"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:background="@drawable/ic_menu"
@@ -84,7 +78,6 @@
             android:background="@drawable/main_background"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar">
 
@@ -94,7 +87,7 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_Text_ziarat"
+                    android:id="@+id/btn_pilgrimage_text"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_marginLeft="@dimen/space_4Xlarge"
@@ -102,7 +95,7 @@
                     android:layout_marginRight="@dimen/space_4Xlarge"
                     android:background="@drawable/ic_btnbackground"
                     android:text="@string/pilgrimage_arbaeen"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/text_size_3xlarge">
 
                 </Button>
@@ -111,7 +104,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-
                     >
 
                     <Button
@@ -123,7 +115,7 @@
                     </Button>
 
                     <Button
-                        android:id="@+id/btn_stop"
+                        android:id="@+id/btn_setting"
                         style="@style/main_button_style"
                         android:text="@string/setting"
                         >
@@ -144,7 +136,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
                     android:layout_marginTop="@dimen/space_large"
                     android:gravity="center"
                     android:orientation="horizontal"
@@ -161,7 +152,7 @@
 
 
                         <Button
-                            android:id="@+id/btn_other_app"
+                            android:id="@+id/btn_other_apps"
                             style="@style/button_style"
                             android:background="@drawable/ic_other_app">
 
@@ -201,7 +192,7 @@
                         android:orientation="vertical">
 
                         <Button
-                            android:id="@+id/btn_share"
+                            android:id="@+id/btn_share_app"
                             style="@style/button_style"
                             android:background="@drawable/ic_share">
 
@@ -292,20 +283,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
-
-
-
         <FrameLayout
-            android:id="@+id/adContainer"
+            android:id="@+id/ad_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_margin="@dimen/space_very_small"
-
-            >
-        </FrameLayout>
-
-
+            />
 
 
 
@@ -313,9 +297,8 @@
 
     <com.google.android.material.navigation.NavigationView
 
-
         app:headerLayout="@layout/header_layout"
-        android:id="@+id/nav_view"
+        android:id="@+id/navigation_view"
         android:background="@drawable/slide_menu_background"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -323,12 +306,6 @@
         app:itemTextColor="#ffffff"
         app:itemIconTint="#ffffff"
         app:menu="@menu/navigation_view_menu"
-
-
-
-
         />
-
-
 
     </androidx.drawerlayout.widget.DrawerLayout>

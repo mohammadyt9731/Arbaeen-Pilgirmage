@@ -1,5 +1,7 @@
 package com.ttp.ziaratarbaeen.classes;
 
+import android.content.res.Resources;
+
 public class MyConstants {
 
     public static final int VERSE_NUMBER = 30;
@@ -30,5 +32,13 @@ public class MyConstants {
 
     public static final String NATIVE_VIDEO_AD_ID = "6067a77d260b920001cc7ec0";
     public static final String NATIVE_STANDARD_AD_ID = "608412e3bf5fdd0001c09651";
+
+    public static int getScreenWidth() {
+        return Resources.getSystem().getDisplayMetrics().widthPixels;
+    }
+
+    public static int getScreenHeight() {
+        return Resources.getSystem().getDisplayMetrics().heightPixels;
+    }
 
 }
