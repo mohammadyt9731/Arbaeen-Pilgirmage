@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnSetting;
     Button btnVirtualPilgrimage;
 
+
     Button btnNavigationView;
     Button btnAd;
 
