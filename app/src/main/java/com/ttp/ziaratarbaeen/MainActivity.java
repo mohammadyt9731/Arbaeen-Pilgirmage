@@ -23,7 +23,6 @@ import com.ttp.ziaratarbaeen.fragments.NoticesFragment;
 import com.ttp.ziaratarbaeen.fragments.PilgrimageFragment;
 import com.ttp.ziaratarbaeen.fragments.SalawatCountFragment;
 import com.ttp.ziaratarbaeen.fragments.SettingFragment;
-import com.ttp.ziaratarbaeen.fragments.VirtualPilgrimageFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     NarrativesFragment narrativesFragment;
     NoticesFragment noticesFragment;
     SalawatCountFragment salawatCountFragment;
-    VirtualPilgrimageFragment virtualPilgrimageFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         btnNotices = findViewById(R.id.btn_notices);
         btnExit = findViewById(R.id.btn_exit);
         btnSetting = findViewById(R.id.btn_setting);
-        btnVirtualPilgrimage = findViewById(R.id.btn_virtual_pilgrimage);
+
 
         btnNavigationView = findViewById(R.id.btn_open_navigation_view);
         btnAd = findViewById(R.id.btn_toolbar_advertising);
@@ -97,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         narrativesFragment = new NarrativesFragment();
         noticesFragment = new NoticesFragment();
         salawatCountFragment=new SalawatCountFragment();
-        virtualPilgrimageFragment=new VirtualPilgrimageFragment();
+
     }
 
     private void configuration() {
@@ -194,13 +193,7 @@ public class MainActivity extends AppCompatActivity {
                 loadFragment(salawatCountFragment);
             }
         });
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        btnVirtualPilgrimage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loadFragment(virtualPilgrimageFragment);
-            }
-        });
+
 
     }
 
