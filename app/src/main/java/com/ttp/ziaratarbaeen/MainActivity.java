@@ -5,7 +5,6 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,24 +25,9 @@ import com.ttp.ziaratarbaeen.fragments.SettingFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnPilgrimageText;
-    Button btnNarratives;
-    Button btnSalawatCount;
-    Button btnShareApp;
-    Button btnAboutUs;
-    Button btnOtherApps;
-    Button btnComment;
-    Button btnNotices;
-    Button btnExit;
-    Button btnSetting;
-    Button btnVirtualPilgrimage;
-
-
-    Button btnNavigationView;
-    Button btnAd;
-
     DrawerLayout drawerLayout;
     NavigationView navigationView;
+    ViewGroup vgAdvertisingContainer;
 
     PilgrimageFragment pilgrimageFragment;
     SettingFragment settingFragment;
@@ -60,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
         findViews();
         init();
-        configuration();
         CreateMenu();
 
 
@@ -70,23 +53,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void findViews() {
 
-        btnPilgrimageText = findViewById(R.id.btn_pilgrimage_text);
-        btnNarratives = findViewById(R.id.btn_narratives);
-        btnSalawatCount=findViewById(R.id.btn_salawat_count);
-        btnShareApp = findViewById(R.id.btn_share_app);
-        btnAboutUs = findViewById(R.id.btn_about_us);
-        btnOtherApps = findViewById(R.id.btn_other_apps);
-        btnComment = findViewById(R.id.btn_comment);
-        btnNotices = findViewById(R.id.btn_notices);
-        btnExit = findViewById(R.id.btn_exit);
-        btnSetting = findViewById(R.id.btn_setting);
-
-
-        btnNavigationView = findViewById(R.id.btn_open_navigation_view);
-        btnAd = findViewById(R.id.btn_toolbar_advertising);
-
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
+        vgAdvertisingContainer = findViewById(R.id.ad_container);
     }
 
     private void init() {
@@ -95,119 +64,68 @@ public class MainActivity extends AppCompatActivity {
         settingFragment = new SettingFragment();
         narrativesFragment = new NarrativesFragment();
         noticesFragment = new NoticesFragment();
-        salawatCountFragment=new SalawatCountFragment();
+        salawatCountFragment = new SalawatCountFragment();
 
     }
 
-    private void configuration() {
+    public void onClick(View view) {
 
-        btnPilgrimageText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        switch (view.getId()) {
 
+            case R.id.btn_pilgrimage_text:
                 loadFragment(pilgrimageFragment);
-            }
-        });
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        btnOtherApps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                break;
 
-                MyIntent.otherAppIntent(MainActivity.this);
-            }
-        });
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        btnComment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                MyIntent.commentIntent(MainActivity.this);
-            }
-        });
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        btnExit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                MyDialogs.showExitDialog(MainActivity.this);
-            }
-        });
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        btnShareApp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                MyIntent.shareAppIntent(MainActivity.this);
-            }
-        });
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        btnAboutUs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                MyDialogs.showAboutUsDialog(MainActivity.this);
-            }
-        });
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        btnNotices.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                loadFragment(noticesFragment);
-            }
-        });
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        btnNarratives.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
+            case R.id.btn_narratives:
                 loadFragment(narrativesFragment);
-            }
-        });
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        btnSetting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                break;
 
-                loadFragment(settingFragment);
-            }
-        });
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        btnNavigationView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                drawerLayout.openDrawer(Gravity.LEFT);
-            }
-        });
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        btnAd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MyDialogs.showAdDialog(MainActivity.this);
-            }
-        });
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
-        btnSalawatCount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            case R.id.btn_salawat_count:
                 loadFragment(salawatCountFragment);
-            }
-        });
+                break;
+
+            case R.id.btn_notices:
+                loadFragment(noticesFragment);
+                break;
+
+            case R.id.btn_setting:
+                loadFragment(settingFragment);
+                break;
+
+            case R.id.btn_share_app:
+                MyIntent.shareAppIntent(MainActivity.this);
+                break;
+
+            case R.id.btn_about_us:
+                MyDialogs.showAboutUsDialog(MainActivity.this);
+                break;
+
+            case R.id.btn_other_apps:
+                MyIntent.otherAppIntent(MainActivity.this);
+                break;
+
+            case R.id.btn_comment:
+                MyIntent.commentIntent(MainActivity.this);
+                break;
 
 
-    }
+            case R.id.btn_exit:
+                MyDialogs.showExitDialog(MainActivity.this);
+                break;
 
-    private void loadFragment(Fragment fragment) {
+            case R.id.btn_toolbar_advertising:
+                MyDialogs.showAdDialog(MainActivity.this);
+                break;
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fl_container, fragment)
-                .addToBackStack(null).commit();
 
-    }
+            case R.id.btn_open_navigation_view:
+                drawerLayout.openDrawer(Gravity.LEFT);
+                break;
 
-    private void closeFragment() {
-        while (getSupportFragmentManager().getBackStackEntryCount() > 0)
-            super.onBackPressed();
+
+        }
+
     }
 
     private void CreateMenu() {
@@ -268,8 +186,19 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void loadFragment(Fragment fragment) {
 
-    ////////////////////////////////////////////////////////////////////////////////////////
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fl_container, fragment)
+                .addToBackStack(null).commit();
+
+    }
+
+    private void closeFragment() {
+        while (getSupportFragmentManager().getBackStackEntryCount() > 0)
+            super.onBackPressed();
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////
     @Override
     public void onBackPressed() {
@@ -288,7 +217,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        ViewGroup viewGroup = findViewById(R.id.ad_container);
-        new TapsellAD(null, viewGroup, this).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
+        ;
+        new TapsellAD(null, vgAdvertisingContainer, this).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
     }
+
 }

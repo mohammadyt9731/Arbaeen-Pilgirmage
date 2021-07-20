@@ -46,6 +46,7 @@
                 android:padding="@dimen/space_small">
 
                 <Button
+                    android:onClick="onClick"
                     android:id="@+id/btn_toolbar_advertising"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
@@ -60,6 +61,7 @@
 
 
                 <Button
+                    android:onClick="onClick"
                     android:id="@+id/btn_open_navigation_view"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
@@ -87,6 +89,7 @@
                 android:orientation="vertical">
 
                 <Button
+                    android:onClick="onClick"
                     android:id="@+id/btn_pilgrimage_text"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"

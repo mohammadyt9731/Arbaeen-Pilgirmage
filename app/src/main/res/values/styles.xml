@@ -17,6 +17,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:layout_width">50dp</item>
         <item name="android:layout_height">50dp</item>
+        <item name="android:onClick">onClick</item>
 
 
     </style>
@@ -170,6 +171,7 @@
         <item name="android:gravity">center</item>
         <item name="android:layout_margin">@dimen/space_medium</item>
         <item name="android:background">@drawable/ic_btnbackground</item>
+        <item name="android:onClick">onClick</item>
 
 
     </style>
