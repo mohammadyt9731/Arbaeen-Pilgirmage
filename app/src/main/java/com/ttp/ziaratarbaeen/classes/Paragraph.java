@@ -120,10 +120,16 @@ public class Paragraph {
 
     }
 
-    public void setTextSize(int textSize, int translationTextSize) {
+    public void setTextSize(int arabicTextSize, int persianTextSize) {
 
-        tvArabicText.setTextSize(textSize);
-        tvPersianText.setTextSize(translationTextSize);
+        tvArabicText.setTextSize(arabicTextSize);
+        tvPersianText.setTextSize(persianTextSize);
+
+        programSetting.setArabicTextSize(arabicTextSize);
+        programSetting.setPersianTextSize(persianTextSize);
+
+        programSetting.updateSetting(context);
+
 
     }
 

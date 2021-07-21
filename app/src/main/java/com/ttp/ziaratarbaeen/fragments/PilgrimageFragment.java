@@ -103,13 +103,14 @@ public class PilgrimageFragment extends Fragment {
 
     private void configuration() {
 
-        applySetting();
         init();
+        applySetting();
+
     }
 
     private void applySetting() {
 
-        programSetting = new ProgramSetting(getActivity());
+
 
         arabicTextSize = programSetting.getArabicTextSize();
         persianTextSize = programSetting.getPersianTextSize();
@@ -123,6 +124,8 @@ public class PilgrimageFragment extends Fragment {
     }
 
     private void init() {
+
+        programSetting = new ProgramSetting(getActivity());
 
         arabicTexts = getResources().getStringArray(R.array.pilgrimage_text);
         persianTexts = getResources().getStringArray(R.array.translation_text);
@@ -154,7 +157,7 @@ public class PilgrimageFragment extends Fragment {
 
                 mpPilgrimage.seekTo(position * 1000);
 
-                if (mpPilgrimage.isPlaying() == false)
+                if (!mpPilgrimage.isPlaying())
                     changeState();
             }
         };
