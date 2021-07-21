@@ -2,7 +2,6 @@ package com.ttp.ziaratarbaeen.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -10,15 +9,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
 import com.ttp.ziaratarbaeen.R;
+import com.ttp.ziaratarbaeen.classes.ViewPagerAdapter;
 
 public class SettingFragment extends Fragment {
 
 
-    BottomNavigationView bottomNav;
+  //  BottomNavigationView bottomNav;
     FragmentManager fragmentManager;
+
+    TabLayout tabLayoutSetting;
+    ViewPager viewPagerSetting;
 
 
     MainSettingFragment mainSettingFragment;
@@ -44,7 +48,10 @@ public class SettingFragment extends Fragment {
 
     private void findViews(View view) {
 
-        bottomNav = view.findViewById(R.id.navigation_bottom);
+    //    bottomNav = view.findViewById(R.id.navigation_bottom);
+        tabLayoutSetting=view.findViewById(R.id.tab_layout_setting);
+        viewPagerSetting=view.findViewById(R.id.view_pager_setting);
+
     }
 
     private void configuration() {
@@ -53,14 +60,26 @@ public class SettingFragment extends Fragment {
         arabicFontFragment = new ArabicFontFragment();
         persianFontFragment = new PersianFontFragment();
 
-        fragmentManager = getActivity().getSupportFragmentManager();
-        loadFragment(mainSettingFragment);
+        tabLayoutSetting.setupWithViewPager(viewPagerSetting);
+
+
+        ViewPagerAdapter viewPagerAdapter=new ViewPagerAdapter(getChildFragmentManager());
+        viewPagerAdapter.addToList(mainSettingFragment,"تنظیمات");
+        viewPagerAdapter.addToList(arabicFontFragment,"متن عربی");
+        viewPagerAdapter.addToList(persianFontFragment,"متن فارسی");
+
+        viewPagerSetting.setAdapter(viewPagerAdapter);
+
+        tabLayoutSetting.setupWithViewPager(viewPagerSetting);
+
+     //   fragmentManager = getActivity().getSupportFragmentManager();
+     //   loadFragment(mainSettingFragment);
 
 
     }
 
     private void setOnClick() {
-
+/*
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -85,11 +104,11 @@ public class SettingFragment extends Fragment {
                 return false;
             }
         });
-    }
+   */ }
 
     private void loadFragment(Fragment fragment) {
 
-        fragmentManager.beginTransaction().replace(R.id.fl_fragment_container, fragment).addToBackStack(null).commit();
+      //  fragmentManager.beginTransaction().replace(R.id.fl_fragment_container, fragment).addToBackStack(null).commit();
     }
 
 
