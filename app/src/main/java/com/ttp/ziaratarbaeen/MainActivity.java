@@ -5,6 +5,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -86,7 +87,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.btn_notices:
-                loadFragment(noticesFragment);
+
+                if (MyConstants.isNetworkAvailable(this))
+                    loadFragment(noticesFragment);
                 break;
 
             case R.id.btn_setting:
@@ -111,11 +114,13 @@ public class MainActivity extends AppCompatActivity {
 
 
             case R.id.btn_exit:
+
                 MyDialogs.showExitDialog(MainActivity.this);
                 break;
 
             case R.id.btn_toolbar_advertising:
-                MyDialogs.showAdDialog(MainActivity.this);
+                if (MyConstants.isNetworkAvailable(this))
+                     MyDialogs.showAdDialog(MainActivity.this);
                 break;
 
 

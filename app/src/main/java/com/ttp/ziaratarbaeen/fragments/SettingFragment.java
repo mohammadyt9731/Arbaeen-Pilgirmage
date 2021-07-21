@@ -20,6 +20,7 @@ public class SettingFragment extends Fragment {
     BottomNavigationView bottomNav;
     FragmentManager fragmentManager;
 
+
     MainSettingFragment mainSettingFragment;
     PersianFontFragment persianFontFragment;
     ArabicFontFragment arabicFontFragment;
@@ -38,6 +39,7 @@ public class SettingFragment extends Fragment {
         findViews(view);
         configuration();
         setOnClick();
+
     }
 
     private void findViews(View view) {

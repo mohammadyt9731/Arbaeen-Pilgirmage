@@ -333,10 +333,10 @@ public class PilgrimageFragment extends Fragment {
         btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_play));
 
         if (mpPilgrimage.isPlaying()) {
-            mpPilgrimage.seekTo(0);
-
             mpPilgrimage.pause();
         }
+
+        mpPilgrimage.seekTo(0);
         seekBar.setProgress(0);
     }
 

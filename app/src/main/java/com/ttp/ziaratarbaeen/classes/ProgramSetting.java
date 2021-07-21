@@ -28,7 +28,7 @@ public class ProgramSetting {
         ProgramSetting savedSetting = MySharedPreference.getInstance(context).getProgramSetting();
 
         if (savedSetting == null) {
-            autoScroll = false;
+            autoScroll = true;
             showTranslation = true;
             showSeparator = true;
             darkTheme = false;

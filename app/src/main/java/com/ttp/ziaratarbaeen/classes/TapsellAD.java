@@ -44,10 +44,14 @@ public class TapsellAD {
                         //Ad is ready to show
                         //Put the ad's responseId to your responseId variable
                        // standardBannerResponseId = tapsellPlusAdModel.getResponseId();
+
+
                     }
 
                     @Override
                     public void error(@NonNull String message) {
+
+
                     }
                 });
 
@@ -101,10 +105,6 @@ public class TapsellAD {
                         super.onError(tapsellPlusErrorModel);
                     }
                 });
-    }
-
-    private void showAd(String zoneId) {
-       // TapsellPlus.showAd(activity, zoneId);
     }
 
     public void showNativeAD(String zoneId) {

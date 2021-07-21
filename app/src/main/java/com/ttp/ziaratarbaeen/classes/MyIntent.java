@@ -15,8 +15,10 @@ public class MyIntent {
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
 
-            String shareMessage = "لینک دانلود برنامه " + "زیارت اربعین(متن و صوت)" + "\n\n";
-            shareMessage += "http://cafebazaar.ir/app/?id=" + "com.ttp.salawatcount" + "\n\n";
+            String shareMessage = "لینک دانلود برنامه "
+                    +context.getApplicationInfo().loadLabel(context.getPackageManager()).toString() + "\n\n"
+                    + "http://cafebazaar.ir/app/?id=" + "com.ttp.salawatcount" + "\n\n";
+
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
             context.startActivity(Intent.createChooser(shareIntent, "اشتراک گذاری برنامه"));
         } catch (Exception e) {
@@ -25,11 +27,10 @@ public class MyIntent {
     }
 
     public static void otherAppIntent(Context context) {
-        try {
+
+        if (MyConstants.isNetworkAvailable(context)) {
             Intent otherAppIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cafebazaar.ir/developer/mohammad9731"));
             context.startActivity(otherAppIntent);
-        } catch (Exception e) {
-            Toast.makeText(context, R.string.need_internet, Toast.LENGTH_SHORT).show();
         }
     }
 

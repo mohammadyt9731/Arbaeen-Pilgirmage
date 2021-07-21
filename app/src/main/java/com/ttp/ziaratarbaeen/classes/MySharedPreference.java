@@ -14,8 +14,11 @@ public class MySharedPreference {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
+    final String SETTING="setting";
+    final String PROGRAM_SETTING="program_setting";
+
     private MySharedPreference(Context context) {
-        sharedPreferences = context.getSharedPreferences("setting", Context.MODE_PRIVATE);
+        sharedPreferences = context.getSharedPreferences(SETTING, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
     }
 
@@ -30,20 +33,20 @@ public class MySharedPreference {
     public void putProgramSetting(ProgramSetting programSetting) {
 
         Gson gson = new Gson();
-        String setting = gson.toJson(programSetting, ProgramSetting.class);
+        String settingJson = gson.toJson(programSetting, ProgramSetting.class);
 
-        editor.putString("program_setting", setting);
+        editor.putString(PROGRAM_SETTING, settingJson);
         editor.apply();
     }
 
     public ProgramSetting getProgramSetting() {
 
-        String programSetting = sharedPreferences.getString("program_setting", null);
+        String settingJson = sharedPreferences.getString(PROGRAM_SETTING, null);
 
-        if (programSetting == null)
+        if (settingJson == null)
             return null;
 
         Gson gson = new Gson();
-        return gson.fromJson(programSetting, ProgramSetting.class);
+        return gson.fromJson(settingJson, ProgramSetting.class);
     }
 }
