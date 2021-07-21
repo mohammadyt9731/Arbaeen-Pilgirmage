@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/study_background"
     android:orientation="vertical"
+    android:clickable="true"
     android:gravity="center">
 
 
@@ -16,19 +17,79 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"/>
 
-    <FrameLayout
-        android:id="@+id/frame_small_zekrshomar"
-        app:layout_constraintBottom_toTopOf="@id/ad_container"
+<!--    <FrameLayout-->
+<!--        android:id="@+id/fl_zekr_shomar"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/fl_ad_container"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        android:layout_width="230dp"-->
+<!--        android:layout_height="300dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginBottom="@dimen/space_small"-->
+<!--        android:background="@drawable/zekrshmar_icon">-->
+
+<!--        <TextView-->
+<!--            android:background="@color/blue_900"-->
+<!--            android:id="@+id/tv_counter_text"-->
+<!--            android:layout_width="166dp"-->
+<!--            android:layout_height="65dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginBottom="65dp"-->
+<!--            android:paddingRight="5dp"-->
+<!--            android:gravity="right|center"-->
+<!--            android:textSize="50sp"-->
+
+<!--            android:textColor="#E9232323"-->
+<!--            android:text="0">-->
+
+<!--        </TextView>-->
+
+<!--        <Button-->
+
+<!--            android:id="@+id/btn_counter_plus_plus"-->
+<!--            android:layout_width="90dp"-->
+<!--            android:layout_height="90dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="70dp"-->
+<!--            android:background="@android:color/holo_red_dark"-->
+<!--            android:textSize="25dp"-->
+<!--            android:textColor="@color/black">-->
+
+<!--        </Button>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/iv_reset"-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginLeft="55dp"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:background="@color/black"-->
+<!--            >-->
+
+<!--        </ImageView>-->
+
+
+<!--    </FrameLayout>-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fl_zekr_shomar"
+        app:layout_constraintBottom_toTopOf="@id/fl_ad_container"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_width="230dp"
         android:layout_height="300dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/space_large"
+        android:layout_marginBottom="@dimen/space_small"
         android:background="@drawable/zekrshmar_icon">
 
         <TextView
-            android:id="@+id/couter_text"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="55dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+
+            android:id="@+id/tv_counter_text"
             android:layout_width="166dp"
             android:layout_height="65dp"
             android:layout_gravity="center"
@@ -43,11 +104,14 @@
         </TextView>
 
         <Button
-            android:id="@+id/counter_button"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="37dp"
+            android:id="@+id/btn_counter_plus_plus"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_gravity="center"
-            android:layout_marginTop="70dp"
             android:background="@android:color/transparent"
             android:textSize="25dp"
             android:textColor="@color/black">
@@ -55,24 +119,25 @@
         </Button>
 
         <ImageView
-            android:id="@+id/reset_button"
+            app:layout_constraintBottom_toTopOf="@id/btn_counter_plus_plus"
+            app:layout_constraintLeft_toRightOf="@id/btn_counter_plus_plus"
+            android:id="@+id/iv_reset"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="15dp"
+
             >
 
         </ImageView>
 
 
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        app:layout_constraintLeft_toRightOf="@id/frame_small_zekrshomar"
-        android:id="@+id/button_sound"
-        app:layout_constraintTop_toTopOf="@id/frame_small_zekrshomar"
-        app:layout_constraintBottom_toBottomOf="@id/frame_small_zekrshomar"
+        app:layout_constraintLeft_toRightOf="@id/fl_zekr_shomar"
+        android:id="@+id/btn_sound"
+        app:layout_constraintTop_toTopOf="@id/fl_zekr_shomar"
+        app:layout_constraintBottom_toBottomOf="@id/fl_zekr_shomar"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="center"
@@ -84,12 +149,13 @@
 
 
     <FrameLayout
-        android:id="@+id/ad_container"
+        android:id="@+id/fl_ad_container"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_70dp"
-        android:layout_margin="@dimen/space_very_small"
+        android:layout_height="60dp"
+        android:layout_margin="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_gravity="bottom"
+
         >
     </FrameLayout>
 

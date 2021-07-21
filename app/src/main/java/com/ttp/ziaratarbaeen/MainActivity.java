@@ -149,6 +149,10 @@ public class MainActivity extends AppCompatActivity {
                         loadFragment(pilgrimageFragment);
                         break;
 
+                    case R.id.nav_salawat_count:
+                        loadFragment(salawatCountFragment);
+                        break;
+
                     case R.id.nav_narratives:
                         loadFragment(narrativesFragment);
                         break;

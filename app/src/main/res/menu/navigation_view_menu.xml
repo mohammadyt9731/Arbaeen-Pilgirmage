@@ -13,6 +13,11 @@
         android:title="@string/pilgrimage_arbaeen" />
 
     <item
+        android:id="@+id/nav_salawat_count"
+        android:icon="@drawable/ic_tasbih"
+        android:title="@string/salawat_count" />
+
+    <item
         android:id="@+id/nav_narratives"
         android:icon="@drawable/ic_nav_narratives"
         android:title="@string/narratives" />
