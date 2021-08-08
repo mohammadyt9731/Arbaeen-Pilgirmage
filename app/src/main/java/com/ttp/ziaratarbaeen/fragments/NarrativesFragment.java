@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,9 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
-import com.ttp.ziaratarbaeen.classes.TapsellAD;
-
-import static ir.tapsell.plus.TapsellPlusBannerType.BANNER_320x50;
+import com.ttp.ziaratarbaeen.classes.MyTapsell;
 
 public class NarrativesFragment extends Fragment {
 
@@ -31,7 +28,7 @@ public class NarrativesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ViewGroup rlAdvertising = view.findViewById(R.id.rl_advertising);
+        MyTapsell.showNativeAD(getActivity(),MyConstants.NATIVE_STANDARD_AD_ID,rlAdvertising);
 
-        new TapsellAD(null, rlAdvertising, getActivity()).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
     }
 }

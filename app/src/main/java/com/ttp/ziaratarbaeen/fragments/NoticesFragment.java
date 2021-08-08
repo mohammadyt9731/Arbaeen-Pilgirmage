@@ -12,11 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.ttp.ziaratarbaeen.R;
-import com.ttp.ziaratarbaeen.classes.MyConstants;
-import com.ttp.ziaratarbaeen.classes.TapsellAD;
-
-import static ir.tapsell.plus.TapsellPlusBannerType.BANNER_320x100;
-import static ir.tapsell.plus.TapsellPlusBannerType.BANNER_320x50;
 
 public class NoticesFragment extends Fragment {
 
@@ -49,10 +44,10 @@ public class NoticesFragment extends Fragment {
 
     private void configuration() {
 
-        new TapsellAD(null, firstBannerView, getActivity()).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
+      //  new TapsellAD(null, firstBannerView, getActivity()).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
        //  new TapsellAD(BANNER_320x50,firstBannerView,getActivity()).showStandardBannerAD(MyConstants.STANDARD_1_AD_ID);
-        new TapsellAD(BANNER_320x100, secondBannerView, getActivity()).showStandardBannerAD(MyConstants.STANDARD_2_AD_ID);
-        new TapsellAD(BANNER_320x50, thirdBannerView, getActivity()).showStandardBannerAD(MyConstants.STANDARD_3_AD_ID);
+       // new TapsellAD(BANNER_320x100, secondBannerView, getActivity()).showStandardBannerAD(MyConstants.STANDARD_2_AD_ID);
+      //  new TapsellAD(BANNER_320x50, thirdBannerView, getActivity()).showStandardBannerAD(MyConstants.STANDARD_3_AD_ID);
         // new TapsellAD(null,null,getActivity()).showInterstitialVideoAD(MyConstants.Interstitial_VIDEO_AD_ID);
 
     }

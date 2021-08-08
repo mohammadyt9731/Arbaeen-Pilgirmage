@@ -2,16 +2,13 @@ package com.ttp.ziaratarbaeen.dialogs;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
-import com.ttp.ziaratarbaeen.classes.MyIntent;
-import com.ttp.ziaratarbaeen.classes.TapsellAD;
+import com.ttp.ziaratarbaeen.classes.MyTapsell;
 
 public class AdvertisingDialog extends Dialog {
 
@@ -19,11 +16,11 @@ public class AdvertisingDialog extends Dialog {
     Button btnBannerAd;
     ViewGroup rlBannerContainer;
 
-    Context context;
+    Activity activity;
 
-    public AdvertisingDialog(Context context) {
-        super(context);
-        this.context=context;
+    public AdvertisingDialog(Activity activity) {
+        super(activity);
+        this.activity=activity;
         setContentView(R.layout.dialog_ad);
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
@@ -35,17 +32,17 @@ public class AdvertisingDialog extends Dialog {
 
     private void configuration() {
         btnVideoAd.setOnClickListener(view -> {
-            new TapsellAD(null, null, (Activity) context)
-                    .showInterstitialVideoAD(MyConstants.Interstitial_VIDEO_AD_ID);
+            MyTapsell.showInterstitialAd(activity,MyConstants.Interstitial_VIDEO_AD_ID);
         });
 
         btnBannerAd.setOnClickListener(view -> {
 
-            new TapsellAD(null, null, (Activity) context)
-                    .showInterstitialAD(MyConstants.Interstitial_AD_ID);
+            MyTapsell.showInterstitialAd(activity,MyConstants.Interstitial_AD_ID);
+
         });
 
-        new TapsellAD(null,rlBannerContainer,(Activity)context).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
+
+        MyTapsell.showNativeAD(activity,MyConstants.NATIVE_STANDARD_AD_ID,rlBannerContainer);
 
     }
 

@@ -26,10 +26,8 @@ import androidx.fragment.app.Fragment;
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.Mention;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
-import com.ttp.ziaratarbaeen.classes.MyDialogs;
 import com.ttp.ziaratarbaeen.classes.MySharedPreference;
-import com.ttp.ziaratarbaeen.classes.TapsellAD;
-import com.ttp.ziaratarbaeen.dialogs.AdvertisingDialog;
+import com.ttp.ziaratarbaeen.classes.MyTapsell;
 import com.ttp.ziaratarbaeen.dialogs.ResetCounterDialog;
 
 import java.util.ArrayList;
@@ -51,7 +49,7 @@ public class SalawatCountFragment extends Fragment {
     PopupMenu popupMenu;
     ArrayList<Mention>mentionList;
     ////////////
-    Spinner spinner;
+
 
 
 
@@ -74,29 +72,6 @@ public class SalawatCountFragment extends Fragment {
         setUpPopupMenu();
         configuration();
 
-        spinner=view.findViewById(R.id.spinner);
-
-
-        String[]items =new String[]{"a","b","c"};
-
-        ArrayAdapter arrayAdapter=
-                new ArrayAdapter(getContext(),android.R.layout.simple_spinner_dropdown_item,items);
-
-            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    Toast.makeText(getContext(), String.valueOf(l), Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {
-
-                }
-            });
-
-        spinner.setAdapter(arrayAdapter);
-
-
 
 
     }
@@ -107,7 +82,7 @@ public class SalawatCountFragment extends Fragment {
 
 
         popupMenu=new PopupMenu(wrapper,tvMentionType, Gravity.LEFT);
-    //    popupMenu.getMenuInflater().inflate(R.menu.popup_menu_mention_type,popupMenu.getMenu());
+        popupMenu.getMenuInflater().inflate(R.menu.popup_menu_mention_type,popupMenu.getMenu());
 
 
 
@@ -232,7 +207,7 @@ public class SalawatCountFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        new TapsellAD(null,flAdContainer,getActivity()).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
+        MyTapsell.showNativeAD(getActivity(),MyConstants.NATIVE_STANDARD_AD_ID,flAdContainer);
 
     }
 }

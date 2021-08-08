@@ -14,9 +14,8 @@ import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.navigation.NavigationView;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
-import com.ttp.ziaratarbaeen.classes.MyDialogs;
 import com.ttp.ziaratarbaeen.classes.MyIntent;
-import com.ttp.ziaratarbaeen.classes.TapsellAD;
+import com.ttp.ziaratarbaeen.classes.MyTapsell;
 import com.ttp.ziaratarbaeen.dialogs.AboutUsDialog;
 import com.ttp.ziaratarbaeen.dialogs.AdvertisingDialog;
 import com.ttp.ziaratarbaeen.dialogs.ExitDialog;
@@ -38,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
     NoticesFragment noticesFragment;
     SalawatCountFragment salawatCountFragment;
 
+    AboutUsDialog aboutUsDialog;
+    ExitDialog exitDialog;
+    AdvertisingDialog advertisingDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         findViews();
         init();
-        CreateMenu();
+        setUpMenu();
 
 
     }
@@ -68,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
         narrativesFragment = new NarrativesFragment();
         noticesFragment = new NoticesFragment();
         salawatCountFragment = new SalawatCountFragment();
+
+        aboutUsDialog=new AboutUsDialog(MainActivity.this);
+        exitDialog=new ExitDialog(MainActivity.this);
+        advertisingDialog=new AdvertisingDialog(MainActivity.this);
 
     }
 
@@ -103,8 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.btn_about_us:
-               // MyDialogs.showAboutUsDialog(MainActivity.this);
-                new AboutUsDialog(MainActivity.this).show();
+               aboutUsDialog.show();
                 break;
 
             case R.id.btn_other_apps:
@@ -118,14 +124,12 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.btn_exit:
 
-              //  MyDialogs.showExitDialog(MainActivity.this);
-                new ExitDialog(MainActivity.this).show();
+              exitDialog.show();
                 break;
 
             case R.id.btn_toolbar_advertising:
                 if (MyConstants.isNetworkAvailable(this))
-                    // MyDialogs.showAdDialog(MainActivity.this);
-                    new AdvertisingDialog(MainActivity.this).show();
+                    advertisingDialog.show();
                 break;
 
 
@@ -138,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void CreateMenu() {
+    private void setUpMenu() {
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -183,12 +187,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nav_about_us:
-                      //  MyDialogs.showAboutUsDialog(MainActivity.this);
-                        new AboutUsDialog(MainActivity.this).show();
+                      aboutUsDialog.show();
                         break;
 
                     case R.id.nav_exit:
-                        new ExitDialog(MainActivity.this).show();
+                       exitDialog.show();
                         break;
 
 
@@ -232,8 +235,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        ;
-        new TapsellAD(null, vgAdvertisingContainer, this).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
+        MyTapsell.showNativeAD(MainActivity.this,MyConstants.NATIVE_STANDARD_AD_ID,vgAdvertisingContainer);
+
     }
 
 }

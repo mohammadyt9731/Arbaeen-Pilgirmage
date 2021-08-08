@@ -27,7 +27,7 @@ import com.ttp.ziaratarbaeen.classes.ArbaeenMediaPlayer;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.classes.Paragraph;
 import com.ttp.ziaratarbaeen.classes.ProgramSetting;
-import com.ttp.ziaratarbaeen.classes.TapsellAD;
+import com.ttp.ziaratarbaeen.classes.MyTapsell;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -268,7 +268,7 @@ public class PilgrimageFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 zoomAnimate(view);
-                new TapsellAD(null, null, getActivity()).showInterstitialAD(MyConstants.Interstitial_AD_ID);
+                MyTapsell.showInterstitialAd(getActivity(),MyConstants.Interstitial_AD_ID);
             }
         });
 
