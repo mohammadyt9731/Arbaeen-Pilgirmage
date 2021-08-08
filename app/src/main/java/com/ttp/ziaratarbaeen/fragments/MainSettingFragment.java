@@ -1,6 +1,7 @@
 package com.ttp.ziaratarbaeen.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -120,5 +121,13 @@ public class MainSettingFragment extends Fragment {
         darkModeSwitch.setOnCheckedChangeListener(checkedChangeListener);
 
 
+    }
+
+    @Override
+    public void onPause() {
+
+        programSetting.updateSetting(getActivity());
+        Log.i("aaaaa","mmm");
+        super.onPause();
     }
 }

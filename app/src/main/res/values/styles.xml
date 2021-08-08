@@ -6,6 +6,10 @@
         <item name="colorPrimaryDark">#012039</item>
         <item name="colorAccent">@color/blue_400</item>
 
+
+
+
+
     </style>
 
     <style name="button_style">
@@ -176,6 +180,18 @@
 
     </style>
 
+
+
+
+    <style name="PopupMenu" >
+
+
+        <item name="android:itemBackground">#014003</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:dividerHeight">1dp</item>
+    </style>
 
 
 

@@ -2,6 +2,7 @@ package com.ttp.ziaratarbaeen.fragments;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -251,7 +253,7 @@ public class ArabicFontFragment extends Fragment {
     public void onPause() {
 
         programSetting.updateSetting(getActivity());
-
+        Log.i("aaaaa","arab");
         super.onPause();
     }
 }

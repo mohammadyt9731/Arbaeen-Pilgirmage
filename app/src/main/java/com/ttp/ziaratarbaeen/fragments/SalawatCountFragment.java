@@ -1,13 +1,22 @@
 package com.ttp.ziaratarbaeen.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.ContextThemeWrapper;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,8 +24,15 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import com.ttp.ziaratarbaeen.R;
+import com.ttp.ziaratarbaeen.classes.Mention;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
+import com.ttp.ziaratarbaeen.classes.MyDialogs;
+import com.ttp.ziaratarbaeen.classes.MySharedPreference;
 import com.ttp.ziaratarbaeen.classes.TapsellAD;
+import com.ttp.ziaratarbaeen.dialogs.AdvertisingDialog;
+import com.ttp.ziaratarbaeen.dialogs.ResetCounterDialog;
+
+import java.util.ArrayList;
 
 public class SalawatCountFragment extends Fragment {
 
@@ -27,7 +43,16 @@ public class SalawatCountFragment extends Fragment {
     TextView tvCounterText;
     Button btnCounterPlusPlus;
     ImageView ivReset;
+
     Button btnSound;
+    TextView tvMentionType;
+    TextView tvMention;
+
+    PopupMenu popupMenu;
+    ArrayList<Mention>mentionList;
+    ////////////
+    Spinner spinner;
+
 
 
 
@@ -41,13 +66,82 @@ public class SalawatCountFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);FrameLayout frameLayout=view.findViewById(R.id.frame_hadis);
+        super.onViewCreated(view, savedInstanceState);
 
-        findVies(view);
+
+        findViews(view);
         setSize();
+        setUpPopupMenu();
+        configuration();
 
-        new TapsellAD(null,flAdContainer,getActivity()).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
+        spinner=view.findViewById(R.id.spinner);
 
+
+        String[]items =new String[]{"a","b","c"};
+
+        ArrayAdapter arrayAdapter=
+                new ArrayAdapter(getContext(),android.R.layout.simple_spinner_dropdown_item,items);
+
+            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    Toast.makeText(getContext(), String.valueOf(l), Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
+
+                }
+            });
+
+        spinner.setAdapter(arrayAdapter);
+
+
+
+
+    }
+
+    private void setUpPopupMenu() {
+
+        Context wrapper = new ContextThemeWrapper(getActivity(), R.style.PopupMenu);
+
+
+        popupMenu=new PopupMenu(wrapper,tvMentionType, Gravity.LEFT);
+    //    popupMenu.getMenuInflater().inflate(R.menu.popup_menu_mention_type,popupMenu.getMenu());
+
+
+
+        initMentionList();
+
+        for (Mention mention : mentionList){
+            popupMenu.getMenu().add(mention.getMentionName());
+        }
+
+
+
+    }
+
+    private void initMentionList(){
+        mentionList= MySharedPreference.getInstance(getContext()).getMentionList();
+        if(mentionList.isEmpty()){
+
+            mentionList.add(new Mention("صلوات",100,20));
+            mentionList.add(new Mention("ذکر روز هفته",100,20));
+            mentionList.add(new Mention("تسبیحات حضرت زهرا (سلام الله علیها)",100,20));
+            mentionList.add(new Mention("لا اله الا الله",100,20));
+            mentionList.add(new Mention("تسبیحات اربئه",100,20));
+            mentionList.add(new Mention("الله اکیر",100,20));
+            mentionList.add(new Mention("سبحان الله",100,20));
+            mentionList.add(new Mention("الحمدالله",100,20));
+
+
+        }
+
+
+
+    }
+
+    private void configuration() {
         btnCounterPlusPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,9 +149,36 @@ public class SalawatCountFragment extends Fragment {
             }
         });
 
+        ivReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // MyDialogs.showResetDialog(getContext());
+                new ResetCounterDialog(getContext()).show();
+            }
+        });
+
+        tvMentionType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                popupMenu.show();
+            }
+        });
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+
+
+                tvMentionType.setText(menuItem.getTitle());
+                tvMention.setText(menuItem.getTitle());
+                return false;
+            }
+        });
+
+
     }
 
-    private void findVies(View view) {
+    private void findViews(View view) {
 
         flZekrShomar=view.findViewById(R.id.fl_zekr_shomar);
         flAdContainer=view.findViewById(R.id.fl_ad_container);
@@ -65,6 +186,9 @@ public class SalawatCountFragment extends Fragment {
         btnCounterPlusPlus=view.findViewById(R.id.btn_counter_plus_plus);
         ivReset =view.findViewById(R.id.iv_reset);
         btnSound=view.findViewById(R.id.btn_sound);
+        tvMentionType=view.findViewById(R.id.tv_mention_type);
+        tvMention=view.findViewById(R.id.tv_mention);
+
     }
 
     private void setSize(){
@@ -90,6 +214,10 @@ public class SalawatCountFragment extends Fragment {
         btnSound.getLayoutParams().width=zekrShomarLayoutWidth*18/100;
         btnSound.getLayoutParams().height=btnSound.getLayoutParams().width;
 
+        tvMentionType.getLayoutParams().height=screenHeight*8/100;
+
+
+
 
     }
 
@@ -101,4 +229,10 @@ public class SalawatCountFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        new TapsellAD(null,flAdContainer,getActivity()).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
+
+    }
 }

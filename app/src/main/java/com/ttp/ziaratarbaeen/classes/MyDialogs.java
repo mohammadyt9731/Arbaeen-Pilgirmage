@@ -18,88 +18,126 @@ public class MyDialogs {
 
     final static int WIDTH = MyConstants.getScreenWidth() * 90/100;
 
-    public static void showAboutUsDialog(Context context) {
+//    public static void showAboutUsDialog(Context context) {
+//
+//        LayoutInflater inflater = LayoutInflater.from(context);
+//        View dialogView = inflater.inflate(R.layout.dialog_about_us, null);
+//
+//        Dialog aboutUsDialog = new Dialog(context);
+//
+//        aboutUsDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        aboutUsDialog.setContentView(dialogView);
+//        aboutUsDialog.getWindow().setLayout(WIDTH, LinearLayout.LayoutParams.WRAP_CONTENT);
+//        aboutUsDialog.getWindow().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.dialog_background));
+//        aboutUsDialog.show();
+//    }
 
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View dialogView = inflater.inflate(R.layout.dialog_about_us, null);
+//    public static void showExitDialog(Context context) {
+//
+//        LayoutInflater inflater = LayoutInflater.from(context);
+//        View dialogView = inflater.inflate(R.layout.dialog_exit, null);
+//
+//        Dialog exitDialog = new Dialog(context);
+//
+//        exitDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        exitDialog.setContentView(dialogView);
+//        exitDialog.getWindow().setLayout(WIDTH, LinearLayout.LayoutParams.WRAP_CONTENT);
+//        exitDialog.getWindow().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.dialog_background));
+//        exitDialog.show();
+//
+//        ViewGroup rlTapsellAd = exitDialog.findViewById(R.id.rl_tapsell_ad);
+//
+//        new TapsellAD(BANNER_300x250, rlTapsellAd, (Activity) context).showStandardBannerAD(MyConstants.EXIT_DIALOG_AD_ID);
+//
+//        setOnClickDialogButtons(exitDialog, context);
+//    }
+//
+//    private static void setOnClickDialogButtons(Dialog exitDialog, Context context) {
+//
+//        TextView exitButton = exitDialog.findViewById(R.id.btn_exit);
+//        TextView otherAppButton = exitDialog.findViewById(R.id.btn_other_apps);
+//        TextView commentButton = exitDialog.findViewById(R.id.btn_comment);
+//
+//        exitButton.setOnClickListener(v -> {
+//            Activity activity = (Activity) context;
+//            activity.finish();
+//        });
+//
+//        otherAppButton.setOnClickListener(v -> MyIntent.otherAppIntent(context));
+//
+//        commentButton.setOnClickListener(v -> MyIntent.commentIntent(context));
+//
+//    }
 
-        Dialog aboutUsDialog = new Dialog(context);
+//    public static void showAdDialog(Context context) {
+//
+//        LayoutInflater inflater = LayoutInflater.from(context);
+//        View dialogView = inflater.inflate(R.layout.dialog_ad, null);
+//
+//        Dialog AdDialog = new Dialog(context);
+//
+//        AdDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        AdDialog.setContentView(dialogView);
+//        AdDialog.getWindow().setLayout(WIDTH, LinearLayout.LayoutParams.WRAP_CONTENT);
+//        AdDialog.getWindow().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.dialog_background));
+//        AdDialog.show();
+//
+//
+//        Button btnVideoAd = AdDialog.findViewById(R.id.btn_video_ad);
+//        Button btnBannerAd = AdDialog.findViewById(R.id.btn_banner_ad);
+//        ViewGroup rlBannerContainer = AdDialog.findViewById(R.id.rl_banner_container);
+//
+//
+//        btnVideoAd.setOnClickListener(view -> {
+//            new TapsellAD(null, null, (Activity) context)
+//                    .showInterstitialVideoAD(MyConstants.Interstitial_VIDEO_AD_ID);
+//        });
+//
+//        btnBannerAd.setOnClickListener(view -> {
+//
+//            new TapsellAD(null, null, (Activity) context)
+//                    .showInterstitialAD(MyConstants.Interstitial_AD_ID);
+//        });
+//
+//        new TapsellAD(null,rlBannerContainer,(Activity)context).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
+//
+//    }
 
-        aboutUsDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        aboutUsDialog.setContentView(dialogView);
-        aboutUsDialog.getWindow().setLayout(WIDTH, LinearLayout.LayoutParams.WRAP_CONTENT);
-        aboutUsDialog.getWindow().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.dialog_background));
-        aboutUsDialog.show();
-    }
-
-    public static void showExitDialog(Context context) {
-
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View dialogView = inflater.inflate(R.layout.dialog_exit, null);
-
-        Dialog exitDialog = new Dialog(context);
-
-        exitDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        exitDialog.setContentView(dialogView);
-        exitDialog.getWindow().setLayout(WIDTH, LinearLayout.LayoutParams.WRAP_CONTENT);
-        exitDialog.getWindow().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.dialog_background));
-        exitDialog.show();
-
-        ViewGroup rlTapsellAd = exitDialog.findViewById(R.id.rl_tapsell_ad);
-
-        new TapsellAD(BANNER_300x250, rlTapsellAd, (Activity) context).showStandardBannerAD(MyConstants.EXIT_DIALOG_AD_ID);
-
-        setOnClickDialogButtons(exitDialog, context);
-    }
-
-    private static void setOnClickDialogButtons(Dialog exitDialog, Context context) {
-
-        TextView exitButton = exitDialog.findViewById(R.id.btn_exit);
-        TextView otherAppButton = exitDialog.findViewById(R.id.btn_other_apps);
-        TextView commentButton = exitDialog.findViewById(R.id.btn_comment);
-
-        exitButton.setOnClickListener(v -> {
-            Activity activity = (Activity) context;
-            activity.finish();
-        });
-
-        otherAppButton.setOnClickListener(v -> MyIntent.otherAppIntent(context));
-
-        commentButton.setOnClickListener(v -> MyIntent.commentIntent(context));
-
-    }
-
-    public static void showAdDialog(Context context) {
-
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View dialogView = inflater.inflate(R.layout.dialog_ad, null);
-
-        Dialog AdDialog = new Dialog(context);
-
-        AdDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        AdDialog.setContentView(dialogView);
-        AdDialog.getWindow().setLayout(WIDTH, LinearLayout.LayoutParams.WRAP_CONTENT);
-        AdDialog.getWindow().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.dialog_background));
-        AdDialog.show();
-
-
-        Button btnVideoAd = AdDialog.findViewById(R.id.btn_video_ad);
-        Button btnBannerAd = AdDialog.findViewById(R.id.btn_banner_ad);
-        ViewGroup rlBannerContainer = AdDialog.findViewById(R.id.rl_banner_container);
-
-
-        btnVideoAd.setOnClickListener(view -> {
-            new TapsellAD(null, null, (Activity) context)
-                    .showInterstitialVideoAD(MyConstants.Interstitial_VIDEO_AD_ID);
-        });
-
-        btnBannerAd.setOnClickListener(view -> {
-
-            new TapsellAD(null, null, (Activity) context)
-                    .showInterstitialAD(MyConstants.Interstitial_AD_ID);
-        });
-
-        new TapsellAD(null,rlBannerContainer,(Activity)context).showNativeAD(MyConstants.NATIVE_STANDARD_AD_ID);
-
-    }
+//    public static void showResetDialog(Context context) {
+//
+//        LayoutInflater inflater = LayoutInflater.from(context);
+//        View resetDialogView = inflater.inflate(R.layout.dialog_reset, null);
+//
+//        final int WIDTH = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.90);
+//
+//        final Dialog resetDialog = new Dialog(context);
+//
+//        resetDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        resetDialog.setContentView(resetDialogView);
+//        resetDialog.getWindow().setLayout(WIDTH, LinearLayout.LayoutParams.WRAP_CONTENT);
+//        resetDialog.getWindow().setBackgroundDrawable(context.getResources().getDrawable(R.drawable.dialog_background));
+//
+//
+//        TextView yesButton = resetDialog.findViewById(R.id.yes_reset);
+//        yesButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//               // resetCounter();
+//                resetDialog.cancel();
+//            }
+//        });
+//
+//        TextView noButton = resetDialog.findViewById(R.id.no_reset);
+//        noButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                resetDialog.cancel();
+//            }
+//        });
+//
+//        resetDialog.show();
+//
+//
+//    }
 }

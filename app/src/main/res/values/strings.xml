@@ -65,6 +65,9 @@
     <string name="need_install_cafebazaar">جهت ثبت نظر باید برنامه کافه بازار رانصب کنید</string>
     <string name="please_wait">لطفا منتظربمانید</string>
     <string name="salawat_count">ذکرشمار</string>
+    <string name="reset">شمارنده صفر شود؟</string>
+    <string name="yes_text">بله</string>
+    <string name="no_text">نه</string>
 
 
     <array name="pilgrimage_text">

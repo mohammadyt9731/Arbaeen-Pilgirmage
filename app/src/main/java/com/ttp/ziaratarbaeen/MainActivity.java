@@ -5,7 +5,6 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +17,9 @@ import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.classes.MyDialogs;
 import com.ttp.ziaratarbaeen.classes.MyIntent;
 import com.ttp.ziaratarbaeen.classes.TapsellAD;
+import com.ttp.ziaratarbaeen.dialogs.AboutUsDialog;
+import com.ttp.ziaratarbaeen.dialogs.AdvertisingDialog;
+import com.ttp.ziaratarbaeen.dialogs.ExitDialog;
 import com.ttp.ziaratarbaeen.fragments.NarrativesFragment;
 import com.ttp.ziaratarbaeen.fragments.NoticesFragment;
 import com.ttp.ziaratarbaeen.fragments.PilgrimageFragment;
@@ -101,7 +103,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.btn_about_us:
-                MyDialogs.showAboutUsDialog(MainActivity.this);
+               // MyDialogs.showAboutUsDialog(MainActivity.this);
+                new AboutUsDialog(MainActivity.this).show();
                 break;
 
             case R.id.btn_other_apps:
@@ -115,12 +118,14 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.btn_exit:
 
-                MyDialogs.showExitDialog(MainActivity.this);
+              //  MyDialogs.showExitDialog(MainActivity.this);
+                new ExitDialog(MainActivity.this).show();
                 break;
 
             case R.id.btn_toolbar_advertising:
                 if (MyConstants.isNetworkAvailable(this))
-                     MyDialogs.showAdDialog(MainActivity.this);
+                    // MyDialogs.showAdDialog(MainActivity.this);
+                    new AdvertisingDialog(MainActivity.this).show();
                 break;
 
 
@@ -178,11 +183,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nav_about_us:
-                        MyDialogs.showAboutUsDialog(MainActivity.this);
+                      //  MyDialogs.showAboutUsDialog(MainActivity.this);
+                        new AboutUsDialog(MainActivity.this).show();
                         break;
 
                     case R.id.nav_exit:
-                        MyDialogs.showExitDialog(MainActivity.this);
+                        new ExitDialog(MainActivity.this).show();
                         break;
 
 
@@ -219,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
             closeFragment();
 
         else
-            MyDialogs.showExitDialog(MainActivity.this);
+            new ExitDialog(MainActivity.this).show();
     }
 
     @Override

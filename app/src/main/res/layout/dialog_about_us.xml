@@ -7,9 +7,12 @@
     android:paddingLeft="@dimen/space_small"
     android:paddingRight="@dimen/space_small"
     android:paddingTop="@dimen/space_medium"
-    android:paddingBottom="@dimen/space_large">
+    android:paddingBottom="@dimen/space_large"
+    android:background="@drawable/dialog_background"
+    >
 
     <ImageView
+
         android:layout_width="@dimen/space_35dp"
         android:layout_height="@dimen/space_35dp"
         android:layout_marginRight="@dimen/space_small"
@@ -19,9 +22,12 @@
 
     <TextView
         android:id="@+id/about_us"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+       app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center"
         android:textSize="@dimen/text_size_2xlarge"
