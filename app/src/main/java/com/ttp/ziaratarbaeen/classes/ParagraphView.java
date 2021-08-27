@@ -1,10 +1,11 @@
 package com.ttp.ziaratarbaeen.classes;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.ContextThemeWrapper;
-import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,15 +15,13 @@ import androidx.core.content.res.ResourcesCompat;
 
 import com.ttp.ziaratarbaeen.R;
 
-public class Paragraph {
+public class ParagraphView {
+
+    View rootView;
 
     TextView tvArabicText;
     TextView tvPersianText;
     ImageView imSeparator;
-
-    ContextThemeWrapper arabicTextStyle;
-    ContextThemeWrapper persianTextStyle;
-    ContextThemeWrapper separatorStyle;
 
     ProgramSetting programSetting;
 
@@ -31,20 +30,23 @@ public class Paragraph {
 
     Context context;
 
-    public Paragraph(Context context) {
+    public ParagraphView(Activity context) {
 
         this.context = context;
 
-        arabicTextStyle = new ContextThemeWrapper(context, R.style.arabic_text_style);
-        persianTextStyle = new ContextThemeWrapper(context, R.style.persian_text_style);
-        separatorStyle = new ContextThemeWrapper(context, R.style.separator_style);
+        findViews();
 
-        tvArabicText = new TextView(arabicTextStyle, null, 0);
-        tvPersianText = new TextView(persianTextStyle, null, 0);
-        imSeparator = new ImageView(separatorStyle, null, 0);
-        imSeparator.setLayoutParams(new LinearLayout.LayoutParams(MyConstants.SEPARATOR_WIDTH, MyConstants.SEPARATOR_HEIGHT));
 
         applySetting(context);
+    }
+
+    private void findViews(){
+        rootView= LayoutInflater.from(context).inflate(R.layout.view_paragraph,null,false);
+
+        tvArabicText =rootView.findViewById(R.id.tv_arabic_text);
+        tvPersianText = rootView.findViewById(R.id.tv_persian_text);
+        imSeparator = rootView.findViewById(R.id.iv_separator);
+
     }
 
 
@@ -162,12 +164,7 @@ public class Paragraph {
         return tvArabicText;
     }
 
-    public TextView getTvPersianText() {
-        return tvPersianText;
+    public View getRootView() {
+        return rootView;
     }
-
-    public ImageView getImSeparator() {
-        return imSeparator;
-    }
-
 }

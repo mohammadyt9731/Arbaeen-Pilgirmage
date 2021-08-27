@@ -1,4 +1,4 @@
-package com.ttp.ziaratarbaeen;
+package com.ttp.ziaratarbaeen.avtivities;
 
 import android.os.Bundle;
 import android.view.Gravity;
@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.google.android.material.navigation.NavigationView;
+import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.classes.MyIntent;
 import com.ttp.ziaratarbaeen.classes.MyTapsell;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     AdvertisingDialog advertisingDialog;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         setUpMenu();
 
 
+
     }
     ////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////
@@ -62,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
         vgAdvertisingContainer = findViewById(R.id.ad_container);
+
     }
 
     private void init() {
@@ -72,17 +76,18 @@ public class MainActivity extends AppCompatActivity {
         noticesFragment = new NoticesFragment();
         salawatCountFragment = new SalawatCountFragment();
 
-        aboutUsDialog=new AboutUsDialog(MainActivity.this);
-        exitDialog=new ExitDialog(MainActivity.this);
-        advertisingDialog=new AdvertisingDialog(MainActivity.this);
+        aboutUsDialog = new AboutUsDialog(MainActivity.this);
+        exitDialog = new ExitDialog(MainActivity.this);
+        advertisingDialog = new AdvertisingDialog(MainActivity.this);
 
     }
+
 
     public void onClick(View view) {
 
         switch (view.getId()) {
 
-            case R.id.btn_pilgrimage_text:
+            case R.id.btn_pilgrimage:
                 loadFragment(pilgrimageFragment);
                 break;
 
@@ -109,9 +114,9 @@ public class MainActivity extends AppCompatActivity {
                 MyIntent.shareAppIntent(MainActivity.this);
                 break;
 
-            case R.id.btn_about_us:
-               aboutUsDialog.show();
-                break;
+//            case R.id.btn_about_us:
+//                aboutUsDialog.show();
+//                break;
 
             case R.id.btn_other_apps:
                 MyIntent.otherAppIntent(MainActivity.this);
@@ -124,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.btn_exit:
 
-              exitDialog.show();
+                exitDialog.show();
                 break;
 
             case R.id.btn_toolbar_advertising:
@@ -187,11 +192,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case R.id.nav_about_us:
-                      aboutUsDialog.show();
+                        aboutUsDialog.show();
                         break;
 
                     case R.id.nav_exit:
-                       exitDialog.show();
+                        exitDialog.show();
                         break;
 
 
@@ -235,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        MyTapsell.showNativeAD(MainActivity.this,MyConstants.NATIVE_STANDARD_AD_ID,vgAdvertisingContainer);
+        MyTapsell.showNativeAD(MainActivity.this, MyConstants.NATIVE_STANDARD_AD_ID, vgAdvertisingContainer);
 
     }
 

@@ -25,7 +25,7 @@ import androidx.fragment.app.Fragment;
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.ArbaeenMediaPlayer;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
-import com.ttp.ziaratarbaeen.classes.Paragraph;
+import com.ttp.ziaratarbaeen.classes.ParagraphView;
 import com.ttp.ziaratarbaeen.classes.ProgramSetting;
 import com.ttp.ziaratarbaeen.classes.MyTapsell;
 
@@ -35,16 +35,13 @@ import java.util.TimerTask;
 public class PilgrimageFragment extends Fragment {
 
 
-    final int VERSE_NUMBER = MyConstants.VERSE_NUMBER;
-    final int ANIMATION_DURATION = MyConstants.ANIMATION_DURATION;
-
     int arabicTextSize;
     int persianTextSize;
 
     boolean autoScroll = false;
     boolean darkTheme = false;
 
-    Paragraph[] paragraphs;
+    ParagraphView[]paragraphViews;
     ProgramSetting programSetting;
 
     String[] arabicTexts;
@@ -108,20 +105,6 @@ public class PilgrimageFragment extends Fragment {
 
     }
 
-    private void applySetting() {
-
-
-
-        arabicTextSize = programSetting.getArabicTextSize();
-        persianTextSize = programSetting.getPersianTextSize();
-
-        autoScroll = programSetting.isAutoScroll();
-        darkTheme = programSetting.isDarkTheme();
-
-        if (darkTheme) {
-            scrollView.setBackground(getActivity().getDrawable(R.drawable.dark_theme_background));
-        }
-    }
 
     private void init() {
 
@@ -130,10 +113,10 @@ public class PilgrimageFragment extends Fragment {
         arabicTexts = getResources().getStringArray(R.array.pilgrimage_text);
         persianTexts = getResources().getStringArray(R.array.translation_text);
 
-        paragraphs = new Paragraph[VERSE_NUMBER];
+        paragraphViews=new ParagraphView[MyConstants.VERSE_NUMBER];
 
         zoomInOutAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.zoom_in_out_animation);
-        zoomInOutAnimation.setDuration(ANIMATION_DURATION);
+        zoomInOutAnimation.setDuration(MyConstants.ANIMATION_DURATION);
 
         mpPilgrimage = ArbaeenMediaPlayer.getMediaPlayer(getActivity());
         seekBar.setMax(mpPilgrimage.getDuration());
@@ -145,8 +128,10 @@ public class PilgrimageFragment extends Fragment {
 
 
                 int position = 1;
-                for (int i = 0; i < paragraphs.length; i++) {
-                    TextView tvPilgrimage = paragraphs[i].getTvArabicText();
+
+
+                for (int i = 0; i < paragraphViews.length; i++) {
+                    TextView tvPilgrimage = paragraphViews[i].getTvArabicText();
                     if (tvPilgrimage == v) {
                         tvPilgrimage.setTextColor(Color.RED);
                         position = ArbaeenMediaPlayer.getCurrentPosition(i);
@@ -191,6 +176,19 @@ public class PilgrimageFragment extends Fragment {
         });
     }
 
+    private void applySetting() {
+
+        arabicTextSize = programSetting.getArabicTextSize();
+        persianTextSize = programSetting.getPersianTextSize();
+
+        autoScroll = programSetting.isAutoScroll();
+        darkTheme = programSetting.isDarkTheme();
+
+        if (darkTheme) {
+            scrollView.setBackground(getActivity().getDrawable(R.drawable.dark_theme_background));
+        }
+    }
+
     private String convertSecondToMinute(int progress) {
 
         int second = (progress / 1000) % 60;
@@ -201,23 +199,18 @@ public class PilgrimageFragment extends Fragment {
 
     private void createDynamicViews() {
 
-        for (int i = 0; i < paragraphs.length; i++) {
+        for (int i = 0; i < paragraphViews.length; i++) {
 
-            paragraphs[i] = new Paragraph(getActivity());
-            paragraphs[i].setText(arabicTexts[i], persianTexts[i]);
+            paragraphViews[i] = new ParagraphView(getActivity());
+            paragraphViews[i].setText(arabicTexts[i], persianTexts[i]);
+            paragraphViews[i].getTvArabicText().setOnClickListener(tvListener);
 
-
-            linearLayout.addView(paragraphs[i].getTvArabicText());
-            linearLayout.addView(paragraphs[i].getTvPersianText());
-            linearLayout.addView(paragraphs[i].getImSeparator());
+            linearLayout.addView(paragraphViews[i].getRootView());
 
         }
     }
 
     private void setOnClick() {
-
-        for (Paragraph paragraph : paragraphs)
-            paragraph.getTvArabicText().setOnClickListener(tvListener);
 
 
         btnZoomIn.setOnClickListener(new View.OnClickListener() {
@@ -284,8 +277,6 @@ public class PilgrimageFragment extends Fragment {
             public void run() {
 
                 if (mpPilgrimage.isPlaying()) {
-
-
                     int currentPosition = mpPilgrimage.getCurrentPosition() / 1000;
 
                     seekBar.setProgress(mpPilgrimage.getCurrentPosition());
@@ -306,20 +297,20 @@ public class PilgrimageFragment extends Fragment {
 
     private void setTextSize(int textSize, int transTextSize) {
 
-        for (Paragraph paragraph : paragraphs) {
-            paragraph.setTextSize(textSize, transTextSize);
+        for (ParagraphView paragraphView : paragraphViews) {
+            paragraphView.setTextSize(textSize, transTextSize);
         }
     }
 
     private void setCurrentParagraph(int index) {
 
-        for (int i = 0; i < paragraphs.length; i++) {
+        for (int i = 0; i < paragraphViews.length; i++) {
 
-            TextView tvPilgrimage = paragraphs[i].getTvArabicText();
+            TextView tvPilgrimage = paragraphViews[i].getTvArabicText();
             if (i == index) {
                 tvPilgrimage.setTextColor(Color.RED);
                 if (autoScroll)
-                    scrollView.smoothScrollTo(0, (tvPilgrimage.getTop() - 100));
+                    scrollView.smoothScrollTo(0, (paragraphViews[i].getRootView().getTop() - 100));
             } else
                 tvPilgrimage.setTextColor(getResources().getColor(R.color.black));
         }
@@ -332,7 +323,7 @@ public class PilgrimageFragment extends Fragment {
 
     private void reset() {
 
-        setCurrentParagraph(VERSE_NUMBER + 1);
+        setCurrentParagraph( MyConstants.VERSE_NUMBER + 1);
         btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_play));
 
         if (mpPilgrimage.isPlaying()) {
