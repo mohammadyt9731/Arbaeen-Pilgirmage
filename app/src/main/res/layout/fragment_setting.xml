@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@drawable/study_background"
+    android:background="@drawable/bg_study"
     android:clickable="true"
     android:layout_height="match_parent">
 
@@ -34,8 +34,7 @@
         android:id="@+id/fl_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/study_background"
-        android:paddingTop="@dimen/space_large"
+        android:paddingTop="60dp"
         android:paddingBottom="@dimen/space_medium"
         app:layout_constraintBottom_toTopOf="@id/navigation_bottom"
         app:layout_constraintTop_toTopOf="parent"/>

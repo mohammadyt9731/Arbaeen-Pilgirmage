@@ -12,9 +12,9 @@
     <gradient
         android:angle="270"
 
-        android:startColor="#C5CAE9"
-        android:centerColor="#C5CAE9"
-        android:endColor="#9FA8DA"
+        android:startColor="#E6EFE6"
+        android:centerColor="#D9F8DA"
+        android:endColor="#C6F4C8"
         />
 
 
