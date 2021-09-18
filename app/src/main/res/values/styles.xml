@@ -195,5 +195,34 @@
     </style>
 
 
+    <style name="slider_theme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Add attributes here -->
+        <item name="colorPrimary">@color/green_900</item>
+
+    </style>
+
+    <style name="slider_style">
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:theme">@style/slider_theme</item>
+        <item name="android:layout_marginLeft">@dimen/_15sdp</item>
+        <item name="android:layout_marginRight">@dimen/_10sdp</item>
+        <item name="thumbRadius">@dimen/_5sdp</item>
+        <item name="thumbColor">@color/green_600</item>
+
+    </style>
+    <style name="tv_guide_slider_style">
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/_15sdp</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:textColor">@color/green_900</item>
+        <item name="android:layout_marginTop">-5dp</item>
+
+
+
+    </style>
 
 </resources>

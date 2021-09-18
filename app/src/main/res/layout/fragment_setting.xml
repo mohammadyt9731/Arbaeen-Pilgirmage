@@ -1,53 +1,287 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/bg_study"
     android:clickable="true"
-    android:layout_height="match_parent">
+    android:fillViewport="true">
 
-<!--    <com.google.android.material.tabs.TabLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="40dp"-->
-<!--        android:id="@+id/tab_layout_setting"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:tabTextColor="@color/black"-->
-<!--        app:tabRippleColor="@color/blue_200"-->
-<!--        app:tabSelectedTextColor="@color/blue_900"-->
-<!--        android:background="#CEDEEA"-->
-<!--        android:layout_margin="15dp"/>-->
-
-<!--    <androidx.viewpager.widget.ViewPager-->
-<!--        android:id="@+id/view_pager_setting"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/tab_layout_setting"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        android:paddingLeft="15dp"-->
-<!--        android:layout_marginBottom="20dp"-->
-<!--        android:paddingRight="15dp"/>-->
-
-
-
-    <FrameLayout
-        android:id="@+id/fl_fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:paddingTop="60dp"
-        android:paddingBottom="@dimen/space_medium"
-        app:layout_constraintBottom_toTopOf="@id/navigation_bottom"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation_bottom"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/navigation_bottom_background"
-        app:itemIconTint="@color/nav_bottom_color"
-        app:itemTextColor="@color/nav_bottom_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/navigation_bottom_menu" />
+        android:background="@drawable/bg_study"
+
+        android:clickable="true">
+
+        <TextView
+            android:id="@+id/tv_header_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:gravity="center"
+            android:text="@string/setting"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20ssp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/tv_header_setting">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Switch
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:layoutDirection="rtl"
+                    android:text="@string/show_translation"
+                    android:textSize="@dimen/_12ssp"
+                    android:theme="@style/slider_theme" />
+
+                <Switch
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:layoutDirection="rtl"
+                    android:text="@string/dark_theme"
+                    android:textSize="@dimen/_12ssp"
+                    android:theme="@style/slider_theme" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Switch
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:layoutDirection="rtl"
+                    android:text="@string/auto_scroll"
+                    android:textSize="@dimen/_12ssp"
+                    android:theme="@style/slider_theme" />
+
+                <Switch
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:layoutDirection="rtl"
+                    android:text="نمایش جدا کننده"
+                    android:textSize="@dimen/_12ssp"
+                    android:theme="@style/slider_theme" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <RadioGroup
+            android:id="@+id/rg_arabic_fonts"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            android:background="@drawable/paragraph_background"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/ll_switch"
+            >
+
+            <RadioButton
+                android:id="@+id/rb_arabic_font3"
+                style="@style/radio_button_font"
+                android:text="@string/nabi" />
+
+            <RadioButton
+                android:id="@+id/rb_arabic_font2"
+                style="@style/radio_button_font"
+                android:checked="true"
+                android:text="@string/morvarid" />
+
+            <RadioButton
+                android:id="@+id/rb_arabic_font1"
+                style="@style/radio_button_font"
+                android:text="@string/homa" />
+
+        </RadioGroup>
+
+        <TextView
+
+
+            style="@style/tv_guide_slider_style"
+            android:text="سایز متن عربی"
+            app:layout_constraintRight_toRightOf="@id/slider_arabic_text_size"
+            app:layout_constraintTop_toTopOf="@id/slider_arabic_text_size" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider_arabic_text_size"
+            style="@style/slider_style"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:layout_constraintTop_toBottomOf="@id/rg_arabic_fonts" />
+
+
+        <RadioGroup
+            android:id="@+id/rg_persian_fonts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/slider_arabic_text_size"
+            android:background="@drawable/paragraph_background"
+            android:gravity="center"
+            android:orientation="horizontal"
+            >
+
+            <RadioButton
+                android:id="@+id/rb_persian_font3"
+                style="@style/radio_button_font"
+                android:text="فردوسی" />
+
+            <RadioButton
+                android:id="@+id/rb_persian_font2"
+                style="@style/radio_button_font"
+                android:checked="true"
+                android:text="بی نازنین" />
+
+            <RadioButton
+                android:id="@+id/rb_persian_font1"
+                style="@style/radio_button_font"
+                android:text="بی حمید" />
+
+        </RadioGroup>
+
+        <TextView
+
+            style="@style/tv_guide_slider_style"
+            android:text="سایز متن فارسی"
+            app:layout_constraintRight_toRightOf="@id/slider_persian_text_size"
+            app:layout_constraintTop_toTopOf="@id/slider_persian_text_size" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider_persian_text_size"
+            style="@style/slider_style"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_width="match_parent"
+           app:layout_constraintTop_toBottomOf="@id/rg_persian_fonts" />
+
+        <TextView
+            style="@style/tv_guide_slider_style"
+            android:text="فاصله بین خطوط"
+            app:layout_constraintRight_toRightOf="@id/slider_line_spacing"
+            app:layout_constraintTop_toTopOf="@id/slider_line_spacing" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/slider_line_spacing"
+            style="@style/slider_style"
+            android:layout_width="match_parent"
+app:layout_constraintTop_toBottomOf="@id/slider_persian_text_size"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_sample_paragraph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/paragraph_background"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/slider_line_spacing"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/tv_arabic_text"
+                style="@style/arabic_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sample_arabic_text" />
+
+            <TextView
+                android:id="@+id/tv_persian_text"
+                style="@style/persian_text_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sample_persian_text" />
+
+            <ImageView
+                android:id="@+id/iv_separator"
+                style="@style/separator_style" />
+
+
+        </LinearLayout>
+
+
+        <!--    <com.google.android.material.tabs.TabLayout-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="40dp"-->
+        <!--        android:id="@+id/tab_layout_setting"-->
+        <!--        app:layout_constraintTop_toTopOf="parent"-->
+        <!--        app:tabTextColor="@color/black"-->
+        <!--        app:tabRippleColor="@color/blue_200"-->
+        <!--        app:tabSelectedTextColor="@color/blue_900"-->
+        <!--        android:background="#CEDEEA"-->
+        <!--        android:layout_margin="15dp"/>-->
+
+        <!--    <androidx.viewpager.widget.ViewPager-->
+        <!--        android:id="@+id/view_pager_setting"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="0dp"-->
+        <!--        app:layout_constraintTop_toBottomOf="@id/tab_layout_setting"-->
+        <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--        android:paddingLeft="15dp"-->
+        <!--        android:layout_marginBottom="20dp"-->
+        <!--        android:paddingRight="15dp"/>-->
+
+
+        <!--    <FrameLayout-->
+        <!--        android:id="@+id/fl_fragment_container"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="0dp"-->
+        <!--        android:paddingTop="60dp"-->
+        <!--        android:paddingBottom="@dimen/space_medium"-->
+        <!--        app:layout_constraintBottom_toTopOf="@id/navigation_bottom"-->
+        <!--        app:layout_constraintTop_toTopOf="parent"/>-->
+
+        <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+        <!--        android:id="@+id/navigation_bottom"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:background="@drawable/navigation_bottom_background"-->
+        <!--        app:itemIconTint="@color/nav_bottom_color"-->
+        <!--        app:itemTextColor="@color/nav_bottom_color"-->
+        <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--        app:menu="@menu/navigation_bottom_menu" />-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
+

@@ -48,15 +48,15 @@ public class SettingFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        findViews(view);
-        configuration();
-        setOnClick();
+//        findViews(view);
+//        configuration();
+//        setOnClick();
 
     }
 
     private void findViews(View view) {
 
-        bottomNav = view.findViewById(R.id.navigation_bottom);
+      //  bottomNav = view.findViewById(R.id.navigation_bottom);
       //  tabLayoutSetting=view.findViewById(R.id.tab_layout_setting);
       //  viewPagerSetting=view.findViewById(R.id.view_pager_setting);
 
@@ -119,7 +119,7 @@ public class SettingFragment extends Fragment {
     private void loadFragment(Fragment fragment) {
 
         Log.i("aaaaa","sss");
-        fragmentManager.beginTransaction().replace(R.id.fl_fragment_container, fragment).addToBackStack(null).commit();
+    //    fragmentManager.beginTransaction().replace(R.id.fl_fragment_container, fragment).addToBackStack(null).commit();
     }
 
 
