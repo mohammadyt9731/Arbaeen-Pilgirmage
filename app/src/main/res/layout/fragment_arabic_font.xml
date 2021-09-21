@@ -33,19 +33,19 @@
 
                 <RadioButton
                     android:id="@+id/rb_arabic_font3"
-                    style="@style/radio_button_font"
+                    style="@style/rb_font_style"
                     android:text="@string/nabi"
                     />
 
                 <RadioButton
                     android:id="@+id/rb_arabic_font2"
-                    style="@style/radio_button_font"
+                    style="@style/rb_font_style"
                     android:checked="true"
                     android:text="@string/morvarid" />
 
                 <RadioButton
                     android:id="@+id/rb_arabic_font1"
-                    style="@style/radio_button_font"
+                    style="@style/rb_font_style"
                     android:text="@string/homa" />
 
             </RadioGroup>

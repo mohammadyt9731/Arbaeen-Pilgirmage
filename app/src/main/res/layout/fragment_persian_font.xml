@@ -33,18 +33,18 @@
 
                 <RadioButton
                     android:id="@+id/rb_persian_font3"
-                    style="@style/radio_button_font"
+                    style="@style/rb_font_style"
                     android:text="فردوسی" />
 
                 <RadioButton
                     android:id="@+id/rb_persian_font2"
-                    style="@style/radio_button_font"
+                    style="@style/rb_font_style"
                     android:checked="true"
                     android:text="بی نازنین" />
 
                 <RadioButton
                     android:id="@+id/rb_persian_font1"
-                    style="@style/radio_button_font"
+                    style="@style/rb_font_style"
                     android:text="بی حمید" />
 
             </RadioGroup>

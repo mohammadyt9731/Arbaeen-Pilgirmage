@@ -10,27 +10,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_study"
-
-        android:clickable="true">
+        android:background="@drawable/bg_study">
 
         <TextView
             android:id="@+id/tv_header_setting"
+            style="@style/tv_title_page_style"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_40sdp"
-            android:gravity="center"
             android:text="@string/setting"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_20ssp"
-            android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:id="@+id/ll_switch"
+            android:id="@+id/ll_switch_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@+id/tv_header_setting">
 
@@ -38,30 +32,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:layoutDirection="rtl"
                 android:orientation="horizontal">
 
                 <Switch
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_30sdp"
-                    android:layout_marginRight="@dimen/_10sdp"
-                    android:layout_weight="1"
-                    android:checked="true"
-                    android:layoutDirection="rtl"
-                    android:text="@string/show_translation"
-                    android:textSize="@dimen/_12ssp"
-                    android:theme="@style/slider_theme" />
+                    style="@style/switch_style"
+                    android:text="@string/show_translation" />
 
                 <Switch
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/_30sdp"
-                    android:layout_weight="1"
-                    android:checked="true"
-                    android:layoutDirection="rtl"
-                    android:text="@string/dark_theme"
-                    android:textSize="@dimen/_12ssp"
-                    android:theme="@style/slider_theme" />
+                    style="@style/switch_style"
+                    android:text="@string/dark_theme" />
 
 
             </LinearLayout>
@@ -71,66 +51,56 @@
                 android:layout_height="0dp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_weight="1"
+                android:layoutDirection="rtl"
                 android:orientation="horizontal">
 
                 <Switch
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_30sdp"
-                    android:layout_marginRight="@dimen/_10sdp"
-                    android:layout_weight="1"
-                    android:checked="true"
-                    android:layoutDirection="rtl"
-                    android:text="@string/auto_scroll"
-                    android:textSize="@dimen/_12ssp"
-                    android:theme="@style/slider_theme" />
+                    style="@style/switch_style"
+                    android:text="@string/auto_scroll" />
 
                 <Switch
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/_30sdp"
-                    android:layout_weight="1"
-                    android:checked="true"
-                    android:layoutDirection="rtl"
-                    android:text="نمایش جدا کننده"
-                    android:textSize="@dimen/_12ssp"
-                    android:theme="@style/slider_theme" />
+                    style="@style/switch_style"
+                    android:text="نمایش جدا کننده" />
 
 
             </LinearLayout>
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/tv_arabic_font"
+            style="@style/tv_guide_font_style"
+            android:elevation="10dp"
+            android:text="فونت عربی"
+            app:layout_constraintBottom_toBottomOf="@id/rg_arabic_fonts"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rg_arabic_fonts"
+
+
+            />
 
         <RadioGroup
             android:id="@+id/rg_arabic_fonts"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-
-            android:background="@drawable/paragraph_background"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/ll_switch"
-            >
+            style="@style/rg_font_setting_style"
+            android:layout_width="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tv_arabic_font"
+            app:layout_constraintTop_toBottomOf="@id/ll_switch_setting">
 
             <RadioButton
                 android:id="@+id/rb_arabic_font3"
-                style="@style/radio_button_font"
+                style="@style/rb_font_style"
                 android:text="@string/nabi" />
 
             <RadioButton
                 android:id="@+id/rb_arabic_font2"
-                style="@style/radio_button_font"
+                style="@style/rb_font_style"
                 android:checked="true"
                 android:text="@string/morvarid" />
 
             <RadioButton
                 android:id="@+id/rb_arabic_font1"
-                style="@style/radio_button_font"
+                style="@style/rb_font_style"
                 android:text="@string/homa" />
 
         </RadioGroup>
@@ -146,38 +116,49 @@
         <com.google.android.material.slider.Slider
             android:id="@+id/slider_arabic_text_size"
             style="@style/slider_style"
+            android:valueFrom="12"
+            android:valueTo="34"
+            android:value="22"
+          android:stepSize="1"
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/_15sdp"
             app:layout_constraintTop_toBottomOf="@id/rg_arabic_fonts" />
 
+        <TextView
+            android:id="@+id/tv_persian_font"
+            style="@style/tv_guide_font_style"
+            android:elevation="10dp"
+            android:text="فونت فارسی"
+            app:layout_constraintBottom_toBottomOf="@id/rg_persian_fonts"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/rg_persian_fonts"
+
+
+            />
 
         <RadioGroup
             android:id="@+id/rg_persian_fonts"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            app:layout_constraintTop_toBottomOf="@id/slider_arabic_text_size"
-            android:background="@drawable/paragraph_background"
-            android:gravity="center"
-            android:orientation="horizontal"
-            >
+            style="@style/rg_font_setting_style"
+            android:layout_width="0dp"
+            app:layout_constraintRight_toLeftOf="@id/tv_persian_font"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/slider_arabic_text_size">
 
             <RadioButton
                 android:id="@+id/rb_persian_font3"
-                style="@style/radio_button_font"
+                style="@style/rb_font_style"
                 android:text="فردوسی" />
 
             <RadioButton
                 android:id="@+id/rb_persian_font2"
-                style="@style/radio_button_font"
+                style="@style/rb_font_style"
                 android:checked="true"
-                android:text="بی نازنین" />
+                android:text="نازنین" />
 
             <RadioButton
                 android:id="@+id/rb_persian_font1"
-                style="@style/radio_button_font"
-                android:text="بی حمید" />
+                style="@style/rb_font_style"
+                android:text="حمید" />
 
         </RadioGroup>
 
@@ -191,9 +172,13 @@
         <com.google.android.material.slider.Slider
             android:id="@+id/slider_persian_text_size"
             style="@style/slider_style"
-            android:layout_marginTop="@dimen/_15sdp"
             android:layout_width="match_parent"
-           app:layout_constraintTop_toBottomOf="@id/rg_persian_fonts" />
+            android:valueFrom="10"
+            android:value="20"
+            android:valueTo="30"
+            android:stepSize="1"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:layout_constraintTop_toBottomOf="@id/rg_persian_fonts" />
 
         <TextView
             style="@style/tv_guide_slider_style"
@@ -204,19 +189,24 @@
         <com.google.android.material.slider.Slider
             android:id="@+id/slider_line_spacing"
             style="@style/slider_style"
+            android:valueFrom="0"
+            android:valueTo="10"
+            android:stepSize="1"
+            android:value="1"
             android:layout_width="match_parent"
-app:layout_constraintTop_toBottomOf="@id/slider_persian_text_size"
-            />
+            app:layout_constraintTop_toBottomOf="@id/slider_persian_text_size" />
 
         <LinearLayout
+            android:padding="@dimen/_5sdp"
             android:id="@+id/ll_sample_paragraph"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
             android:background="@drawable/paragraph_background"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/slider_line_spacing"
-            app:layout_constraintBottom_toBottomOf="parent">
+            android:layout_marginBottom="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/slider_line_spacing">
 
             <TextView
                 android:id="@+id/tv_arabic_text"
