@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,11 +26,13 @@ import com.ttp.ziaratarbaeen.fragments.PilgrimageFragment;
 import com.ttp.ziaratarbaeen.fragments.SalawatCountFragment;
 import com.ttp.ziaratarbaeen.fragments.SettingFragment;
 
+import ir.tapsell.plus.TapsellPlusBannerType;
+
 public class MainActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-    ViewGroup vgAdvertisingContainer;
+    RelativeLayout rlAdContainer;
 
     PilgrimageFragment pilgrimageFragment;
     SettingFragment settingFragment;
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
-        vgAdvertisingContainer = findViewById(R.id.ad_container);
+        rlAdContainer = findViewById(R.id.ad_container);
 
     }
 
@@ -139,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             case R.id.btn_open_navigation_view:
-                drawerLayout.openDrawer(Gravity.LEFT);
+                drawerLayout.openDrawer(Gravity.RIGHT);
                 break;
 
 
@@ -240,8 +242,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        MyTapsell.showNativeAD(MainActivity.this, MyConstants.NATIVE_STANDARD_AD_ID, vgAdvertisingContainer);
-
+        MyTapsell.showStandardBanner(this,MyConstants.STANDARD_1_AD_ID, rlAdContainer, TapsellPlusBannerType.BANNER_320x50);
     }
 
 }

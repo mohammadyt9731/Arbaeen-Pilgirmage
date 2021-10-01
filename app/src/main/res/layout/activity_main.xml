@@ -8,7 +8,7 @@
     android:background="@drawable/bg_main"
     android:keepScreenOn="true"
     tools:context=".avtivities.MainActivity"
-    tools:openDrawer="left">
+    tools:openDrawer="right">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,13 +19,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-         android:layout_marginTop="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/nabi"
             android:gravity="center"
             android:text="@string/pilgrimage_arbaeen"
             android:textColor="@color/white"
             android:textSize="40sp"
-            android:fontFamily="@font/nabi"
-
             app:layout_constraintTop_toTopOf="parent" />
 
         <Toolbar
@@ -50,7 +49,7 @@
                     android:background="@drawable/ic_advertisement"
                     android:onClick="onClick"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
 
                     >
@@ -64,7 +63,7 @@
                     android:background="@drawable/ic_menu"
                     android:onClick="onClick"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                 </Button>
@@ -82,326 +81,250 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ScrollView
+
+        <LinearLayout
+            android:id="@+id/ll_large_icon"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+
+            app:layout_constraintVertical_bias="0.45"
+
+
+            >
+
+            <Button
+                android:id="@+id/btn_pilgrimage"
+                android:layout_width="@dimen/_180sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:background="@drawable/ic_main"
+                android:fontFamily="@font/nabi"
+                android:onClick="onClick"
+                android:text="@string/pilgrimage_arbaeen"
+                android:textColor="#423B05"
+                android:textSize="@dimen/_20ssp"
+                android:textStyle="bold">
+
+            </Button>
+
+            <TextView
+                style="@style/button_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pilgrimage_arbaeen"
+                android:textSize="@dimen/_20ssp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_medium_icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.65"
+
+            >
+
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="180dp"
-
+                android:layout_weight="1"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_pilgrimage"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginHorizontal="80dp"
-                    android:layout_marginLeft="@dimen/space_70dp"
-                    android:layout_marginRight="@dimen/space_70dp"
-                    android:background="@drawable/ic_main_btn"
-                    android:onClick="onClick"
-                    android:text="@string/pilgrimage_arbaeen"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_3xlarge">
+                    android:id="@+id/btn_salawat_count"
+                    style="@style/main_button_style"
+                    android:background="@drawable/ic_salawat_count"
+
+                    >
 
                 </Button>
 
-                <LinearLayout
-
-                    android:layout_width="match_parent"
+                <TextView
+                    style="@style/button_style"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-
-                    <Button
-                        android:id="@+id/btn_salawat_count"
-                        style="@style/main_button_style"
-                        android:elevation="1000dp"
-                        android:text="@string/salawat_count">
-
-                    </Button>
-
-
-                    <Button
-                        android:id="@+id/btn_narratives"
-                        style="@style/main_button_style"
-                        android:text="@string/narratives">
-
-                    </Button>
-
-                    <Button
-                        android:id="@+id/btn_setting"
-                        style="@style/main_button_style"
-                        android:text="@string/setting">
-
-                    </Button>
-
-                </LinearLayout>
-
-                <LinearLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:layout_marginHorizontal="10dp"
-                    android:weightSum="4">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/btn_other_apps"
-                            style="@style/button_style"
-                            android:background="@drawable/ic_main_btn"
-                            >
-
-                        </Button>
-
-                        <TextView
-                            style="@style/button_style"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:text="@string/other_app" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/btn_comment"
-                            style="@style/button_style"
-                            android:background="@drawable/ic_main_btn"
-
-                            >
-
-                        </Button>
-
-                        <TextView
-                            style="@style/button_style"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:text="@string/comment" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/btn_notices"
-                            style="@style/button_style"
-                            android:background="@drawable/ic_main_btn"
-
-                            >
-
-                        </Button>
-
-                        <TextView
-                            style="@style/button_style"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:text="@string/notices" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/btn_share_app"
-                            style="@style/button_style"
-                            android:background="@drawable/ic_main_btn">
-
-
-                        </Button>
-
-
-                        <TextView
-                            style="@style/button_style"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:text="@string/share_app" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-
-                <!--                -->
-                <!--                -->
-                <!--                <LinearLayout-->
-                <!--                    android:layout_width="match_parent"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:layout_marginTop="@dimen/space_large"-->
-                <!--                    android:gravity="center"-->
-                <!--                    android:orientation="horizontal"-->
-                <!--                    android:paddingLeft="@dimen/space_4Xlarge"-->
-                <!--                    android:paddingRight="@dimen/space_4Xlarge"-->
-                <!--                    android:weightSum="3">-->
-
-                <!--                    <LinearLayout-->
-                <!--                        android:layout_width="0dp"-->
-                <!--                        android:layout_height="match_parent"-->
-                <!--                        android:layout_weight="1"-->
-                <!--                        android:gravity="center"-->
-                <!--                        android:orientation="vertical">-->
-
-
-                <!--                        <Button-->
-                <!--                            android:id="@+id/btn_other_apps"-->
-                <!--                            style="@style/button_style"-->
-                <!--                            android:background="@drawable/ic_other_app">-->
-
-                <!--                        </Button>-->
-
-                <!--                        <TextView-->
-                <!--                            style="@style/button_style"-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-
-                <!--                            android:text="@string/other_app" />-->
-
-                <!--                        <Button-->
-                <!--                            android:id="@+id/btn_notices"-->
-                <!--                            style="@style/button_style"-->
-                <!--                            android:background="@drawable/ic_heart"-->
-
-                <!--                            >-->
-
-                <!--                        </Button>-->
-
-                <!--                        <TextView-->
-                <!--                            style="@style/button_style"-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-
-                <!--                            android:text="@string/notices" />-->
-
-
-                <!--                    </LinearLayout>-->
-
-                <!--                    <LinearLayout-->
-                <!--                        android:layout_width="0dp"-->
-                <!--                        android:layout_height="match_parent"-->
-                <!--                        android:layout_weight="1"-->
-                <!--                        android:gravity="center"-->
-                <!--                        android:orientation="vertical">-->
-
-                <!--                        <Button-->
-                <!--                            android:id="@+id/btn_share_app"-->
-                <!--                            style="@style/button_style"-->
-                <!--                            android:background="@drawable/ic_share">-->
-
-
-                <!--                        </Button>-->
-
-
-                <!--                        <TextView-->
-                <!--                            style="@style/button_style"-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-
-                <!--                            android:text="@string/share_app" />-->
-
-                <!--                        <Button-->
-                <!--                            android:id="@+id/btn_about_us"-->
-                <!--                            style="@style/button_style"-->
-                <!--                            android:background="@drawable/ic_about_us"-->
-
-                <!--                            >-->
-
-                <!--                        </Button>-->
-
-                <!--                        <TextView-->
-                <!--                            style="@style/button_style"-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-
-                <!--                            android:text="@string/about_us" />-->
-
-                <!--                    </LinearLayout>-->
-
-                <!--                    <LinearLayout-->
-                <!--                        android:layout_width="0dp"-->
-                <!--                        android:layout_height="match_parent"-->
-                <!--                        android:layout_weight="1"-->
-                <!--                        android:gravity="center"-->
-                <!--                        android:orientation="vertical">-->
-
-                <!--                        <Button-->
-                <!--                            android:id="@+id/btn_comment"-->
-                <!--                            style="@style/button_style"-->
-                <!--                            android:background="@drawable/ic_comment"-->
-
-                <!--                            >-->
-
-                <!--                        </Button>-->
-
-                <!--                        <TextView-->
-                <!--                            style="@style/button_style"-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-
-                <!--                            android:text="@string/comment" />-->
-
-                <!--                        <Button-->
-                <!--                            android:id="@+id/btn_exit"-->
-                <!--                            style="@style/button_style"-->
-                <!--                            android:background="@drawable/ic_exit"-->
-
-
-                <!--                            >-->
-
-                <!--                        </Button>-->
-
-                <!--                        <TextView-->
-                <!--                            style="@style/button_style"-->
-                <!--                            android:layout_width="wrap_content"-->
-                <!--                            android:layout_height="wrap_content"-->
-
-                <!--                            android:text="@string/exit" />-->
-
-
-                <!--                    </LinearLayout>-->
-
-                <!--                </LinearLayout>-->
-
+                    android:text="@string/salawat_count" />
 
             </LinearLayout>
 
-        </ScrollView>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        <FrameLayout
+                <Button
+                    android:id="@+id/btn_narratives"
+                    style="@style/main_button_style"
+                    android:background="@drawable/ic_narrative">
+
+                </Button>
+
+                <TextView
+                    style="@style/button_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/narratives" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_setting"
+                    style="@style/main_button_style"
+                    android:background="@drawable/ic_setting">
+
+                </Button>
+
+                <TextView
+                    style="@style/button_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setting" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_small_icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.8">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_other_apps"
+                    style="@style/button_style"
+                    android:background="@drawable/ic_other_app">
+
+                </Button>
+
+                <TextView
+                    style="@style/button_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/other_app" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_comment"
+                    style="@style/button_style"
+                    android:background="@drawable/ic_comment"
+
+                    >
+
+                </Button>
+
+                <TextView
+                    style="@style/button_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/comment" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_notices"
+                    style="@style/button_style"
+                    android:background="@drawable/ic_hemayat"
+
+                    >
+
+                </Button>
+
+                <TextView
+                    style="@style/button_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/notices" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_share_app"
+                    style="@style/button_style"
+                    android:background="@drawable/ic_share_app">
+
+
+                </Button>
+
+
+                <TextView
+                    style="@style/button_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/share_app" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <RelativeLayout
 
             android:id="@+id/ad_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_50sdp"
             android:layout_margin="@dimen/space_small"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent" />
 
 
@@ -412,7 +335,7 @@
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="left"
+        android:layout_gravity="right"
         android:background="@drawable/slide_menu_background"
         android:visibility="gone"
         app:headerLayout="@layout/header_layout"

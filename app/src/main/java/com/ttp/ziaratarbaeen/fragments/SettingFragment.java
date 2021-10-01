@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -51,6 +53,30 @@ public class SettingFragment extends Fragment {
 //        findViews(view);
 //        configuration();
 //        setOnClick();
+
+
+        TextView tvArabicFont=view.findViewById(R.id.tv_arabic_font);
+
+        PopupMenu popupMenu=new PopupMenu(getActivity(),tvArabicFont);
+        popupMenu.getMenu().add("نبی");
+        popupMenu.getMenu().add("قران");
+        popupMenu.getMenu().add("نازنین");
+
+        tvArabicFont.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupMenu.show();
+            }
+        });
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+
+                Toast.makeText(getContext(), "id : "+item, Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
 
     }
 
