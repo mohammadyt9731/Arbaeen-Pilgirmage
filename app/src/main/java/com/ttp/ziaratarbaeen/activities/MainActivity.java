@@ -1,9 +1,13 @@
-package com.ttp.ziaratarbaeen.avtivities;
+package com.ttp.ziaratarbaeen.activities;
 
+import android.animation.Animator;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
@@ -12,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.navigation.NavigationView;
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
@@ -34,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     NavigationView navigationView;
     RelativeLayout rlAdContainer;
 
+    LottieAnimationView lottieAnimationView;
+
     PilgrimageFragment pilgrimageFragment;
     SettingFragment settingFragment;
     NarrativesFragment narrativesFragment;
@@ -43,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
     AboutUsDialog aboutUsDialog;
     ExitDialog exitDialog;
     AdvertisingDialog advertisingDialog;
+
+    Animation scaleAnimation;
 
 
 
@@ -54,12 +63,11 @@ public class MainActivity extends AppCompatActivity {
 
         findViews();
         init();
-        setUpMenu();
+        configuration();
 
 
 
     }
-    ////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////
 
     private void findViews() {
@@ -67,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
         rlAdContainer = findViewById(R.id.ad_container);
+
+        lottieAnimationView=findViewById(R.id.lottie_animation_view);
 
     }
 
@@ -82,10 +92,53 @@ public class MainActivity extends AppCompatActivity {
         exitDialog = new ExitDialog(MainActivity.this);
         advertisingDialog = new AdvertisingDialog(MainActivity.this);
 
+        scaleAnimation= AnimationUtils.loadAnimation(this,R.anim.scale_animation);
+
+
+
     }
 
+    private void configuration(){
+
+        setUpLottieAnimation();
+        setUpMenu();
+
+    }
+
+    private void setUpLottieAnimation(){
+
+        lottieAnimationView.addAnimatorListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        lottieAnimationView.playAnimation();
+                    }
+                },MyConstants.LOTTIE_ANIMATION_DELAY);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
+    }
 
     public void onClick(View view) {
+
+        view.startAnimation(scaleAnimation);
 
         switch (view.getId()) {
 
@@ -116,9 +169,6 @@ public class MainActivity extends AppCompatActivity {
                 MyIntent.shareAppIntent(MainActivity.this);
                 break;
 
-//            case R.id.btn_about_us:
-//                aboutUsDialog.show();
-//                break;
 
             case R.id.btn_other_apps:
                 MyIntent.otherAppIntent(MainActivity.this);
@@ -130,14 +180,17 @@ public class MainActivity extends AppCompatActivity {
 
 
             case R.id.btn_exit:
-
                 exitDialog.show();
                 break;
 
             case R.id.btn_toolbar_advertising:
+            case R.id.lottie_animation_view:
                 if (MyConstants.isNetworkAvailable(this))
                     advertisingDialog.show();
                 break;
+
+
+
 
 
             case R.id.btn_open_navigation_view:
@@ -203,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 }
-                drawerLayout.closeDrawer(Gravity.LEFT);
+                drawerLayout.closeDrawer(Gravity.RIGHT);
                 return false;
             }
         });
@@ -214,7 +267,9 @@ public class MainActivity extends AppCompatActivity {
     private void loadFragment(Fragment fragment) {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fl_container, fragment)
+        fragmentManager.beginTransaction()
+                .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+                .replace(R.id.fl_fragment_container, fragment)
                 .addToBackStack(null).commit();
 
     }
@@ -228,14 +283,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        if (drawerLayout.isDrawerOpen(Gravity.LEFT))
-            drawerLayout.closeDrawer(Gravity.LEFT);
+        if (drawerLayout.isDrawerOpen(Gravity.RIGHT))
+            drawerLayout.closeDrawer(Gravity.RIGHT);
 
         else if (getSupportFragmentManager().getBackStackEntryCount() > 0)
             closeFragment();
 
         else
-            new ExitDialog(MainActivity.this).show();
+            exitDialog.show();
     }
 
     @Override

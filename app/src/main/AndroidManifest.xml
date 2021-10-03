@@ -13,9 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".avtivities.SettingActivity"></activity>
+        <activity android:name=".activities.SettingActivity"></activity>
         <activity
-            android:name=".avtivities.MainActivity"
+            android:name=".activities.MainActivity"
             android:configChanges="orientation|keyboard"
             android:screenOrientation="portrait">
             <intent-filter>

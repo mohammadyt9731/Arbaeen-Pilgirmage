@@ -10,6 +10,9 @@ import com.ttp.ziaratarbaeen.R;
 
 public class MyConstants {
 
+    //Main Activity
+    public static final int LOTTIE_ANIMATION_DELAY = 10000;
+
     public static final int VERSE_NUMBER = 30;
     public static final int ANIMATION_DURATION = 150;
 
@@ -38,6 +41,7 @@ public class MyConstants {
 
     public static final String NATIVE_VIDEO_AD_ID = "6067a77d260b920001cc7ec0";
     public static final String NATIVE_STANDARD_AD_ID = "608412e3bf5fdd0001c09651";
+
 
     public static int getScreenWidth() {
         return Resources.getSystem().getDisplayMetrics().widthPixels;

@@ -7,59 +7,45 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_main"
     android:keepScreenOn="true"
-    tools:context=".avtivities.MainActivity"
+    tools:context=".activities.MainActivity"
     tools:openDrawer="right">
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_Title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/nabi"
-            android:gravity="center"
-            android:text="@string/pilgrimage_arbaeen"
-            android:textColor="@color/white"
-            android:textSize="40sp"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
+            android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:contentInsetStart="0dp"
-            android:elevation="30dp"
+            android:elevation="@dimen/main_toolbar_elevation"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/space_small">
+                android:padding="@dimen/main_cl_toolbar_padding">
 
                 <Button
                     android:id="@+id/btn_toolbar_advertising"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="@dimen/main_btn_toolbar_width"
+                    android:layout_height="@dimen/main_btn_toolbar_width"
                     android:background="@drawable/ic_advertisement"
                     android:onClick="onClick"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-
-                    >
+                    app:layout_constraintTop_toTopOf="parent">
 
                 </Button>
 
                 <Button
                     android:id="@+id/btn_open_navigation_view"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="@dimen/main_btn_toolbar_width"
+                    android:layout_height="@dimen/main_btn_toolbar_width"
                     android:background="@drawable/ic_menu"
                     android:onClick="onClick"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -68,56 +54,75 @@
 
                 </Button>
 
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie_animation_view"
+                    android:layout_width="@dimen/main_lottie_view_toolbar_width"
+                    android:layout_height="@dimen/main_lottie_view_toolbar_width"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_autoPlay="true"
+                    android:onClick="onClick"
+                    app:lottie_rawRes="@raw/ad_lottie">
+
+                </com.airbnb.lottie.LottieAnimationView>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </Toolbar>
 
-        <FrameLayout
-
-            android:id="@+id/fl_container"
+        <TextView
+            android:id="@+id/tv_Title"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:elevation="@dimen/space_Xlarge"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/main_tv_title_margin_top"
+            android:fontFamily="@font/nabi"
+            android:gravity="center"
+            android:text="@string/pilgrimage_arbaeen"
+            android:textColor="@color/white"
+            android:textSize="@dimen/main_tv_title_text_size"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <FrameLayout
+            android:id="@+id/fl_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:elevation="@dimen/main_fl_container_elevation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/ll_large_icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
             android:gravity="center"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-
-            app:layout_constraintVertical_bias="0.45"
-
-
-            >
+            app:layout_constraintVertical_bias="0.45">
 
             <Button
                 android:id="@+id/btn_pilgrimage"
-                android:layout_width="@dimen/_180sdp"
-                android:layout_height="@dimen/_70sdp"
+                android:layout_width="@dimen/main_btn_large_width"
+                android:layout_height="@dimen/main_btn_large_height"
                 android:background="@drawable/ic_main"
                 android:fontFamily="@font/nabi"
                 android:onClick="onClick"
                 android:text="@string/pilgrimage_arbaeen"
-                android:textColor="#423B05"
-                android:textSize="@dimen/_20ssp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/main_btn_large_text_size"
                 android:textStyle="bold">
 
             </Button>
 
-            <TextView
-                style="@style/button_style"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/pilgrimage_arbaeen"
-                android:textSize="@dimen/_20ssp"
-                android:visibility="gone" />
+            <!--                <TextView-->
+            <!--                    style="@style/button_style"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="@string/pilgrimage_arbaeen"-->
+            <!--                    android:textSize="@dimen/_20ssp"-->
+            <!--                    android:visibility="gone" />-->
 
         </LinearLayout>
 
@@ -125,80 +130,52 @@
             android:id="@+id/ll_medium_icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginHorizontal="@dimen/main_ll_medium_margin_horizontal"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.65"
+            app:layout_constraintVertical_bias="0.65">
 
-            >
-
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+            <LinearLayout style="@style/main_ll_vertical_style">
 
                 <Button
                     android:id="@+id/btn_salawat_count"
-                    style="@style/main_button_style"
-                    android:background="@drawable/ic_salawat_count"
-
-                    >
-
-                </Button>
+                    style="@style/main_medium_button_style"
+                    android:background="@drawable/ic_salawat_count"></Button>
 
                 <TextView
-                    style="@style/button_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/main_medium_tv_style"
                     android:text="@string/salawat_count" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+            <LinearLayout style="@style/main_ll_vertical_style">
 
                 <Button
                     android:id="@+id/btn_narratives"
-                    style="@style/main_button_style"
+                    style="@style/main_medium_button_style"
                     android:background="@drawable/ic_narrative">
 
                 </Button>
 
                 <TextView
-                    style="@style/button_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/main_medium_tv_style"
                     android:text="@string/narratives" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+            <LinearLayout style="@style/main_ll_vertical_style">
 
                 <Button
                     android:id="@+id/btn_setting"
-                    style="@style/main_button_style"
+                    style="@style/main_medium_button_style"
                     android:background="@drawable/ic_setting">
 
                 </Button>
 
                 <TextView
-                    style="@style/button_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/main_medium_tv_style"
                     android:text="@string/setting" />
 
             </LinearLayout>
@@ -210,48 +187,34 @@
             android:id="@+id/ll_small_icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-
+            android:layout_marginHorizontal="@dimen/main_ll_small_margin_horizontal"
             android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.8">
+            app:layout_constraintVertical_bias="0.85">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+            <LinearLayout style="@style/main_ll_vertical_style">
 
                 <Button
                     android:id="@+id/btn_other_apps"
-                    style="@style/button_style"
+                    style="@style/main_small_button_style"
                     android:background="@drawable/ic_other_app">
 
                 </Button>
 
                 <TextView
-                    style="@style/button_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
+                    style="@style/main_small_tv_style"
                     android:text="@string/other_app" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+            <LinearLayout style="@style/main_ll_vertical_style">
 
                 <Button
                     android:id="@+id/btn_comment"
-                    style="@style/button_style"
+                    style="@style/main_small_button_style"
                     android:background="@drawable/ic_comment"
 
                     >
@@ -259,48 +222,32 @@
                 </Button>
 
                 <TextView
-                    style="@style/button_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
+                    style="@style/main_small_tv_style"
                     android:text="@string/comment" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+            <LinearLayout style="@style/main_ll_vertical_style">
 
                 <Button
                     android:id="@+id/btn_notices"
-                    style="@style/button_style"
-                    android:background="@drawable/ic_hemayat"
+                    style="@style/main_small_button_style"
+                    android:background="@drawable/ic_notices"
 
                     >
 
                 </Button>
 
                 <TextView
-                    style="@style/button_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
+                    style="@style/main_small_tv_style"
                     android:text="@string/notices" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+            <LinearLayout style="@style/main_ll_vertical_style">
 
                 <Button
                     android:id="@+id/btn_share_app"
-                    style="@style/button_style"
+                    style="@style/main_small_button_style"
                     android:background="@drawable/ic_share_app">
 
 
@@ -308,15 +255,11 @@
 
 
                 <TextView
-                    style="@style/button_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
+                    style="@style/main_small_tv_style"
                     android:text="@string/share_app" />
             </LinearLayout>
 
         </LinearLayout>
-
 
         <RelativeLayout
 
@@ -327,8 +270,8 @@
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <com.google.android.material.navigation.NavigationView
 
@@ -339,8 +282,9 @@
         android:background="@drawable/slide_menu_background"
         android:visibility="gone"
         app:headerLayout="@layout/header_layout"
-        app:itemIconTint="#ffffff"
-        app:itemTextColor="#ffffff"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:menu="@menu/navigation_view_menu" />
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -1,15 +1,34 @@
 <resources>
     <string name="app_name">زیارت اربعین(متن و صوت)</string>
 
+
+    <!--MainActivity-->
     <string name="pilgrimage_arbaeen">زیارت اربعین</string>
     <string name="setting">تنظیمات</string>
     <string name="narratives">فضایل و روایات</string>
-    <string name="about_us">درباره ما</string>
+    <string name="salawat_count">ذکرشمار</string>
     <string name="share_app">ارسال برنامه</string>
+    <string name="notices">حمایت</string>
     <string name="other_app">دیگر برنامه ها</string>
     <string name="comment">ثبت نظر</string>
-    <string name="notices">حمایت</string>
+
+
+    <!--Navigation View-->
+    <string name="home_page">صفحه اصلی</string>
+    <string name="about_us">درباره ما</string>
     <string name="exit">خروج</string>
+
+
+
+
+
+
+
+
+
+
+
+
 
     <string name="dialog_exit_title">آیا مایل به خروج از برنامه هستید؟</string>
     <string name="dialog_yes">بله</string>
@@ -47,7 +66,7 @@
 
     <string name="arabic_text">متن عربی</string>
     <string name="persian_text">متن فارسی</string>
-    <string name="home_page">صفحه اصلی</string>
+
     <string name="start_time">0:00</string>
     <string name="homa">هما</string>
     <string name="morvarid">مروارید</string>
@@ -64,7 +83,7 @@
     <string name="need_internet">برای مشاهده این قسمت باید به اینترنت متصل باشید</string>
     <string name="need_install_cafebazaar">جهت ثبت نظر باید برنامه کافه بازار رانصب کنید</string>
     <string name="please_wait">لطفا منتظربمانید</string>
-    <string name="salawat_count">ذکرشمار</string>
+
     <string name="reset">شمارنده صفر شود؟</string>
     <string name="yes_text">بله</string>
     <string name="no_text">نه</string>

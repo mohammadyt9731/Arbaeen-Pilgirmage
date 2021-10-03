@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--MainActivity-->
+    <dimen name="main_tv_title_margin_top">@dimen/_10sdp</dimen>
+    <dimen name="main_tv_title_text_size">@dimen/_35ssp</dimen>
+
+    <dimen name="main_toolbar_elevation">@dimen/_30sdp</dimen>
+    <dimen name="main_cl_toolbar_padding">@dimen/_3sdp</dimen>
+    <dimen name="main_btn_toolbar_width">@dimen/_30sdp</dimen>
+    <dimen name="main_lottie_view_toolbar_width">@dimen/_40sdp</dimen>
+
+    <dimen name="main_fl_container_elevation">@dimen/_20sdp</dimen>
+
+    <dimen name="main_btn_large_width">@dimen/_180sdp</dimen>
+    <dimen name="main_btn_large_height">@dimen/_70sdp</dimen>
+    <dimen name="main_btn_large_text_size">@dimen/_20ssp</dimen>
+
+    <dimen name="main_ll_medium_margin_horizontal">@dimen/_20sdp</dimen>
+    <dimen name="main_btn_medium_width">@dimen/_45sdp</dimen>
+    <dimen name="main_tv_medium_text_size">@dimen/_12ssp</dimen>
+    <dimen name="main_tv_medium_margin_top">@dimen/_5sdp</dimen>
+
+    <dimen name="main_ll_small_margin_horizontal">@dimen/_15sdp</dimen>
+    <dimen name="main_btn_small_width">@dimen/_40sdp</dimen>
+    <dimen name="main_tv_small_text_size">@dimen/_11ssp</dimen>
+    <dimen name="main_tv_small_margin_top">@dimen/_4sdp</dimen>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dimen name="space_very_small">3dp</dimen>
     <dimen name="space_small">5dp</dimen>
     <dimen name="space_medium">10dp</dimen>
