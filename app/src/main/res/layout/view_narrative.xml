@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/_10sdp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_narrative_title"
+        style="@style/tv_narrative_paragraph_style"
+        android:text="@string/narratives"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_narrative_text"
+        style="@style/tv_narrative_paragraph_style"
+        android:text="@string/narratives" />
+
+    <ImageView style="@style/iv_narrative_separator_style" />
+
+</LinearLayout>

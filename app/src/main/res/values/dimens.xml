@@ -28,6 +28,14 @@
 
 
 
+    <!--NarrativesFragment-->
+    <dimen name="tv_header_fragment_text_size">@dimen/_18ssp</dimen>
+    <dimen name="rv_narratives_margin_top">@dimen/_20sdp</dimen>
+    <dimen name="rv_narratives_padding_horizontal">@dimen/_5sdp</dimen>
+    <dimen name="rl_advertising_padding_bottom">@dimen/_5sdp</dimen>
+    <dimen name="tv_narrative_paragraph_text_size">@dimen/_14ssp</dimen>
+    <dimen name="tv_narrative_paragraph_padding">@dimen/_5sdp</dimen>
+    <dimen name="tv_narrative_paragraph_line_space">@dimen/_5sdp</dimen>
 
 
 

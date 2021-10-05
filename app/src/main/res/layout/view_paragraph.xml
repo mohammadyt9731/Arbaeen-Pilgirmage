@@ -24,7 +24,7 @@
 
     <ImageView
         android:id="@+id/iv_separator"
-        style="@style/separator_style"/>
+        style="@style/iv_narrative_separator_style"/>
 
 
 

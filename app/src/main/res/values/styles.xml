@@ -10,9 +10,8 @@
 
     </style>
 
+
     <!--MainActivity-->
-
-
     <style name="main_ll_vertical_style">
 
         <item name="android:layout_width">0dp</item>
@@ -66,6 +65,47 @@
 
     </style>
 
+
+
+    <!--NarrativesFragment-->
+    <style name="tv_header_fragment_style">
+
+        <item name="android:textSize">@dimen/tv_header_fragment_text_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/main_green</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="layout_constraintVertical_bias">0.1</item>
+
+    </style>
+
+    <style name="tv_narrative_paragraph_style">
+
+        <item name="android:textSize">@dimen/tv_narrative_paragraph_text_size</item>
+        <item name="android:padding">@dimen/tv_narrative_paragraph_padding</item>
+        <item name="android:gravity">right</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:lineSpacingExtra">@dimen/tv_narrative_paragraph_line_space</item>
+
+    </style>
+
+    <style name="iv_narrative_separator_style">
+
+        <item name="android:layout_width">@dimen/_200sdp</item>
+        <item name="android:layout_height">@dimen/_25sdp</item>
+        <item name="android:src">@drawable/ic_separator</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+
+
+
+
+
     <style name="banner_style">
 
         <item name="android:gravity">center</item>
@@ -101,17 +141,7 @@
 
     </style>
 
-    <style name="separator_style">
 
-        <item name="android:layout_width">200dp</item>
-        <item name="android:layout_height">20dp</item>
-        <item name="android:background">@drawable/ic_separator</item>
-
-        <item name="android:gravity">center</item>
-        <item name="android:layout_gravity">center</item>
-
-
-    </style>
 
     <style name="switch_style">
 

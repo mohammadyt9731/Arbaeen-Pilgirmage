@@ -27,8 +27,10 @@
     <color name="green_600">#014A4E</color>
     <color name="green_900">#002527</color>
 
-
     <color name="red">#C6190D</color>
+
+
+    <color name="main_green">#324227</color>
 
 
 </resources>
