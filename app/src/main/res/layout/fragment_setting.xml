@@ -36,10 +36,12 @@
                 android:orientation="horizontal">
 
                 <Switch
+                    android:id="@+id/switch_show_translation"
                     style="@style/switch_style"
                     android:text="@string/show_translation" />
 
                 <Switch
+                    android:id="@+id/switch_dark_theme"
                     style="@style/switch_style"
                     android:text="@string/dark_theme" />
 
@@ -55,10 +57,12 @@
                 android:orientation="horizontal">
 
                 <Switch
+                    android:id="@+id/switch_auto_scroll"
                     style="@style/switch_style"
                     android:text="@string/auto_scroll" />
 
                 <Switch
+                    android:id="@+id/switch_show_separator"
                     style="@style/switch_style"
                     android:text="نمایش جدا کننده" />
 
@@ -198,10 +202,10 @@
         <com.google.android.material.slider.Slider
             android:id="@+id/slider_line_spacing"
             style="@style/slider_style"
-            android:valueFrom="0"
-            android:valueTo="10"
+            android:valueFrom="8"
+            android:valueTo="16"
             android:stepSize="1"
-            android:value="1"
+            android:value="10"
             android:layout_width="match_parent"
             app:layout_constraintTop_toBottomOf="@id/slider_persian_text_size" />
 
@@ -218,14 +222,14 @@
             app:layout_constraintTop_toBottomOf="@id/slider_line_spacing">
 
             <TextView
-                android:id="@+id/tv_arabic_text"
+                android:id="@+id/tv_sample_arabic_text"
                 style="@style/arabic_text_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/sample_arabic_text" />
 
             <TextView
-                android:id="@+id/tv_persian_text"
+                android:id="@+id/tv_sample_persian_text"
                 style="@style/persian_text_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

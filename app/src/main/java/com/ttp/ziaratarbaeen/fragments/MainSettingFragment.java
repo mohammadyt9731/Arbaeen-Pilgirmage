@@ -48,7 +48,7 @@ public class MainSettingFragment extends Fragment {
 
         autoScrollSwitch = view.findViewById(R.id.switch_auto_scroll);
         showTranslationSwitch = view.findViewById(R.id.switch_show_translation);
-        showSeparatorSwitch = view.findViewById(R.id.switch_separator);
+        showSeparatorSwitch = view.findViewById(R.id.switch_show_separator);
         darkModeSwitch = view.findViewById(R.id.switch_dark_theme);
 
         tvPersianText = view.findViewById(R.id.tv_sample_persian_text);
@@ -100,7 +100,7 @@ public class MainSettingFragment extends Fragment {
                         setVisibility(isChecked, null);
                         break;
 
-                    case R.id.switch_separator:
+                    case R.id.switch_show_separator:
                         programSetting.setShowSeparator(isChecked);
                         setVisibility(null, isChecked);
                         break;

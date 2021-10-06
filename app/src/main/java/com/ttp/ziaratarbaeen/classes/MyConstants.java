@@ -13,17 +13,44 @@ public class MyConstants {
     //Main Activity
     public static final int LOTTIE_ANIMATION_DELAY = 10000;
 
+
+    //MySharedPreferences
+    public static final String SETTING_KEY="setting";
+    public static final String PROGRAM_SETTING="program_setting";
+
+
+    
+    //Program Setting
+    public static final boolean AUTO_SCROLL =true;
+    public static final boolean SHOW_TRANSLATION =true;
+    public static final boolean SHOW_SEPARATOR =true;
+    public static final boolean DARK_THEME =false;
+
+    public static final int DEFAULT_ARABIC_TEXT_SIZE = 22;
+    public static final int DEFAULT_PERSIAN_TEXT_SIZE = 20;
+
+    public static final int DEFAULT_TEXT_LINE_SPACE = 10;
+
+    public static final int DEFAULT_ARABIC_FONT_ID = R.font.nabi;
+    public static final int DEFAULT_PERSIAN_FONT_ID = R.font.b_nazanin;
+
+
+
+
+
+
+
+
+
+
     public static final int VERSE_NUMBER = 30;
     public static final int ANIMATION_DURATION = 150;
-
-    public static final int DEFAULT_PERSIAN_TEXT_SIZE = 20;
-    public static final int DEFAULT_ARABIC_TEXT_SIZE = 22;
 
     public static final int MAXIMUM_TEXT_SIZE = 28;
     public static final int MINIMUM_TEXT_SIZE = 14;
 
-    public static final int DEFAULT_PERSIAN_LINE_SPACE = 1;
-    public static final int DEFAULT_ARABIC_LINE_SPACE = 1;
+
+
 
     public static final int SEPARATOR_WIDTH = 400;
     public static final int SEPARATOR_HEIGHT = 40;

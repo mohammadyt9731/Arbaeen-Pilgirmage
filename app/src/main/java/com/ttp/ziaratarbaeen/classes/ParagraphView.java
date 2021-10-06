@@ -4,11 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.core.content.res.ResourcesCompat;
@@ -57,12 +55,15 @@ public class ParagraphView {
         tvArabicText.setTextSize(programSetting.getArabicTextSize());
         tvPersianText.setTextSize(programSetting.getPersianTextSize());
 
-        tvArabicText.setLineSpacing(programSetting.getArabicTextLineSpace(), programSetting.getArabicTextLineSpace());
-        tvPersianText.setLineSpacing(programSetting.getPersianTextLineSpace(), programSetting.getPersianTextLineSpace());
+        tvArabicText.setLineSpacing(programSetting.getTextLineSpace(), programSetting.getTextLineSpace());
+        tvPersianText.setLineSpacing(programSetting.getTextLineSpace(), programSetting.getTextLineSpace());
 
         initFonts();
-        setTextStyle(tvArabicText, programSetting.getArabicTextStyle(), arabicFont);
-        setTextStyle(tvPersianText, programSetting.getPersianTextStyle(), persianFont);
+
+        tvArabicText.setTypeface(arabicFont);
+        tvPersianText.setTypeface(arabicFont);
+//        setTextStyle(tvArabicText, programSetting.getArabicTextStyle(), arabicFont);
+//        setTextStyle(tvPersianText, programSetting.getPersianTextStyle(), persianFont);
 
 
         if (!programSetting.isShowTranslation())

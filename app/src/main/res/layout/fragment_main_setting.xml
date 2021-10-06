@@ -18,25 +18,25 @@
             android:orientation="vertical">
 
             <Switch
-                android:id="@+id/switch_auto_scroll"
+
                 style="@style/switch_style"
                 android:text="@string/auto_scroll"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
             <Switch
-                android:id="@+id/switch_dark_theme"
+
                 style="@style/switch_style"
                 android:text="@string/dark_theme"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
             <Switch
-                android:id="@+id/switch_show_translation"
+
                 style="@style/switch_style"
                 android:text="@string/show_translation"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
             <Switch
-                android:id="@+id/switch_separator"
+
                 style="@style/switch_style"
                 android:text="@string/separator"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -51,7 +51,7 @@
                 android:padding="@dimen/space_large">
 
                 <TextView
-                    android:id="@+id/tv_sample_arabic_text"
+
                     style="@style/arabic_text_style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

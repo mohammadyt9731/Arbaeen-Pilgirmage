@@ -97,8 +97,8 @@ public class SalawatCountFragment extends Fragment {
     }
 
     private void initMentionList(){
-        mentionList= MySharedPreference.getInstance(getContext()).getMentionList();
-        if(mentionList.isEmpty()){
+//        mentionList= MySharedPreference.getInstance(getContext()).getMentionList();
+//        if(mentionList.isEmpty()){
 
             mentionList.add(new Mention("صلوات",100,20));
             mentionList.add(new Mention("ذکر روز هفته",100,20));
@@ -110,7 +110,7 @@ public class SalawatCountFragment extends Fragment {
             mentionList.add(new Mention("الحمدالله",100,20));
 
 
-        }
+     //   }
 
 
 

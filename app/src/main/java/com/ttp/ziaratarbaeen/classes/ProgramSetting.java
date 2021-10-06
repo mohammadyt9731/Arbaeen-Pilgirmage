@@ -1,7 +1,6 @@
 package com.ttp.ziaratarbaeen.classes;
 
 import android.content.Context;
-import com.ttp.ziaratarbaeen.R;
 
 public class ProgramSetting {
 
@@ -13,11 +12,7 @@ public class ProgramSetting {
     int arabicTextSize;
     int persianTextSize;
 
-    float arabicTextLineSpace;
-    float persianTextLineSpace;
-
-    String persianTextStyle;
-    String arabicTextStyle;
+    float textLineSpace;
 
     int persianFontId;
     int arabicFontId;
@@ -28,22 +23,19 @@ public class ProgramSetting {
         ProgramSetting savedSetting = MySharedPreference.getInstance(context).getProgramSetting();
 
         if (savedSetting == null) {
-            autoScroll = true;
-            showTranslation = true;
-            showSeparator = true;
-            darkTheme = false;
+
+            autoScroll = MyConstants.AUTO_SCROLL;
+            showTranslation = MyConstants.SHOW_TRANSLATION;
+            showSeparator = MyConstants.SHOW_SEPARATOR;
+            darkTheme = MyConstants.DARK_THEME;
 
             arabicTextSize = MyConstants.DEFAULT_ARABIC_TEXT_SIZE;
             persianTextSize = MyConstants.DEFAULT_PERSIAN_TEXT_SIZE;
 
-            arabicTextLineSpace = MyConstants.DEFAULT_ARABIC_LINE_SPACE;
-            persianTextLineSpace = MyConstants.DEFAULT_PERSIAN_LINE_SPACE;
+            textLineSpace = MyConstants.DEFAULT_TEXT_LINE_SPACE;
 
-            arabicTextStyle = context.getString(R.string.normal);
-            persianTextStyle = context.getString(R.string.normal);
-
-            arabicFontId = R.font.nabi;
-            persianFontId = R.font.b_nazanin;
+            arabicFontId = MyConstants.DEFAULT_ARABIC_FONT_ID;
+            persianFontId = MyConstants.DEFAULT_PERSIAN_FONT_ID;
 
             updateSetting(context);
 
@@ -58,11 +50,7 @@ public class ProgramSetting {
             arabicTextSize = savedSetting.getArabicTextSize();
             persianTextSize = savedSetting.getPersianTextSize();
 
-            arabicTextLineSpace = savedSetting.getArabicTextLineSpace();
-            persianTextLineSpace = savedSetting.getPersianTextLineSpace();
-
-            arabicTextStyle = savedSetting.getArabicTextStyle();
-            persianTextStyle = savedSetting.getPersianTextStyle();
+            textLineSpace = savedSetting.getTextLineSpace();
 
             arabicFontId = savedSetting.getArabicFontId();
             persianFontId = savedSetting.getPersianFontId();
@@ -101,21 +89,11 @@ public class ProgramSetting {
         return persianTextSize;
     }
 
-    public float getPersianTextLineSpace() {
-        return persianTextLineSpace;
+
+    public float getTextLineSpace() {
+        return textLineSpace;
     }
 
-    public float getArabicTextLineSpace() {
-        return arabicTextLineSpace;
-    }
-
-    public String getPersianTextStyle() {
-        return persianTextStyle;
-    }
-
-    public String getArabicTextStyle() {
-        return arabicTextStyle;
-    }
 
     public int getPersianFontId() {
         return persianFontId;
@@ -149,21 +127,9 @@ public class ProgramSetting {
         this.persianTextSize = persianTextSize;
     }
 
-    public void setPersianTextLineSpace(float persianTextLineSpace) {
-        this.persianTextLineSpace = persianTextLineSpace;
-    }
 
-    public void setArabicTextLineSpace(float arabicTextLineSpace) {
-        this.arabicTextLineSpace = arabicTextLineSpace;
-    }
-
-    public void setPersianTextStyle(String persianTextStyle) {
-
-        this.persianTextStyle = persianTextStyle;
-    }
-
-    public void setArabicTextStyle(String arabicTextStyle) {
-        this.arabicTextStyle = arabicTextStyle;
+    public void setTextLineSpace(float textLineSpace) {
+        this.textLineSpace = textLineSpace;
     }
 
     public void setPersianFontId(int persianFontId) {
