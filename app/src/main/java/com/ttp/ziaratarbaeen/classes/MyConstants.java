@@ -29,7 +29,7 @@ public class MyConstants {
     public static final int DEFAULT_ARABIC_TEXT_SIZE = 22;
     public static final int DEFAULT_PERSIAN_TEXT_SIZE = 20;
 
-    public static final int DEFAULT_TEXT_LINE_SPACE = 10;
+    public static final float DEFAULT_TEXT_LINE_SPACE = 1.0f;
 
     public static final int DEFAULT_ARABIC_FONT_ID = R.font.nabi;
     public static final int DEFAULT_PERSIAN_FONT_ID = R.font.b_nazanin;
@@ -37,7 +37,14 @@ public class MyConstants {
 
 
 
+    //SettingFragment
+    public static final int ARABIC_FONT_1=R.font.homa;
+    public static final int ARABIC_FONT_2=R.font.morvarid;
+    public static final int ARABIC_FONT_3=R.font.nabi;
 
+    public static final int PERSIAN_FONT_1 =R.font.b_hamid;
+    public static final int PERSIAN_FONT_2=R.font.b_nazanin;
+    public static final int PERSIAN_FONT_3=R.font.ferdosi;
 
 
 

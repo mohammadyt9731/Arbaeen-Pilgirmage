@@ -30,17 +30,47 @@
 
     <!--NarrativesFragment-->
     <dimen name="tv_header_fragment_text_size">@dimen/_18ssp</dimen>
-    <dimen name="rv_narratives_margin_top">@dimen/_20sdp</dimen>
-    <dimen name="rv_narratives_padding_horizontal">@dimen/_5sdp</dimen>
-    <dimen name="rl_advertising_padding_bottom">@dimen/_5sdp</dimen>
-    <dimen name="tv_narrative_paragraph_text_size">@dimen/_14ssp</dimen>
-    <dimen name="tv_narrative_paragraph_padding">@dimen/_5sdp</dimen>
-    <dimen name="tv_narrative_paragraph_line_space">@dimen/_5sdp</dimen>
+    <dimen name="narratives_rv_margin_top">@dimen/_20sdp</dimen>
+    <dimen name="narratives_rv_padding_horizontal">@dimen/_5sdp</dimen>
+    <dimen name="narratives_rl_advertising_padding_bottom">@dimen/_5sdp</dimen>
+    <dimen name="narrative_tv_paragraph_text_size">@dimen/_14ssp</dimen>
+    <dimen name="narrative_tv_paragraph_padding">@dimen/_5sdp</dimen>
+    <dimen name="narrative_tv_paragraph_line_space">@dimen/_5sdp</dimen>
 
 
 
 
+    <!--SettingFragment-->
+    <dimen name="setting_sv_margin_top">@dimen/_20sdp</dimen>
+    <dimen name="setting_sv_margin_bottom">@dimen/_5sdp</dimen>
+    <dimen name="setting_ll_switch_margin">@dimen/_20sdp</dimen>
+    <dimen name="setting_ll_switch_margin_top">@dimen/_10sdp</dimen>
 
+    <dimen name="setting_rg_font_margin">@dimen/_10sdp</dimen>
+    <dimen name="setting_rg_font_padding">@dimen/_3sdp</dimen>
+    <dimen name="setting_rb_font_text_size">@dimen/_13ssp</dimen>
+
+    <dimen name="setting_tv_guide_font_margin">@dimen/_5sdp</dimen>
+    <dimen name="setting_tv_guide_font_text_size">@dimen/_12ssp</dimen>
+
+    <dimen name="setting_tv_guide_slider_margin_right">@dimen/_15sdp</dimen>
+    <dimen name="setting_tv_guide_slider_text_size">@dimen/_10ssp</dimen>
+
+
+    <dimen name="setting_slider_margin_horizontal">@dimen/_10sdp</dimen>
+    <dimen name="setting_slider_margin_top">@dimen/_10sdp</dimen>
+    <dimen name="setting_slider_thumb_radius">@dimen/_5sdp</dimen>
+
+    <dimen name="setting_ll_sample_paragraph_margin">@dimen/_10sdp</dimen>
+    <dimen name="setting_ll_sample_paragraph_padding">@dimen/_5sdp</dimen>
+
+    <dimen name="setting_tv_sample_arabic_text_size">22sp</dimen>
+    <dimen name="setting_tv_sample_arabic_padding">@dimen/_5sdp</dimen>
+    <dimen name="setting_tv_sample_arabic_padding_top">@dimen/_15sdp</dimen>
+
+    <dimen name="setting_tv_sample_persian_text_size">20sp</dimen>
+    <dimen name="setting_tv_sample_persian_padding">@dimen/_5sdp</dimen>
+    <dimen name="setting_tv_sample_persian_padding_bottom">@dimen/_15sdp</dimen>
 
 
 

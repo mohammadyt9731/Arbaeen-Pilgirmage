@@ -23,8 +23,8 @@ public class ParagraphView {
 
     ProgramSetting programSetting;
 
-    Typeface arabicFont;
-    Typeface persianFont;
+    Typeface tfArabicFont;
+    Typeface tfPersianFont;
 
     Context context;
 
@@ -58,12 +58,12 @@ public class ParagraphView {
         tvArabicText.setLineSpacing(programSetting.getTextLineSpace(), programSetting.getTextLineSpace());
         tvPersianText.setLineSpacing(programSetting.getTextLineSpace(), programSetting.getTextLineSpace());
 
-        initFonts();
 
-        tvArabicText.setTypeface(arabicFont);
-        tvPersianText.setTypeface(arabicFont);
-//        setTextStyle(tvArabicText, programSetting.getArabicTextStyle(), arabicFont);
-//        setTextStyle(tvPersianText, programSetting.getPersianTextStyle(), persianFont);
+        tfArabicFont = ResourcesCompat.getFont(context, programSetting.getArabicFontId());
+        tfPersianFont = ResourcesCompat.getFont(context, programSetting.getArabicFontId());
+
+        tvArabicText.setTypeface(tfArabicFont);
+        tvPersianText.setTypeface(tfPersianFont);
 
 
         if (!programSetting.isShowTranslation())
@@ -79,42 +79,6 @@ public class ParagraphView {
 
     }
 
-    private void initFonts() {
-
-        int arabicFontId = programSetting.getArabicFontId();
-        int persianFontId = programSetting.getPersianFontId();
-
-        switch (arabicFontId) {
-
-            case R.font.homa:
-                arabicFont = ResourcesCompat.getFont(context, R.font.homa);
-                break;
-            case R.font.morvarid:
-                arabicFont = ResourcesCompat.getFont(context, R.font.morvarid);
-                break;
-            case R.font.nabi:
-                arabicFont = ResourcesCompat.getFont(context, R.font.nabi);
-                break;
-            default:
-                arabicFont = ResourcesCompat.getFont(context, R.font.nabi);
-                break;
-        }
-        switch (persianFontId) {
-
-            case R.font.b_hamid:
-                persianFont = ResourcesCompat.getFont(context, R.font.b_hamid);
-                break;
-            case R.font.b_nazanin:
-                persianFont = ResourcesCompat.getFont(context, R.font.b_nazanin);
-                break;
-            case R.font.ferdosi:
-                persianFont = ResourcesCompat.getFont(context, R.font.ferdosi);
-                break;
-            default:
-                persianFont = ResourcesCompat.getFont(context, R.font.b_hamid);
-                break;
-        }
-    }
 
     public void setText(String pilgrimageText, String translationText) {
 
@@ -132,30 +96,6 @@ public class ParagraphView {
         programSetting.setPersianTextSize(persianTextSize);
 
         programSetting.updateSetting(context);
-
-
-    }
-
-    private void setTextStyle(TextView textView, String textStyle, Typeface font) {
-
-        switch (textStyle) {
-
-            case "Normal":
-                textView.setTypeface(font, Typeface.NORMAL);
-                break;
-
-            case "Italic":
-                textView.setTypeface(font, Typeface.ITALIC);
-                break;
-
-            case "Bold":
-                textView.setTypeface(font, Typeface.BOLD);
-                break;
-
-            case "Bold_Italic":
-                textView.setTypeface(font, Typeface.BOLD_ITALIC);
-                break;
-        }
 
 
     }

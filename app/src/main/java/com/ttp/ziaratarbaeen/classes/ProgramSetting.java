@@ -81,6 +81,7 @@ public class ProgramSetting {
         return darkTheme;
     }
 
+
     public int getArabicTextSize() {
         return arabicTextSize;
     }
@@ -126,7 +127,6 @@ public class ProgramSetting {
     public void setPersianTextSize(int persianTextSize) {
         this.persianTextSize = persianTextSize;
     }
-
 
     public void setTextLineSpace(float textLineSpace) {
         this.textLineSpace = textLineSpace;

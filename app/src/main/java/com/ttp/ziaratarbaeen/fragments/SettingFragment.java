@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -20,6 +19,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.slider.Slider;
 import com.ttp.ziaratarbaeen.R;
+import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.classes.ProgramSetting;
 
 public class SettingFragment extends Fragment {
@@ -38,8 +38,8 @@ public class SettingFragment extends Fragment {
     Slider sliderPersianTextSize;
     Slider sliderLineSpacing;
 
-    Typeface arabicFont;
-    Typeface persianFont;
+    Typeface tfArabicFont;
+    Typeface tfPersianFont;
 
     TextView tvSampleArabicText;
     TextView tvSamplePersianText;
@@ -100,9 +100,9 @@ public class SettingFragment extends Fragment {
 
         sliderArabicTextSize.setValue(programSetting.getArabicTextSize());
         sliderPersianTextSize.setValue(programSetting.getPersianTextSize());
-        sliderLineSpacing.setValue(programSetting.getTextLineSpace());
 
-        float lineSpace=programSetting.getTextLineSpace()/10;
+        float lineSpace=programSetting.getTextLineSpace();
+        sliderLineSpacing.setValue(lineSpace);
 
         tvSampleArabicText.setTextSize(programSetting.getArabicTextSize());
         tvSampleArabicText.setLineSpacing(lineSpace, lineSpace);
@@ -137,65 +137,53 @@ public class SettingFragment extends Fragment {
     private void setArabicFont() {
 
         int arabicFontId = programSetting.getArabicFontId();
+        tfArabicFont = ResourcesCompat.getFont(getActivity(), arabicFontId);
+        tvSampleArabicText.setTypeface(tfArabicFont);
+
         RadioButton rbArabicFont;
 
         switch (arabicFontId) {
 
-            case R.font.homa:
-                rbArabicFont = getView().findViewById(R.id.rb_arabic_font1);
-                arabicFont = ResourcesCompat.getFont(getActivity(), R.font.homa);
+            case MyConstants.ARABIC_FONT_2:
+                rbArabicFont = getView().findViewById(R.id.rb_arabic_font_2);
+                break;
 
+            case MyConstants.ARABIC_FONT_3:
+                rbArabicFont = getView().findViewById(R.id.rb_arabic_font_3);
                 break;
-            case R.font.morvarid:
-                rbArabicFont = getView().findViewById(R.id.rb_arabic_font2);
-                arabicFont = ResourcesCompat.getFont(getActivity(), R.font.morvarid);
-                break;
-            case R.font.nabi:
-                rbArabicFont = getView().findViewById(R.id.rb_arabic_font3);
-                arabicFont = ResourcesCompat.getFont(getActivity(), R.font.nabi);
 
-                break;
             default:
-                rbArabicFont = getView().findViewById(R.id.rb_arabic_font1);
-                arabicFont = ResourcesCompat.getFont(getActivity(), R.font.nabi);
+                rbArabicFont = getView().findViewById(R.id.rb_arabic_font_1);
                 break;
-
 
         }
-        tvSampleArabicText.setTypeface(arabicFont);
+
         rbArabicFont.setChecked(true);
 
     }
 
     private void setPersianFont() {
 
-        int PersianFontId = programSetting.getPersianFontId();
+        int persianFontId = programSetting.getPersianFontId();
+        tfPersianFont = ResourcesCompat.getFont(getActivity(),persianFontId);
+        tvSamplePersianText.setTypeface(tfPersianFont);
         RadioButton rbPersianFont;
 
-        switch (PersianFontId) {
+        switch (persianFontId) {
 
-            case R.font.b_hamid:
-                rbPersianFont = getView().findViewById(R.id.rb_persian_font1);
-                persianFont = ResourcesCompat.getFont(getActivity(), R.font.b_hamid);
+            case  MyConstants.PERSIAN_FONT_2:
+                rbPersianFont = getView().findViewById(R.id.rb_persian_font_2);
                 break;
 
-            case R.font.b_nazanin:
-                rbPersianFont = getView().findViewById(R.id.rb_persian_font2);
-                persianFont = ResourcesCompat.getFont(getActivity(), R.font.b_nazanin);
-                break;
-
-            case R.font.ferdosi:
-                rbPersianFont = getView().findViewById(R.id.rb_persian_font3);
-                persianFont = ResourcesCompat.getFont(getActivity(), R.font.ferdosi);
+            case  MyConstants.PERSIAN_FONT_3:
+                rbPersianFont = getView().findViewById(R.id.rb_persian_font_3);
                 break;
 
             default:
-                rbPersianFont = getView().findViewById(R.id.rb_persian_font1);
-                persianFont = ResourcesCompat.getFont(getActivity(), R.font.b_hamid);
+                rbPersianFont = getView().findViewById(R.id.rb_persian_font_1);
                 break;
         }
 
-        tvSamplePersianText.setTypeface(persianFont);
         rbPersianFont.setChecked(true);
     }
 
@@ -236,61 +224,47 @@ public class SettingFragment extends Fragment {
         switchShowSeparator.setOnCheckedChangeListener(checkedChangeListener);
         switchDarkTheme.setOnCheckedChangeListener(checkedChangeListener);
 
-
-        rgPersianFonts.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-
-                switch (radioGroup.getCheckedRadioButtonId()) {
-
-                    case R.id.rb_persian_font1:
-                        persianFont = ResourcesCompat.getFont(getActivity(), R.font.b_hamid);
-                        programSetting.setPersianFontId(R.font.b_hamid);
-                        setPersianFont();
-                        break;
-
-                    case R.id.rb_persian_font2:
-                        persianFont = ResourcesCompat.getFont(getActivity(), R.font.b_nazanin);
-                        programSetting.setPersianFontId(R.font.b_nazanin);
-                        setPersianFont();
-                        break;
-
-                    case R.id.rb_persian_font3:
-                        persianFont = ResourcesCompat.getFont(getActivity(), R.font.ferdosi);
-                        programSetting.setPersianFontId(R.font.ferdosi);
-                        setPersianFont();
-                        break;
-
-                }
-
-            }
-        });
         rgArabicFonts.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
                 switch (radioGroup.getCheckedRadioButtonId()) {
 
-                    case R.id.rb_arabic_font1:
-                        arabicFont = ResourcesCompat.getFont(getActivity(), R.font.homa);
-                        programSetting.setArabicFontId(R.font.homa);
-                        setArabicFont();
+                    case R.id.rb_arabic_font_1:
+                        programSetting.setArabicFontId(MyConstants.ARABIC_FONT_1);
                         break;
 
-                    case R.id.rb_arabic_font2:
-                        arabicFont = ResourcesCompat.getFont(getActivity(), R.font.morvarid);
-                        programSetting.setArabicFontId(R.font.morvarid);
-                        setArabicFont();
+                    case R.id.rb_arabic_font_2:
+                        programSetting.setArabicFontId(MyConstants.ARABIC_FONT_2);
                         break;
 
-                    case R.id.rb_arabic_font3:
-                        arabicFont = ResourcesCompat.getFont(getActivity(), R.font.nabi);
-                        programSetting.setArabicFontId(R.font.nabi);
-                        setArabicFont();
+                    case R.id.rb_arabic_font_3:
+                        programSetting.setArabicFontId(MyConstants.ARABIC_FONT_3);
                         break;
 
                 }
+                setArabicFont();
+            }
+        });
+        rgPersianFonts.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
+                switch (radioGroup.getCheckedRadioButtonId()) {
+
+                    case R.id.rb_persian_font_1:
+                        programSetting.setPersianFontId(MyConstants.PERSIAN_FONT_1);
+                        break;
+
+                    case R.id.rb_persian_font_2:
+                        programSetting.setPersianFontId(MyConstants.PERSIAN_FONT_2);
+                        break;
+
+                    case R.id.rb_persian_font_3:
+                        programSetting.setPersianFontId(MyConstants.PERSIAN_FONT_3);
+                        break;
+                }
+                setPersianFont();
             }
         });
 
@@ -313,10 +287,10 @@ public class SettingFragment extends Fragment {
         sliderLineSpacing.addOnChangeListener(new Slider.OnChangeListener() {
             @Override
             public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
-                float lineSpace = value / 10;
-                programSetting.setTextLineSpace(lineSpace);
-                tvSampleArabicText.setLineSpacing(lineSpace, lineSpace);
-                tvSamplePersianText.setLineSpacing(lineSpace, lineSpace);
+
+                programSetting.setTextLineSpace(value);
+                tvSampleArabicText.setLineSpacing(value, value);
+                tvSamplePersianText.setLineSpacing(value, value);
 
             }
         });

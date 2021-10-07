@@ -1,10 +1,8 @@
 package com.ttp.ziaratarbaeen.classes;
 
 import android.app.Activity;
-import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -17,8 +15,6 @@ import ir.tapsell.plus.TapsellPlus;
 import ir.tapsell.plus.TapsellPlusBannerType;
 import ir.tapsell.plus.model.TapsellPlusAdModel;
 import ir.tapsell.plus.model.TapsellPlusErrorModel;
-import ir.tapsell.sdk.nativeads.TapsellNativeBannerManager;
-import ir.tapsell.sdk.nativeads.TapsellNativeBannerViewManager;
 
 public class MyTapsell {
 
@@ -30,7 +26,7 @@ public class MyTapsell {
 
 
         AdHolder adHolder = TapsellPlus.createAdHolder(
-                activity, containerView, R.layout.native_ad);
+                activity, containerView, R.layout.view_native_ad);
 
             TapsellPlus.requestNativeAd(
                     activity,

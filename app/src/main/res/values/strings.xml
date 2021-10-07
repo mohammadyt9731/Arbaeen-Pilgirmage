@@ -110,6 +110,56 @@
 
 
 
+    <!--SettingFragment-->
+    <string name="auto_scroll">اسکرول خودکار</string>
+    <string name="show_translation">نمایش ترجمه</string>
+    <string name="show_separator">نمایش جداکننده</string>
+    <string name="dark_theme">تم تیره</string>
+
+    <string name="arabic_font_1">هما</string>
+    <string name="arabic_font_2">مروارید</string>
+    <string name="arabic_font_3">نبی</string>
+
+    <string name="persian_font_1">حمید</string>
+    <string name="persian_font_2">نازنین</string>
+    <string name="persian_font_3">فردوسی</string>
+
+    <string name="arabic_font">فونت عربی</string>
+    <string name="arabic_text_size">سایز متن عربی</string>
+    <string name="persian_font">فونت فارسی</string>
+    <string name="persian_text_size">سایز متن فارسی</string>
+    <string name="line_spacing">فاصله بین خطوط</string>
+
+
+    <string name="sample_arabic_text">السَّلاَمُ عَلَى وَلِيِّ اللَّهِ وَ حَبِيبِهِ السَّلاَمُ عَلَى خَلِيلِ اللَّهِ وَ نَجِيبِه</string>
+    <string name="sample_persian_text">سلام بر تو اى ولى خدا و حبيب خاص خدا سلام بر تو اى دوستدار و محبوب و برگزيده خدا</string>
+
+    <string name="select_font">انتخاب فونت</string>
+    <string name="text_style">استایل متن</string>
+    <string name="bold">Bold</string>
+    <string name="italic">Italic</string>
+    <string name="normal">Normal</string>
+    <string name="bold_italic">Bold_Italic</string>
+    <string name="text_size">اندازه متن</string>
+
+    <string name="arabic_text">متن عربی</string>
+    <string name="persian_text">متن فارسی</string>
+
+    <string name="start_time">0:00</string>
+
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="install">Install</string>
+    <string name="b_i">B/I</string>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -130,33 +180,7 @@
 
 
 
-    <string name="auto_scroll">اسکرول خودکار</string>
-    <string name="dark_theme">تم تیره</string>
-    <string name="show_translation">نمایش ترجمه</string>
-    <string name="separator">جداکننه پاراگراف</string>
-    <string name="sample_arabic_text">السَّلاَمُ عَلَى وَلِيِّ اللَّهِ وَ حَبِيبِهِ السَّلاَمُ عَلَى خَلِيلِ اللَّهِ وَ نَجِيبِه</string>
-    <string name="sample_persian_text">سلام بر تو اى ولى خدا و حبيب خاص خدا سلام بر تو اى دوستدار و محبوب و برگزيده خدا</string>
 
-    <string name="select_font">انتخاب فونت</string>
-    <string name="text_style">استایل متن</string>
-    <string name="bold">Bold</string>
-    <string name="italic">Italic</string>
-    <string name="normal">Normal</string>
-    <string name="bold_italic">Bold_Italic</string>
-    <string name="text_size">اندازه متن</string>
-    <string name="line_spacing">فاصله بین خطوط</string>
-
-    <string name="arabic_text">متن عربی</string>
-    <string name="persian_text">متن فارسی</string>
-
-    <string name="start_time">0:00</string>
-    <string name="homa">هما</string>
-    <string name="morvarid">مروارید</string>
-    <string name="nabi">نبی</string>
-    <string name="title">Title</string>
-    <string name="description">Description</string>
-    <string name="install">Install</string>
-    <string name="b_i">B/I</string>
 
     <string name="show_new_videos">مشاهده ویدیو های جدید</string>
     <string name="show_new_banners">مشاهده بنر های جدید</string>

@@ -6,7 +6,6 @@
         <item name="colorPrimaryDark">#182211</item>
         <item name="colorAccent">@color/blue_400</item>
 
-        <item name="fontFamily">@font/yekan</item>
 
     </style>
 
@@ -81,14 +80,14 @@
 
     <style name="tv_narrative_paragraph_style">
 
-        <item name="android:textSize">@dimen/tv_narrative_paragraph_text_size</item>
-        <item name="android:padding">@dimen/tv_narrative_paragraph_padding</item>
+        <item name="android:textSize">@dimen/narrative_tv_paragraph_text_size</item>
+        <item name="android:padding">@dimen/narrative_tv_paragraph_padding</item>
         <item name="android:gravity">right</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:lineSpacingExtra">@dimen/tv_narrative_paragraph_line_space</item>
+        <item name="android:lineSpacingExtra">@dimen/narrative_tv_paragraph_line_space</item>
 
     </style>
 
@@ -106,43 +105,7 @@
 
 
 
-    <style name="banner_style">
-
-        <item name="android:gravity">center</item>
-        <item name="android:layout_marginLeft">@dimen/space_large</item>
-        <item name="android:layout_marginRight">@dimen/space_large</item>
-        <item name="android:layout_marginBottom">@dimen/space_small</item>
-
-
-    </style>
-
-    <style name="arabic_text_style">
-        <item name="android:textSize">20sp</item>
-        <item name="android:paddingTop">15dp</item>
-        <item name="android:paddingBottom">5dp</item>
-        <item name="android:paddingLeft">5dp</item>
-        <item name="android:paddingRight">5dp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">#003E03</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:layout_gravity">center</item>
-    </style>
-
-    <style name="persian_text_style">
-        <item name="android:textSize">18sp</item>
-        <item name="android:paddingTop">5dp</item>
-        <item name="android:paddingBottom">15dp</item>
-        <item name="android:paddingLeft">5dp</item>
-        <item name="android:paddingRight">5dp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">#000000</item>
-        <item name="android:layout_gravity">center</item>
-
-
-    </style>
-
-
-
+    <!--SettingFragment-->
     <style name="switch_style">
 
         <item name="android:layout_width">0dp</item>
@@ -156,6 +119,123 @@
 
 
     </style>
+
+    <style name="rg_font_setting_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/setting_rg_font_margin</item>
+        <item name="android:gravity">center|right</item>
+        <item name="android:background">@drawable/paragraph_background</item>
+        <item name="android:padding">@dimen/setting_rg_font_padding</item>
+        <item name="android:orientation">horizontal</item>
+
+    </style>
+
+    <style name="rb_font_style">
+
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/setting_rb_font_text_size</item>
+        <item name="android:theme">@style/slider_theme</item>
+
+    </style>
+
+    <style name="slider_theme" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+        <item name="colorControlActivated">@color/main_green</item>
+        <item name="colorPrimary">@color/main_green</item>
+
+    </style>
+
+    <style name="tv_guide_font_style">
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/setting_tv_guide_font_margin</item>
+        <item name="android:textSize">@dimen/setting_tv_guide_font_text_size</item>
+        <item name="android:textColor">@color/green_900</item>
+
+    </style>
+
+    <style name="tv_guide_slider_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/setting_tv_guide_slider_margin_right</item>
+        <item name="android:textSize">@dimen/setting_tv_guide_slider_text_size</item>
+        <item name="android:textColor">@color/green_900</item>
+
+    </style>
+
+    <style name="slider_style">
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:theme">@style/slider_theme</item>
+        <item name="android:layout_marginLeft">@dimen/setting_slider_margin_horizontal</item>
+        <item name="android:layout_marginTop">@dimen/setting_slider_margin_top</item>
+        <item name="thumbRadius">@dimen/setting_slider_thumb_radius</item>
+        <item name="tickColor">@android:color/transparent</item>
+    </style>
+
+
+    <style name="arabic_text_style">
+        <item name="android:textSize">@dimen/setting_tv_sample_arabic_text_size</item>
+        <item name="android:paddingTop">@dimen/setting_tv_sample_arabic_padding_top</item>
+        <item name="android:paddingBottom">@dimen/setting_tv_sample_arabic_padding</item>
+        <item name="android:paddingLeft">@dimen/setting_tv_sample_arabic_padding</item>
+        <item name="android:paddingRight">@dimen/setting_tv_sample_arabic_padding</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/dark_green</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:fontFamily">@font/nabi</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="persian_text_style">
+        <item name="android:textSize">@dimen/setting_tv_sample_persian_text_size</item>
+        <item name="android:paddingTop">@dimen/setting_tv_sample_persian_padding</item>
+        <item name="android:paddingBottom">@dimen/setting_tv_sample_persian_padding_bottom</item>
+        <item name="android:paddingLeft">@dimen/setting_tv_sample_persian_padding</item>
+        <item name="android:paddingRight">@dimen/setting_tv_sample_persian_padding</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:fontFamily">@font/b_nazanin</item>
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style name="banner_style">
+
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/space_large</item>
+        <item name="android:layout_marginRight">@dimen/space_large</item>
+        <item name="android:layout_marginBottom">@dimen/space_small</item>
+
+
+    </style>
+
+
+
+
+
+
 
     <style name="title_style">
 
@@ -171,18 +251,7 @@
 
     </style>
 
-    <style name="rb_font_style">
 
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/text_size_medium</item>
-
-        <item name="android:theme">@style/slider_theme</item>
-
-    </style>
 
     <style name="rb_style">
 
@@ -241,73 +310,16 @@
         <item name="android:dividerHeight">1dp</item>
     </style>
 
-    <style name="slider_theme" parent="Theme.MaterialComponents.Light.NoActionBar">
-
-        <item name="colorControlActivated">#385720</item>
-        <item name="colorPrimary">#385720</item>
-
-    </style>
-
-    <style name="slider_style">
-
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:theme">@style/slider_theme</item>
-        <item name="android:layout_marginLeft">@dimen/_10sdp</item>
-        <item name="android:layout_marginRight">@dimen/_10sdp</item>
-        <item name="thumbRadius">@dimen/_5sdp</item>
-        <item name="tickColor">@android:color/transparent</item>
 
 
-    </style>
-
-    <style name="tv_guide_slider_style">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginRight">@dimen/_15sdp</item>
-        <item name="android:textSize">@dimen/_10ssp</item>
-        <item name="android:textColor">@color/green_900</item>
-        <item name="android:layout_marginTop">-5dp</item>
-
-    </style>
-
-    <style name="tv_guide_font_style">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginRight">@dimen/_5sdp</item>
-        <item name="android:textSize">@dimen/_10ssp</item>
-        <item name="android:textColor">@color/green_900</item>
 
 
-    </style>
-
-    <style name="tv_title_page_style">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">@dimen/_50sdp</item>
-        <item name="android:textSize">@dimen/_20ssp</item>
-        <item name="android:textColor">@color/green_900</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:gravity">center</item>
-
-    </style>
-
-    <style name="rg_font_setting_style">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginRight">@dimen/_10sdp</item>
-        <item name="android:layout_marginLeft">@dimen/_10sdp</item>
-        <item name="android:layout_marginTop">@dimen/_10sdp</item>
-        <item name="android:layout_marginBottom">@dimen/_20sdp</item>
-        <item name="android:gravity">center|right</item>
-        <item name="android:background">@drawable/paragraph_background</item>
-        <item name="android:paddingRight">@dimen/_5sdp</item>
-        <item name="android:paddingLeft">@dimen/_5sdp</item>
-
-        <item name="android:orientation">horizontal</item>
 
 
-    </style>
+
+
+
+
 
 
 </resources>

@@ -9,7 +9,7 @@
     <color name="highlight_color">#ffccb3</color>
 
     <color name="dialog_color">#EFFAE3</color>
-    <color name="dark_green">#005104</color>
+
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="brown">#804000</color>
@@ -30,7 +30,7 @@
     <color name="red">#C6190D</color>
 
 
-    <color name="main_green">#324227</color>
-
+    <color name="main_green">#385720</color>
+    <color name="dark_green">#001E02</color>
 
 </resources>
