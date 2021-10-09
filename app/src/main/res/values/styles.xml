@@ -38,7 +38,7 @@
         <item name="android:textSize">@dimen/main_tv_medium_text_size</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginTop">@dimen/main_tv_medium_margin_top</item>
+        <item name="android:layout_marginTop">@dimen/space_small</item>
 
 
     </style>
@@ -59,7 +59,7 @@
         <item name="android:gravity">center</item>
         <item name="android:textSize">@dimen/main_tv_small_text_size</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:layout_marginTop">@dimen/main_tv_small_margin_top</item>
+        <item name="android:layout_marginTop">@dimen/space_small</item>
 
 
     </style>
@@ -74,14 +74,14 @@
         <item name="android:textColor">@color/main_green</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="layout_constraintVertical_bias">0.1</item>
+        <item name="layout_constraintVertical_bias">0.12</item>
 
     </style>
 
     <style name="tv_narrative_paragraph_style">
 
         <item name="android:textSize">@dimen/narrative_tv_paragraph_text_size</item>
-        <item name="android:padding">@dimen/narrative_tv_paragraph_padding</item>
+        <item name="android:padding">@dimen/space_small</item>
         <item name="android:gravity">right</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_gravity">center</item>
@@ -106,16 +106,29 @@
 
 
     <!--SettingFragment-->
+
+    <style name="cv_setting_style">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#FFFCF2</item>
+        <item name="cardCornerRadius">@dimen/space_medium</item>
+        <item name="cardElevation">@dimen/space_medium</item>
+        <item name="strokeWidth">3dp</item>
+        <item name="strokeColor">@color/gold</item>
+
+    </style>
+
+
     <style name="switch_style">
 
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:gravity">center</item>
         <item name="android:layoutDirection">rtl</item>
         <item name="android:textSize">@dimen/_12ssp</item>
         <item name="android:checked">true</item>
         <item name="android:theme">@style/slider_theme</item>
+        <item name="android:gravity">right</item>
+        <item name="android:paddingRight">@dimen/_5sdp</item>
 
 
     </style>
@@ -123,10 +136,7 @@
     <style name="rg_font_setting_style">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_margin">@dimen/setting_rg_font_margin</item>
         <item name="android:gravity">center|right</item>
-        <item name="android:background">@drawable/paragraph_background</item>
-        <item name="android:padding">@dimen/setting_rg_font_padding</item>
         <item name="android:orientation">horizontal</item>
 
     </style>
@@ -150,22 +160,26 @@
 
     </style>
 
-    <style name="tv_guide_font_style">
+<!--    <style name="tv_guide_font_style">-->
 
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginRight">@dimen/setting_tv_guide_font_margin</item>
-        <item name="android:textSize">@dimen/setting_tv_guide_font_text_size</item>
-        <item name="android:textColor">@color/green_900</item>
+<!--        <item name="android:layout_width">wrap_content</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_marginRight">@dimen/space_medium</item>-->
+<!--        <item name="android:textSize">@dimen/setting_tv_guide_font_text_size</item>-->
+<!--        <item name="android:textColor">@color/green_900</item>-->
 
-    </style>
+<!--    </style>-->
 
     <style name="tv_guide_slider_style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginRight">@dimen/setting_tv_guide_slider_margin_right</item>
+        <item name="android:layout_marginRight">@dimen/space_medium</item>
         <item name="android:textSize">@dimen/setting_tv_guide_slider_text_size</item>
-        <item name="android:textColor">@color/green_900</item>
+        <item name="android:textColor">@color/dark_green</item>
+        <item name="android:background">@drawable/switch_background</item>
+        <item name="android:padding">@dimen/space_small</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
 
     </style>
 
@@ -174,8 +188,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:theme">@style/slider_theme</item>
-        <item name="android:layout_marginLeft">@dimen/setting_slider_margin_horizontal</item>
-        <item name="android:layout_marginTop">@dimen/setting_slider_margin_top</item>
+        <item name="android:layout_marginLeft">@dimen/space_very_small</item>
         <item name="thumbRadius">@dimen/setting_slider_thumb_radius</item>
         <item name="tickColor">@android:color/transparent</item>
     </style>
@@ -183,10 +196,10 @@
 
     <style name="arabic_text_style">
         <item name="android:textSize">@dimen/setting_tv_sample_arabic_text_size</item>
-        <item name="android:paddingTop">@dimen/setting_tv_sample_arabic_padding_top</item>
-        <item name="android:paddingBottom">@dimen/setting_tv_sample_arabic_padding</item>
-        <item name="android:paddingLeft">@dimen/setting_tv_sample_arabic_padding</item>
-        <item name="android:paddingRight">@dimen/setting_tv_sample_arabic_padding</item>
+        <item name="android:paddingTop">@dimen/space_small</item>
+        <item name="android:paddingBottom">@dimen/space_small</item>
+        <item name="android:paddingLeft">@dimen/space_small</item>
+        <item name="android:paddingRight">@dimen/space_small</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/dark_green</item>
         <item name="android:layout_gravity">center</item>
@@ -196,10 +209,10 @@
 
     <style name="persian_text_style">
         <item name="android:textSize">@dimen/setting_tv_sample_persian_text_size</item>
-        <item name="android:paddingTop">@dimen/setting_tv_sample_persian_padding</item>
-        <item name="android:paddingBottom">@dimen/setting_tv_sample_persian_padding_bottom</item>
-        <item name="android:paddingLeft">@dimen/setting_tv_sample_persian_padding</item>
-        <item name="android:paddingRight">@dimen/setting_tv_sample_persian_padding</item>
+        <item name="android:paddingTop">@dimen/space_small</item>
+        <item name="android:paddingBottom">@dimen/space_middle</item>
+        <item name="android:paddingLeft">@dimen/space_small</item>
+        <item name="android:paddingRight">@dimen/space_small</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_gravity">center</item>
@@ -253,21 +266,7 @@
 
 
 
-    <style name="rb_style">
 
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/toggle_selector</item>
-        <item name="android:padding">@dimen/space_small</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/text_size_medium</item>
-        <item name="android:layout_margin">@dimen/space_small</item>
-        <item name="android:button">@null</item>
-
-    </style>
 
     <style name="seek_bar_style">
         <item name="backgroundTint">@color/blue_200</item>
@@ -279,7 +278,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:padding">@dimen/space_medium</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
         <item name="android:gravity">center</item>
 
 

@@ -14,7 +14,7 @@
         android:padding="@dimen/space_middle"
         android:text="@string/dialog_exit_title"
         android:textColor="@color/black"
-        android:textSize="@dimen/text_size_medium"
+        android:textSize="@dimen/_14ssp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/iv_exit_icon"

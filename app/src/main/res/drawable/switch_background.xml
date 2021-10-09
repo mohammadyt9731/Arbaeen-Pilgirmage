@@ -3,20 +3,19 @@
     android:shape="rectangle"
     >
 
-    <stroke android:color="@color/black"
-        android:width="2dp"
+    <stroke android:color="@color/gold"
+        android:width="0.1dp"
         />
     <corners
-        android:radius="@dimen/space_3Xlarge"
+        android:radius="@dimen/space_middle"
         />
-    <gradient
-        android:angle="270"
+    <solid
+        android:color="#17385720"
 
-        android:startColor="#E6EFE6"
-        android:centerColor="#D9F8DA"
-        android:endColor="#C6F4C8"
-        />
+        >
 
+
+    </solid>
 
 
 </shape>

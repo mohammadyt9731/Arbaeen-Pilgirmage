@@ -22,27 +22,27 @@
     <Button
         android:layout_marginTop="@dimen/space_3Xlarge"
         android:id="@+id/btn_video_ad"
-        android:layout_width="@dimen/space_250dp"
-        android:layout_height="@dimen/space_70dp"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
         android:text="@string/show_new_videos"
-        android:textSize="@dimen/text_size_xlarge"
+        android:textSize="@dimen/_18sdp"
         style="@style/title_style"
         />
 
     <Button
         android:id="@+id/btn_banner_ad"
         android:layout_marginTop="@dimen/space_middle"
-        android:layout_width="@dimen/space_250dp"
-        android:layout_height="@dimen/space_70dp"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
         android:text="@string/show_new_banners"
-        android:textSize="@dimen/text_size_xlarge"
+        android:textSize="@dimen/_18sdp"
         style="@style/title_style" />
 
     <FrameLayout
         android:layout_marginTop="@dimen/space_Xlarge"
         android:id="@+id/rl_banner_container"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_100dp"
+        android:layout_height="00dp"
         />
 
 

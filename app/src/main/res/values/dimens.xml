@@ -2,124 +2,52 @@
 <resources>
 
     <!--MainActivity-->
-    <dimen name="main_tv_title_margin_top">@dimen/_10sdp</dimen>
     <dimen name="main_tv_title_text_size">@dimen/_35ssp</dimen>
 
-    <dimen name="main_toolbar_elevation">@dimen/_30sdp</dimen>
-    <dimen name="main_cl_toolbar_padding">@dimen/_3sdp</dimen>
     <dimen name="main_btn_toolbar_width">@dimen/_30sdp</dimen>
     <dimen name="main_lottie_view_toolbar_width">@dimen/_40sdp</dimen>
-
-    <dimen name="main_fl_container_elevation">@dimen/_20sdp</dimen>
 
     <dimen name="main_btn_large_width">@dimen/_180sdp</dimen>
     <dimen name="main_btn_large_height">@dimen/_70sdp</dimen>
     <dimen name="main_btn_large_text_size">@dimen/_20ssp</dimen>
 
-    <dimen name="main_ll_medium_margin_horizontal">@dimen/_20sdp</dimen>
     <dimen name="main_btn_medium_width">@dimen/_45sdp</dimen>
     <dimen name="main_tv_medium_text_size">@dimen/_12ssp</dimen>
-    <dimen name="main_tv_medium_margin_top">@dimen/_5sdp</dimen>
 
-    <dimen name="main_ll_small_margin_horizontal">@dimen/_15sdp</dimen>
     <dimen name="main_btn_small_width">@dimen/_40sdp</dimen>
     <dimen name="main_tv_small_text_size">@dimen/_11ssp</dimen>
-    <dimen name="main_tv_small_margin_top">@dimen/_4sdp</dimen>
 
 
 
     <!--NarrativesFragment-->
     <dimen name="tv_header_fragment_text_size">@dimen/_18ssp</dimen>
-    <dimen name="narratives_rv_margin_top">@dimen/_20sdp</dimen>
-    <dimen name="narratives_rv_padding_horizontal">@dimen/_5sdp</dimen>
-    <dimen name="narratives_rl_advertising_padding_bottom">@dimen/_5sdp</dimen>
     <dimen name="narrative_tv_paragraph_text_size">@dimen/_14ssp</dimen>
-    <dimen name="narrative_tv_paragraph_padding">@dimen/_5sdp</dimen>
     <dimen name="narrative_tv_paragraph_line_space">@dimen/_5sdp</dimen>
 
 
-
-
     <!--SettingFragment-->
-    <dimen name="setting_sv_margin_top">@dimen/_20sdp</dimen>
-    <dimen name="setting_sv_margin_bottom">@dimen/_5sdp</dimen>
-    <dimen name="setting_ll_switch_margin">@dimen/_20sdp</dimen>
-    <dimen name="setting_ll_switch_margin_top">@dimen/_10sdp</dimen>
-
-    <dimen name="setting_rg_font_margin">@dimen/_10sdp</dimen>
-    <dimen name="setting_rg_font_padding">@dimen/_3sdp</dimen>
     <dimen name="setting_rb_font_text_size">@dimen/_13ssp</dimen>
-
-    <dimen name="setting_tv_guide_font_margin">@dimen/_5sdp</dimen>
     <dimen name="setting_tv_guide_font_text_size">@dimen/_12ssp</dimen>
+    <dimen name="setting_tv_guide_slider_text_size">@dimen/_12ssp</dimen>
 
-    <dimen name="setting_tv_guide_slider_margin_right">@dimen/_15sdp</dimen>
-    <dimen name="setting_tv_guide_slider_text_size">@dimen/_10ssp</dimen>
-
-
-    <dimen name="setting_slider_margin_horizontal">@dimen/_10sdp</dimen>
-    <dimen name="setting_slider_margin_top">@dimen/_10sdp</dimen>
     <dimen name="setting_slider_thumb_radius">@dimen/_5sdp</dimen>
-
-    <dimen name="setting_ll_sample_paragraph_margin">@dimen/_10sdp</dimen>
-    <dimen name="setting_ll_sample_paragraph_padding">@dimen/_5sdp</dimen>
-
     <dimen name="setting_tv_sample_arabic_text_size">22sp</dimen>
-    <dimen name="setting_tv_sample_arabic_padding">@dimen/_5sdp</dimen>
-    <dimen name="setting_tv_sample_arabic_padding_top">@dimen/_15sdp</dimen>
-
     <dimen name="setting_tv_sample_persian_text_size">20sp</dimen>
-    <dimen name="setting_tv_sample_persian_padding">@dimen/_5sdp</dimen>
-    <dimen name="setting_tv_sample_persian_padding_bottom">@dimen/_15sdp</dimen>
 
 
 
 
 
 
+    <dimen name="space_very_small">@dimen/_3sdp</dimen>
+    <dimen name="space_small">@dimen/_5sdp</dimen>
+    <dimen name="space_medium">@dimen/_10sdp</dimen>
+    <dimen name="space_middle">@dimen/_15sdp</dimen>
+    <dimen name="space_large">@dimen/_20sdp</dimen>
+    <dimen name="space_Xlarge">@dimen/_25sdp</dimen>
+    <dimen name="space_2Xlarge">@dimen/_30sdp</dimen>
+    <dimen name="space_3Xlarge">@dimen/_40sdp</dimen>
 
-
-
-
-
-
-
-
-
-    <dimen name="space_very_small">3dp</dimen>
-    <dimen name="space_small">5dp</dimen>
-    <dimen name="space_medium">10dp</dimen>
-    <dimen name="space_middle">15dp</dimen>
-    <dimen name="space_large">20dp</dimen>
-    <dimen name="space_Xlarge">25dp</dimen>
-    <dimen name="space_2Xlarge">30dp</dimen>
-    <dimen name="space_3Xlarge">40dp</dimen>
-    <dimen name="space_4Xlarge">50dp</dimen>
-
-    <dimen name="space_35dp">35dp</dimen>
-    <dimen name="space_60dp">60dp</dimen>
-    <dimen name="space_70dp">70dp</dimen>
-    <dimen name="space_80dp">80dp</dimen>
-    <dimen name="space_100dp">100dp</dimen>
-    <dimen name="space_110dp">110dp</dimen>
-    <dimen name="space_250dp">250dp</dimen>
-
-
-
-    <dimen name="text_size_small">14sp</dimen>
-    <dimen name="text_size_medium">16sp</dimen>
-    <dimen name="text_size_large">18sp</dimen>
-    <dimen name="text_size_xlarge">20sp</dimen>
-    <dimen name="text_size_2xlarge">22sp</dimen>
-    <dimen name="text_size_3xlarge">30sp</dimen>
-
-
-    <dimen name="minimum_text_size">14sp</dimen>
-    <dimen name="maximum_text_size">32sp</dimen>
-    <dimen name="minimum_line_space">9dp</dimen>
-    <dimen name="maximum_line_space">18dp</dimen>
-    <dimen name="default_persian_text_size">18dp</dimen>
-    <dimen name="default_arabic_text_size">18dp</dimen>
 
 
 </resources>

@@ -16,27 +16,28 @@
 
         />
 
-    <androidx.core.widget.NestedScrollView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/setting_sv_margin_top"
-        android:layout_marginBottom="@dimen/setting_sv_margin_bottom"
-        android:fillViewport="true"
+        android:layout_marginHorizontal="@dimen/space_medium"
+        android:layout_marginTop="@dimen/space_large"
+        android:layout_marginBottom="@dimen/space_small"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_header_setting">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
 
             <LinearLayout
                 android:id="@+id/ll_switch_setting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/setting_ll_switch_margin"
+                android:background="@drawable/paragraph_background"
                 android:orientation="vertical"
-                app:layout_constraintTop_toTopOf="parent">
+                android:padding="@dimen/space_medium">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -60,12 +61,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginTop="@dimen/setting_ll_switch_margin_top"
+                    android:layout_marginTop="@dimen/space_medium"
                     android:layout_weight="1"
                     android:orientation="horizontal">
 
 
                     <Switch
+
                         android:id="@+id/switch_show_separator"
                         style="@style/switch_style"
                         android:text="@string/show_separator" />
@@ -79,151 +81,177 @@
 
             </LinearLayout>
 
-
-            <RadioGroup
-                android:id="@+id/rg_arabic_fonts"
-                style="@style/rg_font_setting_style"
+            <LinearLayout
+                android:id="@+id/ll_fonts"
                 android:layout_width="match_parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_switch_setting">
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/space_very_small"
+                android:paddingVertical="@dimen/space_very_small"
+                android:layout_marginTop="@dimen/space_very_small"
+                android:background="@drawable/paragraph_background"
+                android:orientation="vertical">
 
-                <RadioButton
-                    android:id="@+id/rb_arabic_font_1"
-                    style="@style/rb_font_style"
-                    android:text="@string/arabic_font_1" />
+                <RadioGroup
+                    android:id="@+id/rg_arabic_fonts"
+                    style="@style/rg_font_setting_style"
+                    android:layout_width="match_parent">
 
-                <RadioButton
-                    android:id="@+id/rb_arabic_font_2"
-                    style="@style/rb_font_style"
-                    android:text="@string/arabic_font_2" />
+                    <RadioButton
+                        android:id="@+id/rb_arabic_font_1"
+                        style="@style/rb_font_style"
+                        android:text="@string/arabic_font_1" />
 
-                <RadioButton
-                    android:id="@+id/rb_arabic_font_3"
-                    style="@style/rb_font_style"
-                    android:checked="true"
-                    android:text="@string/arabic_font_3" />
+                    <RadioButton
+                        android:id="@+id/rb_arabic_font_2"
+                        style="@style/rb_font_style"
+                        android:text="@string/arabic_font_2" />
+
+                    <RadioButton
+                        android:id="@+id/rb_arabic_font_3"
+                        style="@style/rb_font_style"
+                        android:checked="true"
+                        android:text="@string/arabic_font_3" />
+                    <View
+                        android:layout_width="0.1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/gold" />
+                    <TextView
+                        android:id="@+id/tv_arabic_font"
+                        style="@style/tv_guide_slider_style"
+                        android:text=" فونت عربی "
+                        app:layout_constraintBottom_toBottomOf="@id/rg_arabic_fonts"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/rg_arabic_fonts"
+
+                        />
+
+                </RadioGroup>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.01dp"
+                    android:background="@color/gold" />
+
+                <RadioGroup
+                    android:id="@+id/rg_persian_fonts"
+                    style="@style/rg_font_setting_style"
+                    android:layout_width="match_parent"
+                    app:layout_constraintTop_toBottomOf="@id/rg_arabic_fonts">
+
+                    <RadioButton
+                        android:id="@+id/rb_persian_font_1"
+                        style="@style/rb_font_style"
+                        android:text="@string/persian_font_1" />
+
+                    <RadioButton
+                        android:id="@+id/rb_persian_font_2"
+                        style="@style/rb_font_style"
+                        android:checked="true"
+                        android:text="@string/persian_font_2" />
+
+                    <RadioButton
+                        android:id="@+id/rb_persian_font_3"
+                        style="@style/rb_font_style"
+                        android:text="@string/persian_font_3" />
+
+
+                    <TextView
+                        android:id="@+id/tv_persian_font"
+                        style="@style/tv_guide_slider_style"
+                        android:text="@string/persian_font"
+                        app:layout_constraintBottom_toBottomOf="@id/rg_persian_fonts"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/rg_persian_fonts" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:paddingVertical="@dimen/space_very_small"
+                android:id="@+id/cl_slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/space_very_small"
+                android:background="@drawable/paragraph_background"
+
+                >
 
                 <TextView
-                    android:id="@+id/tv_arabic_font"
-                    style="@style/tv_guide_font_style"
-                    android:text="@string/arabic_font"
-                    app:layout_constraintBottom_toBottomOf="@id/rg_arabic_fonts"
+                    android:id="@+id/tv_arabic_text_size"
+                    style="@style/tv_guide_slider_style"
+                    android:layout_width="0dp"
+                    android:text="@string/arabic_text_size"
+                    app:layout_constraintBottom_toBottomOf="@id/slider_arabic_text_size"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/rg_arabic_fonts"
+                    app:layout_constraintLeft_toLeftOf="@id/tv_line_spacing"
+                    app:layout_constraintTop_toTopOf="@id/slider_arabic_text_size" />
 
-                    />
-
-            </RadioGroup>
-
-
-            <TextView
-                android:id="@+id/tv_arabic_text_size"
-                style="@style/tv_guide_slider_style"
-                android:text="@string/arabic_text_size"
-                app:layout_constraintBottom_toBottomOf="@id/slider_arabic_text_size"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@id/slider_arabic_text_size" />
-
-            <com.google.android.material.slider.Slider
-                android:id="@+id/slider_arabic_text_size"
-                style="@style/slider_style"
-                android:layout_width="0dp"
-                android:stepSize="1"
-                android:value="22"
-                android:valueFrom="12"
-                android:valueTo="34"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="@id/slider_line_spacing"
-                app:layout_constraintTop_toBottomOf="@id/rg_arabic_fonts" />
-
-
-            <RadioGroup
-                android:id="@+id/rg_persian_fonts"
-                style="@style/rg_font_setting_style"
-                android:layout_width="match_parent"
-                app:layout_constraintTop_toBottomOf="@id/slider_arabic_text_size">
-
-                <RadioButton
-                    android:id="@+id/rb_persian_font_1"
-                    style="@style/rb_font_style"
-                    android:text="@string/persian_font_1" />
-
-                <RadioButton
-                    android:id="@+id/rb_persian_font_2"
-                    style="@style/rb_font_style"
-                    android:checked="true"
-                    android:text="@string/persian_font_2" />
-
-                <RadioButton
-                    android:id="@+id/rb_persian_font_3"
-                    style="@style/rb_font_style"
-                    android:text="@string/persian_font_3" />
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/slider_arabic_text_size"
+                    style="@style/slider_style"
+                    android:layout_width="0dp"
+                    android:stepSize="1"
+                    android:value="22"
+                    android:valueFrom="12"
+                    android:valueTo="34"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="@id/slider_line_spacing"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tv_persian_font"
-                    style="@style/tv_guide_font_style"
-                    android:paddingLeft="@dimen/_10sdp"
-                    android:text="@string/persian_font"
-                    app:layout_constraintBottom_toBottomOf="@id/rg_persian_fonts"
+                    android:id="@+id/tv_persian_text_size"
+                    style="@style/tv_guide_slider_style"
+                    android:layout_width="0dp"
+                    android:text="@string/persian_text_size"
+                    app:layout_constraintBottom_toBottomOf="@id/slider_persian_text_size"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/rg_persian_fonts" />
+                    app:layout_constraintLeft_toLeftOf="@id/tv_line_spacing"
+                    app:layout_constraintTop_toTopOf="@id/slider_persian_text_size" />
 
-            </RadioGroup>
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/slider_persian_text_size"
+                    style="@style/slider_style"
+                    android:layout_width="0dp"
+                    android:stepSize="1"
+                    android:value="20"
+                    android:valueFrom="10"
+                    android:valueTo="32"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="@id/slider_line_spacing"
+                    app:layout_constraintTop_toBottomOf="@id/slider_arabic_text_size" />
+
+                <TextView
+                    android:id="@+id/tv_line_spacing"
+                    style="@style/tv_guide_slider_style"
+                    android:text="@string/line_spacing"
+                    app:layout_constraintBottom_toBottomOf="@id/slider_line_spacing"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/slider_line_spacing" />
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/slider_line_spacing"
+                    style="@style/slider_style"
+                    android:layout_width="0dp"
+                    android:stepSize="0.1"
+                    android:value="1.0"
+                    android:valueFrom="1.0"
+                    android:valueTo="2.0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/tv_line_spacing"
+                    app:layout_constraintTop_toBottomOf="@id/slider_persian_text_size" />
 
 
-            <TextView
-                android:id="@+id/tv_persian_text_size"
-                style="@style/tv_guide_slider_style"
-                android:text="@string/persian_text_size"
-                app:layout_constraintBottom_toBottomOf="@id/slider_persian_text_size"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@id/slider_persian_text_size" />
-
-            <com.google.android.material.slider.Slider
-                android:id="@+id/slider_persian_text_size"
-                style="@style/slider_style"
-                android:layout_width="0dp"
-                android:stepSize="1"
-                android:value="20"
-                android:valueFrom="10"
-                android:valueTo="32"
-                app:layout_constraintRight_toRightOf="@id/slider_line_spacing"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rg_persian_fonts" />
-
-
-            <TextView
-                android:id="@+id/tv_line_spacing"
-                style="@style/tv_guide_slider_style"
-                android:text="@string/line_spacing"
-                app:layout_constraintBottom_toBottomOf="@id/slider_line_spacing"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="@id/slider_line_spacing" />
-
-            <com.google.android.material.slider.Slider
-                android:id="@+id/slider_line_spacing"
-                style="@style/slider_style"
-                android:layout_width="0dp"
-                android:layout_marginTop="0dp"
-                android:stepSize="0.1"
-                android:value="1.0"
-                android:valueFrom="1.0"
-                android:valueTo="2.0"
-                app:layout_constraintRight_toLeftOf="@id/tv_line_spacing"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/slider_persian_text_size" />
-
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:id="@+id/ll_sample_paragraph"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/setting_ll_sample_paragraph_margin"
-                android:layout_marginBottom="@dimen/setting_ll_sample_paragraph_margin"
+                android:layout_marginBottom="@dimen/space_medium"
                 android:background="@drawable/paragraph_background"
                 android:orientation="vertical"
-                android:padding="@dimen/setting_ll_sample_paragraph_padding"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/slider_line_spacing">
+                android:padding="@dimen/space_small">
 
                 <TextView
                     android:id="@+id/tv_sample_arabic_text"
@@ -247,8 +275,8 @@
             </LinearLayout>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

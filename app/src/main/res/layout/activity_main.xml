@@ -21,13 +21,13 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:contentInsetStart="0dp"
-            android:elevation="@dimen/main_toolbar_elevation"
+            android:elevation="@dimen/space_2Xlarge"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/main_cl_toolbar_padding">
+                android:padding="@dimen/space_very_small">
 
                 <Button
                     android:id="@+id/btn_toolbar_advertising"
@@ -76,7 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/main_tv_title_margin_top"
+            android:layout_marginTop="@dimen/space_medium"
             android:fontFamily="@font/nabi"
             android:gravity="center"
             android:text="@string/pilgrimage_arbaeen"
@@ -88,7 +88,7 @@
             android:id="@+id/fl_fragment_container"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:elevation="@dimen/main_fl_container_elevation"
+            android:elevation="@dimen/space_Xlarge"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -130,7 +130,7 @@
             android:id="@+id/ll_medium_icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/main_ll_medium_margin_horizontal"
+            android:layout_marginHorizontal="@dimen/space_2Xlarge"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -187,7 +187,7 @@
             android:id="@+id/ll_small_icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/main_ll_small_margin_horizontal"
+            android:layout_marginHorizontal="@dimen/space_medium"
             android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="4"

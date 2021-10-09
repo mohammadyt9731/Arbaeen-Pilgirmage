@@ -13,8 +13,8 @@
 
     <ImageView
 
-        android:layout_width="@dimen/space_35dp"
-        android:layout_height="@dimen/space_35dp"
+        android:layout_width="@dimen/space_2Xlarge"
+        android:layout_height="@dimen/space_2Xlarge"
         android:layout_marginRight="@dimen/space_small"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -30,7 +30,7 @@
 
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center"
-        android:textSize="@dimen/text_size_2xlarge"
+        android:textSize="@dimen/_22ssp"
         android:textStyle="bold"
         android:textColor="@color/black"
         android:text="@string/ttp" />

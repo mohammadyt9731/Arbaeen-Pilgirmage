@@ -89,8 +89,8 @@
 
         <Button
             android:id="@+id/btn_play"
-            android:layout_width="@dimen/space_4Xlarge"
-            android:layout_height="@dimen/space_4Xlarge"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_marginBottom="@dimen/space_small"
             android:background="@drawable/ic_play"
             app:layout_constraintBottom_toTopOf="@id/seek_bar"
@@ -131,7 +131,7 @@
             android:layout_height="wrap_content"
             android:text="@string/start_time"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size_medium"
+            android:textSize="@dimen/_14ssp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/seek_bar"
             app:layout_constraintLeft_toRightOf="@id/seek_bar"

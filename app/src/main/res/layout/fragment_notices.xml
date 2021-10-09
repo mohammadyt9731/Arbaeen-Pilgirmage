@@ -26,7 +26,7 @@
             android:padding="@dimen/space_medium"
             android:text="@string/notices_title"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size_medium" />
+            android:textSize="@dimen/_14ssp" />
 
         <FrameLayout
             android:id="@+id/first_standard_banner"
@@ -38,19 +38,19 @@
             android:id="@+id/second_standard_banner"
             style="@style/banner_style"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/space_100dp" />
+            android:layout_height="100dp" />
 
         <RelativeLayout
             android:id="@+id/third_standard_banner"
             style="@style/banner_style"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/space_60dp" />
+            android:layout_height="60dp" />
 
         <RelativeLayout
             android:id="@+id/video_banner"
             style="@style/banner_style"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/space_250dp" />
+            android:layout_height="250dp" />
 
     </LinearLayout>
 </ScrollView>
