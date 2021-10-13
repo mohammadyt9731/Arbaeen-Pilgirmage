@@ -50,7 +50,7 @@ public class NarrativesFragment extends Fragment {
 
     private void findViews(View view) {
 
-        rlAdvertising = view.findViewById(R.id.rl_advertising);
+        rlAdvertising = view.findViewById(R.id.rl_ad_narrative);
         rvNarratives = view.findViewById(R.id.rv_narrative);
 
     }

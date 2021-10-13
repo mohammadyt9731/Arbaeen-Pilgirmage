@@ -9,6 +9,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -21,11 +22,15 @@ import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.slider.Slider;
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
+import com.ttp.ziaratarbaeen.classes.MyTapsell;
 import com.ttp.ziaratarbaeen.classes.ProgramSetting;
+
+import ir.tapsell.plus.TapsellPlusBannerType;
 
 public class SettingFragment extends Fragment {
 
     ProgramSetting programSetting;
+
 
     Switch switchAutoScroll;
     Switch switchShowTranslation;
@@ -46,6 +51,8 @@ public class SettingFragment extends Fragment {
     TextView tvSamplePersianText;
     ImageView ivSeparator;
 
+    RelativeLayout rlAdvertising;
+
 
     @Nullable
     @Override
@@ -60,6 +67,13 @@ public class SettingFragment extends Fragment {
         findViews(view);
         init();
         configuration();
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MyTapsell.showStandardBanner(getActivity(), MyConstants.STANDARD_1_AD_ID, rlAdvertising, TapsellPlusBannerType.BANNER_320x50);
 
     }
 
@@ -80,6 +94,8 @@ public class SettingFragment extends Fragment {
         tvSampleArabicText = view.findViewById(R.id.tv_sample_arabic_text);
         tvSamplePersianText = view.findViewById(R.id.tv_sample_persian_text);
         ivSeparator = view.findViewById(R.id.iv_separator);
+
+        rlAdvertising=view.findViewById(R.id.rl_ad_setting);
 
 
     }

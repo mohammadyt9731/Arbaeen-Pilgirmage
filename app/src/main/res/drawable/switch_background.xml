@@ -10,7 +10,7 @@
         android:radius="@dimen/space_middle"
         />
     <solid
-        android:color="#17385720"
+        android:color="#80E8FBD9"
 
         >
 

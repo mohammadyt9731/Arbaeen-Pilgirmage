@@ -5,29 +5,29 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_study"
     android:orientation="vertical">
+
     <TextView
         android:id="@+id/tv_Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/nabi"
         android:gravity="center"
         android:text="@string/pilgrimage_arbaeen"
         android:textColor="@color/black"
         android:textSize="32sp"
-        android:fontFamily="@font/nabi"
-        app:layout_constraintBottom_toTopOf="@id/ll_pilgrimage_text"
-        />
+        app:layout_constraintBottom_toTopOf="@id/ll_pilgrimage_text" />
 
     <LinearLayout
         android:id="@+id/ll_pilgrimage_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:layout_marginLeft="@dimen/space_medium"
-        android:layout_marginBottom="100dp"
         android:layout_marginTop="100dp"
         android:layout_marginRight="@dimen/space_medium"
+        android:layout_marginBottom="100dp"
+        android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
 
 
@@ -58,11 +58,9 @@
 
         android:id="@+id/cl_footer"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:background="@drawable/bg_footer"
+        android:layout_height="wrap_content"
+
         android:layout_margin="5dp"
-        android:paddingLeft="@dimen/space_large"
-        android:paddingRight="@dimen/space_large"
         android:paddingBottom="5dp"
 
         app:layout_constraintBottom_toBottomOf="parent">
@@ -73,27 +71,34 @@
             android:layout_width="@dimen/space_2Xlarge"
             android:layout_height="@dimen/space_2Xlarge"
             android:layout_marginRight="@dimen/space_2Xlarge"
-            android:layout_marginBottom="@dimen/space_middle"
             android:background="@drawable/ic_zoom_in"
-            app:layout_constraintBottom_toTopOf="@id/seek_bar"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/view_bg_footer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_60sdp"
+            android:paddingTop="@dimen/_16sdp"
+            android:src="@drawable/bg_footer_2"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <Button
             android:id="@+id/btn_zoom_out"
             android:layout_width="@dimen/space_2Xlarge"
             android:layout_height="@dimen/space_2Xlarge"
-            android:background="@drawable/ic_zoom_out"
+            android:background="@drawable/ic_zoom_out2"
             app:layout_constraintBottom_toBottomOf="@id/btn_zoom_in"
             app:layout_constraintLeft_toRightOf="@id/btn_play"
             app:layout_constraintRight_toLeftOf="@id/btn_zoom_in" />
 
         <Button
             android:id="@+id/btn_play"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginBottom="@dimen/space_small"
-            android:background="@drawable/ic_play"
-            app:layout_constraintBottom_toTopOf="@id/seek_bar"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:background="@drawable/ic_play2"
+          app:layout_constraintTop_toTopOf="@id/btn_zoom_in"
             app:layout_constraintLeft_toRightOf="@id/btn_stop"
             app:layout_constraintRight_toLeftOf="@id/btn_zoom_out" />
 
@@ -101,7 +106,7 @@
             android:id="@+id/btn_stop"
             android:layout_width="@dimen/space_2Xlarge"
             android:layout_height="@dimen/space_2Xlarge"
-            android:background="@drawable/ic_stop"
+            android:background="@drawable/ic_stop2"
             app:layout_constraintBottom_toBottomOf="@id/btn_zoom_in"
             app:layout_constraintLeft_toRightOf="@id/btn_advertising"
             app:layout_constraintRight_toLeftOf="@id/btn_play" />
@@ -111,16 +116,18 @@
             android:layout_width="@dimen/space_2Xlarge"
             android:layout_height="@dimen/space_2Xlarge"
             android:layout_marginLeft="@dimen/space_2Xlarge"
-            android:background="@drawable/ic_advertising"
+            android:background="@drawable/ic_pause2"
             app:layout_constraintBottom_toBottomOf="@id/btn_zoom_in"
             app:layout_constraintLeft_toLeftOf="parent" />
 
         <SeekBar
             android:id="@+id/seek_bar"
+            style="@style/seek_bar_style"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-           style="@style/seek_bar_style"
+            android:layoutDirection="ltr"
             android:progress="40"
+            android:theme="@style/slider_theme"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/tv_current_time" />

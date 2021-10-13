@@ -45,7 +45,7 @@
     <dimen name="space_middle">@dimen/_15sdp</dimen>
     <dimen name="space_large">@dimen/_20sdp</dimen>
     <dimen name="space_Xlarge">@dimen/_25sdp</dimen>
-    <dimen name="space_2Xlarge">@dimen/_30sdp</dimen>
+    <dimen name="space_2Xlarge">@dimen/_35sdp</dimen>
     <dimen name="space_3Xlarge">@dimen/_40sdp</dimen>
 
 

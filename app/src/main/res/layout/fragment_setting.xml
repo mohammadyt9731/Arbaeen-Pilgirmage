@@ -36,10 +36,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/paragraph_background"
+                android:layoutDirection="ltr"
                 android:orientation="vertical"
                 android:padding="@dimen/space_medium">
 
                 <LinearLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -85,11 +87,12 @@
                 android:id="@+id/ll_fonts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/space_very_small"
-                android:paddingVertical="@dimen/space_very_small"
                 android:layout_marginTop="@dimen/space_very_small"
                 android:background="@drawable/paragraph_background"
-                android:orientation="vertical">
+                android:layoutDirection="ltr"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/space_very_small"
+                android:paddingLeft="@dimen/space_very_small">
 
                 <RadioGroup
                     android:id="@+id/rg_arabic_fonts"
@@ -111,10 +114,7 @@
                         style="@style/rb_font_style"
                         android:checked="true"
                         android:text="@string/arabic_font_3" />
-                    <View
-                        android:layout_width="0.1dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/gold" />
+
                     <TextView
                         android:id="@+id/tv_arabic_font"
                         style="@style/tv_guide_slider_style"
@@ -168,12 +168,12 @@
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:paddingVertical="@dimen/space_very_small"
                 android:id="@+id/cl_slider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/space_very_small"
                 android:background="@drawable/paragraph_background"
+                android:paddingVertical="@dimen/space_very_small"
 
                 >
 
@@ -183,8 +183,8 @@
                     android:layout_width="0dp"
                     android:text="@string/arabic_text_size"
                     app:layout_constraintBottom_toBottomOf="@id/slider_arabic_text_size"
-                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintLeft_toLeftOf="@id/tv_line_spacing"
+                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="@id/slider_arabic_text_size" />
 
                 <com.google.android.material.slider.Slider
@@ -205,8 +205,8 @@
                     android:layout_width="0dp"
                     android:text="@string/persian_text_size"
                     app:layout_constraintBottom_toBottomOf="@id/slider_persian_text_size"
-                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintLeft_toLeftOf="@id/tv_line_spacing"
+                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="@id/slider_persian_text_size" />
 
                 <com.google.android.material.slider.Slider
@@ -273,6 +273,14 @@
 
 
             </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_ad_setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|bottom"
+                android:paddingBottom="@dimen/space_small"
+                />
 
 
         </LinearLayout>

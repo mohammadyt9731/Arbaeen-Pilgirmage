@@ -78,19 +78,19 @@ public class SalawatCountFragment extends Fragment {
 
     private void setUpPopupMenu() {
 
-        Context wrapper = new ContextThemeWrapper(getActivity(), R.style.PopupMenu);
-
-
-        popupMenu=new PopupMenu(wrapper,tvMentionType, Gravity.LEFT);
-        popupMenu.getMenuInflater().inflate(R.menu.popup_menu_mention_type,popupMenu.getMenu());
-
-
-
-        initMentionList();
-
-        for (Mention mention : mentionList){
-            popupMenu.getMenu().add(mention.getMentionName());
-        }
+//        Context wrapper = new ContextThemeWrapper(getActivity(), R.style.PopupMenu);
+//
+//
+//        popupMenu=new PopupMenu(wrapper,tvMentionType, Gravity.LEFT);
+//        popupMenu.getMenuInflater().inflate(R.menu.popup_menu_mention_type,popupMenu.getMenu());
+//
+//
+//
+//        initMentionList();
+//
+//        for (Mention mention : mentionList){
+//            popupMenu.getMenu().add(mention.getMentionName());
+//        }
 
 
 
@@ -100,14 +100,14 @@ public class SalawatCountFragment extends Fragment {
 //        mentionList= MySharedPreference.getInstance(getContext()).getMentionList();
 //        if(mentionList.isEmpty()){
 
-            mentionList.add(new Mention("صلوات",100,20));
-            mentionList.add(new Mention("ذکر روز هفته",100,20));
-            mentionList.add(new Mention("تسبیحات حضرت زهرا (سلام الله علیها)",100,20));
-            mentionList.add(new Mention("لا اله الا الله",100,20));
-            mentionList.add(new Mention("تسبیحات اربئه",100,20));
-            mentionList.add(new Mention("الله اکیر",100,20));
-            mentionList.add(new Mention("سبحان الله",100,20));
-            mentionList.add(new Mention("الحمدالله",100,20));
+//            mentionList.add(new Mention("صلوات",100,20));
+//            mentionList.add(new Mention("ذکر روز هفته",100,20));
+//            mentionList.add(new Mention("تسبیحات حضرت زهرا (سلام الله علیها)",100,20));
+//            mentionList.add(new Mention("لا اله الا الله",100,20));
+//            mentionList.add(new Mention("تسبیحات اربئه",100,20));
+//            mentionList.add(new Mention("الله اکیر",100,20));
+//            mentionList.add(new Mention("سبحان الله",100,20));
+//            mentionList.add(new Mention("الحمدالله",100,20));
 
 
      //   }
@@ -139,16 +139,16 @@ public class SalawatCountFragment extends Fragment {
             }
         });
 
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-
-
-                tvMentionType.setText(menuItem.getTitle());
-                tvMention.setText(menuItem.getTitle());
-                return false;
-            }
-        });
+//        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem menuItem) {
+//
+//
+//                tvMentionType.setText(menuItem.getTitle());
+//                tvMention.setText(menuItem.getTitle());
+//                return false;
+//            }
+//        });
 
 
     }

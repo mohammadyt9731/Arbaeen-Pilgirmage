@@ -127,10 +127,11 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layoutDirection="rtl"
             android:id="@+id/ll_medium_icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/space_2Xlarge"
+            android:layout_marginHorizontal="@dimen/space_Xlarge"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -184,10 +185,11 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layoutDirection="rtl"
             android:id="@+id/ll_small_icon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/space_medium"
+            android:layout_marginHorizontal="@dimen/space_large"
             android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="4"
