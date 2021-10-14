@@ -3,128 +3,106 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_study"
-    android:orientation="vertical">
+    android:background="@drawable/bg_study">
 
     <TextView
-        android:id="@+id/tv_Title"
+        android:id="@+id/tv_title_pilgrimage"
+        style="@style/tv_header_fragment_style"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/nabi"
-        android:gravity="center"
         android:text="@string/pilgrimage_arbaeen"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        app:layout_constraintBottom_toTopOf="@id/ll_pilgrimage_text" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/ll_pilgrimage_text"
+
+    <ScrollView
+        android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/space_medium"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="@dimen/space_medium"
-        android:layout_marginBottom="100dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/space_medium"
+        android:fadeScrollbars="false"
+        android:layoutDirection="ltr"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent">
+        android:paddingHorizontal="@dimen/space_middle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_pilgrimage">
 
 
-        <ScrollView
-            android:id="@+id/scroll_view"
+        <LinearLayout
+            android:id="@+id/ll_pilgrimage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            android:fadeScrollbars="false"
-            android:padding="@dimen/space_small">
-
-
-            <LinearLayout
-                android:id="@+id/ll_pilgrimage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
 
-            </LinearLayout>
+        </LinearLayout>
 
-        </ScrollView>
+    </ScrollView>
 
-    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:id="@+id/cl_footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        android:layout_margin="5dp"
-        android:paddingBottom="5dp"
-
         app:layout_constraintBottom_toBottomOf="parent">
 
+        <LinearLayout
+            android:id="@+id/ll_btn_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/pilgrimage_ll_btn_container_elevation"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/view_bg_footer"
+            app:layout_constraintTop_toTopOf="@id/view_bg_footer"
+            >
 
-        <Button
-            android:id="@+id/btn_zoom_in"
-            android:layout_width="@dimen/space_2Xlarge"
-            android:layout_height="@dimen/space_2Xlarge"
-            android:layout_marginRight="@dimen/space_2Xlarge"
-            android:background="@drawable/ic_zoom_in"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/btn_zoom_in"
+                style="@style/btn_pilgrimage_style"
+                android:background="@drawable/ic_zoom_in"
+
+                />
+
+            <Button
+                android:id="@+id/btn_zoom_out"
+                style="@style/btn_pilgrimage_style"
+                android:background="@drawable/ic_zoom_out2" />
+
+            <Button
+                android:id="@+id/btn_play"
+                style="@style/btn_pilgrimage_style"
+                android:layout_width="@dimen/pilgrimage_btn_large_width"
+                android:layout_height="@dimen/pilgrimage_btn_large_width"
+                android:background="@drawable/ic_play2" />
+
+            <Button
+                android:id="@+id/btn_stop"
+                style="@style/btn_pilgrimage_style"
+                android:background="@drawable/ic_stop2" />
+
+            <Button
+                android:id="@+id/btn_advertising"
+                style="@style/btn_pilgrimage_style"
+                android:background="@drawable/ic_setting2" />
+
+        </LinearLayout>
+
 
         <ImageView
             android:id="@+id/view_bg_footer"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_60sdp"
-            android:paddingTop="@dimen/_16sdp"
-            android:src="@drawable/bg_footer_2"
+            android:layout_height="@dimen/pilgrimage_iv_footer_background_height"
             android:scaleType="fitXY"
+            android:src="@drawable/bg_footer_2"
             app:layout_constraintBottom_toBottomOf="parent" />
 
-        <Button
-            android:id="@+id/btn_zoom_out"
-            android:layout_width="@dimen/space_2Xlarge"
-            android:layout_height="@dimen/space_2Xlarge"
-            android:background="@drawable/ic_zoom_out2"
-            app:layout_constraintBottom_toBottomOf="@id/btn_zoom_in"
-            app:layout_constraintLeft_toRightOf="@id/btn_play"
-            app:layout_constraintRight_toLeftOf="@id/btn_zoom_in" />
-
-        <Button
-            android:id="@+id/btn_play"
-            android:layout_width="@dimen/_35sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:background="@drawable/ic_play2"
-          app:layout_constraintTop_toTopOf="@id/btn_zoom_in"
-            app:layout_constraintLeft_toRightOf="@id/btn_stop"
-            app:layout_constraintRight_toLeftOf="@id/btn_zoom_out" />
-
-        <Button
-            android:id="@+id/btn_stop"
-            android:layout_width="@dimen/space_2Xlarge"
-            android:layout_height="@dimen/space_2Xlarge"
-            android:background="@drawable/ic_stop2"
-            app:layout_constraintBottom_toBottomOf="@id/btn_zoom_in"
-            app:layout_constraintLeft_toRightOf="@id/btn_advertising"
-            app:layout_constraintRight_toLeftOf="@id/btn_play" />
-
-        <Button
-            android:id="@+id/btn_advertising"
-            android:layout_width="@dimen/space_2Xlarge"
-            android:layout_height="@dimen/space_2Xlarge"
-            android:layout_marginLeft="@dimen/space_2Xlarge"
-            android:background="@drawable/ic_pause2"
-            app:layout_constraintBottom_toBottomOf="@id/btn_zoom_in"
-            app:layout_constraintLeft_toLeftOf="parent" />
-
         <SeekBar
-            android:id="@+id/seek_bar"
-            style="@style/seek_bar_style"
+            android:id="@+id/seek_bar_pilgrimage_time"
+            style="@style/slider_style"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/space_medium"
             android:layoutDirection="ltr"
             android:progress="40"
             android:theme="@style/slider_theme"
@@ -136,12 +114,13 @@
             android:id="@+id/tv_current_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/space_medium"
             android:text="@string/start_time"
             android:textColor="@color/black"
-            android:textSize="@dimen/_14ssp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/seek_bar"
-            app:layout_constraintLeft_toRightOf="@id/seek_bar"
+            android:textSize="@dimen/pilgrimage_tv_current_time_text_size"
+            app:layout_constraintBottom_toBottomOf="@id/seek_bar_pilgrimage_time"
+            app:layout_constraintLeft_toRightOf="@id/seek_bar_pilgrimage_time"
             app:layout_constraintRight_toRightOf="@id/cl_footer" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

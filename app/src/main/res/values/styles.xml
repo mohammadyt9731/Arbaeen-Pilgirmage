@@ -75,7 +75,8 @@
         <item name="android:textColor">@color/main_green</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="layout_constraintVertical_bias">0.12</item>
+        <item name="layout_constraintVertical_bias">0.1</item>
+        <item name="fontFamily">@font/nabi</item>
 
     </style>
 
@@ -163,16 +164,6 @@
 
     </style>
 
-<!--    <style name="tv_guide_font_style">-->
-
-<!--        <item name="android:layout_width">wrap_content</item>-->
-<!--        <item name="android:layout_height">wrap_content</item>-->
-<!--        <item name="android:layout_marginRight">@dimen/space_medium</item>-->
-<!--        <item name="android:textSize">@dimen/setting_tv_guide_font_text_size</item>-->
-<!--        <item name="android:textColor">@color/green_900</item>-->
-
-<!--    </style>-->
-
     <style name="tv_guide_slider_style">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -231,6 +222,16 @@
 
 
 
+    <!--PilgrimageFragment-->
+    <style name="btn_pilgrimage_style">
+
+        <item name="android:layout_width">@dimen/pilgrimage_btn_medium_width</item>
+        <item name="android:layout_height">@dimen/pilgrimage_btn_medium_width</item>
+        <item name="android:layout_marginLeft">@dimen/space_small</item>
+        <item name="android:layout_marginRight">@dimen/space_small</item>
+
+
+    </style>
 
 
 
@@ -273,10 +274,6 @@
 
 
 
-    <style name="seek_bar_style">
-        <item name="backgroundTint">@color/blue_200</item>
-        <item name="android:progressTint">@color/blue_900</item>
-    </style>
 
     <style name="exit_dialog_item_style">
         <item name="android:layout_width">0dp</item>

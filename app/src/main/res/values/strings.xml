@@ -134,19 +134,16 @@
     <string name="sample_arabic_text">السَّلاَمُ عَلَى وَلِيِّ اللَّهِ وَ حَبِيبِهِ السَّلاَمُ عَلَى خَلِيلِ اللَّهِ وَ نَجِيبِه</string>
     <string name="sample_persian_text">سلام بر تو اى ولى خدا و حبيب خاص خدا سلام بر تو اى دوستدار و محبوب و برگزيده خدا</string>
 
-    <string name="select_font">انتخاب فونت</string>
-    <string name="text_style">استایل متن</string>
-    <string name="bold">Bold</string>
-    <string name="italic">Italic</string>
-    <string name="normal">Normal</string>
-    <string name="bold_italic">Bold_Italic</string>
-    <string name="text_size">اندازه متن</string>
 
-    <string name="arabic_text">متن عربی</string>
-    <string name="persian_text">متن فارسی</string>
 
+    <!--PilgrimageFragment-->
     <string name="start_time">0:00</string>
 
+
+
+
+
+    <!--ViewNativeAd-->
     <string name="title">Title</string>
     <string name="description">Description</string>
     <string name="install">Install</string>

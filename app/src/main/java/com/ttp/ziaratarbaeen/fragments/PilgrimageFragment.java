@@ -93,7 +93,8 @@ public class PilgrimageFragment extends Fragment {
         btnPlayPause = view.findViewById(R.id.btn_play);
         btnStop = view.findViewById(R.id.btn_stop);
         btnAdvertising = view.findViewById(R.id.btn_advertising);
-        seekBar = view.findViewById(R.id.seek_bar);
+
+        seekBar = view.findViewById(R.id.seek_bar_pilgrimage_time);
         tvCurrentTime = view.findViewById(R.id.tv_current_time);
 
     }
@@ -324,7 +325,7 @@ public class PilgrimageFragment extends Fragment {
     private void reset() {
 
         setCurrentParagraph( MyConstants.VERSE_NUMBER + 1);
-        btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_play));
+        btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_play2));
 
         if (mpPilgrimage.isPlaying()) {
             mpPilgrimage.pause();
@@ -338,11 +339,11 @@ public class PilgrimageFragment extends Fragment {
 
         if (mpPilgrimage.isPlaying()) {
 
-            btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_play));
+            btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_play2));
             mpPilgrimage.pause();
         } else {
 
-            btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_pause));
+            btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_pause2));
             mpPilgrimage.start();
 
         }
