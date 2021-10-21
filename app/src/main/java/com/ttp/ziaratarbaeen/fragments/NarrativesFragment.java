@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.classes.MyTapsell;
-import com.ttp.ziaratarbaeen.classes.NarrativeAdapter;
+import com.ttp.ziaratarbaeen.adapter.NarrativeAdapter;
 
 import ir.tapsell.plus.TapsellPlusBannerType;
 

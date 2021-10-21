@@ -1,7 +1,5 @@
 package com.ttp.ziaratarbaeen.fragments;
 
-import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,8 +9,6 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,48 +17,37 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ttp.ziaratarbaeen.R;
+import com.ttp.ziaratarbaeen.adapter.PilgrimageAdapter;
 import com.ttp.ziaratarbaeen.classes.ArbaeenMediaPlayer;
+import com.ttp.ziaratarbaeen.classes.LinearLayoutManagerWithSmoothScroller;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
-import com.ttp.ziaratarbaeen.classes.ParagraphView;
-import com.ttp.ziaratarbaeen.classes.ProgramSetting;
 import com.ttp.ziaratarbaeen.classes.MyTapsell;
+import com.ttp.ziaratarbaeen.classes.ProgramSetting;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class PilgrimageFragment extends Fragment {
 
-
-    int arabicTextSize;
-    int persianTextSize;
-
-    boolean autoScroll = false;
-    boolean darkTheme = false;
-
-    ParagraphView[]paragraphViews;
-    ProgramSetting programSetting;
-
-    String[] arabicTexts;
-    String[] persianTexts;
-
-    LinearLayout linearLayout;
-    ScrollView scrollView;
-
-    Button btnZoomIn;
-    Button btnZoomOut;
-    Button btnPlayPause;
-    Button btnStop;
-    Button btnAdvertising;
-
-    SeekBar seekBar;
-    TextView tvCurrentTime;
-
-    Animation zoomInOutAnimation;
-    MediaPlayer mpPilgrimage;
-    Timer timer;
-    View.OnClickListener tvListener;
+    public static MediaPlayer mpPilgrimage;
+    RecyclerView rvPilgrimage;
+    PilgrimageAdapter pilgrimageAdapter;
+    private ProgramSetting programSetting;
+    private int arabicTextSize;
+    private int persianTextSize;
+    private boolean autoScroll = false;
+    private Button btnZoomIn;
+    private Button btnZoomOut;
+    public static Button btnPlayPause;
+    private Button btnStop;
+    private Button btnAdvertising;
+    private SeekBar seekBar;
+    private TextView tvCurrentTime;
+    private Animation scaleAnimation;
 
     @Nullable
     @Override
@@ -77,16 +62,12 @@ public class PilgrimageFragment extends Fragment {
 
         findViews(view);
         configuration();
-        createDynamicViews();
         setOnClick();
         startTimer();
 
     }
 
     private void findViews(View view) {
-
-        scrollView = view.findViewById(R.id.scroll_view);
-        linearLayout = view.findViewById(R.id.ll_pilgrimage);
 
         btnZoomIn = view.findViewById(R.id.btn_zoom_in);
         btnZoomOut = view.findViewById(R.id.btn_zoom_out);
@@ -97,56 +78,54 @@ public class PilgrimageFragment extends Fragment {
         seekBar = view.findViewById(R.id.seek_bar_pilgrimage_time);
         tvCurrentTime = view.findViewById(R.id.tv_current_time);
 
+        rvPilgrimage = view.findViewById(R.id.rv_pilgrimage);
+
     }
 
     private void configuration() {
 
         init();
         applySetting();
-
+        setUpList();
     }
-
 
     private void init() {
 
         programSetting = new ProgramSetting(getActivity());
 
-        arabicTexts = getResources().getStringArray(R.array.pilgrimage_text);
-        persianTexts = getResources().getStringArray(R.array.translation_text);
-
-        paragraphViews=new ParagraphView[MyConstants.VERSE_NUMBER];
-
-        zoomInOutAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.zoom_in_out_animation);
-        zoomInOutAnimation.setDuration(MyConstants.ANIMATION_DURATION);
+        scaleAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.animation_scale);
 
         mpPilgrimage = ArbaeenMediaPlayer.getMediaPlayer(getActivity());
         seekBar.setMax(mpPilgrimage.getDuration());
 
-        tvListener = new View.OnClickListener() {
-            @SuppressLint("ResourceAsColor")
-            @Override
-            public void onClick(View v) {
+    }
+
+    private void applySetting() {
+
+        arabicTextSize = programSetting.getArabicTextSize();
+        persianTextSize = programSetting.getPersianTextSize();
+
+        autoScroll = programSetting.isAutoScroll();
+    }
+
+    private void setUpList() {
+
+        pilgrimageAdapter = new PilgrimageAdapter(getActivity());
+        rvPilgrimage.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rvPilgrimage.setAdapter(pilgrimageAdapter);
+    }
 
 
-                int position = 1;
+    private String convertMilliSecondToMinute(int progress) {
+
+        int second = (progress / 1000) % 60;
+        int minute = (progress / 1000) / 60;
+
+        return minute + ":" + (second < 10 ? "0" + second : second);
+    }
 
 
-                for (int i = 0; i < paragraphViews.length; i++) {
-                    TextView tvPilgrimage = paragraphViews[i].getTvArabicText();
-                    if (tvPilgrimage == v) {
-                        tvPilgrimage.setTextColor(Color.RED);
-                        position = ArbaeenMediaPlayer.getCurrentPosition(i);
-                    } else
-                        tvPilgrimage.setTextColor(getResources().getColor(R.color.black));
-                }
-
-
-                mpPilgrimage.seekTo(position * 1000);
-
-                if (!mpPilgrimage.isPlaying())
-                    changeState();
-            }
-        };
+    private void setOnClick() {
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -156,72 +135,50 @@ public class PilgrimageFragment extends Fragment {
                     reset();
 
                 else {
-                    tvCurrentTime.setText(convertSecondToMinute(progress));
+                    tvCurrentTime.setText(convertMilliSecondToMinute(progress));
+
+                    int currentIndex;
+
                     if (userChangeProgress) {
                         mpPilgrimage.seekTo(seekBar.getProgress());
-                        setCurrentParagraph(ArbaeenMediaPlayer.getIndex(seekBar.getProgress() / 1000));
+                        currentIndex = ArbaeenMediaPlayer.getIndex(seekBar.getProgress() / 1000);
+                    } else
+                        currentIndex = ArbaeenMediaPlayer.getCurrentIndex(seekBar.getProgress() / 1000);
+
+
+                    if (currentIndex != -1) {
+
+                        pilgrimageAdapter.update(currentIndex);
+
+                        if (autoScroll) {
+                            rvPilgrimage.setLayoutManager(new LinearLayoutManagerWithSmoothScroller(getContext()));
+                            rvPilgrimage.scrollToPosition(currentIndex);
+                        }
+
                     }
+
+
                 }
             }
 
+
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
-
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
-    }
-
-    private void applySetting() {
-
-        arabicTextSize = programSetting.getArabicTextSize();
-        persianTextSize = programSetting.getPersianTextSize();
-
-        autoScroll = programSetting.isAutoScroll();
-        darkTheme = programSetting.isDarkTheme();
-
-        if (darkTheme) {
-            scrollView.setBackground(getActivity().getDrawable(R.drawable.dark_theme_background));
-        }
-    }
-
-    private String convertSecondToMinute(int progress) {
-
-        int second = (progress / 1000) % 60;
-        int minute = (progress / 1000) / 60;
-
-        return minute + ":" + (second < 10 ? "0" + String.valueOf(second) : String.valueOf(second));
-    }
-
-    private void createDynamicViews() {
-
-        for (int i = 0; i < paragraphViews.length; i++) {
-
-            paragraphViews[i] = new ParagraphView(getActivity());
-            paragraphViews[i].setText(arabicTexts[i], persianTexts[i]);
-            paragraphViews[i].getTvArabicText().setOnClickListener(tvListener);
-
-            linearLayout.addView(paragraphViews[i].getRootView());
-
-        }
-    }
-
-    private void setOnClick() {
-
 
         btnZoomIn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                zoomAnimate(v);
-                if (arabicTextSize == MyConstants.MAXIMUM_TEXT_SIZE) {
-                    Toast.makeText(getActivity(), "حداکثر اندازه متن انتخاب شده است", Toast.LENGTH_SHORT).show();
+                scaleAnimate(v);
+                if (arabicTextSize >= MyConstants.MAXIMUM_TEXT_SIZE) {
+                    Toast.makeText(getActivity(), getString(R.string.max_text_size_selected), Toast.LENGTH_SHORT).show();
                 } else
                     setTextSize(++arabicTextSize, ++persianTextSize);
             }
@@ -231,9 +188,9 @@ public class PilgrimageFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                zoomAnimate(v);
-                if (arabicTextSize == MyConstants.MINIMUM_TEXT_SIZE) {
-                    Toast.makeText(getActivity(), "حداقل اندازه متن انتخاب شده است", Toast.LENGTH_SHORT).show();
+                scaleAnimate(v);
+                if (arabicTextSize <= MyConstants.MINIMUM_TEXT_SIZE) {
+                    Toast.makeText(getActivity(), getString(R.string.min_text_size_selected), Toast.LENGTH_SHORT).show();
                 } else
                     setTextSize(--arabicTextSize, --persianTextSize);
             }
@@ -243,9 +200,8 @@ public class PilgrimageFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                zoomAnimate(v);
+                scaleAnimate(v);
                 changeState();
-
             }
         });
 
@@ -253,7 +209,7 @@ public class PilgrimageFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                zoomAnimate(v);
+                scaleAnimate(v);
                 reset();
             }
         });
@@ -261,70 +217,45 @@ public class PilgrimageFragment extends Fragment {
         btnAdvertising.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                zoomAnimate(view);
-                MyTapsell.showInterstitialAd(getActivity(),MyConstants.Interstitial_AD_ID);
+                scaleAnimate(view);
+                MyTapsell.showInterstitialAd(getActivity(), MyConstants.Interstitial_AD_ID);
             }
         });
-
-
     }
 
     private void startTimer() {
 
-        timer = new Timer();
-
+        Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
 
                 if (mpPilgrimage.isPlaying()) {
-                    int currentPosition = mpPilgrimage.getCurrentPosition() / 1000;
 
                     seekBar.setProgress(mpPilgrimage.getCurrentPosition());
-
-                    if (currentPosition == mpPilgrimage.getDuration() / 1000) {
-                        reset();
-                        return;
-                    }
-
-                    int currentIndex = ArbaeenMediaPlayer.getCurrentIndex(currentPosition);
-                    if (currentIndex != -1)
-                        setCurrentParagraph(currentIndex);
                 }
             }
         }, 0, 1000);
 
     }
 
-    private void setTextSize(int textSize, int transTextSize) {
+    private void setTextSize(int arabicTextSize, int persianTextSize) {
 
-        for (ParagraphView paragraphView : paragraphViews) {
-            paragraphView.setTextSize(textSize, transTextSize);
-        }
+
+        programSetting.setArabicTextSize(arabicTextSize);
+        programSetting.setPersianTextSize(persianTextSize);
+        programSetting.updateSetting(getContext());
+        pilgrimageAdapter.updateView();
+
     }
 
-    private void setCurrentParagraph(int index) {
+    private void scaleAnimate(View view) {
 
-        for (int i = 0; i < paragraphViews.length; i++) {
-
-            TextView tvPilgrimage = paragraphViews[i].getTvArabicText();
-            if (i == index) {
-                tvPilgrimage.setTextColor(Color.RED);
-                if (autoScroll)
-                    scrollView.smoothScrollTo(0, (paragraphViews[i].getRootView().getTop() - 100));
-            } else
-                tvPilgrimage.setTextColor(getResources().getColor(R.color.black));
-        }
-    }
-
-    private void zoomAnimate(View view) {
-
-        view.startAnimation(zoomInOutAnimation);
+        view.startAnimation(scaleAnimation);
     }
 
     private void reset() {
 
-        setCurrentParagraph( MyConstants.VERSE_NUMBER + 1);
         btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_play2));
 
         if (mpPilgrimage.isPlaying()) {

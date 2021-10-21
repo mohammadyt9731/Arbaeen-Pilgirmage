@@ -138,6 +138,8 @@
 
     <!--PilgrimageFragment-->
     <string name="start_time">0:00</string>
+    <string name="max_text_size_selected">حداکثر اندازه متن انتخاب شده است</string>
+    <string name="min_text_size_selected">حداقل اندازه متن انتخاب شده است</string>
 
 
 
@@ -193,7 +195,7 @@
 
 
 
-    <array name="pilgrimage_text">
+    <array name="arabic_text_list">
 
         <item>بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</item>
         <item>السَّلاَمُ عَلَى وَلِيِّ اللَّهِ وَ حَبِيبِهِ السَّلاَمُ عَلَى خَلِيلِ اللَّهِ وَ
@@ -278,7 +280,7 @@
 
     </array>
 
-    <array name="translation_text">
+    <array name="persian_text_list">
         <item>به نام خدا که رحتمش بی اندازه است و مهربانی اش همیگشی</item>
         <item>سلام بر تو اى ولى خدا و حبيب خاص خدا سلام بر تو اى دوستدار و محبوب و برگزيده خدا
         </item>

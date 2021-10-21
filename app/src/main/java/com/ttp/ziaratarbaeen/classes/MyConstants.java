@@ -49,18 +49,13 @@ public class MyConstants {
 
 
 
-
-    public static final int VERSE_NUMBER = 30;
-    public static final int ANIMATION_DURATION = 150;
-
+    //PilgrimageFragment
     public static final int MAXIMUM_TEXT_SIZE = 28;
     public static final int MINIMUM_TEXT_SIZE = 14;
 
 
 
 
-    public static final int SEPARATOR_WIDTH = 400;
-    public static final int SEPARATOR_HEIGHT = 40;
 
     public static final String TAPSELL_KEY = "eidqinttshkgrmaferdbgcbomfmkoctfaeisbcacrjhdlteafdjiebrmbpltkmlfpehqnt";
 

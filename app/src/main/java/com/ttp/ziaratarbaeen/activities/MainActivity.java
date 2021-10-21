@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         exitDialog = new ExitDialog(MainActivity.this);
         advertisingDialog = new AdvertisingDialog(MainActivity.this);
 
-        scaleAnimation= AnimationUtils.loadAnimation(this,R.anim.scale_animation);
+        scaleAnimation= AnimationUtils.loadAnimation(this,R.anim.animation_scale);
 
 
 

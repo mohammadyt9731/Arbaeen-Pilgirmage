@@ -33,8 +33,6 @@ public class ParagraphView {
         this.context = context;
 
         findViews();
-
-
         applySetting(context);
     }
 

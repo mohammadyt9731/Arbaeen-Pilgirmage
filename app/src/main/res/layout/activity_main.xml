@@ -283,7 +283,7 @@
         android:layout_gravity="right"
         android:background="@drawable/slide_menu_background"
         android:visibility="gone"
-        app:headerLayout="@layout/header_layout"
+        app:headerLayout="@layout/view_header_navigation_view"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
         app:menu="@menu/navigation_view_menu" />

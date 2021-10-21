@@ -14,30 +14,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_pilgrimage"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/space_medium"
-        android:fadeScrollbars="false"
+        android:layout_marginTop="@dimen/space_middle"
         android:layoutDirection="ltr"
-        android:orientation="vertical"
-        android:paddingHorizontal="@dimen/space_middle"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="false"
+        android:paddingHorizontal="@dimen/space_small"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title_pilgrimage">
-
-
-        <LinearLayout
-            android:id="@+id/ll_pilgrimage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-
-        </LinearLayout>
-
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@id/tv_title_pilgrimage"/>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
