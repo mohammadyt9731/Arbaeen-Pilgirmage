@@ -13,20 +13,27 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
 
+        super.onCreate();
+        initTapsell();
+
+    }
+
+    private void initTapsell(){
+
         TapsellPlus.initialize(this, MyConstants.TAPSELL_KEY,
                 new TapsellPlusInitListener() {
                     @Override
                     public void onInitializeSuccess(AdNetworks adNetworks) {
-                        Log.d("onInitializeSuccess", adNetworks.name());
                     }
 
                     @Override
-                    public void onInitializeFailed(AdNetworks adNetworks,
-                                                   AdNetworkError adNetworkError) {
-                        Log.e("onInitializeFailed", "ad network: " + adNetworks.name() + ", error: " +	adNetworkError.getErrorMessage());
+                    public void onInitializeFailed(AdNetworks adNetworks,AdNetworkError adNetworkError) {
+
                     }
                 });
         TapsellPlus.setGDPRConsent(this, true);
-        super.onCreate();
+
+
     }
+
 }

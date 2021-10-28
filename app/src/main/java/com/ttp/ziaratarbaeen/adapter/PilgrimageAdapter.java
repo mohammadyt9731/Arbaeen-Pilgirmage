@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.ArbaeenMediaPlayer;
 import com.ttp.ziaratarbaeen.classes.ProgramSetting;
 import com.ttp.ziaratarbaeen.fragments.PilgrimageFragment;
+import com.ttp.ziaratarbaeen.interfaces.CallBackStartMedia;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,13 +30,19 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
     ArrayList<String> arabicTextList;
     ArrayList<String> persianTextList;
 
+    private MediaPlayer mpPilgrimage;
     ProgramSetting programSetting;
+
     Context context;
+    CallBackStartMedia callBackStartMedia;
+
     int currentIndex = -1;
 
 
-    public PilgrimageAdapter(Context context) {
+    public PilgrimageAdapter(Context context, CallBackStartMedia callBackStartMedia) {
         init(context);
+        mpPilgrimage=ArbaeenMediaPlayer.getMediaPlayer(context);
+        this.callBackStartMedia=callBackStartMedia;
     }
 
     private void init(Context context) {
@@ -77,13 +85,11 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
             @Override
             public void onClick(View v) {
                 currentIndex = position;
-                PilgrimageFragment.mpPilgrimage
-                        .seekTo(ArbaeenMediaPlayer.getCurrentPosition(currentIndex) * 1000);
+                mpPilgrimage.seekTo(ArbaeenMediaPlayer.getCurrentPosition(currentIndex) * 1000);
 
-                if(!PilgrimageFragment.mpPilgrimage.isPlaying()){
-                    PilgrimageFragment.mpPilgrimage.start();
-                    PilgrimageFragment.btnPlayPause
-                            .setBackground(context.getResources().getDrawable(R.drawable.ic_pause2));
+                if(!mpPilgrimage.isPlaying()){
+                    mpPilgrimage.start();
+                    callBackStartMedia.startMedia();
                 }
 
 
@@ -103,7 +109,7 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
 
     public void updateView(){
 
-        Toast.makeText(context, String.valueOf(programSetting.getArabicTextSize()), Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(context, String.valueOf(programSetting.getArabicTextSize()), Toast.LENGTH_SHORT).show();
         programSetting=new ProgramSetting(context);
        notifyDataSetChanged();
     }
@@ -144,7 +150,7 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
         holder.tvPersianText.setLineSpacing(programSetting.getTextLineSpace(), programSetting.getTextLineSpace());
 
         Typeface tfArabicFont= ResourcesCompat.getFont(context, programSetting.getArabicFontId());
-        Typeface tfPersianFont= ResourcesCompat.getFont(context, programSetting.getArabicFontId());
+        Typeface tfPersianFont= ResourcesCompat.getFont(context, programSetting.getPersianFontId());
 
         holder.tvArabicText.setTypeface(tfArabicFont);
         holder.tvPersianText.setTypeface(tfPersianFont);

@@ -13,18 +13,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_pilgrimage"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/space_middle"
         android:layoutDirection="ltr"
-        android:scrollbars="vertical"
-        android:fadeScrollbars="false"
         android:paddingHorizontal="@dimen/space_small"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title_pilgrimage"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_title_pilgrimage" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,9 +39,9 @@
             android:gravity="center"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
+            android:paddingTop="@dimen/space_very_small"
             app:layout_constraintBottom_toTopOf="@id/view_bg_footer"
-            app:layout_constraintTop_toTopOf="@id/view_bg_footer"
-            >
+            app:layout_constraintTop_toTopOf="@id/view_bg_footer">
 
             <Button
                 android:id="@+id/btn_zoom_in"
@@ -104,8 +102,8 @@
             android:layout_marginRight="@dimen/space_medium"
             android:text="@string/start_time"
             android:textColor="@color/black"
-            android:textStyle="bold"
             android:textSize="@dimen/pilgrimage_tv_current_time_text_size"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/seek_bar_pilgrimage_time"
             app:layout_constraintLeft_toRightOf="@id/seek_bar_pilgrimage_time"
             app:layout_constraintRight_toRightOf="@id/cl_footer" />

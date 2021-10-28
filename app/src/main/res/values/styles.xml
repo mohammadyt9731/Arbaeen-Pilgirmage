@@ -75,7 +75,7 @@
         <item name="android:textColor">@color/main_green</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="layout_constraintVertical_bias">0.1</item>
+        <item name="layout_constraintVertical_bias">0.09</item>
         <item name="fontFamily">@font/nabi</item>
 
     </style>
@@ -95,11 +95,13 @@
 
     <style name="iv_narrative_separator_style">
 
-        <item name="android:layout_width">@dimen/_200sdp</item>
-        <item name="android:layout_height">@dimen/_25sdp</item>
+        <item name="android:layout_width">@dimen/_120sdp</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:src">@drawable/ic_separator</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginBottom">@dimen/space_very_small</item>
+
     </style>
 
 
@@ -192,10 +194,7 @@
 
     <style name="arabic_text_style">
         <item name="android:textSize">@dimen/setting_tv_sample_arabic_text_size</item>
-        <item name="android:paddingTop">@dimen/space_small</item>
-        <item name="android:paddingBottom">@dimen/space_small</item>
-        <item name="android:paddingLeft">@dimen/space_small</item>
-        <item name="android:paddingRight">@dimen/space_small</item>
+        <item name="android:padding">@dimen/space_small</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/dark_green</item>
         <item name="android:layout_gravity">center</item>
@@ -224,12 +223,10 @@
 
     <!--PilgrimageFragment-->
     <style name="btn_pilgrimage_style">
-
         <item name="android:layout_width">@dimen/pilgrimage_btn_medium_width</item>
         <item name="android:layout_height">@dimen/pilgrimage_btn_medium_width</item>
         <item name="android:layout_marginLeft">@dimen/space_small</item>
         <item name="android:layout_marginRight">@dimen/space_small</item>
-
 
     </style>
 

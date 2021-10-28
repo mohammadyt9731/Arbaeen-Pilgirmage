@@ -38,7 +38,7 @@
     <dimen name="pilgrimage_ll_btn_container_elevation">@dimen/_1sdp</dimen>
     <dimen name="pilgrimage_btn_medium_width">@dimen/_35sdp</dimen>
     <dimen name="pilgrimage_btn_large_width">@dimen/_48sdp</dimen>
-    <dimen name="pilgrimage_iv_footer_background_height">@dimen/_50sdp</dimen>
+    <dimen name="pilgrimage_iv_footer_background_height">@dimen/_55sdp</dimen>
     <dimen name="pilgrimage_tv_current_time_text_size">@dimen/_12ssp</dimen>
 
 

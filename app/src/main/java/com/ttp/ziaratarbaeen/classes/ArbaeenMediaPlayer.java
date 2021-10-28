@@ -11,7 +11,8 @@ public class ArbaeenMediaPlayer {
 
     public static MediaPlayer getMediaPlayer(Context context) {
 
-        mediaPlayer = MediaPlayer.create(context, R.raw.z_arbaein_sedghi);
+        if (mediaPlayer == null)
+            mediaPlayer = MediaPlayer.create(context, R.raw.z_arbaein_sedghi);
         return mediaPlayer;
     }
 

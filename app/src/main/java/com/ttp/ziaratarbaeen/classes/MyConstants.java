@@ -50,8 +50,11 @@ public class MyConstants {
 
 
     //PilgrimageFragment
-    public static final int MAXIMUM_TEXT_SIZE = 28;
-    public static final int MINIMUM_TEXT_SIZE = 14;
+    public static final int MAXIMUM_ARABIC_TEXT_SIZE = 34;
+    public static final int MINIMUM_ARABIC_TEXT_SIZE = 12;
+
+    public static final int MAXIMUM_PERSIAN_TEXT_SIZE = 32;
+    public static final int MINIMUM_PERSIAN_TEXT_SIZE = 10;
 
 
 

@@ -27,27 +27,34 @@ import com.ttp.ziaratarbaeen.classes.LinearLayoutManagerWithSmoothScroller;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.classes.MyTapsell;
 import com.ttp.ziaratarbaeen.classes.ProgramSetting;
+import com.ttp.ziaratarbaeen.interfaces.CallBackStartMedia;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class PilgrimageFragment extends Fragment {
 
-    public static MediaPlayer mpPilgrimage;
-    RecyclerView rvPilgrimage;
-    PilgrimageAdapter pilgrimageAdapter;
+
+    private RecyclerView rvPilgrimage;
+
+    private Button btnPlayPause;
+    private Button btnZoomIn;
+    private Button btnZoomOut;
+    private Button btnStop;
+    private Button btnAdvertising;
+
+    private SeekBar seekBar;
+    private TextView tvCurrentTime;
+
+    private MediaPlayer mpPilgrimage;
+    private PilgrimageAdapter pilgrimageAdapter;
     private ProgramSetting programSetting;
+    private Animation scaleAnimation;
+
     private int arabicTextSize;
     private int persianTextSize;
     private boolean autoScroll = false;
-    private Button btnZoomIn;
-    private Button btnZoomOut;
-    public static Button btnPlayPause;
-    private Button btnStop;
-    private Button btnAdvertising;
-    private SeekBar seekBar;
-    private TextView tvCurrentTime;
-    private Animation scaleAnimation;
+
 
     @Nullable
     @Override
@@ -75,11 +82,10 @@ public class PilgrimageFragment extends Fragment {
         btnStop = view.findViewById(R.id.btn_stop);
         btnAdvertising = view.findViewById(R.id.btn_advertising);
 
-        seekBar = view.findViewById(R.id.seek_bar_pilgrimage_time);
-        tvCurrentTime = view.findViewById(R.id.tv_current_time);
-
         rvPilgrimage = view.findViewById(R.id.rv_pilgrimage);
 
+        seekBar = view.findViewById(R.id.seek_bar_pilgrimage_time);
+        tvCurrentTime = view.findViewById(R.id.tv_current_time);
     }
 
     private void configuration() {
@@ -96,8 +102,8 @@ public class PilgrimageFragment extends Fragment {
         scaleAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.animation_scale);
 
         mpPilgrimage = ArbaeenMediaPlayer.getMediaPlayer(getActivity());
-        seekBar.setMax(mpPilgrimage.getDuration());
 
+        seekBar.setMax(mpPilgrimage.getDuration());
     }
 
     private void applySetting() {
@@ -110,10 +116,18 @@ public class PilgrimageFragment extends Fragment {
 
     private void setUpList() {
 
-        pilgrimageAdapter = new PilgrimageAdapter(getActivity());
+        pilgrimageAdapter = new PilgrimageAdapter(getActivity(), new CallBackStartMedia() {
+            @Override
+            public void startMedia() {
+                btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_pause2));
+            }
+        });
+
         rvPilgrimage.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvPilgrimage.setAdapter(pilgrimageAdapter);
     }
+
+
 
 
     private String convertMilliSecondToMinute(int progress) {
@@ -177,10 +191,22 @@ public class PilgrimageFragment extends Fragment {
             public void onClick(View v) {
 
                 scaleAnimate(v);
-                if (arabicTextSize >= MyConstants.MAXIMUM_TEXT_SIZE) {
+
+
+                if (arabicTextSize >= MyConstants.MAXIMUM_ARABIC_TEXT_SIZE && persianTextSize>=MyConstants.MAXIMUM_PERSIAN_TEXT_SIZE) {
                     Toast.makeText(getActivity(), getString(R.string.max_text_size_selected), Toast.LENGTH_SHORT).show();
-                } else
-                    setTextSize(++arabicTextSize, ++persianTextSize);
+                } else{
+
+
+                    if(arabicTextSize < MyConstants.MINIMUM_ARABIC_TEXT_SIZE)
+                        arabicTextSize++;
+
+                    if(persianTextSize < MyConstants.MAXIMUM_PERSIAN_TEXT_SIZE)
+                        persianTextSize++;
+
+                    setTextSize(arabicTextSize, persianTextSize);
+                }
+
             }
         });
 
@@ -189,10 +215,22 @@ public class PilgrimageFragment extends Fragment {
             public void onClick(View v) {
 
                 scaleAnimate(v);
-                if (arabicTextSize <= MyConstants.MINIMUM_TEXT_SIZE) {
+
+
+                if (arabicTextSize <= MyConstants.MINIMUM_ARABIC_TEXT_SIZE && persianTextSize <= MyConstants.MINIMUM_PERSIAN_TEXT_SIZE) {
                     Toast.makeText(getActivity(), getString(R.string.min_text_size_selected), Toast.LENGTH_SHORT).show();
-                } else
-                    setTextSize(--arabicTextSize, --persianTextSize);
+                } else{
+
+                    if(arabicTextSize > MyConstants.MINIMUM_ARABIC_TEXT_SIZE)
+                        arabicTextSize--;
+
+                    if(persianTextSize > MyConstants.MAXIMUM_PERSIAN_TEXT_SIZE)
+                        persianTextSize--;
+
+                    setTextSize(arabicTextSize,persianTextSize);
+
+                }
+
             }
         });
 
@@ -280,11 +318,14 @@ public class PilgrimageFragment extends Fragment {
         }
     }
 
+
     @Override
     public void onPause() {
 
         reset();
         super.onPause();
     }
+
+
 
 }
