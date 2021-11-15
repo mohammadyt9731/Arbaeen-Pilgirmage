@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_toolbar_advertising:
             case R.id.lottie_animation_view:
                 if (MyConstants.isNetworkAvailable(this))
-                    advertisingDialog.show();
+                   MyTapsell.showInterstitialAd(this,MyConstants.Interstitial_VIDEO_AD_ID);
                 break;
 
 
@@ -275,7 +275,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void closeFragment() {
-        while (getSupportFragmentManager().getBackStackEntryCount() > 0)
+     //   while (getSupportFragmentManager().getBackStackEntryCount() > 0)
             super.onBackPressed();
     }
 

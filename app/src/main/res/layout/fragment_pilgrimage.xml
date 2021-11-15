@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_study">
 
+
     <TextView
         android:id="@+id/tv_title_pilgrimage"
         style="@style/tv_header_fragment_style"
@@ -29,6 +30,7 @@
         android:id="@+id/cl_footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
@@ -53,10 +55,10 @@
             <Button
                 android:id="@+id/btn_zoom_out"
                 style="@style/btn_pilgrimage_style"
-                android:background="@drawable/ic_zoom_out2" />
+                android:background="@drawable/ic_zoom_out" />
 
             <Button
-                android:id="@+id/btn_play"
+                android:id="@+id/btn_play_pause"
                 style="@style/btn_pilgrimage_style"
                 android:layout_width="@dimen/pilgrimage_btn_large_width"
                 android:layout_height="@dimen/pilgrimage_btn_large_width"
@@ -65,10 +67,10 @@
             <Button
                 android:id="@+id/btn_stop"
                 style="@style/btn_pilgrimage_style"
-                android:background="@drawable/ic_stop2" />
+                android:background="@drawable/ic_stop" />
 
             <Button
-                android:id="@+id/btn_advertising"
+                android:id="@+id/btn_setting_pilgrimage"
                 style="@style/btn_pilgrimage_style"
                 android:background="@drawable/ic_setting2" />
 

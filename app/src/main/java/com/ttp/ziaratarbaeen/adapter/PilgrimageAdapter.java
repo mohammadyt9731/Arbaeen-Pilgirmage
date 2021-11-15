@@ -27,27 +27,31 @@ import java.util.Arrays;
 
 public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.ViewHolder> {
 
-    ArrayList<String> arabicTextList;
-    ArrayList<String> persianTextList;
+    private ArrayList<String> arabicTextList;
+    private ArrayList<String> persianTextList;
 
-    private MediaPlayer mpPilgrimage;
-    ProgramSetting programSetting;
+    private  MediaPlayer mpPilgrimage;
+    private final CallBackStartMedia callBackStartMedia;
 
-    Context context;
-    CallBackStartMedia callBackStartMedia;
+    private ProgramSetting programSetting;
+    private Context context;
 
-    int currentIndex = -1;
+
+    private int currentIndex = -1;
 
 
     public PilgrimageAdapter(Context context, CallBackStartMedia callBackStartMedia) {
-        init(context);
-        mpPilgrimage=ArbaeenMediaPlayer.getMediaPlayer(context);
-        this.callBackStartMedia=callBackStartMedia;
-    }
-
-    private void init(Context context) {
 
         this.context = context;
+        this.callBackStartMedia=callBackStartMedia;
+
+        init();
+    }
+
+    private void init() {
+
+        mpPilgrimage=ArbaeenMediaPlayer.getMediaPlayer(context);
+
         arabicTextList = new ArrayList<>();
         persianTextList = new ArrayList<>();
 
@@ -62,7 +66,7 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        return new ViewHolder(LayoutInflater.from(parent.getContext())
+        return new ViewHolder(LayoutInflater.from(context)
                 .inflate(R.layout.view_paragraph, parent, false));
     }
 
@@ -70,7 +74,7 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
     public void onBindViewHolder(@NonNull PilgrimageAdapter.ViewHolder holder,
                                  @SuppressLint("RecyclerView") int position) {
 
-        applySetting(context, holder);
+        applySetting(holder);
 
         holder.tvArabicText.setText(arabicTextList.get(position));
         holder.tvPersianText.setText(persianTextList.get(position));
@@ -109,7 +113,6 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
 
     public void updateView(){
 
-      //  Toast.makeText(context, String.valueOf(programSetting.getArabicTextSize()), Toast.LENGTH_SHORT).show();
         programSetting=new ProgramSetting(context);
        notifyDataSetChanged();
     }
@@ -140,7 +143,7 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
         }
     }
 
-    private void applySetting(Context context, ViewHolder holder) {
+    private void applySetting(ViewHolder holder) {
 
 
         holder.tvArabicText.setTextSize(programSetting.getArabicTextSize());
