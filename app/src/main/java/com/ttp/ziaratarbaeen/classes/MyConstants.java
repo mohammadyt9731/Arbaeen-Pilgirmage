@@ -60,6 +60,14 @@ public class MyConstants {
 
 
 
+
+
+
+
+
+
+
+
     public static final String TAPSELL_KEY = "eidqinttshkgrmaferdbgcbomfmkoctfaeisbcacrjhdlteafdjiebrmbpltkmlfpehqnt";
 
     public static final String HOME_PAGE_AD_ID = "5f8e290f4203f300016aaefb";
@@ -75,25 +83,6 @@ public class MyConstants {
     public static final String NATIVE_STANDARD_AD_ID = "608412e3bf5fdd0001c09651";
 
 
-    public static int getScreenWidth() {
-        return Resources.getSystem().getDisplayMetrics().widthPixels;
-    }
 
-    public static int getScreenHeight() {
-        return Resources.getSystem().getDisplayMetrics().heightPixels;
-    }
-
-    public static boolean isNetworkAvailable(Context context) {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-
-        boolean connect=activeNetworkInfo != null && activeNetworkInfo.isConnected();
-
-        if(!connect)
-            Toast.makeText(context, R.string.need_internet, Toast.LENGTH_SHORT).show();
-
-        return connect;
-    }
 
 }

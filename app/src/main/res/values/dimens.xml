@@ -21,7 +21,8 @@
 
     <!--NarrativesFragment-->
     <dimen name="tv_header_fragment_text_size">@dimen/_20ssp</dimen>
-    <dimen name="narrative_tv_paragraph_text_size">@dimen/_14ssp</dimen>
+    <dimen name="narrative_tv_title_text_size">@dimen/_15ssp</dimen>
+    <dimen name="narrative_tv_description_text_size">@dimen/_14ssp</dimen>
     <dimen name="narrative_tv_paragraph_line_space">@dimen/_5sdp</dimen>
 
 

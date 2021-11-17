@@ -22,6 +22,7 @@ import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.classes.MyIntent;
 import com.ttp.ziaratarbaeen.classes.MyTapsell;
+import com.ttp.ziaratarbaeen.classes.UseFullMethod;
 import com.ttp.ziaratarbaeen.dialogs.AboutUsDialog;
 import com.ttp.ziaratarbaeen.dialogs.AdvertisingDialog;
 import com.ttp.ziaratarbaeen.dialogs.ExitDialog;
@@ -157,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.btn_notices:
 
-                if (MyConstants.isNetworkAvailable(this))
+                if (UseFullMethod.isNetworkAvailable(this))
                     loadFragment(noticesFragment);
                 break;
 
@@ -183,9 +184,9 @@ public class MainActivity extends AppCompatActivity {
                 exitDialog.show();
                 break;
 
-            case R.id.btn_toolbar_advertising:
+
             case R.id.lottie_animation_view:
-                if (MyConstants.isNetworkAvailable(this))
+                if (UseFullMethod.isNetworkAvailable(this))
                    MyTapsell.showInterstitialAd(this,MyConstants.Interstitial_VIDEO_AD_ID);
                 break;
 

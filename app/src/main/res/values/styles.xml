@@ -82,7 +82,7 @@
 
     <style name="tv_narrative_paragraph_style">
 
-        <item name="android:textSize">@dimen/narrative_tv_paragraph_text_size</item>
+        <item name="android:textSize">@dimen/narrative_tv_description_text_size</item>
         <item name="android:padding">@dimen/space_small</item>
         <item name="android:gravity">right</item>
         <item name="android:textColor">@color/black</item>

@@ -8,6 +8,7 @@
     <TextView
         android:id="@+id/tv_narrative_title"
         style="@style/tv_narrative_paragraph_style"
+        android:textSize="@dimen/narrative_tv_title_text_size"
         android:text="@string/narratives"
         android:textStyle="bold" />
 

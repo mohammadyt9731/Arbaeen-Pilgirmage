@@ -28,6 +28,7 @@ import com.ttp.ziaratarbaeen.classes.Mention;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.classes.MySharedPreference;
 import com.ttp.ziaratarbaeen.classes.MyTapsell;
+import com.ttp.ziaratarbaeen.classes.UseFullMethod;
 import com.ttp.ziaratarbaeen.dialogs.ResetCounterDialog;
 
 import java.util.ArrayList;
@@ -168,8 +169,8 @@ public class SalawatCountFragment extends Fragment {
 
     private void setSize(){
 
-        int screenWidth= MyConstants.getScreenWidth();
-        int screenHeight= MyConstants.getScreenHeight();
+        int screenWidth= UseFullMethod.getScreenWidth();
+        int screenHeight= UseFullMethod.getScreenHeight();
 
         int zekrShomarLayoutWidth=flZekrShomar.getLayoutParams().width=screenWidth*62/100;
         int zekrShomarLayoutHeight=flZekrShomar.getLayoutParams().height=screenWidth*80/100;

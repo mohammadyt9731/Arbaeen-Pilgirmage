@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_pilgrimage.xml" value="0.25" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_setting.xml" value="0.13196555217831812" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/header_layout.xml" value="0.13196555217831812" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/view_header_navigation_view.xml" value="0.21739130434782608" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/view_narrative.xml" value="0.25" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/view_paragraph.xml" value="0.25" />
       </map>
     </option>

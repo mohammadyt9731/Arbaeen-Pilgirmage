@@ -28,7 +28,7 @@ public class MyIntent {
 
     public static void otherAppIntent(Context context) {
 
-        if (MyConstants.isNetworkAvailable(context)) {
+        if (UseFullMethod.isNetworkAvailable(context)) {
             Intent otherAppIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cafebazaar.ir/developer/mohammad9731"));
             context.startActivity(otherAppIntent);
         }
