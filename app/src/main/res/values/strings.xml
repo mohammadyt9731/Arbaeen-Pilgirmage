@@ -192,7 +192,7 @@
     <string name="reset">شمارنده صفر شود؟</string>
     <string name="yes_text">بله</string>
     <string name="no_text">نه</string>
-
+    <string name="select_mention">انتخاب ذکر</string>
 
 
     <array name="arabic_text_list">
