@@ -21,18 +21,13 @@ import com.google.android.material.navigation.NavigationView;
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.classes.MyIntent;
-import com.ttp.ziaratarbaeen.classes.MyTapsell;
 import com.ttp.ziaratarbaeen.classes.UseFullMethod;
 import com.ttp.ziaratarbaeen.dialogs.AboutUsDialog;
-import com.ttp.ziaratarbaeen.dialogs.AdvertisingDialog;
 import com.ttp.ziaratarbaeen.dialogs.ExitDialog;
 import com.ttp.ziaratarbaeen.fragments.NarrativesFragment;
-import com.ttp.ziaratarbaeen.fragments.NoticesFragment;
 import com.ttp.ziaratarbaeen.fragments.PilgrimageFragment;
 import com.ttp.ziaratarbaeen.fragments.SalawatCountFragment;
 import com.ttp.ziaratarbaeen.fragments.SettingFragment;
-
-import ir.tapsell.plus.TapsellPlusBannerType;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,12 +40,11 @@ public class MainActivity extends AppCompatActivity {
     PilgrimageFragment pilgrimageFragment;
     SettingFragment settingFragment;
     NarrativesFragment narrativesFragment;
-    NoticesFragment noticesFragment;
     SalawatCountFragment salawatCountFragment;
 
     AboutUsDialog aboutUsDialog;
     ExitDialog exitDialog;
-    AdvertisingDialog advertisingDialog;
+
 
     Animation scaleAnimation;
 
@@ -77,8 +71,6 @@ public class MainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigation_view);
         rlAdContainer = findViewById(R.id.ad_container);
 
-        lottieAnimationView=findViewById(R.id.lottie_animation_view);
-
     }
 
     private void init() {
@@ -86,12 +78,10 @@ public class MainActivity extends AppCompatActivity {
         pilgrimageFragment = new PilgrimageFragment();
         settingFragment = new SettingFragment();
         narrativesFragment = new NarrativesFragment();
-        noticesFragment = new NoticesFragment();
         salawatCountFragment = new SalawatCountFragment();
 
         aboutUsDialog = new AboutUsDialog(MainActivity.this);
         exitDialog = new ExitDialog(MainActivity.this);
-        advertisingDialog = new AdvertisingDialog(MainActivity.this);
 
         scaleAnimation= AnimationUtils.loadAnimation(this,R.anim.animation_scale);
 
@@ -101,41 +91,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void configuration(){
 
-        setUpLottieAnimation();
+
         setUpMenu();
 
     }
 
-    private void setUpLottieAnimation(){
 
-        lottieAnimationView.addAnimatorListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        lottieAnimationView.playAnimation();
-                    }
-                },MyConstants.LOTTIE_ANIMATION_DELAY);
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        });
-    }
 
     public void onClick(View view) {
 
@@ -156,11 +117,6 @@ public class MainActivity extends AppCompatActivity {
                 loadFragment(salawatCountFragment);
                 break;
 
-            case R.id.btn_notices:
-
-                if (UseFullMethod.isNetworkAvailable(this))
-                    loadFragment(noticesFragment);
-                break;
 
             case R.id.btn_setting:
                 loadFragment(settingFragment);
@@ -183,14 +139,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_exit:
                 exitDialog.show();
                 break;
-
-
-            case R.id.lottie_animation_view:
-                if (UseFullMethod.isNetworkAvailable(this))
-                   MyTapsell.showInterstitialAd(this,MyConstants.Interstitial_VIDEO_AD_ID);
-                break;
-
-
 
 
 
@@ -231,9 +179,6 @@ public class MainActivity extends AppCompatActivity {
                         loadFragment(settingFragment);
                         break;
 
-                    case R.id.nav_noticec:
-                        loadFragment(noticesFragment);
-                        break;
 
                     case R.id.nav_share_app:
                         MyIntent.shareAppIntent(MainActivity.this);
@@ -292,13 +237,6 @@ public class MainActivity extends AppCompatActivity {
 
         else
             exitDialog.show();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        MyTapsell.showStandardBanner(this,MyConstants.STANDARD_1_AD_ID, rlAdContainer, TapsellPlusBannerType.BANNER_320x50);
     }
 
 }

@@ -43,18 +43,8 @@
 
                 </Button>
 
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/lottie_animation_view"
-                    android:layout_width="@dimen/main_lottie_view_toolbar_width"
-                    android:layout_height="@dimen/main_lottie_view_toolbar_width"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:lottie_autoPlay="true"
-                    android:onClick="onClick"
-                    app:lottie_rawRes="@raw/ad_lottie">
 
-                </com.airbnb.lottie.LottieAnimationView>
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -181,7 +171,7 @@
             android:layout_marginHorizontal="@dimen/space_large"
             android:gravity="center"
             android:orientation="horizontal"
-            android:weightSum="4"
+            android:weightSum="3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.85">
@@ -218,21 +208,7 @@
 
             </LinearLayout>
 
-            <LinearLayout style="@style/main_ll_vertical_style">
 
-                <Button
-                    android:id="@+id/btn_notices"
-                    style="@style/main_small_button_style"
-                    android:background="@drawable/ic_notices"
-
-                    >
-
-                </Button>
-
-                <TextView
-                    style="@style/main_small_tv_style"
-                    android:text="@string/notices" />
-            </LinearLayout>
 
             <LinearLayout style="@style/main_ll_vertical_style">
 

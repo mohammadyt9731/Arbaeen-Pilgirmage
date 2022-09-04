@@ -27,10 +27,7 @@
         android:icon="@drawable/ic_navigation_settings"
         android:title="@string/setting" />
 
-    <item
-        android:id="@+id/nav_noticec"
-        android:icon="@drawable/ic_nav_notices"
-        android:title="@string/notices" />
+
     <item
         android:id="@+id/nav_share_app"
         android:icon="@drawable/ic_nav_share"

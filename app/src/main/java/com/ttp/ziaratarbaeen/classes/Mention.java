@@ -1,23 +1,36 @@
 package com.ttp.ziaratarbaeen.classes;
 
+import java.util.ArrayList;
+
 public class Mention {
 
-    String mentionName;
+    String mentionTitle;
+    String mentionTranslation;
+
     int maximum;
     int counter;
 
-    public Mention(String mentionName, int maximum, int counter) {
-        this.mentionName = mentionName;
+    public Mention(String mentionName,String mentionTranslation, int maximum, int counter) {
+        this.mentionTitle = mentionName;
+        this.mentionTranslation = mentionTranslation;
         this.maximum = maximum;
         this.counter = counter;
     }
 
-    public String getMentionName() {
-        return mentionName;
+    public String getMentionTitle() {
+        return mentionTitle;
     }
 
-    public void setMentionName(String mentionName) {
-        this.mentionName = mentionName;
+    public void setMentionTitle(String mentionTitle) {
+        this.mentionTitle = mentionTitle;
+    }
+
+    public String getMentionTranslation() {
+        return mentionTranslation;
+    }
+
+    public void setMentionTranslation(String mentionTranslation) {
+        this.mentionTranslation = mentionTranslation;
     }
 
     public int getMaximum() {

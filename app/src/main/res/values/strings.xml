@@ -116,13 +116,13 @@
     <string name="show_separator">نمایش جداکننده</string>
     <string name="dark_theme">تم تیره</string>
 
-    <string name="arabic_font_1">هما</string>
-    <string name="arabic_font_2">مروارید</string>
+    <string name="arabic_font_1">قرآن طه</string>
+    <string name="arabic_font_2">نیریزی</string>
     <string name="arabic_font_3">نبی</string>
 
-    <string name="persian_font_1">فردوسی</string>
+    <string name="persian_font_1">صمیم</string>
     <string name="persian_font_2">نازنین</string>
-    <string name="persian_font_3">حمید</string>
+    <string name="persian_font_3">یکان</string>
 
     <string name="arabic_font">فونت عربی</string>
     <string name="arabic_text_size">سایز متن عربی</string>

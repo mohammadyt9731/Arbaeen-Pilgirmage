@@ -9,7 +9,6 @@ import android.widget.TextView;
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.classes.MyIntent;
-import com.ttp.ziaratarbaeen.classes.MyTapsell;
 
 import ir.tapsell.plus.TapsellPlusBannerType;
 
@@ -32,7 +31,7 @@ public class ExitDialog extends Dialog {
 
         findViews();
         configuration();
-        showAdvertising();
+
 
     }
 
@@ -55,12 +54,6 @@ public class ExitDialog extends Dialog {
         rlAdvertising=findViewById(R.id.rl_tapsell_ad);
     }
 
-    private void  showAdvertising(){
-
-        MyTapsell.showStandardBanner(activity, MyConstants.STANDARD_1_AD_ID
-        ,rlAdvertising, TapsellPlusBannerType.BANNER_250x250);
-
-    }
 
 
 }

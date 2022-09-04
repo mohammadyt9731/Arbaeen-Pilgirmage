@@ -18,11 +18,9 @@ import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.slider.Slider;
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
-import com.ttp.ziaratarbaeen.classes.MyTapsell;
 import com.ttp.ziaratarbaeen.classes.ProgramSetting;
 
 import ir.tapsell.plus.TapsellPlusBannerType;
@@ -70,12 +68,7 @@ public class SettingFragment extends Fragment {
 
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        MyTapsell.showStandardBanner(getActivity(), MyConstants.STANDARD_1_AD_ID, rlAdvertising, TapsellPlusBannerType.BANNER_320x50);
 
-    }
 
     private void findViews(View view) {
 

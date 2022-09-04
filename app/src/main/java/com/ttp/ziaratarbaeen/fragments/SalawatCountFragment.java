@@ -1,23 +1,14 @@
 package com.ttp.ziaratarbaeen.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.view.ContextThemeWrapper;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,10 +17,6 @@ import androidx.fragment.app.Fragment;
 
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.Mention;
-import com.ttp.ziaratarbaeen.classes.MyConstants;
-import com.ttp.ziaratarbaeen.classes.MySharedPreference;
-import com.ttp.ziaratarbaeen.classes.MyTapsell;
-import com.ttp.ziaratarbaeen.classes.UseFullMethod;
 import com.ttp.ziaratarbaeen.dialogs.ResetCounterDialog;
 
 import java.util.ArrayList;
@@ -72,7 +59,9 @@ public class SalawatCountFragment extends Fragment {
         findViews(view);
         configuration();
 
-
+        SelectMentionFragment selectMentionFragment=new SelectMentionFragment();
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fl_fragment_container,selectMentionFragment).addToBackStack(null).commit();
 
     }
 

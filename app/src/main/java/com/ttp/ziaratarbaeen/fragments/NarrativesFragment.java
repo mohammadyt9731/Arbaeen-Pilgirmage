@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
-import com.ttp.ziaratarbaeen.classes.MyTapsell;
 import com.ttp.ziaratarbaeen.adapter.NarrativeAdapter;
 
 import ir.tapsell.plus.TapsellPlusBannerType;
@@ -41,12 +40,7 @@ public class NarrativesFragment extends Fragment {
 
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
 
-        MyTapsell.showStandardBanner(getActivity(), MyConstants.STANDARD_1_AD_ID, rlAdvertising, TapsellPlusBannerType.BANNER_320x50);
-    }
 
     private void findViews(View view) {
 

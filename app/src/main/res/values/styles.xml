@@ -5,6 +5,7 @@
         <item name="colorPrimary">@color/blue_400</item>
         <item name="colorPrimaryDark">#182211</item>
         <item name="colorAccent">@color/blue_400</item>
+        <item name="fontFamily">@font/yekan</item>
 
 
     </style>

@@ -38,13 +38,13 @@ public class MyConstants {
 
 
     //SettingFragment
-    public static final int ARABIC_FONT_1=R.font.homa;
-    public static final int ARABIC_FONT_2=R.font.morvarid;
+    public static final int ARABIC_FONT_1=R.font.quran_taha;
+    public static final int ARABIC_FONT_2=R.font.neirizi;
     public static final int ARABIC_FONT_3=R.font.nabi;
 
-    public static final int PERSIAN_FONT_1 =R.font.ferdosi;
+    public static final int PERSIAN_FONT_1 =R.font.samim;
     public static final int PERSIAN_FONT_2=R.font.b_nazanin;
-    public static final int PERSIAN_FONT_3=R.font.b_hamid;
+    public static final int PERSIAN_FONT_3=R.font.yekan;
 
 
 
@@ -55,14 +55,6 @@ public class MyConstants {
 
     public static final int MAXIMUM_PERSIAN_TEXT_SIZE = 32;
     public static final int MINIMUM_PERSIAN_TEXT_SIZE = 10;
-
-
-
-
-
-
-
-
 
 
 
