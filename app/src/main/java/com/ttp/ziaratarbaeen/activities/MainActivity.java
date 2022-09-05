@@ -1,27 +1,21 @@
 package com.ttp.ziaratarbaeen.activities;
 
-import android.animation.Animator;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.navigation.NavigationView;
 import com.ttp.ziaratarbaeen.R;
-import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.classes.MyIntent;
-import com.ttp.ziaratarbaeen.classes.UseFullMethod;
+import com.ttp.ziaratarbaeen.databinding.ActivityMainBinding;
 import com.ttp.ziaratarbaeen.dialogs.AboutUsDialog;
 import com.ttp.ziaratarbaeen.dialogs.ExitDialog;
 import com.ttp.ziaratarbaeen.fragments.NarrativesFragment;
@@ -31,11 +25,7 @@ import com.ttp.ziaratarbaeen.fragments.SettingFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
-    RelativeLayout rlAdContainer;
-
-    LottieAnimationView lottieAnimationView;
+    ActivityMainBinding binding;
 
     PilgrimageFragment pilgrimageFragment;
     SettingFragment settingFragment;
@@ -49,29 +39,19 @@ public class MainActivity extends AppCompatActivity {
     Animation scaleAnimation;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_main);
 
-
-        findViews();
         init();
         configuration();
-
 
 
     }
     ////////////////////////////////////////////////////////////////////////////////////////
 
-    private void findViews() {
-
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.navigation_view);
-        rlAdContainer = findViewById(R.id.ad_container);
-
-    }
 
     private void init() {
 
@@ -83,19 +63,16 @@ public class MainActivity extends AppCompatActivity {
         aboutUsDialog = new AboutUsDialog(MainActivity.this);
         exitDialog = new ExitDialog(MainActivity.this);
 
-        scaleAnimation= AnimationUtils.loadAnimation(this,R.anim.animation_scale);
-
-
+        scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.animation_scale);
 
     }
 
-    private void configuration(){
+    private void configuration() {
 
 
         setUpMenu();
 
     }
-
 
 
     public void onClick(View view) {
@@ -141,9 +118,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
 
-
             case R.id.btn_open_navigation_view:
-                drawerLayout.openDrawer(Gravity.RIGHT);
+                binding.drawerLayout.openDrawer(Gravity.RIGHT);
                 break;
 
 
@@ -153,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpMenu() {
 
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        binding.navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -202,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 }
-                drawerLayout.closeDrawer(Gravity.RIGHT);
+                binding.drawerLayout.closeDrawer(Gravity.RIGHT);
                 return false;
             }
         });
@@ -221,16 +197,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void closeFragment() {
-     //   while (getSupportFragmentManager().getBackStackEntryCount() > 0)
-            super.onBackPressed();
+        //   while (getSupportFragmentManager().getBackStackEntryCount() > 0)
+        super.onBackPressed();
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////
     @Override
     public void onBackPressed() {
 
-        if (drawerLayout.isDrawerOpen(Gravity.RIGHT))
-            drawerLayout.closeDrawer(Gravity.RIGHT);
+        if (binding.drawerLayout.isDrawerOpen(Gravity.RIGHT))
+            binding.drawerLayout.closeDrawer(Gravity.RIGHT);
 
         else if (getSupportFragmentManager().getBackStackEntryCount() > 0)
             closeFragment();

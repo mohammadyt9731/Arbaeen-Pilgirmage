@@ -7,16 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.adapter.PilgrimageAdapter;
@@ -24,6 +21,7 @@ import com.ttp.ziaratarbaeen.classes.ArbaeenMediaPlayer;
 import com.ttp.ziaratarbaeen.classes.LinearLayoutManagerWithSmoothScroller;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.classes.ProgramSetting;
+import com.ttp.ziaratarbaeen.databinding.FragmentPilgrimageBinding;
 import com.ttp.ziaratarbaeen.interfaces.CallBackStartMedia;
 
 import java.util.Timer;
@@ -31,17 +29,10 @@ import java.util.TimerTask;
 
 public class PilgrimageFragment extends Fragment {
 
-    private RecyclerView rvPilgrimage;
+    private final int TIMER_PERIOD = 1000;
 
+    private FragmentPilgrimageBinding binding;
 
-    private Button btnZoomIn;
-    private Button btnZoomOut;
-    private Button btnPlayPause;
-    private Button btnStop;
-    private Button btnSetting;
-
-    private SeekBar sbPilgrimageTime;
-    private TextView tvCurrentTime;
 
     private MediaPlayer mpPilgrimage;
     private PilgrimageAdapter pilgrimageAdapter;
@@ -49,7 +40,6 @@ public class PilgrimageFragment extends Fragment {
     private Animation scaleAnimation;
     private SettingFragment settingFragment;
 
-    private final int TIMER_PERIOD=1000;
     private int arabicTextSize;
     private int persianTextSize;
     private boolean autoScroll = true;
@@ -58,7 +48,9 @@ public class PilgrimageFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_pilgrimage, container, false);
+
+        binding = FragmentPilgrimageBinding.inflate(getLayoutInflater(), container, false);
+        return binding.getRoot();
     }
 
 
@@ -66,7 +58,6 @@ public class PilgrimageFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        findViews(view);
         configuration();
         setOnClick();
         startTimer();
@@ -77,30 +68,15 @@ public class PilgrimageFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        if(mpPilgrimage.isPlaying()){
+        if (mpPilgrimage.isPlaying()) {
 
             changePlayPauseBtnBackground();
             pilgrimageAdapter.update(ArbaeenMediaPlayer
-                    .getIndex(mpPilgrimage.getCurrentPosition()/1000));
+                    .getIndex(mpPilgrimage.getCurrentPosition() / 1000));
 
         }
     }
 
-
-
-    private void findViews(View view) {
-
-        btnZoomIn = view.findViewById(R.id.btn_zoom_in);
-        btnZoomOut = view.findViewById(R.id.btn_zoom_out);
-        btnPlayPause = view.findViewById(R.id.btn_play_pause);
-        btnStop = view.findViewById(R.id.btn_stop);
-        btnSetting = view.findViewById(R.id.btn_setting_pilgrimage);
-
-        rvPilgrimage = view.findViewById(R.id.rv_pilgrimage);
-
-        sbPilgrimageTime = view.findViewById(R.id.seek_bar_pilgrimage_time);
-        tvCurrentTime = view.findViewById(R.id.tv_current_time);
-    }
 
     private void configuration() {
 
@@ -117,9 +93,9 @@ public class PilgrimageFragment extends Fragment {
 
         mpPilgrimage = ArbaeenMediaPlayer.getMediaPlayer(getActivity());
 
-        sbPilgrimageTime.setMax(mpPilgrimage.getDuration());
+        binding.seekBarPilgrimageTime.setMax(mpPilgrimage.getDuration());
 
-        settingFragment=new SettingFragment();
+        settingFragment = new SettingFragment();
     }
 
     private void applySetting() {
@@ -136,18 +112,17 @@ public class PilgrimageFragment extends Fragment {
         pilgrimageAdapter = new PilgrimageAdapter(getActivity(), new CallBackStartMedia() {
             @Override
             public void startMedia() {
-               changePlayPauseBtnBackground();
+                changePlayPauseBtnBackground();
             }
         });
 
-        rvPilgrimage.setLayoutManager(new LinearLayoutManager(getActivity()));
-        rvPilgrimage.setAdapter(pilgrimageAdapter);
+        binding.rvPilgrimage.setLayoutManager(new LinearLayoutManager(getActivity()));
+        binding.rvPilgrimage.setAdapter(pilgrimageAdapter);
     }
 
-    private void changePlayPauseBtnBackground(){
-        btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_pause));
+    private void changePlayPauseBtnBackground() {
+        binding.btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_pause));
     }
-
 
 
     private String convertMilliSecondToMinute(int progress) {
@@ -161,7 +136,7 @@ public class PilgrimageFragment extends Fragment {
 
     private void setOnClick() {
 
-        sbPilgrimageTime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        binding.seekBarPilgrimageTime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean userChangeProgress) {
 
@@ -169,7 +144,7 @@ public class PilgrimageFragment extends Fragment {
                     reset();
 
                 else {
-                    tvCurrentTime.setText(convertMilliSecondToMinute(progress));
+                    binding.tvCurrentTime.setText(convertMilliSecondToMinute(progress));
 
                     int currentIndex;
 
@@ -185,8 +160,8 @@ public class PilgrimageFragment extends Fragment {
                         pilgrimageAdapter.update(currentIndex);
 
                         if (autoScroll) {
-                            rvPilgrimage.setLayoutManager(new LinearLayoutManagerWithSmoothScroller(getContext()));
-                            rvPilgrimage.scrollToPosition(currentIndex);
+                            binding.rvPilgrimage.setLayoutManager(new LinearLayoutManagerWithSmoothScroller(getContext()));
+                            binding.rvPilgrimage.scrollToPosition(currentIndex);
                         }
 
                     }
@@ -205,23 +180,22 @@ public class PilgrimageFragment extends Fragment {
             }
         });
 
-        btnZoomIn.setOnClickListener(new View.OnClickListener() {
+        binding.btnZoomIn.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
                 scaleAnimate(v);
 
-                if (arabicTextSize >= MyConstants.MAXIMUM_ARABIC_TEXT_SIZE && persianTextSize>=MyConstants.MAXIMUM_PERSIAN_TEXT_SIZE) {
+                if (arabicTextSize >= MyConstants.MAXIMUM_ARABIC_TEXT_SIZE && persianTextSize >= MyConstants.MAXIMUM_PERSIAN_TEXT_SIZE) {
                     Toast.makeText(getActivity(), getString(R.string.max_text_size_selected), Toast.LENGTH_SHORT).show();
-                }
-                else{
+                } else {
 
 
-                    if(arabicTextSize < MyConstants.MAXIMUM_ARABIC_TEXT_SIZE)
+                    if (arabicTextSize < MyConstants.MAXIMUM_ARABIC_TEXT_SIZE)
                         arabicTextSize++;
 
-                    if(persianTextSize < MyConstants.MAXIMUM_PERSIAN_TEXT_SIZE)
+                    if (persianTextSize < MyConstants.MAXIMUM_PERSIAN_TEXT_SIZE)
                         persianTextSize++;
 
                     setTextSize(arabicTextSize, persianTextSize);
@@ -230,7 +204,7 @@ public class PilgrimageFragment extends Fragment {
             }
         });
 
-        btnZoomOut.setOnClickListener(new View.OnClickListener() {
+        binding.btnZoomOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -239,22 +213,22 @@ public class PilgrimageFragment extends Fragment {
 
                 if (arabicTextSize <= MyConstants.MINIMUM_ARABIC_TEXT_SIZE && persianTextSize <= MyConstants.MINIMUM_PERSIAN_TEXT_SIZE) {
                     Toast.makeText(getActivity(), getString(R.string.min_text_size_selected), Toast.LENGTH_SHORT).show();
-                } else{
+                } else {
 
-                    if(arabicTextSize > MyConstants.MINIMUM_ARABIC_TEXT_SIZE)
+                    if (arabicTextSize > MyConstants.MINIMUM_ARABIC_TEXT_SIZE)
                         arabicTextSize--;
 
-                    if(persianTextSize > MyConstants.MINIMUM_PERSIAN_TEXT_SIZE)
+                    if (persianTextSize > MyConstants.MINIMUM_PERSIAN_TEXT_SIZE)
                         persianTextSize--;
 
-                    setTextSize(arabicTextSize,persianTextSize);
+                    setTextSize(arabicTextSize, persianTextSize);
 
                 }
 
             }
         });
 
-        btnPlayPause.setOnClickListener(new View.OnClickListener() {
+        binding.btnPlayPause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -263,7 +237,7 @@ public class PilgrimageFragment extends Fragment {
             }
         });
 
-        btnStop.setOnClickListener(new View.OnClickListener() {
+        binding.btnStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -272,7 +246,7 @@ public class PilgrimageFragment extends Fragment {
             }
         });
 
-        btnSetting.setOnClickListener(new View.OnClickListener() {
+        binding.btnSettingPilgrimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 scaleAnimate(view);
@@ -291,7 +265,7 @@ public class PilgrimageFragment extends Fragment {
 
                 if (mpPilgrimage.isPlaying()) {
 
-                   sbPilgrimageTime.setProgress(mpPilgrimage.getCurrentPosition());
+                    binding.seekBarPilgrimageTime.setProgress(mpPilgrimage.getCurrentPosition());
                 }
             }
         }, 0, TIMER_PERIOD);
@@ -316,27 +290,26 @@ public class PilgrimageFragment extends Fragment {
 
     private void reset() {
 
-        btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_play2));
+        binding.btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_play2));
 
         if (mpPilgrimage.isPlaying()) {
             mpPilgrimage.pause();
         }
 
         mpPilgrimage.seekTo(0);
-        sbPilgrimageTime.setProgress(0);
+        binding.seekBarPilgrimageTime.setProgress(0);
     }
 
     private void changeState() {
 
         if (mpPilgrimage.isPlaying()) {
 
-            btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_play2));
+            binding.btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_play2));
             mpPilgrimage.pause();
         } else {
 
 
-
-            btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_pause));
+            binding.btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_pause));
             mpPilgrimage.start();
 
         }
@@ -357,7 +330,6 @@ public class PilgrimageFragment extends Fragment {
 
         super.onPause();
     }
-
 
 
 }

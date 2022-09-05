@@ -17,37 +17,27 @@ import androidx.fragment.app.Fragment;
 
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.Mention;
+import com.ttp.ziaratarbaeen.databinding.FragmentSalawatCountBinding;
 import com.ttp.ziaratarbaeen.dialogs.ResetCounterDialog;
 
 import java.util.ArrayList;
 
 public class SalawatCountFragment extends Fragment {
 
-    int counter;
-    
-    ConstraintLayout flZekrShomar;
-    RelativeLayout flAdContainer;
-    TextView tvCounterText;
-    Button btnCounterPlusPlus;
-    ImageView ivReset;
+    private FragmentSalawatCountBinding binding;
 
-    Button btnSound;
-    TextView tvMentionType;
-    TextView tvMention;
+    int counter;
 
     PopupMenu popupMenu;
     ArrayList<Mention>mentionList;
     ////////////
 
 
-
-
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_salawat_count,container,false);
+        binding=FragmentSalawatCountBinding.inflate(getLayoutInflater(),container,false);
+        return binding.getRoot();
     }
 
 
@@ -55,8 +45,6 @@ public class SalawatCountFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-        findViews(view);
         configuration();
 
         SelectMentionFragment selectMentionFragment=new SelectMentionFragment();
@@ -70,32 +58,20 @@ public class SalawatCountFragment extends Fragment {
 
 
     private void configuration() {
-        btnCounterPlusPlus.setOnClickListener(new View.OnClickListener() {
+        binding.btnCounterPlusPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvCounterText.setText(String.valueOf(++counter));
+                binding.tvCounterText.setText(String.valueOf(++counter));
             }
         });
 
-        ivReset.setOnClickListener(new View.OnClickListener() {
+        binding.ivReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new ResetCounterDialog(getContext()).show();
             }
         });
 
-
-    }
-
-    private void findViews(View view) {
-
-        flZekrShomar=view.findViewById(R.id.fl_zekr_shomar);
-        flAdContainer=view.findViewById(R.id.fl_ad_container);
-        tvCounterText=view.findViewById(R.id.tv_counter_text);
-        btnCounterPlusPlus=view.findViewById(R.id.btn_counter_plus_plus);
-        ivReset =view.findViewById(R.id.iv_reset);
-        btnSound=view.findViewById(R.id.btn_sound);
-        tvMention=view.findViewById(R.id.tv_mention);
 
     }
 

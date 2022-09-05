@@ -8,59 +8,42 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.adapter.MentionAdapter;
 import com.ttp.ziaratarbaeen.classes.Mention;
+import com.ttp.ziaratarbaeen.databinding.FragmentSelectMentionBinding;
 
 import java.util.ArrayList;
 
 public class SelectMentionFragment extends Fragment {
 
-    RecyclerView rvMention;
+    private FragmentSelectMentionBinding binding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_select_mention,container,false);
+        binding = FragmentSelectMentionBinding.inflate(getLayoutInflater(), container, false);
+        return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        findViews(view);
+
 
         setUpMentionList();
     }
 
 
-    private void findViews(View view){
+    private void setUpMentionList() {
 
-        rvMention=view.findViewById(R.id.rv_mention);
-    }
+        ArrayList<Mention> mentionList = new ArrayList<>();
 
-    private void setUpMentionList(){
+        for (int i = 0; i < 20; i++)
+            mentionList.add(new Mention("الله اکیر", "خداوند بزرگ است", 100, 3));
 
-        ArrayList<Mention>mentionList=new ArrayList<>();
 
-        mentionList.add(new Mention("الله اکیر","خداوند بزرگ است",100,3));
-        mentionList.add(new Mention("الله اکیر","خداوند بزرگ است",100,3));
-        mentionList.add(new Mention("الله اکیر","خداوند بزرگ است",100,3));
-        mentionList.add(new Mention("الله اکیر","خداوند بزرگ است",100,3));
-        mentionList.add(new Mention("الله اکیر","خداوند بزرگ است",100,3));
-        mentionList.add(new Mention("الله اکیر","خداوند بزرگ است",100,3));
-        mentionList.add(new Mention("الله اکیر","خداوند بزرگ است",100,3));
-        mentionList.add(new Mention("الله اکیر","خداوند بزرگ است",100,3));
-        mentionList.add(new Mention("الله اکیر","خداوند بزرگ است",100,3));
-        mentionList.add(new Mention("الله اکیر","خداوند بزرگ است",100,3));
-        mentionList.add(new Mention("الله اکیر","خداوند بزرگ است",100,3));
-        mentionList.add(new Mention("الله اکیر","خداوند بزرگ است",100,3));
-        mentionList.add(new Mention("الله اکیر","خداوند بزرگ است",100,3));
-        mentionList.add(new Mention("الله اکیر","خداوند بزرگ است",100,3));
-        mentionList.add(new Mention("الله اکیر","خداوند بزرگ است",100,3));
-
-        MentionAdapter mentionAdapter=new MentionAdapter(mentionList);
-        rvMention.setAdapter(mentionAdapter);
+        MentionAdapter mentionAdapter = new MentionAdapter(mentionList);
+        binding.rvMention.setAdapter(mentionAdapter);
     }
 }

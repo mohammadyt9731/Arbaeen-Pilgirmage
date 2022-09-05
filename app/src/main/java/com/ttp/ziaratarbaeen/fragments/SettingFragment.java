@@ -22,47 +22,31 @@ import com.google.android.material.slider.Slider;
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.classes.ProgramSetting;
+import com.ttp.ziaratarbaeen.databinding.FragmentSettingBinding;
 
 import ir.tapsell.plus.TapsellPlusBannerType;
 
 public class SettingFragment extends Fragment {
 
+    FragmentSettingBinding binding;
+
     ProgramSetting programSetting;
-
-
-    Switch switchAutoScroll;
-    Switch switchShowTranslation;
-    Switch switchShowSeparator;
-    Switch switchDarkTheme;
-
-    RadioGroup rgArabicFonts;
-    RadioGroup rgPersianFonts;
-
-    Slider sliderArabicTextSize;
-    Slider sliderPersianTextSize;
-    Slider sliderLineSpacing;
 
     Typeface tfArabicFont;
     Typeface tfPersianFont;
-
-    TextView tvSampleArabicText;
-    TextView tvSamplePersianText;
-    ImageView ivSeparator;
-
-    RelativeLayout rlAdvertising;
 
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_setting, container, false);
+        binding=FragmentSettingBinding.inflate(getLayoutInflater(),container,false);
+        return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        findViews(view);
         init();
         configuration();
 
@@ -70,55 +54,31 @@ public class SettingFragment extends Fragment {
 
 
 
-    private void findViews(View view) {
-
-        switchAutoScroll = view.findViewById(R.id.switch_auto_scroll);
-        switchShowTranslation = view.findViewById(R.id.switch_show_translation);
-        switchShowSeparator = view.findViewById(R.id.switch_show_separator);
-        switchDarkTheme = view.findViewById(R.id.switch_dark_theme);
-
-        rgArabicFonts = view.findViewById(R.id.rg_arabic_fonts);
-        rgPersianFonts = view.findViewById(R.id.rg_persian_fonts);
-
-        sliderArabicTextSize = view.findViewById(R.id.slider_arabic_text_size);
-        sliderPersianTextSize = view.findViewById(R.id.slider_persian_text_size);
-        sliderLineSpacing = view.findViewById(R.id.slider_line_spacing);
-
-        tvSampleArabicText = view.findViewById(R.id.tv_sample_arabic_text);
-        tvSamplePersianText = view.findViewById(R.id.tv_sample_persian_text);
-        ivSeparator = view.findViewById(R.id.iv_separator);
-
-        rlAdvertising=view.findViewById(R.id.rl_ad_setting);
-
-
-    }
-
     private void init() {
 
         programSetting = new ProgramSetting(getContext());
 
         applySetting();
-
     }
 
     private void applySetting() {
 
-        switchAutoScroll.setChecked(programSetting.isAutoScroll());
-        switchShowTranslation.setChecked(programSetting.isShowTranslation());
-        switchShowSeparator.setChecked(programSetting.isShowSeparator());
-        switchDarkTheme.setChecked(programSetting.isDarkTheme());
+       binding.switchAutoScroll.setChecked(programSetting.isAutoScroll());
+       binding.switchShowTranslation.setChecked(programSetting.isShowTranslation());
+       binding.switchShowSeparator.setChecked(programSetting.isShowSeparator());
+       binding.switchDarkTheme.setChecked(programSetting.isDarkTheme());
 
-        sliderArabicTextSize.setValue(programSetting.getArabicTextSize());
-        sliderPersianTextSize.setValue(programSetting.getPersianTextSize());
+       binding.sliderArabicTextSize.setValue(programSetting.getArabicTextSize());
+       binding.sliderPersianTextSize.setValue(programSetting.getPersianTextSize());
 
-        float lineSpace=programSetting.getTextLineSpace();
-        sliderLineSpacing.setValue(lineSpace);
+       float lineSpace=programSetting.getTextLineSpace();
+       binding.sliderLineSpacing.setValue(lineSpace);
 
-        tvSampleArabicText.setTextSize(programSetting.getArabicTextSize());
-        tvSampleArabicText.setLineSpacing(lineSpace, lineSpace);
+       binding.tvSampleArabicText.setTextSize(programSetting.getArabicTextSize());
+       binding.tvSampleArabicText.setLineSpacing(lineSpace, lineSpace);
 
-        tvSamplePersianText.setTextSize(programSetting.getPersianTextSize());
-        tvSamplePersianText.setLineSpacing(lineSpace, lineSpace);
+       binding.tvSamplePersianText.setTextSize(programSetting.getPersianTextSize());
+       binding.tvSamplePersianText.setLineSpacing(lineSpace, lineSpace);
 
         setArabicFont();
         setPersianFont();
@@ -132,15 +92,15 @@ public class SettingFragment extends Fragment {
 
         if (showTranslation != null)
             if (showTranslation)
-                tvSamplePersianText.setVisibility(View.VISIBLE);
+                binding.tvSamplePersianText.setVisibility(View.VISIBLE);
             else
-                tvSamplePersianText.setVisibility(View.GONE);
+                binding.tvSamplePersianText.setVisibility(View.GONE);
 
         if (showSeparator != null)
             if (showSeparator)
-                ivSeparator.setVisibility(View.VISIBLE);
+                binding.ivSeparator.setVisibility(View.VISIBLE);
             else
-                ivSeparator.setVisibility(View.GONE);
+                binding.ivSeparator.setVisibility(View.GONE);
 
     }
 
@@ -148,7 +108,7 @@ public class SettingFragment extends Fragment {
 
         int arabicFontId = programSetting.getArabicFontId();
         tfArabicFont = ResourcesCompat.getFont(getActivity(), arabicFontId);
-        tvSampleArabicText.setTypeface(tfArabicFont);
+        binding.tvSampleArabicText.setTypeface(tfArabicFont);
 
         RadioButton rbArabicFont;
 
@@ -176,7 +136,7 @@ public class SettingFragment extends Fragment {
 
         int persianFontId = programSetting.getPersianFontId();
         tfPersianFont = ResourcesCompat.getFont(getActivity(),persianFontId);
-        tvSamplePersianText.setTypeface(tfPersianFont);
+        binding.tvSamplePersianText.setTypeface(tfPersianFont);
         RadioButton rbPersianFont;
 
         switch (persianFontId) {
@@ -229,12 +189,12 @@ public class SettingFragment extends Fragment {
             }
         };
 
-        switchAutoScroll.setOnCheckedChangeListener(checkedChangeListener);
-        switchShowTranslation.setOnCheckedChangeListener(checkedChangeListener);
-        switchShowSeparator.setOnCheckedChangeListener(checkedChangeListener);
-        switchDarkTheme.setOnCheckedChangeListener(checkedChangeListener);
+        binding.switchAutoScroll.setOnCheckedChangeListener(checkedChangeListener);
+        binding.switchShowTranslation.setOnCheckedChangeListener(checkedChangeListener);
+        binding.switchShowSeparator.setOnCheckedChangeListener(checkedChangeListener);
+        binding.switchDarkTheme.setOnCheckedChangeListener(checkedChangeListener);
 
-        rgArabicFonts.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        binding.rgArabicFonts.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
@@ -256,7 +216,7 @@ public class SettingFragment extends Fragment {
                 setArabicFont();
             }
         });
-        rgPersianFonts.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        binding.rgPersianFonts.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
@@ -278,29 +238,29 @@ public class SettingFragment extends Fragment {
             }
         });
 
-        sliderArabicTextSize.addOnChangeListener(new Slider.OnChangeListener() {
+        binding.sliderArabicTextSize.addOnChangeListener(new Slider.OnChangeListener() {
             @Override
             public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
                 programSetting.setArabicTextSize((int) value);
-                tvSampleArabicText.setTextSize(value);
+                binding.tvSampleArabicText.setTextSize(value);
 
             }
         });
-        sliderPersianTextSize.addOnChangeListener(new Slider.OnChangeListener() {
+        binding.sliderPersianTextSize.addOnChangeListener(new Slider.OnChangeListener() {
             @Override
             public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
                 programSetting.setPersianTextSize((int) value);
-                tvSamplePersianText.setTextSize(value);
+                binding.tvSamplePersianText.setTextSize(value);
 
             }
         });
-        sliderLineSpacing.addOnChangeListener(new Slider.OnChangeListener() {
+        binding.sliderLineSpacing.addOnChangeListener(new Slider.OnChangeListener() {
             @Override
             public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
 
                 programSetting.setTextLineSpace(value);
-                tvSampleArabicText.setLineSpacing(value, value);
-                tvSamplePersianText.setLineSpacing(value, value);
+                binding.tvSampleArabicText.setLineSpacing(value, value);
+                binding.tvSamplePersianText.setLineSpacing(value, value);
 
             }
         });

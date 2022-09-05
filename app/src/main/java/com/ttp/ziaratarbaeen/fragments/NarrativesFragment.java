@@ -15,18 +15,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.adapter.NarrativeAdapter;
+import com.ttp.ziaratarbaeen.databinding.FragmentNarrativesBinding;
 
 import ir.tapsell.plus.TapsellPlusBannerType;
 
 public class NarrativesFragment extends Fragment {
 
-    RelativeLayout rlAdvertising;
-    RecyclerView rvNarratives;
+    FragmentNarrativesBinding binding;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_narratives, container, false);
+        binding=FragmentNarrativesBinding.inflate(getLayoutInflater(),container,false);
+        return binding.getRoot();
     }
 
 
@@ -34,7 +36,7 @@ public class NarrativesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        findViews(view);
+
         setUpList();
 
 
@@ -42,20 +44,12 @@ public class NarrativesFragment extends Fragment {
 
 
 
-    private void findViews(View view) {
-
-        rlAdvertising = view.findViewById(R.id.rl_ad_narrative);
-        rvNarratives = view.findViewById(R.id.rv_narrative);
-
-    }
-
     private void setUpList() {
 
         NarrativeAdapter narrativeAdapter = new NarrativeAdapter(getActivity());
 
-        rvNarratives.setLayoutManager(new LinearLayoutManager(getContext()));
-        rvNarratives.setAdapter(narrativeAdapter);
-
+        binding.rvNarrative.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.rvNarrative.setAdapter(narrativeAdapter);
 
     }
 }

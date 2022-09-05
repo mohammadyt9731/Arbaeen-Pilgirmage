@@ -4,47 +4,43 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import com.ttp.ziaratarbaeen.R;
+import com.ttp.ziaratarbaeen.databinding.DialogResetBinding;
 
 public class ResetCounterDialog extends Dialog {
 
-    TextView yesButton;
-    TextView noButton;
+    private DialogResetBinding binding;
 
     public ResetCounterDialog(@NonNull Context context) {
         super(context);
-        setContentView(R.layout.dialog_reset);
+        binding = DialogResetBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
-        findViews();
+
         configuration();
 
     }
 
     private void configuration() {
-        yesButton.setOnClickListener(new View.OnClickListener() {
+        binding.yesReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 // resetCounter();
-               cancel();
+                cancel();
             }
         });
 
-        noButton.setOnClickListener(new View.OnClickListener() {
+        binding.noReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               cancel();
+                cancel();
             }
         });
     }
 
-    private void findViews() {
-        yesButton =findViewById(R.id.yes_reset);
-        noButton =findViewById(R.id.no_reset);
-    }
+
 }

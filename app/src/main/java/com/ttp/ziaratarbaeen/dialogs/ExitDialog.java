@@ -3,57 +3,40 @@ package com.ttp.ziaratarbaeen.dialogs;
 import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.drawable.ColorDrawable;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.ttp.ziaratarbaeen.R;
-import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.classes.MyIntent;
-
-import ir.tapsell.plus.TapsellPlusBannerType;
+import com.ttp.ziaratarbaeen.databinding.DialogExitBinding;
 
 public class ExitDialog extends Dialog {
 
-    TextView exitButton;
-    TextView otherAppButton;
-    TextView commentButton;
-
-    RelativeLayout rlAdvertising;
-
     Activity activity;
+    private DialogExitBinding binding;
 
     public ExitDialog(Activity activity) {
         super(activity);
-        this.activity=activity;
-        setContentView(R.layout.dialog_exit);
+
+        binding = DialogExitBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        this.activity = activity;
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
 
-        findViews();
         configuration();
 
 
     }
 
     private void configuration() {
-        exitButton.setOnClickListener(v -> {
+        binding.btnExit.setOnClickListener(v -> {
 
             getOwnerActivity().finish();
         });
 
-        otherAppButton.setOnClickListener(v -> MyIntent.otherAppIntent(activity));
+        binding.btnOtherApps.setOnClickListener(v -> MyIntent.otherAppIntent(activity));
 
-        commentButton.setOnClickListener(v -> MyIntent.commentIntent(activity));
+        binding.btnComment.setOnClickListener(v -> MyIntent.commentIntent(activity));
     }
-
-    private void findViews() {
-        exitButton = findViewById(R.id.btn_exit);
-        otherAppButton = findViewById(R.id.btn_other_apps);
-        commentButton = findViewById(R.id.btn_comment);
-
-        rlAdvertising=findViewById(R.id.rl_tapsell_ad);
-    }
-
 
 
 }
