@@ -4,20 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.ttp.ziaratarbaeen.R;
-import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.adapter.NarrativeAdapter;
 import com.ttp.ziaratarbaeen.databinding.FragmentNarrativesBinding;
-
-import ir.tapsell.plus.TapsellPlusBannerType;
 
 public class NarrativesFragment extends Fragment {
 

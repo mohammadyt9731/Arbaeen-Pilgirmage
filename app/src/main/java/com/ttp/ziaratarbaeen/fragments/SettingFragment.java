@@ -6,12 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.Switch;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,8 +19,6 @@ import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.classes.ProgramSetting;
 import com.ttp.ziaratarbaeen.databinding.FragmentSettingBinding;
-
-import ir.tapsell.plus.TapsellPlusBannerType;
 
 public class SettingFragment extends Fragment {
 

@@ -48,8 +48,7 @@ public class SalawatCountFragment extends Fragment {
         configuration();
 
         SelectMentionFragment selectMentionFragment=new SelectMentionFragment();
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fl_fragment_container,selectMentionFragment).addToBackStack(null).commit();
+
 
     }
 

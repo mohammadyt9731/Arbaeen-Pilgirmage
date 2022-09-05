@@ -21,6 +21,7 @@ import com.ttp.ziaratarbaeen.classes.ArbaeenMediaPlayer;
 import com.ttp.ziaratarbaeen.classes.LinearLayoutManagerWithSmoothScroller;
 import com.ttp.ziaratarbaeen.classes.MyConstants;
 import com.ttp.ziaratarbaeen.classes.ProgramSetting;
+import com.ttp.ziaratarbaeen.classes.UseFullMethod;
 import com.ttp.ziaratarbaeen.databinding.FragmentPilgrimageBinding;
 import com.ttp.ziaratarbaeen.interfaces.CallBackStartMedia;
 
@@ -250,8 +251,7 @@ public class PilgrimageFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 scaleAnimate(view);
-
-                loadFragment(settingFragment);
+                UseFullMethod.safeNavigate(view,R.id.settingFragment);
             }
         });
     }
@@ -315,14 +315,7 @@ public class PilgrimageFragment extends Fragment {
         }
     }
 
-    private void loadFragment(Fragment fragment) {
 
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
-                .replace(R.id.fl_fragment_container, fragment)
-                .addToBackStack(null).commit();
-
-    }
 
     @Override
     public void onPause() {

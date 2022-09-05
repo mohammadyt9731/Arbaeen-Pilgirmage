@@ -75,6 +75,10 @@ public class MyConstants {
     public static final String NATIVE_STANDARD_AD_ID = "608412e3bf5fdd0001c09651";
 
 
+    public static final String ERROR_TAG = "error_tag";
+
+
+
 
 
 }

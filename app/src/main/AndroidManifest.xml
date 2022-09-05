@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:exported="true"
             android:name=".activities.MainActivity"
             android:configChanges="orientation|keyboard"
             android:screenOrientation="portrait">

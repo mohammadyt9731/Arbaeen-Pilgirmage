@@ -15,227 +15,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:contentInsetStart="0dp"
-            android:elevation="@dimen/space_2Xlarge"
+        <Button
+            android:id="@+id/btn_open_navigation_view"
+            android:layout_width="@dimen/main_btn_toolbar_width"
+            android:layout_height="@dimen/main_btn_toolbar_width"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/ic_menu"
+            android:onClick="onClick"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="@dimen/space_very_small">
+        </Button>
 
+        <androidx.fragment.app.FragmentContainerView
 
-
-                <Button
-                    android:id="@+id/btn_open_navigation_view"
-                    android:layout_width="@dimen/main_btn_toolbar_width"
-                    android:layout_height="@dimen/main_btn_toolbar_width"
-                    android:background="@drawable/ic_menu"
-                    android:onClick="onClick"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                </Button>
-
-
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </Toolbar>
-
-        <TextView
-            android:id="@+id/tv_title_pilgrimage"
+            android:id="@+id/fragmentContainerView"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/space_medium"
-            android:fontFamily="@font/nabi"
-            android:gravity="center"
-            android:text="@string/pilgrimage_arbaeen"
-            android:textColor="@color/white"
-            android:textSize="@dimen/main_tv_title_text_size"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_main" />
 
-        <FrameLayout
-            android:id="@+id/fl_fragment_container"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:elevation="@dimen/space_Xlarge"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <LinearLayout
-            android:id="@+id/ll_large_icon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.45">
-
-            <Button
-                android:id="@+id/btn_pilgrimage"
-                android:layout_width="@dimen/main_btn_large_width"
-                android:layout_height="@dimen/main_btn_large_height"
-                android:background="@drawable/ic_main"
-                android:fontFamily="@font/nabi"
-                android:onClick="onClick"
-                android:text="@string/pilgrimage_arbaeen"
-                android:textColor="@color/black"
-                android:textSize="@dimen/main_btn_large_text_size"
-                android:textStyle="bold">
-
-            </Button>
-
-            <!--                <TextView-->
-            <!--                    style="@style/button_style"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:text="@string/pilgrimage_arbaeen"-->
-            <!--                    android:textSize="@dimen/_20ssp"-->
-            <!--                    android:visibility="gone" />-->
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layoutDirection="rtl"
-            android:id="@+id/ll_medium_icon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/space_Xlarge"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.65">
-
-            <LinearLayout style="@style/main_ll_vertical_style">
-
-                <Button
-                    android:id="@+id/btn_salawat_count"
-                    style="@style/main_medium_button_style"
-                    android:background="@drawable/ic_salawat_count"></Button>
-
-                <TextView
-                    style="@style/main_medium_tv_style"
-                    android:text="@string/salawat_count" />
-
-            </LinearLayout>
-
-            <LinearLayout style="@style/main_ll_vertical_style">
-
-                <Button
-                    android:id="@+id/btn_narratives"
-                    style="@style/main_medium_button_style"
-                    android:background="@drawable/ic_narrative">
-
-                </Button>
-
-                <TextView
-                    style="@style/main_medium_tv_style"
-                    android:text="@string/narratives" />
-
-            </LinearLayout>
-
-            <LinearLayout style="@style/main_ll_vertical_style">
-
-                <Button
-                    android:id="@+id/btn_setting"
-                    style="@style/main_medium_button_style"
-                    android:background="@drawable/ic_setting">
-
-                </Button>
-
-                <TextView
-                    style="@style/main_medium_tv_style"
-                    android:text="@string/setting" />
-
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layoutDirection="rtl"
-            android:id="@+id/ll_small_icon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/space_large"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.85">
-
-            <LinearLayout style="@style/main_ll_vertical_style">
-
-                <Button
-                    android:id="@+id/btn_other_apps"
-                    style="@style/main_small_button_style"
-                    android:background="@drawable/ic_other_app">
-
-                </Button>
-
-                <TextView
-                    style="@style/main_small_tv_style"
-                    android:text="@string/other_app" />
-
-            </LinearLayout>
-
-            <LinearLayout style="@style/main_ll_vertical_style">
-
-                <Button
-                    android:id="@+id/btn_comment"
-                    style="@style/main_small_button_style"
-                    android:background="@drawable/ic_comment"
-
-                    >
-
-                </Button>
-
-                <TextView
-                    style="@style/main_small_tv_style"
-                    android:text="@string/comment" />
-
-            </LinearLayout>
-
-
-
-            <LinearLayout style="@style/main_ll_vertical_style">
-
-                <Button
-                    android:id="@+id/btn_share_app"
-                    style="@style/main_small_button_style"
-                    android:background="@drawable/ic_share_app">
-
-
-                </Button>
-
-
-                <TextView
-                    style="@style/main_small_tv_style"
-                    android:text="@string/share_app" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <RelativeLayout
-
-            android:id="@+id/ad_container"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_50sdp"
-            android:layout_margin="@dimen/space_small"
-            android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
