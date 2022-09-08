@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/tv_header_setting"
-        style="@style/tv_header_fragment_style"
+        style="@style/tv_title_fragment_style"
         android:layout_width="match_parent"
         android:text="@string/setting"
         app:layout_constraintBottom_toBottomOf="parent"

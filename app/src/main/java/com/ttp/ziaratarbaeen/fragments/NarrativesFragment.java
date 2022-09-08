@@ -17,33 +17,27 @@ public class NarrativesFragment extends Fragment {
 
     FragmentNarrativesBinding binding;
 
-
-    @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding=FragmentNarrativesBinding.inflate(getLayoutInflater(),container,false);
         return binding.getRoot();
     }
 
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
 
-        setUpList();
-
-
+        setUpRecyclerView();
     }
 
 
+    private void setUpRecyclerView() {
 
-    private void setUpList() {
+        NarrativeAdapter narrativeAdapter = new NarrativeAdapter(requireActivity());
 
-        NarrativeAdapter narrativeAdapter = new NarrativeAdapter(getActivity());
-
-        binding.rvNarrative.setLayoutManager(new LinearLayoutManager(getContext()));
-        binding.rvNarrative.setAdapter(narrativeAdapter);
+        binding.rvNarrativesFragment.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.rvNarrativesFragment.setAdapter(narrativeAdapter);
 
     }
 }

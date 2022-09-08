@@ -3,15 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/drawable-v24/ic_about_us.xml" value="0.1725" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/drawable-v24/ic_close.xml" value="0.1725" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/drawable-v24/ic_comment.xml" value="0.1725" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/drawable-v24/ic_delete.xml" value="0.1725" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/drawable-v24/ic_developer.xml" value="0.1725" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/drawable-v24/ic_email.xml" value="0.1725" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/drawable-v24/ic_exit.xml" value="0.1725" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/drawable-v24/ic_other_app.xml" value="0.1725" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/drawable-v24/ic_share.xml" value="0.148" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/drawable-v24/ic_version.xml" value="0.1725" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/drawable/ic_delete.xml" value="0.1725" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/drawable/ic_menu.xml" value="0.17" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/drawable/paragraph_background.xml" value="0.2212962962962963" />
-        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/activity_main.xml" value="0.18" />
-        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_main.xml" value="0.25625" />
-        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_narratives.xml" value="0.13196555217831812" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/activity_main.xml" value="0.2050854522717799" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/dialog_about_us.xml" value="0.25625" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/dialog_comment.xml" value="0.25625" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/dialog_exit.xml" value="0.25625" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_main.xml" value="0.22" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_narratives.xml" value="0.22" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_pilgrimage.xml" value="0.25" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_salawat_count.xml" value="0.25" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_select_mention.xml" value="0.2" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_setting.xml" value="0.25" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/header_layout.xml" value="0.13196555217831812" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/item_narrative_list.xml" value="0.384375" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/view_header_navigation_view.xml" value="0.21739130434782608" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/view_mention.xml" value="0.25" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/view_narrative.xml" value="0.25" />

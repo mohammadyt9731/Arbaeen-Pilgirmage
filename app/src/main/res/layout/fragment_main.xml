@@ -1,182 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_main"
-
     tools:context=".fragments.MainFragment">
 
     <TextView
-        android:id="@+id/tv_title_pilgrimage"
+        android:id="@+id/tv_title_fragmentMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/space_medium"
+        android:layout_marginTop="@dimen/_16sdp"
         android:fontFamily="@font/nabi"
         android:gravity="center"
         android:text="@string/pilgrimage_arbaeen"
         android:textColor="@color/white"
-        android:textSize="@dimen/main_tv_title_text_size"
+        android:textSize="@dimen/_32ssp"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <LinearLayout
-        android:id="@+id/ll_large_icon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
+    <Button
+        android:id="@+id/btn_pilgrimage_fragmentMain"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:background="@drawable/ic_main"
+        android:fontFamily="@font/nabi"
+        android:onClick="onClick"
+        android:text="@string/pilgrimage_arbaeen"
+        android:textColor="@color/black"
+        android:textSize="@dimen/main_btn_large_text_size"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45">
 
-        <Button
-            android:id="@+id/btn_pilgrimage"
-            android:layout_width="@dimen/main_btn_large_width"
-            android:layout_height="@dimen/main_btn_large_height"
-            android:background="@drawable/ic_main"
-            android:fontFamily="@font/nabi"
-            android:onClick="onClick"
-            android:text="@string/pilgrimage_arbaeen"
-            android:textColor="@color/black"
-            android:textSize="@dimen/main_btn_large_text_size"
-            android:textStyle="bold">
+    </Button>
 
-        </Button>
 
-        <!--                <TextView-->
-        <!--                    style="@style/button_style"-->
-        <!--                    android:layout_width="wrap_content"-->
-        <!--                    android:layout_height="wrap_content"-->
-        <!--                    android:text="@string/pilgrimage_arbaeen"-->
-        <!--                    android:textSize="@dimen/_20ssp"-->
-        <!--                    android:visibility="gone" />-->
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layoutDirection="rtl"
-        android:id="@+id/ll_medium_icon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/space_Xlarge"
-        android:gravity="center"
-        android:orientation="horizontal"
+    <ImageView
+        android:id="@+id/iv_salawatCount_fragmentMain"
+        style="@style/iv_fragmentMain_styel"
+        android:background="@drawable/ic_salawat_count"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/iv_narratives_fragmentMain"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65">
+        app:layout_constraintVertical_bias="0.65" />
 
-        <LinearLayout style="@style/main_ll_vertical_style">
+    <TextView
+        android:id="@+id/tv_salawatCount_fragmentMain"
+        style="@style/tv_fragmentMain_style"
+        android:text="@string/salawat_count"
+        app:layout_constraintLeft_toLeftOf="@id/iv_salawatCount_fragmentMain"
+        app:layout_constraintRight_toRightOf="@id/iv_salawatCount_fragmentMain"
+        app:layout_constraintTop_toBottomOf="@id/iv_salawatCount_fragmentMain" />
 
-            <Button
-                android:id="@+id/btn_salawat_count"
-                style="@style/main_medium_button_style"
-                android:background="@drawable/ic_salawat_count"></Button>
+    <ImageView
+        android:id="@+id/iv_narratives_fragmentMain"
+        style="@style/iv_fragmentMain_styel"
+        android:src="@drawable/ic_narrative"
+        app:layout_constraintBottom_toBottomOf="@id/iv_salawatCount_fragmentMain"
+        app:layout_constraintLeft_toRightOf="@id/iv_setting_fragmentMain"
+        app:layout_constraintRight_toLeftOf="@id/iv_salawatCount_fragmentMain"
+        app:layout_constraintTop_toTopOf="@id/iv_salawatCount_fragmentMain" />
 
-            <TextView
-                style="@style/main_medium_tv_style"
-                android:text="@string/salawat_count" />
+    <TextView
+        style="@style/tv_fragmentMain_style"
+        android:text="@string/narratives"
+        app:layout_constraintLeft_toLeftOf="@id/iv_narratives_fragmentMain"
+        app:layout_constraintRight_toRightOf="@id/iv_narratives_fragmentMain"
+        app:layout_constraintTop_toBottomOf="@id/iv_narratives_fragmentMain" />
 
-        </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_setting_fragmentMain"
+        style="@style/iv_fragmentMain_styel"
+        android:src="@drawable/ic_setting"
+        app:layout_constraintBottom_toBottomOf="@id/iv_salawatCount_fragmentMain"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/iv_narratives_fragmentMain"
+        app:layout_constraintTop_toTopOf="@id/iv_salawatCount_fragmentMain" />
 
-        <LinearLayout style="@style/main_ll_vertical_style">
-
-            <Button
-                android:id="@+id/btn_narratives"
-                style="@style/main_medium_button_style"
-                android:background="@drawable/ic_narrative">
-
-            </Button>
-
-            <TextView
-                style="@style/main_medium_tv_style"
-                android:text="@string/narratives" />
-
-        </LinearLayout>
-
-        <LinearLayout style="@style/main_ll_vertical_style">
-
-            <Button
-                android:id="@+id/btn_setting"
-                style="@style/main_medium_button_style"
-                android:background="@drawable/ic_setting">
-
-            </Button>
-
-            <TextView
-                style="@style/main_medium_tv_style"
-                android:text="@string/setting" />
-
-        </LinearLayout>
+    <TextView
+        style="@style/tv_fragmentMain_style"
+        android:text="@string/setting"
+        app:layout_constraintLeft_toLeftOf="@id/iv_setting_fragmentMain"
+        app:layout_constraintRight_toRightOf="@id/iv_setting_fragmentMain"
+        app:layout_constraintTop_toBottomOf="@id/iv_setting_fragmentMain" />
 
 
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/iv_otherApps_fragmentMain"
+        style="@style/iv_fragmentMain_styel"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:src="@drawable/ic_other_app_png"
+        app:layout_constraintLeft_toRightOf="@id/iv_comment_fragmentMain"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_salawatCount_fragmentMain" />
 
-    <LinearLayout
-        android:layoutDirection="rtl"
-        android:id="@+id/ll_small_icon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/space_large"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:weightSum="3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85">
+    <TextView
+        style="@style/tv_fragmentMain_style"
+        android:text="@string/other_app"
+        app:layout_constraintLeft_toLeftOf="@id/iv_otherApps_fragmentMain"
+        app:layout_constraintRight_toRightOf="@id/iv_otherApps_fragmentMain"
+        app:layout_constraintTop_toBottomOf="@id/iv_otherApps_fragmentMain" />
 
-        <LinearLayout style="@style/main_ll_vertical_style">
+    <ImageView
+        android:id="@+id/iv_comment_fragmentMain"
+        style="@style/iv_fragmentMain_styel"
+        android:src="@drawable/ic_comment_png"
+        app:layout_constraintLeft_toRightOf="@id/iv_shareApp_fragmentMain"
+        app:layout_constraintRight_toLeftOf="@id/iv_otherApps_fragmentMain"
+        app:layout_constraintTop_toTopOf="@id/iv_otherApps_fragmentMain" />
 
-            <Button
-                android:id="@+id/btn_other_apps"
-                style="@style/main_small_button_style"
-                android:background="@drawable/ic_other_app">
+    <TextView
+        style="@style/tv_fragmentMain_style"
+        android:text="@string/comment"
+        app:layout_constraintLeft_toLeftOf="@id/iv_comment_fragmentMain"
+        app:layout_constraintRight_toRightOf="@id/iv_comment_fragmentMain"
+        app:layout_constraintTop_toBottomOf="@id/iv_comment_fragmentMain" />
 
-            </Button>
+    <ImageView
+        android:id="@+id/iv_shareApp_fragmentMain"
+        style="@style/iv_fragmentMain_styel"
+        android:src="@drawable/ic_share_app"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/iv_comment_fragmentMain"
+        app:layout_constraintTop_toTopOf="@id/iv_otherApps_fragmentMain" />
 
-            <TextView
-                style="@style/main_small_tv_style"
-                android:text="@string/other_app" />
+    <TextView
+        style="@style/tv_fragmentMain_style"
+        android:text="@string/share_app"
+        app:layout_constraintLeft_toLeftOf="@id/iv_shareApp_fragmentMain"
+        app:layout_constraintRight_toRightOf="@id/iv_shareApp_fragmentMain"
+        app:layout_constraintTop_toBottomOf="@id/iv_shareApp_fragmentMain" />
 
-        </LinearLayout>
-
-        <LinearLayout style="@style/main_ll_vertical_style">
-
-            <Button
-                android:id="@+id/btn_comment"
-                style="@style/main_small_button_style"
-                android:background="@drawable/ic_comment"
-
-                >
-
-            </Button>
-
-            <TextView
-                style="@style/main_small_tv_style"
-                android:text="@string/comment" />
-
-        </LinearLayout>
-
-
-
-        <LinearLayout style="@style/main_ll_vertical_style">
-
-            <Button
-                android:id="@+id/btn_share_app"
-                style="@style/main_small_button_style"
-                android:background="@drawable/ic_share_app">
-
-
-            </Button>
-
-
-            <TextView
-                style="@style/main_small_tv_style"
-                android:text="@string/share_app" />
-        </LinearLayout>
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

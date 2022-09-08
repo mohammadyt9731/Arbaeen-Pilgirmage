@@ -10,14 +10,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ttp.ziaratarbaeen.R;
+import com.ttp.ziaratarbaeen.databinding.ItemNarrativeListBinding;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class NarrativeAdapter extends RecyclerView.Adapter<NarrativeAdapter.ViewHolder> {
 
+
     ArrayList<String> narrativeTitleList;
     ArrayList<String> narrativeTextList;
+    private ItemNarrativeListBinding binding;
 
 
     public NarrativeAdapter(Context context) {
@@ -28,7 +31,6 @@ public class NarrativeAdapter extends RecyclerView.Adapter<NarrativeAdapter.View
         narrativeTitleList.addAll(Arrays.asList(context.getResources().getStringArray(R.array.narratives_title)));
         narrativeTextList.addAll(Arrays.asList(context.getResources().getStringArray(R.array.narratives_text)));
 
-
     }
 
 
@@ -36,8 +38,8 @@ public class NarrativeAdapter extends RecyclerView.Adapter<NarrativeAdapter.View
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        return new ViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.view_narrative, parent, false));
+        binding = ItemNarrativeListBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        return new ViewHolder(binding);
     }
 
     @Override
@@ -63,11 +65,11 @@ public class NarrativeAdapter extends RecyclerView.Adapter<NarrativeAdapter.View
         TextView tvText;
 
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
+        public ViewHolder(ItemNarrativeListBinding binding) {
+            super(binding.getRoot());
 
-            tvTitle = itemView.findViewById(R.id.tv_narrative_title);
-            tvText = itemView.findViewById(R.id.tv_narrative_text);
+            tvTitle = binding.tvNarrativeTitleItemNarrativeLIst;
+            tvText = binding.tvNarrativeTextItemNarrativeLIst;
 
         }
     }

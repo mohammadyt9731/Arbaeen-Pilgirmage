@@ -7,8 +7,8 @@
 
 
     <TextView
-        android:id="@+id/tv_title_pilgrimage"
-        style="@style/tv_header_fragment_style"
+        android:id="@+id/tv_title_fragmentMain"
+        style="@style/tv_title_fragment_style"
         android:layout_width="match_parent"
         android:text="@string/pilgrimage_arbaeen"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,7 +23,7 @@
         android:paddingHorizontal="@dimen/space_small"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title_pilgrimage" />
+        app:layout_constraintTop_toBottomOf="@id/tv_title_fragmentMain" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

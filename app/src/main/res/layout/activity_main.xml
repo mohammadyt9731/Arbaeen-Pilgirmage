@@ -15,21 +15,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btn_open_navigation_view"
-            android:layout_width="@dimen/main_btn_toolbar_width"
-            android:layout_height="@dimen/main_btn_toolbar_width"
-            android:layout_margin="@dimen/_10sdp"
-            android:background="@drawable/ic_menu"
-            android:onClick="onClick"
+        <ImageView
+            android:id="@+id/iv_menu_activityMain"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="32dp"
+            android:layout_margin="@dimen/_8sdp"
+            android:elevation="1dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_menu"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-        </Button>
+        </ImageView>
 
         <androidx.fragment.app.FragmentContainerView
-
-            android:id="@+id/fragmentContainerView"
+            android:id="@+id/fragmentContainerView_activityMain"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -42,15 +42,16 @@
 
     <com.google.android.material.navigation.NavigationView
 
-        android:id="@+id/navigation_view"
+        android:id="@+id/navigation_view_activityMain"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="right"
-        android:background="@drawable/slide_menu_background"
+        android:fitsSystemWindows="true"
+        android:layoutDirection="rtl"
+        android:background="@color/white"
         android:visibility="gone"
-        app:headerLayout="@layout/view_header_navigation_view"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/dark_green"
+        app:itemTextColor="@color/dark_green"
         app:menu="@menu/navigation_view_menu" />
 
 

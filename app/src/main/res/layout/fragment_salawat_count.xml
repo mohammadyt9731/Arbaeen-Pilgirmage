@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/tv_header_salawat_count"
-        style="@style/tv_header_fragment_style"
+        style="@style/tv_title_fragment_style"
         android:layout_width="match_parent"
         android:text="@string/salawat_count"
         app:layout_constraintBottom_toBottomOf="parent"

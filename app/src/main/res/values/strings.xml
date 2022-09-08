@@ -190,11 +190,15 @@
     <string name="dialog_yes">بله</string>
     <string name="dialog_no">خیر</string>
 
+
+    <!--dialog_about_us-->
+    <string name="version_code"><b>نسخه</b> : 1.0.0</string>
+    <string name="developer"><b>توسعه دهنده </b> : محمدیزدی</string>
+    <string name="support_email"><b>ایمیل پشتیبانی </b>:</string>
     <string name="ttp">تیم توسعه دهنده پویا</string>
     <string name="programmer_name">برنامه نویس : محمد یزدی</string>
     <string name="code_version">ورژن برنامه : 1.0</string>
-    <string name="support_email">ایمیل پشتیبانی :</string>
-    <string name="supttp">supttp@gmail.com</string>
+    <string name="email_address">ddt.supp@gmail.com</string>
 
 
     <string name="notices_title">"در این قسمت محصولات جدید معرفی میشود"</string>
@@ -376,6 +380,47 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+
+
+
+    <!--dialog_comment-->
+    <string name="how_main_point">چه امتیازی به این برنامه می دهید؟</string>
+    <string name="close">بستن</string>
+    <string name="please_send_email">ممنون از نظر شما\nلطفا انتقادات و پیشنهادات خود را از طریق ایمیل برای ماارسال کنید </string>
+    <string name="number_5">5</string>
+    <string name="number_4">4</string>
+    <string name="number_3">3</string>
+    <string name="number_2">2</string>
+    <string name="number_1">1</string>
+    <string name="submitt_comment">لطفا امتیاز خود را مشخص کنید</string>
+    <string name="deleted_successfully">با موفقیت حذف شد</string>
+
+
+    <!--dialog-exit-->
+    <string name="do_you_want_to_exit">آیا مایل به خروج هستید؟</string>
+    <string name="yes">بله</string>
+    <string name="no">خیر</string>
+
+
+    <!--caffe bazaar-->
+
+<string name="developer_applications_link">https://cafebazaar.ir/developer/mohammad_yazdi</string>
+<string name="market_app_id">http://cafebazaar.ir/app/?id=</string>
+<string name="comment_market_link">bazaar://details?id=</string>
+<string name="need_install_market">برای ثبت نظر باید اپلیکیشن کافه بازار را نصب داشته باشید</string>
+<string name="please_register_your_comment">ممنون از نظر شما\nلطفا نظر خود را در کافه بازار ثبت کنید</string>
+
+
+
+
+    <!--mayket
+    <string name="developer_applications_link">https://myket.ir/developer/dev-76806</string>
+    <string name="market_app_id">https://myket.ir/app/</string>
+    <string name="comment_market_link">myket://comment?id=</string>
+    <string name="need_install_market">برای ثبت نظر باید اپلیکیشن مایکت را نصب داشته باشید</string>
+    <string name="please_register_your_comment">ممنون از نظر شما\nلطفا نظر خود را در مایکت ثبت کنید</string>
+    -->
 </resources>
 
 

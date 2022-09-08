@@ -33,9 +33,9 @@ public class ExitDialog extends Dialog {
             getOwnerActivity().finish();
         });
 
-        binding.btnOtherApps.setOnClickListener(v -> MyIntent.otherAppIntent(activity));
+        binding.btnOtherApp.setOnClickListener(v -> MyIntent.otherAppIntent(activity));
 
-        binding.btnComment.setOnClickListener(v -> MyIntent.commentIntent(activity));
+        binding.btnExit.setOnClickListener(v -> MyIntent.commentIntent(activity));
     }
 
 

@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/tv_header_select_mention"
-        style="@style/tv_header_fragment_style"
+        style="@style/tv_title_fragment_style"
         android:layout_width="match_parent"
         android:text="@string/select_mention"
         app:layout_constraintBottom_toBottomOf="parent"

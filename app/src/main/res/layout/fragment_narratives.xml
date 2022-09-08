@@ -3,35 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_study"
-    android:clickable="true">
+    android:background="@drawable/bg_study">
 
     <TextView
-        android:id="@+id/tv_header_narratives"
-        style="@style/tv_header_fragment_style"
+        android:id="@+id/tv_title_narrativesFragment"
+        style="@style/tv_title_fragment_style"
         android:layout_width="match_parent"
         android:text="@string/narratives"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_narrative"
+        android:id="@+id/rv_narrativesFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/space_2Xlarge"
-        android:paddingHorizontal="@dimen/space_small"
-        app:layout_constraintBottom_toTopOf="@id/rl_ad_narrative"
-        app:layout_constraintTop_toBottomOf="@id/tv_header_narratives">
+        android:layout_marginTop="@dimen/_16sdp"
+        android:paddingHorizontal="@dimen/_8sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_narrativesFragment">
 
     </androidx.recyclerview.widget.RecyclerView>
-
-    <RelativeLayout
-        android:id="@+id/rl_ad_narrative"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center|bottom"
-        android:paddingBottom="@dimen/space_small"
-        app:layout_constraintBottom_toBottomOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

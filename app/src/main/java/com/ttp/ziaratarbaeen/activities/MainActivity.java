@@ -2,13 +2,9 @@ package com.ttp.ziaratarbaeen.activities;
 
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.MenuItem;
-import android.view.View;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.navigation.NavigationView;
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.classes.MyIntent;
 import com.ttp.ziaratarbaeen.classes.UseFullMethod;
@@ -20,9 +16,6 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
 
-    AboutUsDialog aboutUsDialog;
-    ExitDialog exitDialog;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,106 +23,79 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        init();
-        configuration();
+        setOnClick();
+        setUpMenu();
 
 
     }
     ////////////////////////////////////////////////////////////////////////////////////////
 
 
-    private void init() {
+    public void setOnClick() {
 
-
-        aboutUsDialog = new AboutUsDialog(MainActivity.this);
-        exitDialog = new ExitDialog(MainActivity.this);
-
-
-    }
-
-    private void configuration() {
-
-
-        setUpMenu();
-
-    }
-
-
-    public void onClick(View view) {
-
-
-        switch (view.getId()) {
-
-
-            case R.id.btn_open_navigation_view:
-                binding.drawerLayout.openDrawer(Gravity.RIGHT);
-                break;
-
-
-        }
+        binding.ivMenuActivityMain.setOnClickListener(view ->
+                binding.drawerLayout.openDrawer(Gravity.RIGHT)
+        );
 
     }
 
     private void setUpMenu() {
 
-        binding.navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        binding.navigationViewActivityMain.setNavigationItemSelectedListener(item -> {
 
-                switch (item.getItemId()) {
+            switch (item.getItemId()) {
 
-                    case R.id.nav_home_page:
+                case R.id.nav_home_page:
 
-                        UseFullMethod.safeNavigate(MainActivity.this
-                                , R.id.fragmentContainerView, R.id.mainFragment);
-                        break;
+                    UseFullMethod.safeNavigate(MainActivity.this
+                            , R.id.fragmentContainerView_activityMain, R.id.mainFragment);
+                    break;
 
-                    case R.id.nav_pilgrimage:
-                        UseFullMethod.safeNavigate(MainActivity.this
-                                , R.id.fragmentContainerView, R.id.pilgrimageFragment);
-                        break;
+                case R.id.nav_pilgrimage:
+                    UseFullMethod.safeNavigate(MainActivity.this
+                            , R.id.fragmentContainerView_activityMain, R.id.pilgrimageFragment);
+                    break;
 
-                    case R.id.nav_salawat_count:
-                        UseFullMethod.safeNavigate(MainActivity.this
-                                , R.id.fragmentContainerView, R.id.selectMentionFragment);
-                        break;
+                case R.id.nav_salawat_count:
+                    UseFullMethod.safeNavigate(MainActivity.this
+                            , R.id.fragmentContainerView_activityMain, R.id.selectMentionFragment);
+                    break;
 
-                    case R.id.nav_narratives:
-                        UseFullMethod.safeNavigate(MainActivity.this
-                                , R.id.fragmentContainerView, R.id.narrativesFragment);
-                        break;
+                case R.id.nav_narratives:
+                    UseFullMethod.safeNavigate(MainActivity.this
+                            , R.id.fragmentContainerView_activityMain, R.id.narrativesFragment);
+                    break;
 
-                    case R.id.nav_setting:
-                        UseFullMethod.safeNavigate(MainActivity.this
-                                , R.id.fragmentContainerView, R.id.settingFragment);
-                        break;
+                case R.id.nav_setting:
+                    UseFullMethod.safeNavigate(MainActivity.this
+                            , R.id.fragmentContainerView_activityMain, R.id.settingFragment);
+                    break;
 
 
-                    case R.id.nav_share_app:
-                        MyIntent.shareAppIntent(MainActivity.this);
-                        break;
+                case R.id.nav_share_app:
+                    MyIntent.shareAppIntent(MainActivity.this);
+                    break;
 
-                    case R.id.nav_other_app:
-                        MyIntent.otherAppIntent(MainActivity.this);
-                        break;
+                case R.id.nav_other_app:
+                    MyIntent.otherAppIntent(MainActivity.this);
+                    break;
 
-                    case R.id.nav_comment:
-                        MyIntent.commentIntent(MainActivity.this);
-                        break;
+                case R.id.nav_comment:
+                    MyIntent.commentIntent(MainActivity.this);
+                    break;
 
-                    case R.id.nav_about_us:
-                        aboutUsDialog.show();
-                        break;
+                case R.id.nav_about_us:
+                    new AboutUsDialog(this).show();
+                    break;
 
-                    case R.id.nav_exit:
-                        exitDialog.show();
-                        break;
+                case R.id.nav_exit:
+                    new ExitDialog(this).show();
+                    break;
 
 
-                }
-                binding.drawerLayout.closeDrawer(Gravity.RIGHT);
-                return false;
             }
+            binding.drawerLayout.closeDrawer(Gravity.RIGHT);
+            return false;
         });
 
 
