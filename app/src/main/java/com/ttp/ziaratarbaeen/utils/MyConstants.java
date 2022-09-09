@@ -1,17 +1,9 @@
-package com.ttp.ziaratarbaeen.classes;
-
-import android.content.Context;
-import android.content.res.Resources;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.widget.Toast;
+package com.ttp.ziaratarbaeen.utils;
 
 import com.ttp.ziaratarbaeen.R;
 
 public class MyConstants {
 
-    //Main Activity
-    public static final int LOTTIE_ANIMATION_DELAY = 10000;
 
 
     //MySharedPreferences
@@ -19,7 +11,6 @@ public class MyConstants {
     public static final String PROGRAM_SETTING="program_setting";
 
 
-    
     //Program Setting
     public static final boolean AUTO_SCROLL =true;
     public static final boolean SHOW_TRANSLATION =true;
@@ -56,29 +47,12 @@ public class MyConstants {
     public static final int MAXIMUM_PERSIAN_TEXT_SIZE = 32;
     public static final int MINIMUM_PERSIAN_TEXT_SIZE = 10;
 
+    //dialog
+    public static final int  DIALOG_WIDTH_PERCENTAGE=90;
+    public static final float  DISABLE_BUTTON_ALPHA=0.4f;
+    public static final float  ENABLE_BUTTON_ALPHA =1f;
 
-
-
-
-    public static final String TAPSELL_KEY = "eidqinttshkgrmaferdbgcbomfmkoctfaeisbcacrjhdlteafdjiebrmbpltkmlfpehqnt";
-
-    public static final String HOME_PAGE_AD_ID = "5f8e290f4203f300016aaefb";
-    public static final String EXIT_DIALOG_AD_ID = "5f94ad25fe1e3b0001c688de";
-    public static final String STANDARD_1_AD_ID = "5f961560c0df4d00014b5a82";
-    public static final String STANDARD_2_AD_ID = "6067a697260b920001cc7ebe";
-    public static final String STANDARD_3_AD_ID = "6067a6b4260b920001cc7ebf";
-
-    public static final String Interstitial_VIDEO_AD_ID = "606cd37ce9487f000165d37a";
-    public static final String Interstitial_AD_ID = "606cd165d06801000199485a";
-
-    public static final String NATIVE_VIDEO_AD_ID = "6067a77d260b920001cc7ec0";
-    public static final String NATIVE_STANDARD_AD_ID = "608412e3bf5fdd0001c09651";
-
-
+    //other
     public static final String ERROR_TAG = "error_tag";
-
-
-
-
 
 }

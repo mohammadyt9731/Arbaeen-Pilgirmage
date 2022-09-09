@@ -17,11 +17,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.adapter.PilgrimageAdapter;
-import com.ttp.ziaratarbaeen.classes.ArbaeenMediaPlayer;
-import com.ttp.ziaratarbaeen.classes.LinearLayoutManagerWithSmoothScroller;
-import com.ttp.ziaratarbaeen.classes.MyConstants;
-import com.ttp.ziaratarbaeen.classes.ProgramSetting;
-import com.ttp.ziaratarbaeen.classes.UseFullMethod;
+import com.ttp.ziaratarbaeen.utils.ArbaeenMediaPlayer;
+import com.ttp.ziaratarbaeen.utils.LinearLayoutManagerWithSmoothScroller;
+import com.ttp.ziaratarbaeen.utils.MyConstants;
+import com.ttp.ziaratarbaeen.utils.ProgramSetting;
+import com.ttp.ziaratarbaeen.utils.UseFullMethod;
 import com.ttp.ziaratarbaeen.databinding.FragmentPilgrimageBinding;
 import com.ttp.ziaratarbaeen.interfaces.CallBackStartMedia;
 

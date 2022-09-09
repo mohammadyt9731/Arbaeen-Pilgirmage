@@ -10,10 +10,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.ttp.ziaratarbaeen.R;
-import com.ttp.ziaratarbaeen.classes.MyIntent;
-import com.ttp.ziaratarbaeen.classes.UseFullMethod;
+import com.ttp.ziaratarbaeen.utils.MyIntent;
+import com.ttp.ziaratarbaeen.utils.UseFullMethod;
 import com.ttp.ziaratarbaeen.databinding.FragmentMainBinding;
 import com.ttp.ziaratarbaeen.dialogs.CommentDialog;
+
 
 public class MainFragment extends Fragment {
 
@@ -61,7 +62,7 @@ public class MainFragment extends Fragment {
         binding.ivCommentFragmentMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new CommentDialog(requireContext()).show();
+                new CommentDialog(requireActivity()).show();
             }
         });
         binding.ivOtherAppsFragmentMain.setOnClickListener(new View.OnClickListener() {

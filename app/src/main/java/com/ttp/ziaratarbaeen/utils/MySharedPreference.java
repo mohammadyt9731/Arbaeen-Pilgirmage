@@ -1,8 +1,8 @@
-package com.ttp.ziaratarbaeen.classes;
+package com.ttp.ziaratarbaeen.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
+
 import com.google.gson.Gson;
 
 
@@ -16,9 +16,6 @@ public class MySharedPreference {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
-
-
-   // private static final String MENTION_LIST = "mention_list";
 
 
     private MySharedPreference(Context context) {
@@ -56,28 +53,5 @@ public class MySharedPreference {
         return gson.fromJson(settingJson, ProgramSetting.class);
     }
 
-//    public void putMentionList(ArrayList<Mention > mentionList){
-//
-//        Type listType = new TypeToken<ArrayList<Mention>>() {
-//        }.getType();
-//        String strMentionList= gson.toJson(mentionList,listType);
-//
-//        editor.putString(MENTION_LIST,strMentionList).apply();
-//
-//
-//    }
-//
-//    public ArrayList<Mention > getMentionList(){
-//
-//        String strMentionList= sharedPreferences.getString(MENTION_LIST,null);
-//        if (strMentionList==null)
-//            return new ArrayList<>();
-//
-//        Type listType = new TypeToken<ArrayList<Mention>>() {
-//        }.getType();
-//
-//        ArrayList<Mention >mentionList =gson.fromJson(strMentionList,listType);
-//
-//        return mentionList;
-//    }
+
 }

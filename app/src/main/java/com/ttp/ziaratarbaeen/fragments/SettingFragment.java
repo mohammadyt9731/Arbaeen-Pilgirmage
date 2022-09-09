@@ -16,8 +16,8 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.slider.Slider;
 import com.ttp.ziaratarbaeen.R;
-import com.ttp.ziaratarbaeen.classes.MyConstants;
-import com.ttp.ziaratarbaeen.classes.ProgramSetting;
+import com.ttp.ziaratarbaeen.utils.MyConstants;
+import com.ttp.ziaratarbaeen.utils.ProgramSetting;
 import com.ttp.ziaratarbaeen.databinding.FragmentSettingBinding;
 
 public class SettingFragment extends Fragment {

@@ -4,19 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.PopupMenu;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
-import com.ttp.ziaratarbaeen.R;
-import com.ttp.ziaratarbaeen.classes.Mention;
+import com.ttp.ziaratarbaeen.utils.Mention;
 import com.ttp.ziaratarbaeen.databinding.FragmentSalawatCountBinding;
 import com.ttp.ziaratarbaeen.dialogs.ResetCounterDialog;
 

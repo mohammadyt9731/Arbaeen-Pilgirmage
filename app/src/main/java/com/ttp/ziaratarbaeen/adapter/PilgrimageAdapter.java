@@ -10,16 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ttp.ziaratarbaeen.R;
-import com.ttp.ziaratarbaeen.classes.ArbaeenMediaPlayer;
-import com.ttp.ziaratarbaeen.classes.ProgramSetting;
-import com.ttp.ziaratarbaeen.fragments.PilgrimageFragment;
+import com.ttp.ziaratarbaeen.utils.ArbaeenMediaPlayer;
+import com.ttp.ziaratarbaeen.utils.ProgramSetting;
 import com.ttp.ziaratarbaeen.interfaces.CallBackStartMedia;
 
 import java.util.ArrayList;

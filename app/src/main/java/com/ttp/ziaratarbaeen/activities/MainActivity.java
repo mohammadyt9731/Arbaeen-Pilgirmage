@@ -4,18 +4,21 @@ import android.os.Bundle;
 import android.view.Gravity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.ttp.ziaratarbaeen.R;
-import com.ttp.ziaratarbaeen.classes.MyIntent;
-import com.ttp.ziaratarbaeen.classes.UseFullMethod;
+import com.ttp.ziaratarbaeen.utils.MyIntent;
+import com.ttp.ziaratarbaeen.utils.UseFullMethod;
 import com.ttp.ziaratarbaeen.databinding.ActivityMainBinding;
 import com.ttp.ziaratarbaeen.dialogs.AboutUsDialog;
+import com.ttp.ziaratarbaeen.dialogs.CommentDialog;
 import com.ttp.ziaratarbaeen.dialogs.ExitDialog;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    ActivityMainBinding binding;
-
+    private ActivityMainBinding binding;
+    private NavHostFragment navHostFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+
+        init();
         setOnClick();
         setUpMenu();
 
@@ -30,8 +36,12 @@ public class MainActivity extends AppCompatActivity {
     }
     ////////////////////////////////////////////////////////////////////////////////////////
 
+    private void init() {
+        navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.fragmentContainerView_activityMain);
+    }
 
-    public void setOnClick() {
+    private void setOnClick() {
 
         binding.ivMenuActivityMain.setOnClickListener(view ->
                 binding.drawerLayout.openDrawer(Gravity.RIGHT)
@@ -81,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.nav_comment:
-                    MyIntent.commentIntent(MainActivity.this);
+                    new CommentDialog(this).show();
                     break;
 
                 case R.id.nav_about_us:
@@ -101,5 +111,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
 
+        if (navHostFragment.getNavController().getCurrentDestination().getId() == R.id.mainFragment)
+            new ExitDialog(this).show();
+        else
+            super.onBackPressed();
+    }
 }

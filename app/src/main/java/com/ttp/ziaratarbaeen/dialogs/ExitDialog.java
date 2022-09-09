@@ -2,41 +2,55 @@ package com.ttp.ziaratarbaeen.dialogs;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.graphics.drawable.ColorDrawable;
-
+import android.widget.AbsListView;
+import androidx.annotation.NonNull;
 import com.ttp.ziaratarbaeen.R;
-import com.ttp.ziaratarbaeen.classes.MyIntent;
+import com.ttp.ziaratarbaeen.utils.MyConstants;
+import com.ttp.ziaratarbaeen.utils.MyIntent;
+import com.ttp.ziaratarbaeen.utils.UseFullMethod;
 import com.ttp.ziaratarbaeen.databinding.DialogExitBinding;
 
 public class ExitDialog extends Dialog {
 
-    Activity activity;
-    private DialogExitBinding binding;
+    private final DialogExitBinding binding;
+    private final Activity activity;
 
-    public ExitDialog(Activity activity) {
+    public ExitDialog(@NonNull Activity activity) {
         super(activity);
-
         binding = DialogExitBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         this.activity = activity;
-        this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
-
-        configuration();
-
-
+        config();
+        setOnClick();
     }
 
-    private void configuration() {
-        binding.btnExit.setOnClickListener(v -> {
+    private void config() {
 
-            getOwnerActivity().finish();
-        });
+        //background transparent
+        getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
-        binding.btnOtherApp.setOnClickListener(v -> MyIntent.otherAppIntent(activity));
+        //dialog animation
+        getWindow().getAttributes().windowAnimations = R.style.scale_anim_style;
 
-        binding.btnExit.setOnClickListener(v -> MyIntent.commentIntent(activity));
+
+        //set width and height
+        getWindow().setLayout(
+                UseFullMethod.getScreenWidth(MyConstants.DIALOG_WIDTH_PERCENTAGE),
+                AbsListView.LayoutParams.WRAP_CONTENT);
     }
 
+    private void setOnClick() {
 
+
+        binding.btnClose.setOnClickListener(view -> cancel());
+
+        binding.btnExit.setOnClickListener(view -> activity.finish());
+
+        binding.btnOtherApp.setOnClickListener(view -> MyIntent.otherAppIntent(activity));
+    }
 }
+
+
+
+

@@ -198,7 +198,7 @@
     <string name="ttp">تیم توسعه دهنده پویا</string>
     <string name="programmer_name">برنامه نویس : محمد یزدی</string>
     <string name="code_version">ورژن برنامه : 1.0</string>
-    <string name="email_address">ddt.supp@gmail.com</string>
+
 
 
     <string name="notices_title">"در این قسمت محصولات جدید معرفی میشود"</string>
@@ -421,6 +421,16 @@
     <string name="need_install_market">برای ثبت نظر باید اپلیکیشن مایکت را نصب داشته باشید</string>
     <string name="please_register_your_comment">ممنون از نظر شما\nلطفا نظر خود را در مایکت ثبت کنید</string>
     -->
+
+
+    <!--MyIntent-->
+    <string name="app_link_download">لینک برنامه&#160;</string>
+    <string name="share_app_with">اشتراک گذاری با</string>
+    <string name="email_address">ddt.supp@gmail.com</string>
+    <string name="send_email">ارسال ایمیل</string>
+    <string name="whatsapp_is_not_installed">واتساپ روی تلفن شما نصب نیست</string>
+    <string name="whatsapp_business_is_not_installed">واتساپ تجاری روی تلفن شما نصب نیست</string>
+    <string name="unknown_error">خطای ناشناخته</string>
 </resources>
 
 

@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ttp.ziaratarbaeen.R;
-import com.ttp.ziaratarbaeen.classes.Mention;
+import com.ttp.ziaratarbaeen.utils.Mention;
 
 import java.util.ArrayList;
 

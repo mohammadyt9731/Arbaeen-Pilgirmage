@@ -1,6 +1,4 @@
-package com.ttp.ziaratarbaeen.classes;
-
-import java.util.ArrayList;
+package com.ttp.ziaratarbaeen.utils;
 
 public class Mention {
 

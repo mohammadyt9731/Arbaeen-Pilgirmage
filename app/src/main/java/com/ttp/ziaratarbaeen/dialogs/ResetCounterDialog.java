@@ -3,11 +3,14 @@ package com.ttp.ziaratarbaeen.dialogs;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
-import android.view.View;
+import android.widget.AbsListView;
 
 import androidx.annotation.NonNull;
 
+import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.databinding.DialogResetBinding;
+import com.ttp.ziaratarbaeen.utils.MyConstants;
+import com.ttp.ziaratarbaeen.utils.UseFullMethod;
 
 public class ResetCounterDialog extends Dialog {
 
@@ -20,27 +23,34 @@ public class ResetCounterDialog extends Dialog {
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
 
-        configuration();
+        config();
+        setOnclick();
 
     }
 
-    private void configuration() {
-        binding.yesReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    private void config() {
 
-                // resetCounter();
-                cancel();
-            }
-        });
+        //background transparent
+        getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
-        binding.noReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cancel();
-            }
-        });
+        //dialog animation
+        getWindow().getAttributes().windowAnimations = R.style.scale_anim_style;
+
+        //set width and height
+        getWindow().setLayout(
+                UseFullMethod.getScreenWidth(MyConstants.DIALOG_WIDTH_PERCENTAGE),
+                AbsListView.LayoutParams.WRAP_CONTENT);
     }
 
+    private void setOnclick() {
+
+        binding.yesReset.setOnClickListener(v -> {
+            // resetCounter();
+            cancel();
+        });
+
+        binding.noReset.setOnClickListener(v -> cancel());
+
+    }
 
 }

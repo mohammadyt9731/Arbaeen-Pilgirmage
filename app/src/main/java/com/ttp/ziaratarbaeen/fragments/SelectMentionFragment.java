@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.ttp.ziaratarbaeen.adapter.MentionAdapter;
-import com.ttp.ziaratarbaeen.classes.Mention;
+import com.ttp.ziaratarbaeen.utils.Mention;
 import com.ttp.ziaratarbaeen.databinding.FragmentSelectMentionBinding;
 
 import java.util.ArrayList;
