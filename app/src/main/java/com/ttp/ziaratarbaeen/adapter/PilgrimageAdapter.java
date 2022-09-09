@@ -65,7 +65,7 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         return new ViewHolder(LayoutInflater.from(context)
-                .inflate(R.layout.view_paragraph, parent, false));
+                .inflate(R.layout.item_pilgrimage_list, parent, false));
     }
 
     @Override
@@ -133,9 +133,9 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            tvArabicText = itemView.findViewById(R.id.tv_arabic_text);
-            tvPersianText = itemView.findViewById(R.id.tv_persian_text);
-            ivSeparator = itemView.findViewById(R.id.iv_separator);
+            tvArabicText = itemView.findViewById(R.id.tv_arabicText_itemPilgrimageList);
+            tvPersianText = itemView.findViewById(R.id.tv_persianText_itemPilgrimageList);
+            ivSeparator = itemView.findViewById(R.id.iv_separator_fragmentSetting);
 
 
         }

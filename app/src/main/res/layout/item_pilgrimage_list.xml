@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="@dimen/_4sdp"
+    android:gravity="top"
+    android:orientation="vertical">
+
+    <TextView
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_arabicText_itemPilgrimageList"
+        style="@style/arabic_text_style"
+        android:text="@string/sample_arabic_text"
+        />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/tv_arabicText_itemPilgrimageList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_persianText_itemPilgrimageList"
+        style="@style/persian_text_style"
+        android:text="@string/sample_persian_text"
+       />
+
+    <ImageView
+        app:layout_constraintTop_toBottomOf="@id/tv_persianText_itemPilgrimageList"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/iv_separator_itemPilgrimageList"
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/iv_separator_style"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

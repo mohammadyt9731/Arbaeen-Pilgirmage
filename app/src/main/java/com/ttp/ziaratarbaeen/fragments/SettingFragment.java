@@ -6,19 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
-import com.google.android.material.slider.Slider;
 import com.ttp.ziaratarbaeen.R;
+import com.ttp.ziaratarbaeen.databinding.FragmentSettingBinding;
 import com.ttp.ziaratarbaeen.utils.MyConstants;
 import com.ttp.ziaratarbaeen.utils.ProgramSetting;
-import com.ttp.ziaratarbaeen.databinding.FragmentSettingBinding;
 
 public class SettingFragment extends Fragment {
 
@@ -26,53 +23,40 @@ public class SettingFragment extends Fragment {
 
     ProgramSetting programSetting;
 
-    Typeface tfArabicFont;
-    Typeface tfPersianFont;
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding=FragmentSettingBinding.inflate(getLayoutInflater(),container,false);
-        return binding.getRoot();
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        binding = FragmentSettingBinding.inflate(getLayoutInflater(), container, false);
 
         init();
-        configuration();
+        applySetting();
+        setOnclick();
 
+        return binding.getRoot();
     }
-
 
 
     private void init() {
 
         programSetting = new ProgramSetting(getContext());
-
-        applySetting();
     }
 
     private void applySetting() {
 
-       binding.switchAutoScroll.setChecked(programSetting.isAutoScroll());
-       binding.switchShowTranslation.setChecked(programSetting.isShowTranslation());
-       binding.switchShowSeparator.setChecked(programSetting.isShowSeparator());
-       binding.switchDarkTheme.setChecked(programSetting.isDarkTheme());
+        binding.switchAutoScrollFragmentSetting.setChecked(programSetting.isAutoScroll());
+        binding.switchShowTranslationFragmentSetting.setChecked(programSetting.isShowTranslation());
+        binding.switchShowSeparatorFragmentSetting.setChecked(programSetting.isShowSeparator());
+        binding.switchDarkThemeFragmentSetting.setChecked(programSetting.isDarkTheme());
 
-       binding.sliderArabicTextSize.setValue(programSetting.getArabicTextSize());
-       binding.sliderPersianTextSize.setValue(programSetting.getPersianTextSize());
+        binding.sliderArabicTextSizeFragmentSetting.setValue(programSetting.getArabicTextSize());
+        binding.sliderPersianTextSizeFragmentSetting.setValue(programSetting.getPersianTextSize());
+        binding.sliderLineSpacingFragmentSetting.setValue(programSetting.getTextLineSpace());
 
-       float lineSpace=programSetting.getTextLineSpace();
-       binding.sliderLineSpacing.setValue(lineSpace);
+        binding.tvSampleArabicTextFragmentSetting.setTextSize(programSetting.getArabicTextSize());
+        binding.tvSampleArabicTextFragmentSetting.setLineSpacing(programSetting.getTextLineSpace(), programSetting.getTextLineSpace());
 
-       binding.tvSampleArabicText.setTextSize(programSetting.getArabicTextSize());
-       binding.tvSampleArabicText.setLineSpacing(lineSpace, lineSpace);
-
-       binding.tvSamplePersianText.setTextSize(programSetting.getPersianTextSize());
-       binding.tvSamplePersianText.setLineSpacing(lineSpace, lineSpace);
+        binding.tvSamplePersianTextFragmentSetting.setTextSize(programSetting.getPersianTextSize());
+        binding.tvSamplePersianTextFragmentSetting.setLineSpacing(programSetting.getTextLineSpace(), programSetting.getTextLineSpace());
 
         setArabicFont();
         setPersianFont();
@@ -86,177 +70,157 @@ public class SettingFragment extends Fragment {
 
         if (showTranslation != null)
             if (showTranslation)
-                binding.tvSamplePersianText.setVisibility(View.VISIBLE);
+                binding.tvSamplePersianTextFragmentSetting.setVisibility(View.VISIBLE);
             else
-                binding.tvSamplePersianText.setVisibility(View.GONE);
+                binding.tvSamplePersianTextFragmentSetting.setVisibility(View.GONE);
 
         if (showSeparator != null)
             if (showSeparator)
-                binding.ivSeparator.setVisibility(View.VISIBLE);
+                binding.ivSeparatorFragmentSetting.setVisibility(View.VISIBLE);
             else
-                binding.ivSeparator.setVisibility(View.GONE);
+                binding.ivSeparatorFragmentSetting.setVisibility(View.GONE);
 
     }
 
     private void setArabicFont() {
 
         int arabicFontId = programSetting.getArabicFontId();
-        tfArabicFont = ResourcesCompat.getFont(getActivity(), arabicFontId);
-        binding.tvSampleArabicText.setTypeface(tfArabicFont);
+        Typeface tfArabicFont = ResourcesCompat.getFont(requireActivity(), arabicFontId);
+        binding.tvSampleArabicTextFragmentSetting.setTypeface(tfArabicFont);
 
-        RadioButton rbArabicFont;
 
         switch (arabicFontId) {
 
             case MyConstants.ARABIC_FONT_2:
-                rbArabicFont = getView().findViewById(R.id.rb_arabic_font_2);
+                binding.rbArabicFont2FragmentSetting.setChecked(true);
                 break;
 
             case MyConstants.ARABIC_FONT_3:
-                rbArabicFont = getView().findViewById(R.id.rb_arabic_font_3);
+                binding.rbArabicFont3FragmentSetting.setChecked(true);
                 break;
 
             default:
-                rbArabicFont = getView().findViewById(R.id.rb_arabic_font_1);
+                binding.rbArabicFont1FragmentSetting.setChecked(true);
                 break;
 
         }
 
-        rbArabicFont.setChecked(true);
 
     }
 
     private void setPersianFont() {
 
         int persianFontId = programSetting.getPersianFontId();
-        tfPersianFont = ResourcesCompat.getFont(getActivity(),persianFontId);
-        binding.tvSamplePersianText.setTypeface(tfPersianFont);
-        RadioButton rbPersianFont;
+        Typeface tfPersianFont = ResourcesCompat.getFont(requireActivity(), persianFontId);
+        binding.tvSamplePersianTextFragmentSetting.setTypeface(tfPersianFont);
+
 
         switch (persianFontId) {
 
-            case  MyConstants.PERSIAN_FONT_2:
-                rbPersianFont = getView().findViewById(R.id.rb_persian_font_2);
+            case MyConstants.PERSIAN_FONT_2:
+                binding.rbPersianFont2FragmentSetting.setChecked(true);
                 break;
 
-            case  MyConstants.PERSIAN_FONT_3:
-                rbPersianFont = getView().findViewById(R.id.rb_persian_font_3);
+            case MyConstants.PERSIAN_FONT_3:
+                binding.rbPersianFont3FragmentSetting.setChecked(true);
                 break;
 
             default:
-                rbPersianFont = getView().findViewById(R.id.rb_persian_font_1);
+                binding.rbPersianFont1FragmentSetting.setChecked(true);
                 break;
         }
 
-        rbPersianFont.setChecked(true);
+
     }
 
-    private void configuration() {
+    private void setOnclick() {
 
-        CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+        CompoundButton.OnCheckedChangeListener checkedChangeListener = (compoundButton, isChecked) -> {
 
-                switch (compoundButton.getId()) {
+            switch (compoundButton.getId()) {
 
-                    case R.id.switch_auto_scroll:
-                        programSetting.setAutoScroll(isChecked);
-                        break;
+                case R.id.switch_autoScroll_fragmentSetting:
+                    programSetting.setAutoScroll(isChecked);
+                    break;
 
-                    case R.id.switch_show_translation:
-                        programSetting.setShowTranslation(isChecked);
-                        setVisibility(isChecked, null);
-                        break;
+                case R.id.switch_showTranslation_fragmentSetting:
+                    programSetting.setShowTranslation(isChecked);
+                    setVisibility(isChecked, null);
+                    break;
 
-                    case R.id.switch_show_separator:
-                        programSetting.setShowSeparator(isChecked);
-                        setVisibility(null, isChecked);
-                        break;
-                    case R.id.switch_dark_theme:
-                        programSetting.setDarkTheme(isChecked);
-                        break;
+                case R.id.switch_showSeparator_fragmentSetting:
+                    programSetting.setShowSeparator(isChecked);
+                    setVisibility(null, isChecked);
+                    break;
+                case R.id.switch_darkTheme_fragmentSetting:
+                    programSetting.setDarkTheme(isChecked);
+                    break;
 
 
-                }
-
-                programSetting.updateSetting(getActivity());
             }
+
+            programSetting.updateSetting(getActivity());
         };
 
-        binding.switchAutoScroll.setOnCheckedChangeListener(checkedChangeListener);
-        binding.switchShowTranslation.setOnCheckedChangeListener(checkedChangeListener);
-        binding.switchShowSeparator.setOnCheckedChangeListener(checkedChangeListener);
-        binding.switchDarkTheme.setOnCheckedChangeListener(checkedChangeListener);
+        binding.switchAutoScrollFragmentSetting.setOnCheckedChangeListener(checkedChangeListener);
+        binding.switchShowTranslationFragmentSetting.setOnCheckedChangeListener(checkedChangeListener);
+        binding.switchShowSeparatorFragmentSetting.setOnCheckedChangeListener(checkedChangeListener);
+        binding.switchDarkThemeFragmentSetting.setOnCheckedChangeListener(checkedChangeListener);
 
-        binding.rgArabicFonts.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        binding.rgArabicFontFragmentSetting.setOnCheckedChangeListener((radioGroup, i) -> {
 
-                switch (radioGroup.getCheckedRadioButtonId()) {
+            switch (radioGroup.getCheckedRadioButtonId()) {
 
-                    case R.id.rb_arabic_font_1:
-                        programSetting.setArabicFontId(MyConstants.ARABIC_FONT_1);
-                        break;
+                case R.id.rb_arabicFont1_fragmentSetting:
+                    programSetting.setArabicFontId(MyConstants.ARABIC_FONT_1);
+                    break;
 
-                    case R.id.rb_arabic_font_2:
-                        programSetting.setArabicFontId(MyConstants.ARABIC_FONT_2);
-                        break;
+                case R.id.rb_arabicFont2_fragmentSetting:
+                    programSetting.setArabicFontId(MyConstants.ARABIC_FONT_2);
+                    break;
 
-                    case R.id.rb_arabic_font_3:
-                        programSetting.setArabicFontId(MyConstants.ARABIC_FONT_3);
-                        break;
+                case R.id.rb_arabicFont3_fragmentSetting:
+                    programSetting.setArabicFontId(MyConstants.ARABIC_FONT_3);
+                    break;
 
-                }
-                setArabicFont();
             }
+            setArabicFont();
         });
-        binding.rgPersianFonts.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        binding.rgPersianFontFragmentSetting.setOnCheckedChangeListener((radioGroup, i) -> {
 
-                switch (radioGroup.getCheckedRadioButtonId()) {
+            switch (radioGroup.getCheckedRadioButtonId()) {
 
-                    case R.id.rb_persian_font_1:
-                        programSetting.setPersianFontId(MyConstants.PERSIAN_FONT_1);
-                        break;
+                case R.id.rb_persianFont1_fragmentSetting:
+                    programSetting.setPersianFontId(MyConstants.PERSIAN_FONT_1);
+                    break;
 
-                    case R.id.rb_persian_font_2:
-                        programSetting.setPersianFontId(MyConstants.PERSIAN_FONT_2);
-                        break;
+                case R.id.rb_persianFont2_fragmentSetting:
+                    programSetting.setPersianFontId(MyConstants.PERSIAN_FONT_2);
+                    break;
 
-                    case R.id.rb_persian_font_3:
-                        programSetting.setPersianFontId(MyConstants.PERSIAN_FONT_3);
-                        break;
-                }
-                setPersianFont();
+                case R.id.rb_persianFont3_fragmentSetting:
+                    programSetting.setPersianFontId(MyConstants.PERSIAN_FONT_3);
+                    break;
             }
+            setPersianFont();
         });
 
-        binding.sliderArabicTextSize.addOnChangeListener(new Slider.OnChangeListener() {
-            @Override
-            public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
-                programSetting.setArabicTextSize((int) value);
-                binding.tvSampleArabicText.setTextSize(value);
+        binding.sliderArabicTextSizeFragmentSetting.addOnChangeListener((slider, value, fromUser) -> {
+            programSetting.setArabicTextSize((int) value);
+            binding.tvSampleArabicTextFragmentSetting.setTextSize(value);
 
-            }
         });
-        binding.sliderPersianTextSize.addOnChangeListener(new Slider.OnChangeListener() {
-            @Override
-            public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
-                programSetting.setPersianTextSize((int) value);
-                binding.tvSamplePersianText.setTextSize(value);
+        binding.sliderPersianTextSizeFragmentSetting.addOnChangeListener((slider, value, fromUser) -> {
+            programSetting.setPersianTextSize((int) value);
+            binding.tvSamplePersianTextFragmentSetting.setTextSize(value);
 
-            }
         });
-        binding.sliderLineSpacing.addOnChangeListener(new Slider.OnChangeListener() {
-            @Override
-            public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
+        binding.sliderLineSpacingFragmentSetting.addOnChangeListener((slider, value, fromUser) -> {
 
-                programSetting.setTextLineSpace(value);
-                binding.tvSampleArabicText.setLineSpacing(value, value);
-                binding.tvSamplePersianText.setLineSpacing(value, value);
+            programSetting.setTextLineSpace(value);
+            binding.tvSampleArabicTextFragmentSetting.setLineSpacing(value, value);
+            binding.tvSamplePersianTextFragmentSetting.setLineSpacing(value, value);
 
-            }
         });
 
     }

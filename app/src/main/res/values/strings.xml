@@ -166,7 +166,7 @@
     <string name="arabic_text_size">سایز متن عربی</string>
     <string name="persian_font">فونت فارسی</string>
     <string name="persian_text_size">سایز متن فارسی</string>
-    <string name="line_spacing">فاصله بین خطوط</string>
+    <string name="line_spacing">\u0020\u0020فاصله بین خطوط\u0020\u0020</string>
 
 
     <string name="sample_arabic_text">السَّلاَمُ عَلَى وَلِيِّ اللَّهِ وَ حَبِيبِهِ السَّلاَمُ عَلَى خَلِيلِ اللَّهِ وَ نَجِيبِه</string>
