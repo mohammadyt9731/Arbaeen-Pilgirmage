@@ -11,7 +11,7 @@
         style="@style/tv_narrative_paragraph_style"
         android:layout_width="match_parent"
         android:text="@string/narratives"
-        android:textSize="@dimen/narrative_tv_title_text_size"
+        android:textSize="@dimen/_16ssp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
 

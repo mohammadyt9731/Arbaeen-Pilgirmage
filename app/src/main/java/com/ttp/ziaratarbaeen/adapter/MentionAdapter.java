@@ -28,7 +28,7 @@ public class MentionAdapter extends RecyclerView.Adapter<MentionAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater
-                .from(parent.getContext()).inflate(R.layout.view_mention,parent,false));
+                .from(parent.getContext()).inflate(R.layout.item_mention_list,parent,false));
     }
 
     @Override

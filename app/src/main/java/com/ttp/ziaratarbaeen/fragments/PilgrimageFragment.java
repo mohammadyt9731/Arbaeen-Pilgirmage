@@ -30,7 +30,7 @@ import java.util.TimerTask;
 
 public class PilgrimageFragment extends Fragment {
 
-    private final int TIMER_PERIOD = 1000;
+
 
     private FragmentPilgrimageBinding binding;
 
@@ -39,7 +39,7 @@ public class PilgrimageFragment extends Fragment {
     private PilgrimageAdapter pilgrimageAdapter;
     private ProgramSetting programSetting;
     private Animation scaleAnimation;
-    private SettingFragment settingFragment;
+
 
     private int arabicTextSize;
     private int persianTextSize;
@@ -59,10 +59,12 @@ public class PilgrimageFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        configuration();
+
+        init();
+        applySetting();
+        setUpList();
         setOnClick();
         startTimer();
-
     }
 
     @Override
@@ -79,24 +81,18 @@ public class PilgrimageFragment extends Fragment {
     }
 
 
-    private void configuration() {
-
-        init();
-        applySetting();
-        setUpList();
-    }
 
     private void init() {
 
         programSetting = new ProgramSetting(getActivity());
 
-        scaleAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.animation_scale);
+        scaleAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.scale_animation);
 
         mpPilgrimage = ArbaeenMediaPlayer.getMediaPlayer(getActivity());
 
-        binding.seekBarPilgrimageTime.setMax(mpPilgrimage.getDuration());
+        binding.seekBarFragmentPilgrimage.setMax(mpPilgrimage.getDuration());
 
-        settingFragment = new SettingFragment();
+
     }
 
     private void applySetting() {
@@ -117,12 +113,12 @@ public class PilgrimageFragment extends Fragment {
             }
         });
 
-        binding.rvPilgrimage.setLayoutManager(new LinearLayoutManager(getActivity()));
-        binding.rvPilgrimage.setAdapter(pilgrimageAdapter);
+        binding.rvPilgrimageFragmentPilgrimage.setLayoutManager(new LinearLayoutManager(getActivity()));
+        binding.rvPilgrimageFragmentPilgrimage.setAdapter(pilgrimageAdapter);
     }
 
     private void changePlayPauseBtnBackground() {
-        binding.btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_pause));
+        binding.btnPlayPauseFragmentPilgrimage.setBackground(getResources().getDrawable(R.drawable.ic_pause));
     }
 
 
@@ -137,7 +133,7 @@ public class PilgrimageFragment extends Fragment {
 
     private void setOnClick() {
 
-        binding.seekBarPilgrimageTime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        binding.seekBarFragmentPilgrimage.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean userChangeProgress) {
 
@@ -145,7 +141,7 @@ public class PilgrimageFragment extends Fragment {
                     reset();
 
                 else {
-                    binding.tvCurrentTime.setText(convertMilliSecondToMinute(progress));
+                    binding.tvCurrentTimeFragmentPilgrimage.setText(convertMilliSecondToMinute(progress));
 
                     int currentIndex;
 
@@ -161,8 +157,8 @@ public class PilgrimageFragment extends Fragment {
                         pilgrimageAdapter.update(currentIndex);
 
                         if (autoScroll) {
-                            binding.rvPilgrimage.setLayoutManager(new LinearLayoutManagerWithSmoothScroller(getContext()));
-                            binding.rvPilgrimage.scrollToPosition(currentIndex);
+                            binding.rvPilgrimageFragmentPilgrimage.setLayoutManager(new LinearLayoutManagerWithSmoothScroller(getContext()));
+                            binding.rvPilgrimageFragmentPilgrimage.scrollToPosition(currentIndex);
                         }
 
                     }
@@ -181,78 +177,62 @@ public class PilgrimageFragment extends Fragment {
             }
         });
 
-        binding.btnZoomIn.setOnClickListener(new View.OnClickListener() {
+        binding.btnZoomInFragmentPilgrimage.setOnClickListener(view -> {
 
-            @Override
-            public void onClick(View v) {
+            scaleAnimate(view);
 
-                scaleAnimate(v);
-
-                if (arabicTextSize >= MyConstants.MAXIMUM_ARABIC_TEXT_SIZE && persianTextSize >= MyConstants.MAXIMUM_PERSIAN_TEXT_SIZE) {
-                    Toast.makeText(getActivity(), getString(R.string.max_text_size_selected), Toast.LENGTH_SHORT).show();
-                } else {
+            if (arabicTextSize >= MyConstants.MAXIMUM_ARABIC_TEXT_SIZE && persianTextSize >= MyConstants.MAXIMUM_PERSIAN_TEXT_SIZE) {
+                Toast.makeText(getActivity(), getString(R.string.max_text_size_selected), Toast.LENGTH_SHORT).show();
+            } else {
 
 
-                    if (arabicTextSize < MyConstants.MAXIMUM_ARABIC_TEXT_SIZE)
-                        arabicTextSize++;
+                if (arabicTextSize < MyConstants.MAXIMUM_ARABIC_TEXT_SIZE)
+                    arabicTextSize++;
 
-                    if (persianTextSize < MyConstants.MAXIMUM_PERSIAN_TEXT_SIZE)
-                        persianTextSize++;
+                if (persianTextSize < MyConstants.MAXIMUM_PERSIAN_TEXT_SIZE)
+                    persianTextSize++;
 
-                    setTextSize(arabicTextSize, persianTextSize);
-                }
-
+                setTextSize(arabicTextSize, persianTextSize);
             }
+
         });
 
-        binding.btnZoomOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        binding.btnZoomOutFragmentPilgrimage.setOnClickListener(view -> {
 
-                scaleAnimate(v);
+            scaleAnimate(view);
 
 
-                if (arabicTextSize <= MyConstants.MINIMUM_ARABIC_TEXT_SIZE && persianTextSize <= MyConstants.MINIMUM_PERSIAN_TEXT_SIZE) {
-                    Toast.makeText(getActivity(), getString(R.string.min_text_size_selected), Toast.LENGTH_SHORT).show();
-                } else {
+            if (arabicTextSize <= MyConstants.MINIMUM_ARABIC_TEXT_SIZE && persianTextSize <= MyConstants.MINIMUM_PERSIAN_TEXT_SIZE) {
+                Toast.makeText(getActivity(), getString(R.string.min_text_size_selected), Toast.LENGTH_SHORT).show();
+            } else {
 
-                    if (arabicTextSize > MyConstants.MINIMUM_ARABIC_TEXT_SIZE)
-                        arabicTextSize--;
+                if (arabicTextSize > MyConstants.MINIMUM_ARABIC_TEXT_SIZE)
+                    arabicTextSize--;
 
-                    if (persianTextSize > MyConstants.MINIMUM_PERSIAN_TEXT_SIZE)
-                        persianTextSize--;
+                if (persianTextSize > MyConstants.MINIMUM_PERSIAN_TEXT_SIZE)
+                    persianTextSize--;
 
-                    setTextSize(arabicTextSize, persianTextSize);
-
-                }
+                setTextSize(arabicTextSize, persianTextSize);
 
             }
+
         });
 
-        binding.btnPlayPause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        binding.btnPlayPauseFragmentPilgrimage.setOnClickListener(view -> {
 
-                scaleAnimate(v);
-                changeState();
-            }
+            scaleAnimate(view);
+            changeState();
         });
 
-        binding.btnStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        binding.btnStopFragmentPilgrimage.setOnClickListener(view -> {
 
-                scaleAnimate(v);
-                reset();
-            }
+            scaleAnimate(view);
+            reset();
         });
 
-        binding.btnSettingPilgrimage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                scaleAnimate(view);
-                UseFullMethod.safeNavigate(view,R.id.settingFragment);
-            }
+        binding.btnSettingFragmentPilgrimage.setOnClickListener(view -> {
+            scaleAnimate(view);
+            UseFullMethod.safeNavigate(view,R.id.settingFragment);
         });
     }
 
@@ -265,10 +245,10 @@ public class PilgrimageFragment extends Fragment {
 
                 if (mpPilgrimage.isPlaying()) {
 
-                    binding.seekBarPilgrimageTime.setProgress(mpPilgrimage.getCurrentPosition());
+                    binding.seekBarFragmentPilgrimage.setProgress(mpPilgrimage.getCurrentPosition());
                 }
             }
-        }, 0, TIMER_PERIOD);
+        }, 0, 1000);
 
     }
 
@@ -290,38 +270,29 @@ public class PilgrimageFragment extends Fragment {
 
     private void reset() {
 
-        binding.btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_play2));
+        binding.btnPlayPauseFragmentPilgrimage.setBackground(getResources().getDrawable(R.drawable.ic_play2));
 
         if (mpPilgrimage.isPlaying()) {
             mpPilgrimage.pause();
         }
 
         mpPilgrimage.seekTo(0);
-        binding.seekBarPilgrimageTime.setProgress(0);
+        binding.seekBarFragmentPilgrimage.setProgress(0);
     }
 
     private void changeState() {
 
         if (mpPilgrimage.isPlaying()) {
 
-            binding.btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_play2));
+            binding.btnPlayPauseFragmentPilgrimage.setBackground(getResources().getDrawable(R.drawable.ic_play2));
             mpPilgrimage.pause();
         } else {
 
 
-            binding.btnPlayPause.setBackground(getResources().getDrawable(R.drawable.ic_pause));
+            binding.btnPlayPauseFragmentPilgrimage.setBackground(getResources().getDrawable(R.drawable.ic_pause));
             mpPilgrimage.start();
 
         }
-    }
-
-
-
-    @Override
-    public void onPause() {
-
-
-        super.onPause();
     }
 
 

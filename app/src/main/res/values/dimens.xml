@@ -19,42 +19,6 @@
 
 
 
-    <!--NarrativesFragment-->
-    <dimen name="tv_header_fragment_text_size">@dimen/_20ssp</dimen>
-    <dimen name="narrative_tv_title_text_size">@dimen/_15ssp</dimen>
-    <dimen name="narrative_tv_description_text_size">@dimen/_14ssp</dimen>
-    <dimen name="narrative_tv_paragraph_line_space">@dimen/_5sdp</dimen>
-
-
-    <!--SettingFragment-->
-    <dimen name="setting_rb_font_text_size">@dimen/_13ssp</dimen>
-    <dimen name="setting_tv_guide_font_text_size">@dimen/_12ssp</dimen>
-    <dimen name="setting_tv_guide_slider_text_size">@dimen/_12ssp</dimen>
-
-    <dimen name="setting_slider_thumb_radius">@dimen/_5sdp</dimen>
-    <dimen name="setting_tv_sample_arabic_text_size">22sp</dimen>
-    <dimen name="setting_tv_sample_persian_text_size">20sp</dimen>
-
-    <!--PilgrimageFragment-->
-    <dimen name="pilgrimage_ll_btn_container_elevation">@dimen/_1sdp</dimen>
-    <dimen name="pilgrimage_btn_medium_width">@dimen/_35sdp</dimen>
-    <dimen name="pilgrimage_btn_large_width">@dimen/_48sdp</dimen>
-    <dimen name="pilgrimage_iv_footer_background_height">@dimen/_55sdp</dimen>
-    <dimen name="pilgrimage_tv_current_time_text_size">@dimen/_12ssp</dimen>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <dimen name="space_very_small">@dimen/_3sdp</dimen>
     <dimen name="space_Xlarge">@dimen/_25sdp</dimen>
     <dimen name="space_2Xlarge">@dimen/_35sdp</dimen>
@@ -83,7 +47,6 @@
     <dimen name="text_size_28">@dimen/_28ssp</dimen>
     <dimen name="text_size_30">@dimen/_30ssp</dimen>
 
-    <dimen name="nav_menu_icon_size">@dimen/_24sdp</dimen>
 
 
 </resources>

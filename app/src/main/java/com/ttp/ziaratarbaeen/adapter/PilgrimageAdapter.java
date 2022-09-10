@@ -32,7 +32,7 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
     private final CallBackStartMedia callBackStartMedia;
 
     private ProgramSetting programSetting;
-    private Context context;
+    private final Context context;
 
 
     private int currentIndex = -1;
@@ -78,26 +78,23 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
         holder.tvPersianText.setText(persianTextList.get(position));
 
         if (currentIndex == position)
-            holder.tvArabicText.setTextColor(Color.RED);
+            holder.tvArabicText.setTextColor(context.getResources().getColor(R.color.red));
         else
-            holder.tvArabicText.setTextColor(Color.BLACK);
+            holder.tvArabicText.setTextColor(context.getResources().getColor(R.color.black));
 
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentIndex = position;
-                mpPilgrimage.seekTo(ArbaeenMediaPlayer.getCurrentPosition(currentIndex) * 1000);
+        holder.itemView.setOnClickListener(v -> {
+            currentIndex = position;
+            mpPilgrimage.seekTo(ArbaeenMediaPlayer.getCurrentPosition(currentIndex) * 1000);
 
-                if(!mpPilgrimage.isPlaying()){
-                    mpPilgrimage.start();
-                    callBackStartMedia.startMedia();
-                }
-
-
-                notifyDataSetChanged();
-
+            if(!mpPilgrimage.isPlaying()){
+                mpPilgrimage.start();
+                callBackStartMedia.startMedia();
             }
+
+
+            notifyDataSetChanged();
+
         });
 
     }
@@ -123,7 +120,7 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
 
 
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvArabicText;
         TextView tvPersianText;
@@ -163,11 +160,6 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
         if (!programSetting.isShowSeparator())
             holder.ivSeparator.setVisibility(View.GONE);
 
-        if (programSetting.isDarkTheme()) {
-            holder.itemView.setBackgroundColor(Color.BLACK);
-            holder.tvArabicText.setTextColor(Color.YELLOW);
-            holder.tvPersianText.setTextColor(Color.WHITE);
-        }
 
     }
 }

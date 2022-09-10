@@ -15,62 +15,62 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_pilgrimage"
+        android:id="@+id/rv_pilgrimage_fragmentPilgrimage"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/space_middle"
+        android:layout_marginTop="@dimen/_8sdp"
         android:layoutDirection="ltr"
-        android:paddingHorizontal="@dimen/space_small"
+        android:paddingHorizontal="@dimen/_8sdp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title_fragmentMain" />
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_footer"
+        android:id="@+id/cl_footer_fragmentPilgrimage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:focusable="true">
 
         <LinearLayout
-            android:id="@+id/ll_btn_container"
+            android:id="@+id/ll_btnContainer_fragmentPilgrimage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="@dimen/pilgrimage_ll_btn_container_elevation"
+            android:elevation="2dp"
             android:gravity="center"
             android:layoutDirection="rtl"
             android:orientation="horizontal"
-            android:paddingTop="@dimen/space_very_small"
-            app:layout_constraintBottom_toTopOf="@id/view_bg_footer"
-            app:layout_constraintTop_toTopOf="@id/view_bg_footer">
+            android:paddingTop="@dimen/_4sdp"
+            app:layout_constraintBottom_toTopOf="@id/view_bgFooter_fragmentPilgrimage"
+            app:layout_constraintTop_toTopOf="@id/view_bgFooter_fragmentPilgrimage">
 
             <Button
-                android:id="@+id/btn_zoom_in"
+                android:id="@+id/btn_zoomIn_fragmentPilgrimage"
                 style="@style/btn_pilgrimage_style"
                 android:background="@drawable/ic_zoom_in"
 
                 />
 
             <Button
-                android:id="@+id/btn_zoom_out"
+                android:id="@+id/btn_zoomOut_fragmentPilgrimage"
                 style="@style/btn_pilgrimage_style"
                 android:background="@drawable/ic_zoom_out" />
 
             <Button
-                android:id="@+id/btn_play_pause"
+                android:id="@+id/btn_playPause_fragmentPilgrimage"
                 style="@style/btn_pilgrimage_style"
-                android:layout_width="@dimen/pilgrimage_btn_large_width"
-                android:layout_height="@dimen/pilgrimage_btn_large_width"
+                android:layout_width="@dimen/_48sdp"
+                android:layout_height="@dimen/_48sdp"
                 android:background="@drawable/ic_play2" />
 
             <Button
-                android:id="@+id/btn_stop"
+                android:id="@+id/btn_stop_fragmentPilgrimage"
                 style="@style/btn_pilgrimage_style"
                 android:background="@drawable/ic_stop" />
 
             <Button
-                android:id="@+id/btn_setting_pilgrimage"
+                android:id="@+id/btn_setting_fragmentPilgrimage"
                 style="@style/btn_pilgrimage_style"
                 android:background="@drawable/ic_setting2" />
 
@@ -78,37 +78,37 @@
 
 
         <ImageView
-            android:id="@+id/view_bg_footer"
+            android:id="@+id/view_bgFooter_fragmentPilgrimage"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/pilgrimage_iv_footer_background_height"
+            android:layout_height="@dimen/_54sdp"
             android:scaleType="fitXY"
             android:src="@drawable/bg_footer_2"
             app:layout_constraintBottom_toBottomOf="parent" />
 
         <SeekBar
-            android:id="@+id/seek_bar_pilgrimage_time"
-            style="@style/slider_style"
+            android:id="@+id/seekBar_fragmentPilgrimage"
+            style="@style/slider_fragmentPilgrimage"
             android:layout_width="0dp"
-            android:layout_marginVertical="@dimen/space_medium"
+            android:layout_marginVertical="@dimen/_8sdp"
             android:layoutDirection="ltr"
             android:progress="40"
             android:theme="@style/slider_theme"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/tv_current_time" />
+            app:layout_constraintRight_toLeftOf="@id/tv_currentTime_fragmentPilgrimage" />
 
         <TextView
-            android:id="@+id/tv_current_time"
+            android:id="@+id/tv_currentTime_fragmentPilgrimage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/space_medium"
+            android:layout_marginRight="@dimen/_10sdp"
             android:text="@string/start_time"
             android:textColor="@color/black"
-            android:textSize="@dimen/pilgrimage_tv_current_time_text_size"
+            android:textSize="@dimen/_12ssp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@id/seek_bar_pilgrimage_time"
-            app:layout_constraintLeft_toRightOf="@id/seek_bar_pilgrimage_time"
-            app:layout_constraintRight_toRightOf="@id/cl_footer" />
+            app:layout_constraintBottom_toBottomOf="@id/seekBar_fragmentPilgrimage"
+            app:layout_constraintLeft_toRightOf="@id/seekBar_fragmentPilgrimage"
+            app:layout_constraintRight_toRightOf="@id/cl_footer_fragmentPilgrimage" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

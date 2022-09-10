@@ -55,50 +55,50 @@ public class MainActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
 
-                case R.id.nav_home_page:
+                case R.id.navItem_home:
 
                     UseFullMethod.safeNavigate(MainActivity.this
                             , R.id.fragmentContainerView_activityMain, R.id.mainFragment);
                     break;
 
-                case R.id.nav_pilgrimage:
+                case R.id.navItem_pilgrimage:
                     UseFullMethod.safeNavigate(MainActivity.this
                             , R.id.fragmentContainerView_activityMain, R.id.pilgrimageFragment);
                     break;
 
-                case R.id.nav_salawat_count:
+                case R.id.navItem_salawatCount:
                     UseFullMethod.safeNavigate(MainActivity.this
                             , R.id.fragmentContainerView_activityMain, R.id.selectMentionFragment);
                     break;
 
-                case R.id.nav_narratives:
+                case R.id.navItem_narratives:
                     UseFullMethod.safeNavigate(MainActivity.this
                             , R.id.fragmentContainerView_activityMain, R.id.narrativesFragment);
                     break;
 
-                case R.id.nav_setting:
+                case R.id.navItem_setting:
                     UseFullMethod.safeNavigate(MainActivity.this
                             , R.id.fragmentContainerView_activityMain, R.id.settingFragment);
                     break;
 
 
-                case R.id.nav_share_app:
+                case R.id.navItem_shareApp:
                     MyIntent.shareAppIntent(MainActivity.this);
                     break;
 
-                case R.id.nav_other_app:
+                case R.id.navItem_otherApp:
                     MyIntent.otherAppIntent(MainActivity.this);
                     break;
 
-                case R.id.nav_comment:
+                case R.id.navItem_comment:
                     new CommentDialog(this).show();
                     break;
 
-                case R.id.nav_about_us:
+                case R.id.navItem_aboutUs:
                     new AboutUsDialog(this).show();
                     break;
 
-                case R.id.nav_exit:
+                case R.id.navItem_exit:
                     new ExitDialog(this).show();
                     break;
 
