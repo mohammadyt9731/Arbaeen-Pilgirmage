@@ -4,12 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_study"
-    android:clickable="true"
     android:gravity="center">
 
 
     <TextView
-        android:id="@+id/tv_header_salawat_count"
+        android:id="@+id/tv_title_fragmentSalawatCount"
         style="@style/tv_title_fragment_style"
         android:layout_width="match_parent"
         android:text="@string/salawat_count"
@@ -17,47 +16,48 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cv_mention"
+        android:id="@+id/cv_mention_fragmentSalawatCount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/space_large"
-        android:layout_marginTop="@dimen/space_large"
+        android:layout_marginHorizontal="@dimen/_16sdp"
         android:background="@drawable/paragraph_background"
-        app:cardCornerRadius="@dimen/space_medium"
-        app:cardElevation="@dimen/space_middle"
-        app:layout_constraintTop_toBottomOf="@id/tv_header_salawat_count">
+        app:cardCornerRadius="@dimen/_6sdp"
+        app:cardElevation="@dimen/_6sdp"
+        app:layout_constraintBottom_toTopOf="@id/cl_container_fragmentSalawatCount"
+        app:layout_constraintTop_toBottomOf="@id/tv_title_fragmentSalawatCount">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="@dimen/_22sdp"
             android:paddingHorizontal="@dimen/space_medium"
-            android:paddingVertical="@dimen/space_large"
 
             >
 
             <TextView
-                android:id="@+id/tv_mention"
+                android:id="@+id/tv_mention_fragmentSalawatCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="اللهم صل علی محمد و آل محمد"
-                android:textColor="#023704"
+                android:text="@string/sample_mention_title"
+                android:textColor="@color/green_900"
                 android:textSize="@dimen/_18ssp"
+                android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_number"
+                android:id="@+id/tv_maxNumber_itemMentionLIst"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_medium"
-                android:text="خدایا درود فرست بر محمد و آل محمد"
-                android:textColor="#000B01"
-                android:textSize="@dimen/_12ssp"
+                android:text="@string/tv_sample_maxNumber"
+                android:textColor="@color/dark_green"
+                android:textSize="@dimen/_14ssp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_mention" />
+                app:layout_constraintTop_toBottomOf="@id/tv_mention_fragmentSalawatCount" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -66,39 +66,35 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
 
-        android:id="@+id/fl_zekr_shomar"
+        android:id="@+id/cl_container_fragmentSalawatCount"
         android:layout_width="@dimen/_180sdp"
         android:layout_height="@dimen/_240sdp"
         android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/space_small"
         android:background="@drawable/zekrshmar_icon"
-        app:layout_constraintBottom_toTopOf="@id/fl_ad_container"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-
-        app:layout_constraintTop_toBottomOf="@id/cv_mention">
+        app:layout_constraintTop_toBottomOf="@id/cv_mention_fragmentSalawatCount">
 
         <TextView
-            android:id="@+id/tv_counter_text"
+            android:id="@+id/tv_counter_fragmentSalawatCount"
             android:layout_width="@dimen/_130sdp"
             android:layout_height="@dimen/_55sdp"
             android:layout_gravity="center"
-
             android:layout_marginTop="@dimen/_40sdp"
             android:gravity="right|center"
             android:paddingRight="@dimen/space_small"
             android:text="0"
-            android:textColor="#E9232323"
+            android:textColor="@color/black"
             android:textSize="@dimen/_42ssp"
             app:layout_constraintLeft_toLeftOf="parent"
-
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
         </TextView>
 
         <Button
-            android:id="@+id/btn_counter_plus_plus"
+            android:id="@+id/btn_counterIncrement_fragmentSalawatCount"
             android:layout_width="@dimen/_75sdp"
             android:layout_height="@dimen/_75sdp"
             android:layout_gravity="center"
@@ -112,49 +108,20 @@
         </Button>
 
         <ImageView
-            android:id="@+id/iv_reset"
+            android:id="@+id/iv_reset_fragmentSalawatCount"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
             android:layout_gravity="center"
-           app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="@dimen/_120sdp"
             android:layout_marginRight="@dimen/_35sdp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
 
             >
 
         </ImageView>
-
-
+        
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-
-        android:id="@+id/btn_sound"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
-        android:background="@drawable/sound"
-        app:layout_constraintBottom_toBottomOf="@id/fl_zekr_shomar"
-        app:layout_constraintLeft_toRightOf="@id/fl_zekr_shomar"
-        app:layout_constraintTop_toTopOf="@id/fl_zekr_shomar"
-
-        >
-
-    </Button>
-
-
-    <RelativeLayout
-        android:id="@+id/fl_ad_container"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_gravity="bottom"
-        android:layout_margin="15dp"
-        android:maxHeight="60dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        >
-
-    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

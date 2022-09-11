@@ -431,6 +431,13 @@
     <string name="whatsapp_is_not_installed">واتساپ روی تلفن شما نصب نیست</string>
     <string name="whatsapp_business_is_not_installed">واتساپ تجاری روی تلفن شما نصب نیست</string>
     <string name="unknown_error">خطای ناشناخته</string>
+    <string name="sample_mention_title">اللهم صل علی محمد و آل محمد</string>
+    <string name="tv_sample_maxNumber">تعداد کل : 100</string>
+    <string name="mention_title">نام ذکر</string>
+    <string name="maxNumber">تعداد کل</string>
+    <string name="submit">ثبت</string>
+    <string name="delete_Mention">حذف ذکر</string>
+    <string name="doYouWantToDeleteThisMention">آیا میخواید این ذکر را حذف کنید</string>
 </resources>
 
 

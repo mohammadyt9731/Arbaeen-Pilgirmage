@@ -4,27 +4,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.PopupMenu;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.ttp.ziaratarbaeen.utils.Mention;
 import com.ttp.ziaratarbaeen.databinding.FragmentSalawatCountBinding;
 import com.ttp.ziaratarbaeen.dialogs.ResetCounterDialog;
-
-import java.util.ArrayList;
 
 public class SalawatCountFragment extends Fragment {
 
     private FragmentSalawatCountBinding binding;
 
     int counter;
-
-    PopupMenu popupMenu;
-    ArrayList<Mention>mentionList;
-    ////////////
 
 
     @Nullable
@@ -39,35 +31,19 @@ public class SalawatCountFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        configuration();
-
-        SelectMentionFragment selectMentionFragment=new SelectMentionFragment();
-
+        setOnClick();
 
     }
 
 
 
+    private void setOnClick() {
+        binding.btnCounterIncrementFragmentSalawatCount
+                .setOnClickListener(view -> binding.tvCounterFragmentSalawatCount.setText(String.valueOf(++counter)));
 
-
-    private void configuration() {
-        binding.btnCounterPlusPlus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                binding.tvCounterText.setText(String.valueOf(++counter));
-            }
-        });
-
-        binding.ivReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new ResetCounterDialog(getContext()).show();
-            }
-        });
-
+        binding.ivResetFragmentSalawatCount.setOnClickListener(view ->
+                new ResetCounterDialog(requireContext()).show());
 
     }
-
-
 
 }

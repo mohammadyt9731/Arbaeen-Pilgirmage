@@ -3,15 +3,13 @@ package com.ttp.ziaratarbaeen.utils;
 public class Mention {
 
     String mentionTitle;
-    String mentionTranslation;
 
-    int maximum;
+    int maximumNumber;
     int counter;
 
-    public Mention(String mentionName,String mentionTranslation, int maximum, int counter) {
+    public Mention(String mentionName, int maximum, int counter) {
         this.mentionTitle = mentionName;
-        this.mentionTranslation = mentionTranslation;
-        this.maximum = maximum;
+        this.maximumNumber = maximum;
         this.counter = counter;
     }
 
@@ -23,20 +21,14 @@ public class Mention {
         this.mentionTitle = mentionTitle;
     }
 
-    public String getMentionTranslation() {
-        return mentionTranslation;
+
+
+    public int getMaximumNumber() {
+        return maximumNumber;
     }
 
-    public void setMentionTranslation(String mentionTranslation) {
-        this.mentionTranslation = mentionTranslation;
-    }
-
-    public int getMaximum() {
-        return maximum;
-    }
-
-    public void setMaximum(int maximum) {
-        this.maximum = maximum;
+    public void setMaximumNumber(int maximumNumber) {
+        this.maximumNumber = maximumNumber;
     }
 
     public int getCounter() {

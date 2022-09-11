@@ -10,8 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.ttp.ziaratarbaeen.adapter.MentionAdapter;
-import com.ttp.ziaratarbaeen.utils.Mention;
 import com.ttp.ziaratarbaeen.databinding.FragmentSelectMentionBinding;
+import com.ttp.ziaratarbaeen.dialogs.AddMentionDialog;
+import com.ttp.ziaratarbaeen.utils.Mention;
 
 import java.util.ArrayList;
 
@@ -32,6 +33,7 @@ public class SelectMentionFragment extends Fragment {
 
 
         setUpMentionList();
+        setOnClick();
     }
 
 
@@ -40,10 +42,16 @@ public class SelectMentionFragment extends Fragment {
         ArrayList<Mention> mentionList = new ArrayList<>();
 
         for (int i = 0; i < 20; i++)
-            mentionList.add(new Mention("الله اکیر", "خداوند بزرگ است", 100, 3));
+            mentionList.add(new Mention("الله اکیر", 100, 0));
 
 
         MentionAdapter mentionAdapter = new MentionAdapter(mentionList);
         binding.rvMention.setAdapter(mentionAdapter);
+    }
+
+    private void setOnClick() {
+        binding.fabAddMention.setOnClickListener(view -> {
+            new AddMentionDialog(requireContext()).show();
+        });
     }
 }

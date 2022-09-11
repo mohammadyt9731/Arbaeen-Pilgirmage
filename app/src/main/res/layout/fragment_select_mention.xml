@@ -26,23 +26,19 @@
         android:layout_marginHorizontal="@dimen/space_medium"
         />
 
-<!--    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="افزودن ذکر  "-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        android:layout_margin="@dimen/space_middle"-->
-<!--        android:textSize="@dimen/_16ssp"-->
-<!--        app:backgroundTint="@color/main_green"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:paddingVertical="@dimen/space_medium"-->
-<!--        android:paddingHorizontal="@dimen/space_middle"-->
-
-<!--        android:drawableLeft="@drawable/ic_plus_fab"-->
-<!--        >-->
-
-<!--    </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>-->
+    <!--fab button-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddMention"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_16sdp"
+        android:backgroundTint="@color/green_600"
+        android:src="@drawable/ic_plus"
+        android:scaleType="centerCrop"
+        app:fabCustomSize="@dimen/_44sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:tint="@color/white" />
 
 
 

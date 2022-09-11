@@ -55,4 +55,6 @@ public class MyConstants {
     //other
     public static final String ERROR_TAG = "error_tag";
 
+    public static final String TABLE_NAME = "mentionTable";
+    public static final String DATABASE_NAME = "mentionDatabase";
 }
