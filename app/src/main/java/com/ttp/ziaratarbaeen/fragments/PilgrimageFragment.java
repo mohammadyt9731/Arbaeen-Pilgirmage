@@ -23,7 +23,7 @@ import com.ttp.ziaratarbaeen.utils.MyConstants;
 import com.ttp.ziaratarbaeen.utils.ProgramSetting;
 import com.ttp.ziaratarbaeen.utils.UseFullMethod;
 import com.ttp.ziaratarbaeen.databinding.FragmentPilgrimageBinding;
-import com.ttp.ziaratarbaeen.interfaces.CallBackStartMedia;
+import com.ttp.ziaratarbaeen.interfaces.MyCallBack;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -106,9 +106,9 @@ public class PilgrimageFragment extends Fragment {
 
     private void setUpList() {
 
-        pilgrimageAdapter = new PilgrimageAdapter(getActivity(), new CallBackStartMedia() {
+        pilgrimageAdapter = new PilgrimageAdapter(getActivity(), new MyCallBack() {
             @Override
-            public void startMedia() {
+            public void callBack() {
                 changePlayPauseBtnBackground();
             }
         });

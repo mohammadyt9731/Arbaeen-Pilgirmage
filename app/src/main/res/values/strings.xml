@@ -438,6 +438,9 @@
     <string name="submit">ثبت</string>
     <string name="delete_Mention">حذف ذکر</string>
     <string name="doYouWantToDeleteThisMention">آیا میخواید این ذکر را حذف کنید</string>
+    <string name="completeMenion">التماس دعا</string>
+    <string name="tasbihat">تسبیحات حضرت زهرا (س)</string>
+    <string name="mentionDays">ذکر ایام هفته</string>
 </resources>
 
 

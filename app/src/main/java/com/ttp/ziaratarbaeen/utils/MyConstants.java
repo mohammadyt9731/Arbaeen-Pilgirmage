@@ -57,4 +57,5 @@ public class MyConstants {
 
     public static final String TABLE_NAME = "mentionTable";
     public static final String DATABASE_NAME = "mentionDatabase";
+    public static final String ARG_ID = "argId";
 }

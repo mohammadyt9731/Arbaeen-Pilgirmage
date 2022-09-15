@@ -5,23 +5,23 @@ import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.widget.AbsListView;
 
-import androidx.annotation.NonNull;
-
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.databinding.DialogResetBinding;
+import com.ttp.ziaratarbaeen.interfaces.MyCallBack;
 import com.ttp.ziaratarbaeen.utils.MyConstants;
 import com.ttp.ziaratarbaeen.utils.UseFullMethod;
 
 public class ResetCounterDialog extends Dialog {
 
     private DialogResetBinding binding;
+    private MyCallBack myCallBack;
 
-    public ResetCounterDialog(@NonNull Context context) {
+    public ResetCounterDialog(Context context, MyCallBack myCallBack) {
         super(context);
         binding = DialogResetBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         this.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-
+        this.myCallBack = myCallBack;
 
         config();
         setOnclick();
@@ -45,7 +45,7 @@ public class ResetCounterDialog extends Dialog {
     private void setOnclick() {
 
         binding.yesReset.setOnClickListener(v -> {
-            // resetCounter();
+            myCallBack.callBack();
             cancel();
         });
 

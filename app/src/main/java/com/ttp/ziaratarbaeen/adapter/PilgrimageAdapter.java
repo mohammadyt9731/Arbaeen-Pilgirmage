@@ -2,7 +2,6 @@ package com.ttp.ziaratarbaeen.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.view.LayoutInflater;
@@ -18,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ttp.ziaratarbaeen.R;
 import com.ttp.ziaratarbaeen.utils.ArbaeenMediaPlayer;
 import com.ttp.ziaratarbaeen.utils.ProgramSetting;
-import com.ttp.ziaratarbaeen.interfaces.CallBackStartMedia;
+import com.ttp.ziaratarbaeen.interfaces.MyCallBack;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,7 +28,7 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
     private ArrayList<String> persianTextList;
 
     private  MediaPlayer mpPilgrimage;
-    private final CallBackStartMedia callBackStartMedia;
+    private final MyCallBack myCallBack;
 
     private ProgramSetting programSetting;
     private final Context context;
@@ -38,10 +37,10 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
     private int currentIndex = -1;
 
 
-    public PilgrimageAdapter(Context context, CallBackStartMedia callBackStartMedia) {
+    public PilgrimageAdapter(Context context, MyCallBack myCallBack) {
 
         this.context = context;
-        this.callBackStartMedia=callBackStartMedia;
+        this.myCallBack = myCallBack;
 
         init();
     }
@@ -89,7 +88,7 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
 
             if(!mpPilgrimage.isPlaying()){
                 mpPilgrimage.start();
-                callBackStartMedia.startMedia();
+                myCallBack.callBack();
             }
 
 

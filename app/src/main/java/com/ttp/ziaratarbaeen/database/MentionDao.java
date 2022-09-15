@@ -28,4 +28,8 @@ public interface MentionDao {
 
     @Query("SELECT * FROM " + MyConstants.TABLE_NAME + " WHERE id=:id")
     MentionEntity getMention(int id);
+
+    @Query("SELECT 1 FROM "+MyConstants.TABLE_NAME+
+            " WHERE EXISTS (SELECT * FROM "+MyConstants.TABLE_NAME+" WHERE id=1)")
+    boolean existsMention();
 }

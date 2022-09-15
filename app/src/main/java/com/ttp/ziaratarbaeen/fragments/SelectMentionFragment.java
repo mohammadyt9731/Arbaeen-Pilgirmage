@@ -1,5 +1,6 @@
 package com.ttp.ziaratarbaeen.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,11 +11,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.ttp.ziaratarbaeen.adapter.MentionAdapter;
+import com.ttp.ziaratarbaeen.database.MentionDataBase;
+import com.ttp.ziaratarbaeen.database.MentionEntity;
 import com.ttp.ziaratarbaeen.databinding.FragmentSelectMentionBinding;
 import com.ttp.ziaratarbaeen.dialogs.AddMentionDialog;
-import com.ttp.ziaratarbaeen.utils.Mention;
+import com.ttp.ziaratarbaeen.utils.MyConstants;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class SelectMentionFragment extends Fragment {
 
@@ -37,21 +40,18 @@ public class SelectMentionFragment extends Fragment {
     }
 
 
+
     private void setUpMentionList() {
 
-        ArrayList<Mention> mentionList = new ArrayList<>();
-
-        for (int i = 0; i < 20; i++)
-            mentionList.add(new Mention("الله اکیر", 100, 0));
-
-
-        MentionAdapter mentionAdapter = new MentionAdapter(mentionList);
+        MentionAdapter mentionAdapter = new MentionAdapter(requireContext());
         binding.rvMention.setAdapter(mentionAdapter);
     }
 
     private void setOnClick() {
         binding.fabAddMention.setOnClickListener(view -> {
-            new AddMentionDialog(requireContext()).show();
+            new AddMentionDialog(requireContext(),-1,()->{
+                setUpMentionList();
+            }).show();
         });
     }
 }

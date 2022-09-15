@@ -35,7 +35,7 @@
             >
 
             <TextView
-                android:id="@+id/tv_mention_fragmentSalawatCount"
+                android:id="@+id/tv_mentionTitle_fragmentSalawatCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -57,7 +57,7 @@
                 android:textSize="@dimen/_14ssp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_mention_fragmentSalawatCount" />
+                app:layout_constraintTop_toBottomOf="@id/tv_mentionTitle_fragmentSalawatCount" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

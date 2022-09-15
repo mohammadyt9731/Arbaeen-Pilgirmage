@@ -7,12 +7,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.ttp.ziaratarbaeen.R;
-import com.ttp.ziaratarbaeen.utils.MyIntent;
-import com.ttp.ziaratarbaeen.utils.UseFullMethod;
+import com.ttp.ziaratarbaeen.database.MentionDataBase;
+import com.ttp.ziaratarbaeen.database.MentionEntity;
 import com.ttp.ziaratarbaeen.databinding.ActivityMainBinding;
 import com.ttp.ziaratarbaeen.dialogs.AboutUsDialog;
 import com.ttp.ziaratarbaeen.dialogs.CommentDialog;
 import com.ttp.ziaratarbaeen.dialogs.ExitDialog;
+import com.ttp.ziaratarbaeen.utils.MyIntent;
+import com.ttp.ziaratarbaeen.utils.UseFullMethod;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -27,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-
         init();
         setOnClick();
         setUpMenu();
+        addDefaultMention();
 
 
     }
@@ -109,6 +111,27 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void addDefaultMention() {
+        if (!MentionDataBase.getInstance(this).mentionDao().existsMention()) {
+
+            MentionEntity tasbihatEntity = new MentionEntity(0,
+                    getString(R.string.tasbihat),
+                    100);
+
+            MentionEntity mentionDaysEntity = new MentionEntity(0,
+                    getString(R.string.mentionDays),
+                    100);
+
+            MentionDataBase.getInstance(this).mentionDao()
+                    .insertMention(tasbihatEntity);
+
+            MentionDataBase.getInstance(this).mentionDao()
+                    .insertMention(mentionDaysEntity);
+
+
+        }
     }
 
     @Override

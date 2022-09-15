@@ -12,7 +12,8 @@ public abstract class MentionDataBase extends RoomDatabase {
 
     private static MentionDataBase mentionDataBase;
 
-    public static MentionDataBase getInstance(Context context) {
+
+    public synchronized  static MentionDataBase getInstance(Context context) {
         if (null == mentionDataBase) {
             mentionDataBase = buildDatabaseInstance(context);
         }
@@ -25,4 +26,6 @@ public abstract class MentionDataBase extends RoomDatabase {
                         MyConstants.DATABASE_NAME)
                 .allowMainThreadQueries().build();
     }
+
+    public abstract MentionDao mentionDao();
 }
