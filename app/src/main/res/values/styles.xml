@@ -369,7 +369,7 @@
 
     <style name="rating_bar_style">
         <item name="colorControlNormal">@color/black</item>
-        <item name="colorControlActivated">@color/dark_green</item>
+        <item name="colorControlActivated">@color/main_green</item>
     </style>
 
 
