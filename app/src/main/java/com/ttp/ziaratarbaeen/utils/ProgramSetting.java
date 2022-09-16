@@ -7,7 +7,7 @@ public class ProgramSetting {
     boolean autoScroll;
     boolean showTranslation;
     boolean showSeparator;
-    boolean darkTheme;
+    boolean screenOn;
 
     int arabicTextSize;
     int persianTextSize;
@@ -27,7 +27,7 @@ public class ProgramSetting {
             autoScroll = MyConstants.AUTO_SCROLL;
             showTranslation = MyConstants.SHOW_TRANSLATION;
             showSeparator = MyConstants.SHOW_SEPARATOR;
-            darkTheme = MyConstants.DARK_THEME;
+            screenOn = MyConstants.DARK_THEME;
 
             arabicTextSize = MyConstants.DEFAULT_ARABIC_TEXT_SIZE;
             persianTextSize = MyConstants.DEFAULT_PERSIAN_TEXT_SIZE;
@@ -45,7 +45,7 @@ public class ProgramSetting {
             autoScroll = savedSetting.isAutoScroll();
             showTranslation = savedSetting.isShowTranslation();
             showSeparator = savedSetting.isShowSeparator();
-            darkTheme = savedSetting.isDarkTheme();
+            screenOn = savedSetting.isScreenOn();
 
             arabicTextSize = savedSetting.getArabicTextSize();
             persianTextSize = savedSetting.getPersianTextSize();
@@ -62,6 +62,7 @@ public class ProgramSetting {
 
     public void updateSetting(Context context) {
         MySharedPreference.getInstance(context).putProgramSetting(this);
+
     }
     /////////////////////////////////////////////////////////////////////////////////////
 
@@ -77,8 +78,8 @@ public class ProgramSetting {
         return showSeparator;
     }
 
-    public boolean isDarkTheme() {
-        return darkTheme;
+    public boolean isScreenOn() {
+        return screenOn;
     }
 
 
@@ -116,8 +117,8 @@ public class ProgramSetting {
         this.showSeparator = showSeparator;
     }
 
-    public void setDarkTheme(boolean darkTheme) {
-        this.darkTheme = darkTheme;
+    public void setScreenOn(boolean screenOn) {
+        this.screenOn = screenOn;
     }
 
     public void setArabicTextSize(int arabicTextSize) {

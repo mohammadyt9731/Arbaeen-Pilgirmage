@@ -13,6 +13,7 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
 import com.ttp.ziaratarbaeen.R;
+import com.ttp.ziaratarbaeen.activities.MainActivity;
 import com.ttp.ziaratarbaeen.databinding.FragmentSettingBinding;
 import com.ttp.ziaratarbaeen.utils.MyConstants;
 import com.ttp.ziaratarbaeen.utils.ProgramSetting;
@@ -46,7 +47,7 @@ public class SettingFragment extends Fragment {
         binding.switchAutoScrollFragmentSetting.setChecked(programSetting.isAutoScroll());
         binding.switchShowTranslationFragmentSetting.setChecked(programSetting.isShowTranslation());
         binding.switchShowSeparatorFragmentSetting.setChecked(programSetting.isShowSeparator());
-        binding.switchDarkThemeFragmentSetting.setChecked(programSetting.isDarkTheme());
+        binding.switchScreenOnFragmentSetting.setChecked(programSetting.isScreenOn());
 
         binding.sliderArabicTextSizeFragmentSetting.setValue(programSetting.getArabicTextSize());
         binding.sliderPersianTextSizeFragmentSetting.setValue(programSetting.getPersianTextSize());
@@ -152,20 +153,22 @@ public class SettingFragment extends Fragment {
                     programSetting.setShowSeparator(isChecked);
                     setVisibility(null, isChecked);
                     break;
-                case R.id.switch_darkTheme_fragmentSetting:
-                    programSetting.setDarkTheme(isChecked);
+                case R.id.switch_screenOn_fragmentSetting:
+                    programSetting.setScreenOn(isChecked);
+
                     break;
 
 
             }
 
             programSetting.updateSetting(getActivity());
+            ((MainActivity) requireActivity()).checkScreenOn();
         };
 
         binding.switchAutoScrollFragmentSetting.setOnCheckedChangeListener(checkedChangeListener);
         binding.switchShowTranslationFragmentSetting.setOnCheckedChangeListener(checkedChangeListener);
         binding.switchShowSeparatorFragmentSetting.setOnCheckedChangeListener(checkedChangeListener);
-        binding.switchDarkThemeFragmentSetting.setOnCheckedChangeListener(checkedChangeListener);
+        binding.switchScreenOnFragmentSetting.setOnCheckedChangeListener(checkedChangeListener);
 
         binding.rgArabicFontFragmentSetting.setOnCheckedChangeListener((radioGroup, i) -> {
 

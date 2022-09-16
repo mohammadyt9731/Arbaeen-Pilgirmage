@@ -15,25 +15,21 @@ import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ttp.ziaratarbaeen.R;
+import com.ttp.ziaratarbaeen.interfaces.MyCallBack;
 import com.ttp.ziaratarbaeen.utils.ArbaeenMediaPlayer;
 import com.ttp.ziaratarbaeen.utils.ProgramSetting;
-import com.ttp.ziaratarbaeen.interfaces.MyCallBack;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.ViewHolder> {
 
+    private final MyCallBack myCallBack;
+    private final Context context;
     private ArrayList<String> arabicTextList;
     private ArrayList<String> persianTextList;
-
-    private  MediaPlayer mpPilgrimage;
-    private final MyCallBack myCallBack;
-
+    private MediaPlayer mpPilgrimage;
     private ProgramSetting programSetting;
-    private final Context context;
-
-
     private int currentIndex = -1;
 
 
@@ -47,7 +43,7 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
 
     private void init() {
 
-        mpPilgrimage=ArbaeenMediaPlayer.getMediaPlayer(context);
+        mpPilgrimage = ArbaeenMediaPlayer.getMediaPlayer(context);
 
         arabicTextList = new ArrayList<>();
         persianTextList = new ArrayList<>();
@@ -86,7 +82,7 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
             currentIndex = position;
             mpPilgrimage.seekTo(ArbaeenMediaPlayer.getCurrentPosition(currentIndex) * 1000);
 
-            if(!mpPilgrimage.isPlaying()){
+            if (!mpPilgrimage.isPlaying()) {
                 mpPilgrimage.start();
                 myCallBack.callBack();
             }
@@ -105,10 +101,10 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
 
     }
 
-    public void updateView(){
+    public void updateView() {
 
-        programSetting=new ProgramSetting(context);
-       notifyDataSetChanged();
+        programSetting = new ProgramSetting(context);
+        notifyDataSetChanged();
     }
 
     @Override
@@ -117,7 +113,30 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
 
     }
 
+    private void applySetting(ViewHolder holder) {
 
+
+        holder.tvArabicText.setTextSize(programSetting.getArabicTextSize());
+        holder.tvPersianText.setTextSize(programSetting.getPersianTextSize());
+
+        holder.tvArabicText.setLineSpacing(programSetting.getTextLineSpace(), programSetting.getTextLineSpace());
+        holder.tvPersianText.setLineSpacing(programSetting.getTextLineSpace(), programSetting.getTextLineSpace());
+
+        Typeface tfArabicFont = ResourcesCompat.getFont(context, programSetting.getArabicFontId());
+        Typeface tfPersianFont = ResourcesCompat.getFont(context, programSetting.getPersianFontId());
+
+        holder.tvArabicText.setTypeface(tfArabicFont);
+        holder.tvPersianText.setTypeface(tfPersianFont);
+
+
+        if (!programSetting.isShowTranslation())
+            holder.tvPersianText.setVisibility(View.GONE);
+
+        if (!programSetting.isShowSeparator())
+            holder.ivSeparator.setVisibility(View.GONE);
+
+
+    }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -131,34 +150,9 @@ public class PilgrimageAdapter extends RecyclerView.Adapter<PilgrimageAdapter.Vi
 
             tvArabicText = itemView.findViewById(R.id.tv_arabicText_itemPilgrimageList);
             tvPersianText = itemView.findViewById(R.id.tv_persianText_itemPilgrimageList);
-            ivSeparator = itemView.findViewById(R.id.iv_separator_fragmentSetting);
+            ivSeparator = itemView.findViewById(R.id.iv_separator_itemPilgrimageList);
 
 
         }
-    }
-
-    private void applySetting(ViewHolder holder) {
-
-
-        holder.tvArabicText.setTextSize(programSetting.getArabicTextSize());
-        holder.tvPersianText.setTextSize(programSetting.getPersianTextSize());
-
-        holder.tvArabicText.setLineSpacing(programSetting.getTextLineSpace(), programSetting.getTextLineSpace());
-        holder.tvPersianText.setLineSpacing(programSetting.getTextLineSpace(), programSetting.getTextLineSpace());
-
-        Typeface tfArabicFont= ResourcesCompat.getFont(context, programSetting.getArabicFontId());
-        Typeface tfPersianFont= ResourcesCompat.getFont(context, programSetting.getPersianFontId());
-
-        holder.tvArabicText.setTypeface(tfArabicFont);
-        holder.tvPersianText.setTypeface(tfPersianFont);
-
-
-        if (!programSetting.isShowTranslation())
-            holder.tvPersianText.setVisibility(View.GONE);
-
-        if (!programSetting.isShowSeparator())
-            holder.ivSeparator.setVisibility(View.GONE);
-
-
     }
 }

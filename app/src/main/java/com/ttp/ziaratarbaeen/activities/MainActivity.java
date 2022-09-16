@@ -2,6 +2,7 @@ package com.ttp.ziaratarbaeen.activities;
 
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.fragment.NavHostFragment;
@@ -14,6 +15,7 @@ import com.ttp.ziaratarbaeen.dialogs.AboutUsDialog;
 import com.ttp.ziaratarbaeen.dialogs.CommentDialog;
 import com.ttp.ziaratarbaeen.dialogs.ExitDialog;
 import com.ttp.ziaratarbaeen.utils.MyIntent;
+import com.ttp.ziaratarbaeen.utils.ProgramSetting;
 import com.ttp.ziaratarbaeen.utils.UseFullMethod;
 
 
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private NavHostFragment navHostFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         init();
+        checkScreenOn();
         setOnClick();
         setUpMenu();
         addDefaultMention();
@@ -41,6 +45,15 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         navHostFragment = (NavHostFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.fragmentContainerView_activityMain);
+
+
+    }
+
+    public void checkScreenOn(){
+        if (new ProgramSetting(this).isScreenOn())
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        else
+            getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     private void setOnClick() {
@@ -137,9 +150,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        if (navHostFragment.getNavController().getCurrentDestination().getId() == R.id.mainFragment)
-            new ExitDialog(this).show();
-        else
-            super.onBackPressed();
+        if (binding.drawerLayout.isDrawerOpen(Gravity.RIGHT))
+            binding.drawerLayout.closeDrawer(Gravity.RIGHT);
+        else {
+            if (navHostFragment.getNavController().getCurrentDestination().getId() == R.id.mainFragment)
+                new ExitDialog(this).show();
+            else
+                super.onBackPressed();
+        }
     }
 }

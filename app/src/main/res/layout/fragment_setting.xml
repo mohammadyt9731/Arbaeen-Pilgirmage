@@ -61,14 +61,14 @@
                     style="@style/switch_style"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:text="@string/show_separator"
-                    app:layout_constraintLeft_toRightOf="@id/switch_darkTheme_fragmentSetting"
+                    app:layout_constraintLeft_toRightOf="@id/switch_screenOn_fragmentSetting"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/switch_showTranslation_fragmentSetting" />
 
                 <Switch
-                    android:id="@+id/switch_darkTheme_fragmentSetting"
+                    android:id="@+id/switch_screenOn_fragmentSetting"
                     style="@style/switch_style"
-                    android:text="@string/dark_theme"
+                    android:text="@string/screen_on"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/switch_showSeparator_fragmentSetting"
                     app:layout_constraintTop_toTopOf="@id/switch_showSeparator_fragmentSetting" />

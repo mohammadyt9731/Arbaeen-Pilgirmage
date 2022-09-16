@@ -17,7 +17,7 @@ public class MyIntent {
             shareIntent.setType("text/plain");
 
             String shareMessage =
-                    context.getString(R.string.app_link_download) + context.getString(R.string.app_name) +
+                    context.getString(R.string.app_link_download) + context.getString(R.string.app_name) + "\n" +
                             context.getString(R.string.market_app_id) + context.getPackageName();
 
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
@@ -70,7 +70,7 @@ public class MyIntent {
         try {
 
             Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-            emailIntent.setType("mailto:");
+            emailIntent.setData(Uri.parse("mailto:"));
 
             emailIntent.putExtra(Intent.EXTRA_EMAIL, context.getString(R.string.email_address));
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.app_name));
