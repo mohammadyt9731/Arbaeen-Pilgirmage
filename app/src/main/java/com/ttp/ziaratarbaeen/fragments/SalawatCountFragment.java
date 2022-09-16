@@ -21,6 +21,8 @@ import com.ttp.ziaratarbaeen.databinding.FragmentSalawatCountBinding;
 import com.ttp.ziaratarbaeen.dialogs.ResetCounterDialog;
 import com.ttp.ziaratarbaeen.utils.MyConstants;
 
+import java.util.Calendar;
+
 public class SalawatCountFragment extends Fragment {
 
     private FragmentSalawatCountBinding binding;
@@ -52,12 +54,21 @@ public class SalawatCountFragment extends Fragment {
         mentionEntity = MentionDataBase.getInstance(requireContext())
                 .mentionDao().getMention(id);
 
-        binding.tvMentionTitleFragmentSalawatCount.setText(mentionEntity.getTitle());
+        counter = mentionEntity.getCounter();
+        maximumNumber = mentionEntity.getMaximumNumber();
+
         binding.tvMaxNumberItemMentionLIst.setText("تعداد کل : " + mentionEntity.getMaximumNumber());
         binding.tvCounterFragmentSalawatCount.setText(String.valueOf(mentionEntity.getCounter()));
 
-        counter = mentionEntity.getCounter();
-        maximumNumber = mentionEntity.getMaximumNumber();
+        if (id == 1) {
+            binding.tvMentionTitleFragmentSalawatCount.setText(getTasbihatMention());
+            binding.tvMaxNumberItemMentionLIst.setVisibility(View.GONE);
+        } else if (id == 2) {
+            binding.tvMentionTitleFragmentSalawatCount.setText(getDayOfWeekMention());
+        } else {
+            binding.tvMentionTitleFragmentSalawatCount.setText(mentionEntity.getTitle());
+        }
+
 
     }
 
@@ -107,5 +118,36 @@ public class SalawatCountFragment extends Fragment {
         mentionEntity.setCounter(counter);
         MentionDataBase.getInstance(requireContext()).mentionDao()
                 .updateMention(mentionEntity);
+    }
+
+    private String getTasbihatMention() {
+        return getString(R.string.tasbihatFirstMention) +"   34 مرتبه" +"\n" +
+                getString(R.string.tasbihatSecondMention) +"   33 مرتبه" + "\n" +
+                getString(R.string.tasbihatThirdMention)+"   33 مرتبه" ;
+    }
+
+    private String getDayOfWeekMention() {
+        Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_WEEK);
+
+        switch (day) {
+            case Calendar.SATURDAY:
+                return getString(R.string.saturdayMention);
+            case Calendar.SUNDAY:
+                return getString(R.string.sundayMention);
+            case Calendar.MONDAY:
+                return getString(R.string.mondayMention);
+            case Calendar.TUESDAY:
+                return getString(R.string.tuesdayMention);
+            case Calendar.WEDNESDAY:
+                return getString(R.string.wednesdayMention);
+            case Calendar.THURSDAY:
+                return getString(R.string.thursdayMention);
+            case Calendar.FRIDAY:
+                return getString(R.string.fridayMention);
+            default:
+                return "";
+
+        }
     }
 }

@@ -326,6 +326,7 @@
         <item name="android:layout_width">@dimen/_22sdp</item>
         <item name="android:layout_height">@dimen/_22sdp</item>
         <item name="android:layout_marginRight">@dimen/space_medium</item>
+        <item name="tint">@color/main_green</item>
 
     </style>
 
@@ -376,7 +377,7 @@
 
 
     <style name="view_divider_menu_style">
-        <item name="android:background">@color/black</item>
+        <item name="android:background">@color/main_green</item>
         <item name="android:layout_marginTop">@dimen/space_small</item>
         <item name="android:layout_marginBottom">@dimen/space_small</item>
         <item name="android:layout_height">1dp</item>

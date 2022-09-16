@@ -19,7 +19,7 @@
         android:id="@+id/cv_mention_fragmentSalawatCount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         android:background="@drawable/paragraph_background"
         app:cardCornerRadius="@dimen/_6sdp"
         app:cardElevation="@dimen/_6sdp"
@@ -29,8 +29,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_22sdp"
-            android:paddingHorizontal="@dimen/space_medium"
+            android:paddingVertical="@dimen/_22sdp"
+            android:paddingHorizontal="@dimen/_12sdp"
 
             >
 

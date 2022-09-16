@@ -18,17 +18,18 @@
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/drawable/ic_menu.xml" value="0.17" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/drawable/ic_plus.xml" value="0.1655" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/drawable/paragraph_background.xml" value="0.2212962962962963" />
-        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/activity_main.xml" value="0.2050854522717799" />
-        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/dialog_about_us.xml" value="0.25625" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/dialog_about_us.xml" value="0.7289002557544757" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/dialog_add_mention.xml" value="0.384375" />
-        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/dialog_comment.xml" value="0.25625" />
-        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/dialog_exit.xml" value="0.25625" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/dialog_comment.xml" value="0.67" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/dialog_exit.xml" value="0.75" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/dialog_reset.xml" value="0.75" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_main.xml" value="0.22" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_narratives.xml" value="0.22" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_pilgrimage.xml" value="0.25" />
-        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_salawat_count.xml" value="0.33" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_salawat_count.xml" value="0.25" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_select_mention.xml" value="0.22" />
-        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_setting.xml" value="0.25" />
+        <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/fragment_setting.xml" value="0.67" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/header_layout.xml" value="0.13196555217831812" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/item_mention_list.xml" value="0.384375" />
         <entry key="..\:/programming/Android/Arbaeen-Pilgirmage/app/src/main/res/layout/item_narrative_list.xml" value="0.384375" />

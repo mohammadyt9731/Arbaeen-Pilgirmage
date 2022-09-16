@@ -200,7 +200,6 @@
     <string name="code_version">ورژن برنامه : 1.0</string>
 
 
-
     <string name="notices_title">"در این قسمت محصولات جدید معرفی میشود"</string>
 
 
@@ -214,7 +213,7 @@
 
     <string name="reset">شمارنده صفر شود؟</string>
     <string name="yes_text">بله</string>
-    <string name="no_text">نه</string>
+    <string name="no_text">خیر</string>
     <string name="select_mention">انتخاب ذکر</string>
 
 
@@ -381,9 +380,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
-
-
-
     <!--dialog_comment-->
     <string name="how_main_point">چه امتیازی به این برنامه می دهید؟</string>
     <string name="close">بستن</string>
@@ -405,13 +401,11 @@
 
     <!--caffe bazaar-->
 
-<string name="developer_applications_link">https://cafebazaar.ir/developer/mohammad_yazdi</string>
-<string name="market_app_id">http://cafebazaar.ir/app/?id=</string>
-<string name="comment_market_link">bazaar://details?id=</string>
-<string name="need_install_market">برای ثبت نظر باید اپلیکیشن کافه بازار را نصب داشته باشید</string>
-<string name="please_register_your_comment">ممنون از نظر شما\nلطفا نظر خود را در کافه بازار ثبت کنید</string>
-
-
+    <string name="developer_applications_link">https://cafebazaar.ir/developer/mohammad_yazdi</string>
+    <string name="market_app_id">http://cafebazaar.ir/app/?id=</string>
+    <string name="comment_market_link">bazaar://details?id=</string>
+    <string name="need_install_market">برای ثبت نظر باید اپلیکیشن کافه بازار را نصب داشته باشید</string>
+    <string name="please_register_your_comment">ممنون از نظر شما\nلطفا نظر خود را در کافه بازار ثبت کنید</string>
 
 
     <!--mayket
@@ -431,6 +425,8 @@
     <string name="whatsapp_is_not_installed">واتساپ روی تلفن شما نصب نیست</string>
     <string name="whatsapp_business_is_not_installed">واتساپ تجاری روی تلفن شما نصب نیست</string>
     <string name="unknown_error">خطای ناشناخته</string>
+
+    <!--Mention-->
     <string name="sample_mention_title">اللهم صل علی محمد و آل محمد</string>
     <string name="tv_sample_maxNumber">تعداد کل : 100</string>
     <string name="mention_title">نام ذکر</string>
@@ -441,6 +437,20 @@
     <string name="completeMenion">التماس دعا</string>
     <string name="tasbihat">تسبیحات حضرت زهرا (س)</string>
     <string name="mentionDays">ذکر ایام هفته</string>
+
+    <!--days of week mention-->
+    <string name="saturdayMention">یا رَبِّ الْعالَمِین</string>
+    <string name="sundayMention">یا ذَالجَلالِ وَ اْلاِکْرام</string>
+    <string name="mondayMention">یا قاضیَ الحاجات</string>
+    <string name="tuesdayMention">یا أَرْحَمَ الرَّاحِمِین</string>
+    <string name="wednesdayMention">یا حَیُّ یا قَیّومُ</string>
+    <string name="thursdayMention">لا إِلهَ إِلَّا اللَّهُ المَلِک الحقّ المُبین</string>
+    <string name="fridayMention">الّلهُمَّ صَلِّ عَلَی مُحَمَّدٍ وَآلِ مُحَمَّدٍ و عجل فرجهم</string>
+
+    <!--tasbihat mention-->
+    <string name="tasbihatFirstMention">الله اکبر</string>
+    <string name="tasbihatSecondMention">الحمدلله</string>
+    <string name="tasbihatThirdMention">سبحان الله</string>
 </resources>
 
 
